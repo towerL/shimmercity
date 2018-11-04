@@ -1,0 +1,24 @@
+P1场景搭建：
+Background组：//组成Part1的背景 
+    P1vision-P1远景 Tag：Background
+    P1mediumshot-P1中景 Tag：Background
+    shot_static-中景静态 Tag：Background
+
+BG_Component组：//组成Part1背景中所有可移动的组件
+    ElectricBox-配电箱 - 添加了碰撞体属性
+    boardx-木板  - tag：Ground - 添加了碰撞体属性
+    ladderx-梯子 - tag：Ladder - 表示梯子 - 添加了碰撞体属性
+    nail-钉子 - tag：Nail - 添加了碰撞体
+    WoodenBox - 可移动木箱-tag：Box - 表示可移动木箱 - 添加了碰撞体、刚体属性
+    Locker-储物箱 - 添加了碰撞体
+    open-开着的门
+    close-关上的门
+    belt-传送带 - tag：belt - 添加了碰撞体属性
+    switch-开关 - tag：Switch - 添加了碰撞体属性
+
+Ground碰撞体属性添加：
+GroundCollider - tag：Ground - 表示背景中的路面
+
+关于两扇门：
+上面那扇门，当触发了其右侧的白色开关门会打开
+下面那扇门，有锤子没妹妹会关闭/有锤子和妹妹或没锤子没妹妹会打开
