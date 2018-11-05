@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:ShimmerCity/Assets/Animation.meta
 guid: 76f77379d31cd1b49882a3ae04a2d321
+=======
+guid: 9d2a8c6fa2c58ac44a982c2901352a7b
+>>>>>>> baf158b89d815ea37c8209b51e115b2a4880070b:ShimmerCity/Assets/scene_ani.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

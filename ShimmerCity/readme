@@ -7,7 +7,7 @@ Background组：//组成Part1的背景
 BG_Component组：//组成Part1背景中所有可移动的组件
     ElectricBox-配电箱 - 添加了碰撞体属性
     boardx-木板  - tag：Ground - 添加了碰撞体属性
-    ladderx-梯子 - tag：Ladder - 表示梯子 - 添加了碰撞体属性
+    ladderx-梯子 - tag：Ladder - 表示梯子
     nail-钉子 - tag：Nail - 添加了碰撞体
     WoodenBox - 可移动木箱-tag：Box - 表示可移动木箱 - 添加了碰撞体、刚体属性
     Locker-储物箱 - 添加了碰撞体
