@@ -1325,7 +1325,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10.217499
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1348,7 +1348,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.73, y: -16.04, z: -10}
+  m_LocalPosition: {x: -18.1, y: -13.8, z: -10}
   m_LocalScale: {x: 0.2875, y: 0.6070313, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1455,7 +1455,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.838228, y: 0.8160753}
   m_EdgeRadius: 0
-<<<<<<< HEAD
 --- !u!1 &651389517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,8 +1637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpVelocity: 90
-=======
->>>>>>> baf158b89d815ea37c8209b51e115b2a4880070b
 --- !u!1 &946945526
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,12 +3065,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb851dcd8d88b245865cdcbb85b1b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
   dis: 5
   speed: 1.5
   flag: 1
->>>>>>> baf158b89d815ea37c8209b51e115b2a4880070b
 --- !u!1 &1754806189
 GameObject:
   m_ObjectHideFlags: 0
