@@ -2,7 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\player_move.cs">
     <Files>
-      <File FileName="Assets\player_move.cs" Line="128" Column="24" />
+      <File FileName="Assets\player_move.cs" Line="211" Column="92" />
+      <File FileName="Assets\follow_player.cs" Line="11" Column="29" />
+      <File FileName="Assets\climb_ladder.cs" Line="19" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
