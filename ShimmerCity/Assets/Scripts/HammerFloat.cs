@@ -21,4 +21,10 @@ public class HammerFloat : MonoBehaviour
         float dy = Mathf.Cos(radian) * radius; // dy定义的是针对y轴的变量，也可以使用sin，找到一个适合的值就可以
         transform.position = oldPos + new Vector3(0, dy, 0);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        GetComponent<SpriteRenderer>().enabled = false;
+        var door = GameObject.Find("door1");
+        door.GetComponent<Animator>().SetBool("IsDoorOpen", true);
+    }
 }
