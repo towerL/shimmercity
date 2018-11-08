@@ -11,6 +11,8 @@ TagManager:
   - Box
   - Belt
   - Switch
+  - deerbug
+  - board_edge
   layers:
   - Default
   - TransparentFX
