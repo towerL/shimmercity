@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BeltMove : MonoBehaviour
 {
-    //移动距离
+	//移动距离
     public float dis;
     //移动速度
     public float speed;
@@ -38,4 +38,5 @@ public class BeltMove : MonoBehaviour
             if (System.Math.Abs(transform.position.y - start_y) <= 0.1f || System.Math.Abs(transform.position.y - start_y) >= dis) { dir = -dir; }
         }
     }
+
 }

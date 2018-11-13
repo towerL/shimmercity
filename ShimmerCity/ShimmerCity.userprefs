@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\player_move.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DoorController.cs">
     <Files>
-      <File FileName="Assets\player_move.cs" Line="211" Column="92" />
-      <File FileName="Assets\follow_player.cs" Line="11" Column="29" />
-      <File FileName="Assets\climb_ladder.cs" Line="19" Column="29" />
+      <File FileName="Assets\Scripts\player_move.cs" Line="158" Column="7" />
+      <File FileName="Assets\align_hammer.cs" Line="9" Column="34" />
+      <File FileName="Assets\Scripts\climb_ladder.cs" Line="75" Column="3" />
+      <File FileName="Assets\Scripts\DoorController.cs" Line="11" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

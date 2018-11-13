@@ -13,6 +13,10 @@ TagManager:
   - Switch
   - deerbug
   - board_edge
+  - Ladder1_transition
+  - Ladder2_transition
+  - Locker_sister
+  - hammer_in_attack
   layers:
   - Default
   - TransparentFX
