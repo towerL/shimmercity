@@ -9,9 +9,9 @@ public class EnemyController : MonoBehaviour {
 
     public Transform target;
 
-    public GameObject curTraget,lastTraget;
+    private GameObject curTraget,lastTraget;
 
-    public float _distance;
+    public float Distance_Threshold;
 
     private Animator animator;
 
@@ -31,8 +31,8 @@ public class EnemyController : MonoBehaviour {
             transform.Translate(Vector2.right * direction * 2f * Time.deltaTime);
         }
         float distance = (transform.position - target.position).sqrMagnitude;
-        //Debug.Log(distance);
-        if (distance <= _distance * 12)
+        Debug.Log(distance);
+        if (distance <= Distance_Threshold * 10)
         {
             animator.SetBool("Isattack", true);
             bisAttacking = true;
@@ -45,6 +45,10 @@ public class EnemyController : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "box")
+        {
+            transform.Rotate(Vector3.up * 180);
+        }
         //transform.Rotate(Vector3.up * 180);
         //direction = -direction;
     }
