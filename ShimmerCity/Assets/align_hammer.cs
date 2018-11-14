@@ -5,8 +5,8 @@ using UnityEngine;
 public class align_hammer : MonoBehaviour {
 
 	public Transform target;
-	public float pushmove=100.0f;
-	public float projectilemove=100.0f;
+	public float pushmove=1500.0f;
+	public float projectilemove=3000.0f;
 	private Rigidbody2D hammer_rigidbody;
 	private BoxCollider2D hammer_boxcollider;
 	private Animator hammer_animator;
@@ -45,20 +45,24 @@ public class align_hammer : MonoBehaviour {
 			pos.y = target.position.y;
 			transform.position = pos;
 		} else if (inattack && inhand && exist) {
-			Vector3 pos = transform.position;
+			/*Vector3 pos = transform.position;
 			if (pos.x > target.position.x) {
 				hammer_Scale.x = Mathf.Abs (hammer_Scale.x);
 				hammer_rigidbody.AddForce (Vector2.right * pushmove);
 			} else {
 				hammer_Scale.x = -Mathf.Abs (hammer_Scale.x);
 				hammer_rigidbody.AddForce (-Vector2.right * pushmove);
-			}
-			//hammer_rigidbody.AddForce (Vector2.right * pushmove);
+			}*/
+			hammer_rigidbody.AddForce (Vector2.right * pushmove);
 			hammer_rigidbody.AddForce (Vector2.up * projectilemove);
 			Rotate = true;
+			hammer_animator.Play ("hammer_rotate");
+			//exist = false;
+			inhand = false;
+			inattack = false;
 			hammer_animator.SetBool ("Rotate", Rotate);
-			exist = false;
-			//inhand = false;
+			hammer_animator.SetBool ("inhand",inhand);
+			hammer_animator.SetBool ("inattack",inattack);
 		}
 		if (!exist) {
 			//Destroy (gameObject, 2);
@@ -74,12 +78,14 @@ public class align_hammer : MonoBehaviour {
 		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" ){
 			Rotate= false;
 			hit_ground = true;
-			inattack = false;
 			returnback = true;
 			exist = false;
 			Vector2 direction = transform.position-target.position;
 			float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+			hammer_animator.SetBool ("Rotate",Rotate);
+			hammer_animator.SetBool ("hit_ground",hit_ground);
+			hammer_animator.SetBool ("returnback",returnback);
 		}
 	}
 
@@ -87,6 +93,7 @@ public class align_hammer : MonoBehaviour {
 		inattack = flag;
 		Rotate = true;
 		hammer_animator.SetBool ("inattack",inattack);
+		hammer_animator.SetBool ("Rotate",Rotate);
 	}
 
 	void SetHammer(bool flag){
@@ -94,8 +101,11 @@ public class align_hammer : MonoBehaviour {
 		hammer_animator.SetBool ("inhand",inhand);
 	}
 
-	/*public void OnCollisionExit2D(Collision2D col){
-		if (col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt")
-			Rotate = true;
-	}*/
+	public void OnCollisionExit2D(Collision2D col){
+		if (col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt") {
+			exist = false;
+			//inhand = false;
+			//hammer_animator.SetBool ("inhand",inhand);
+		}
+	}
 }

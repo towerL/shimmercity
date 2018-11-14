@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour {
 
-    private Animator door_ani;
+    /*private Animator door_ani;
 	private bool isDoorOpen=false;
 
 	void Update () {
@@ -24,5 +24,5 @@ public class DoorController : MonoBehaviour {
 	private void OnTriggerExit2D(Collider2D col){
 		if (col.tag == "Player") {
 		}
-	}
+	}*/
 }

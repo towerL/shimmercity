@@ -105,7 +105,7 @@ public class player_move : MonoBehaviour {
 				timer = false;
 			}
 			if (isGround && Input.GetKeyDown (KeyCode.Space)) {
-				Debug.Log ("player get the KeyCode Space,you will jump.");
+				//Debug.Log ("player get the KeyCode Space,you will jump.");
 				player_rigidbody.AddForce (Vector2.up*100* force_move);
 				if (isWall) {
 					player_rigidbody.gravityScale = 5;
@@ -135,7 +135,8 @@ public class player_move : MonoBehaviour {
 					counter_close_range_attack = 0;
 				}
 				timer = false;
-				//BroadcastMessage ("SetAttack", true);
+				BroadcastMessage ("SetAttack", true);
+				//isHammer = false;
 			}
 			close_range_attack=(counter_close_range_attack>0.0f?true:false);
 			far_distance_attack=(counter_far_distance_attack>0.0f?true:false);
@@ -189,10 +190,10 @@ public class player_move : MonoBehaviour {
 				player_boxcollider.offset = new Vector2 (0.0f, 0.0f);
 
 		} else {
-			Debug.Log ("the player is dead!");
+			//Debug.Log ("the player is dead!");
 			if (Input.GetKeyDown (KeyCode.R)) {
 				gameexit = true;	
-				Debug.Log ("game is over!");
+				//Debug.Log ("game is over!");
 			}
 		}
 
