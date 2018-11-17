@@ -23,8 +23,11 @@ public class HammerFloat : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        GetComponent<SpriteRenderer>().enabled = false;
-        var door = GameObject.Find("door1");
-        door.GetComponent<Animator>().SetBool("IsDoorOpen", true);
+        if (collision.tag == "Player") {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            var door = GameObject.Find("door1");
+            door.GetComponent<Animator>().SetBool("IsDoorOpen", true);
+        }
     }
+
 }

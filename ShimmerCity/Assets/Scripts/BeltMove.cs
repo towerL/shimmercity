@@ -11,7 +11,7 @@ public class BeltMove : MonoBehaviour
     //水平移动为true 竖直移动为false
     public bool flag;
     //移动方向
-    float dir = 1;
+    public float dir;
     //起始位置
     float start_x;
     float start_y;
