@@ -60,13 +60,13 @@
      <Compile Include="Assets\Scripts\BGControl.cs" />
      <Compile Include="Assets\Scripts\BloodImage.cs" />
      <Compile Include="Assets\Scripts\climb_ladder.cs" />
-     <Compile Include="Assets\Scripts\DoorController.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\follow_player.cs" />
      <Compile Include="Assets\Scripts\hammer_handler.cs" />
      <Compile Include="Assets\Scripts\HammerFloat.cs" />
      <Compile Include="Assets\Scripts\player_move.cs" />
      <Compile Include="Assets\Scripts\player_sister.cs" />
+     <Compile Include="Assets\Scripts\SwitchController.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>F:/shimmercity/ShimmerCity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
