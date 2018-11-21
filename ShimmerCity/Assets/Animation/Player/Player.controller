@@ -597,12 +597,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: isHammer
     m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: velocity_y
-    m_EventTreshold: -5
-  - m_ConditionMode: 4
-    m_ConditionEvent: velocity_y
-    m_EventTreshold: 3
+  - m_ConditionMode: 1
+    m_ConditionEvent: isGround
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102296598686114376}
   m_Solo: 0
@@ -744,12 +741,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isHammer
     m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: velocity_y
-    m_EventTreshold: -5
-  - m_ConditionMode: 4
-    m_ConditionEvent: velocity_y
-    m_EventTreshold: 3
+  - m_ConditionMode: 1
+    m_ConditionEvent: isGround
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102296598686114376}
   m_Solo: 0
@@ -1677,13 +1671,13 @@ AnimatorStateMachine:
     m_Position: {x: 204, y: 108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102662255841801018}
-    m_Position: {x: 0, y: 168, z: 0}
+    m_Position: {x: -60, y: 168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102110430685049304}
-    m_Position: {x: 120, y: 276, z: 0}
+    m_Position: {x: -12, y: 312, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102818948815636392}
-    m_Position: {x: 636, y: 276, z: 0}
+    m_Position: {x: 708, y: 336, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102587031133116798}
     m_Position: {x: 732, y: 180, z: 0}

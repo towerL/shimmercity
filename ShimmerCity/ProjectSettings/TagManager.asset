@@ -18,6 +18,8 @@ TagManager:
   - Locker_sister
   - hammer_in_attack
   - SceneEdge
+  - Hands
+  - Feet
   layers:
   - Default
   - TransparentFX

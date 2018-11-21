@@ -11,7 +11,6 @@ public class player_move : MonoBehaviour {
 	private Rigidbody2D player_rigidbody;
 	private BoxCollider2D player_boxcollider;
 	private Animator player_animator;
-	private Vector3 player_position;
 	private Vector3 player_Scale;
 	private Vector2 velocity;
 
@@ -62,7 +61,6 @@ public class player_move : MonoBehaviour {
 		player_boxcollider = this.GetComponent<BoxCollider2D> ();
 		player_Scale = transform.localScale;
 		velocity = player_rigidbody.velocity;
-		player_position = transform.position;
 		player_rigidbody.freezeRotation = true;
 		player_boxcollider.offset=new Vector2(0.0f,-0.1f);
 		counter_close_range_attack = 0;
@@ -75,10 +73,15 @@ public class player_move : MonoBehaviour {
 		timer = true;
 		if (alive) {
 			if (h > 0.01f) {
-				if (!isBelt)
+				if (!isBelt && !isPush)
 					player_rigidbody.AddForce (Vector2.right * force_move);
-				else
-					player_rigidbody.AddForce (Vector2.right * force_move /3);
+				else if (!isPush)
+					player_rigidbody.AddForce (Vector2.right * force_move / 3);
+				else if (isPush) {
+					Vector3 pos = transform.position;
+					pos.x += Time.deltaTime * 0.3f;
+					transform.position = pos;
+				}
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				now_direction = direction.right_dir;
@@ -177,9 +180,9 @@ public class player_move : MonoBehaviour {
 				player_animator.SetBool ("five_minutes", five_minutes);
 			}
 				
-			isStand=(Mathf.Abs(player_rigidbody.velocity.x)<0.1f?true:false);
-			isWalk = (Mathf.Abs (player_rigidbody.velocity.x) > 0.1f && Mathf.Abs (player_rigidbody.velocity.x) < 0.5f ? true : false);
-			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>0.5f?true:false);
+			isStand=(Mathf.Abs(player_rigidbody.velocity.x)<0.1f?true:false) && !isPush;
+			isWalk = (Mathf.Abs (player_rigidbody.velocity.x) > 0.1f && Mathf.Abs (player_rigidbody.velocity.x) < 0.5f ? true : false) && !isPush;
+			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>0.5f?true:false) && isPush;
 			if (five_minutes)
 				player_boxcollider.offset = new Vector2 (0.0f, -2.1f);
 			else if (isGround && isWalk)
@@ -239,7 +242,21 @@ public class player_move : MonoBehaviour {
 		player_animator.SetBool ("isSister",flag);
 	}
 
-	public void OnCollisionEnter2D(Collision2D col){
+	void SetGround(bool flag){
+		isGround = flag;
+		player_animator.SetBool ("isGround",flag);
+	}
+
+	void SetBelt(bool flag){
+		isBelt = flag;
+	}
+
+	void SetPush(bool flag){
+		isPush = flag;
+		player_animator.SetBool ("isPush",flag);
+	}
+
+	/*(public void OnCollisionEnter2D(Collision2D col){
 		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" || col.collider.tag == "Locker_sister"){
 			isGround = true;
 			player_rigidbody.gravityScale=30;
@@ -260,11 +277,11 @@ public class player_move : MonoBehaviour {
 			underattack=false;
 		}
 		player_animator.SetBool("attack",underattack);*/
-		player_animator.SetBool("isGround",isGround);
+		//player_animator.SetBool("isGround",isGround);
 		//player_animator.SetBool ("isLadder",isLadder);
 		//player_animator.SetBool("isWall",isWall);
-	}
-	public void OnCollisionExit2D(Collision2D col){
+	//}
+	/*public void OnCollisionExit2D(Collision2D col){
 		if(col.collider.tag=="Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" || col.collider.tag=="Locker_sister")
 			isGround = false;
 		if (col.collider.tag == "Belt")
@@ -282,10 +299,10 @@ public class player_move : MonoBehaviour {
 			underattack=false;
 		}
 		player_animator.SetBool("attack",underattack);*/
-		player_animator.SetBool("isGround",isGround);
+		//player_animator.SetBool("isGround",isGround);
 		//player_animator.SetBool ("isLadder",isLadder);
 		//anim.SetBool("isWall",isWall);
-	}
+	//}
 
 
 }
