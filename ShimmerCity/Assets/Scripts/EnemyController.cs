@@ -64,7 +64,8 @@ public class EnemyController : MonoBehaviour {
         }
         else
         {
-
+            animator.SetBool("Isattack", false);
+            bisAttacking = false;
         }
 
 
