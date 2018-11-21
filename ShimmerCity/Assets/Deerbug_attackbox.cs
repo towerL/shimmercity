@@ -34,7 +34,7 @@ public class Deerbug_attackbox : MonoBehaviour {
             transform.Translate(Vector2.right * direction * velocity * Time.deltaTime);
         }
         float distance = (transform.position - target.position).sqrMagnitude;
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if (distance <= Distance_Threshold * 10)
         {
             animator.SetBool("Isattack", true);
@@ -48,7 +48,7 @@ public class Deerbug_attackbox : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "deerbug")
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "box" )
         {
             transform.Rotate(Vector3.up * 180);
         }
