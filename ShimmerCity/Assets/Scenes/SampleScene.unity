@@ -1081,8 +1081,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 8.959792
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2927,9 +2927,9 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 8b3d28783ea4f1f43b741750a5ef143a, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.45452613, y: 0}
+  m_Offset: {x: -0.217311, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2940,7 +2940,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1154815, y: 3.4}
+  m_Size: {x: 1.1692975, y: 3.4}
   m_EdgeRadius: 0
 --- !u!95 &865788825
 Animator:
@@ -3013,7 +3013,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 865788823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.6, y: 9.77, z: 0}
+  m_LocalPosition: {x: -7.81, y: -12.19, z: 0}
   m_LocalScale: {x: 0.8537625, y: 0.82796556, z: 0.95734}
   m_Children:
   - {fileID: 241818333}
@@ -3033,8 +3033,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1.5
+  m_UseAutoMass: 1
+  m_Mass: 2.944254
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 30
@@ -3055,7 +3055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force_move: 70
-  jumpVelocity: 170
+  jumpVelocity: 240
 --- !u!1 &925147670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3111,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 938240880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 865788827}
@@ -3129,7 +3129,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.33943117, y: -1.6597978}
+  m_Offset: {x: -0.19999999, y: -1.7310765}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3140,7 +3140,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8870387, y: 0.43003106}
+  m_Size: {x: 0.33094108, y: 0.57258844}
   m_EdgeRadius: 0
 --- !u!114 &938240883
 MonoBehaviour:
@@ -3667,8 +3667,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 13.647474
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -4340,7 +4340,7 @@ GameObject:
   - component: {fileID: 1667438683}
   m_Layer: 0
   m_Name: WoodenBox4
-  m_TagString: Box
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -79,18 +79,29 @@ public class player_move : MonoBehaviour {
 					player_rigidbody.AddForce (Vector2.right * force_move / 3);
 				else if (isPush) {
 					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * 0.3f;
+					pos.x += Time.deltaTime * 0.49f;
 					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = 0.49f;
+					player_rigidbody.velocity = vel;
 				}
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				now_direction = direction.right_dir;
 				timer = false;
 			} else if (h < -0.01f) {
-				if (!isBelt)
+				if (!isBelt && !isPush)
 					player_rigidbody.AddForce (-Vector2.right * force_move);
-				else
-					player_rigidbody.AddForce (-Vector2.right * force_move /3);
+				else if (!isPush)
+					player_rigidbody.AddForce (-Vector2.right * force_move / 3);
+				else if (isPush) {
+					Vector3 pos = transform.position;
+					pos.x -= Time.deltaTime * 0.49f;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = -0.49f;
+					player_rigidbody.velocity = vel;
+				}
 				player_Scale.x = -Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				now_direction = direction.left_dir;
@@ -162,7 +173,7 @@ public class player_move : MonoBehaviour {
 			}*/
 
 			if (isHammer && isSister) {
-				
+				 
 			}
 
 			if (timer && !isLadder) {
@@ -182,15 +193,16 @@ public class player_move : MonoBehaviour {
 				
 			isStand=(Mathf.Abs(player_rigidbody.velocity.x)<0.1f?true:false) && !isPush;
 			isWalk = (Mathf.Abs (player_rigidbody.velocity.x) > 0.1f && Mathf.Abs (player_rigidbody.velocity.x) < 0.5f ? true : false) && !isPush;
-			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>0.5f?true:false) && isPush;
-			if (five_minutes)
+			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>0.5f?true:false) && !isPush;
+
+			/*if (five_minutes)
 				player_boxcollider.offset = new Vector2 (0.0f, -2.1f);
 			else if (isGround && isWalk)
 				player_boxcollider.offset = new Vector2 (0.0f, 0.04f);
 			else if (isGround && isRun)
 				player_boxcollider.offset = new Vector2 (0.0f, -0.2f);
 			else 
-				player_boxcollider.offset = new Vector2 (0.0f, 0.0f);
+				player_boxcollider.offset = new Vector2 (0.0f, 0.0f);*/
 
 		} else {
 			//Debug.Log ("the player is dead!");
@@ -253,6 +265,9 @@ public class player_move : MonoBehaviour {
 
 	void SetPush(bool flag){
 		isPush = flag;
+		Vector2 vel = player_rigidbody.velocity;
+		vel.x = 0.0f;
+		player_rigidbody.velocity = vel;
 		player_animator.SetBool ("isPush",flag);
 	}
 
