@@ -53,19 +53,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\align_hammer.cs" />
-     <Compile Include="Assets\Deerbug_attackbox.cs" />
-     <Compile Include="Assets\feet_handler.cs" />
-     <Compile Include="Assets\hands_handler.cs" />
-     <Compile Include="Assets\HPbarControler.cs" />
+     <Compile Include="Assets\Scripts\align_hammer.cs" />
      <Compile Include="Assets\Scripts\BeltMove.cs" />
      <Compile Include="Assets\Scripts\BGControl.cs" />
      <Compile Include="Assets\Scripts\BloodImage.cs" />
      <Compile Include="Assets\Scripts\climb_ladder.cs" />
+     <Compile Include="Assets\Scripts\Deerbug_attackbox.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\feet_handler.cs" />
      <Compile Include="Assets\Scripts\follow_player.cs" />
      <Compile Include="Assets\Scripts\hammer_handler.cs" />
      <Compile Include="Assets\Scripts\HammerFloat.cs" />
+     <Compile Include="Assets\Scripts\hands_handler.cs" />
+     <Compile Include="Assets\Scripts\HPbarControler.cs" />
      <Compile Include="Assets\Scripts\player_move.cs" />
      <Compile Include="Assets\Scripts\player_sister.cs" />
      <Compile Include="Assets\Scripts\SwitchController.cs" />

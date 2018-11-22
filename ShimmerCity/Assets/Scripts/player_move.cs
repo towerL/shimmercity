@@ -120,7 +120,7 @@ public class player_move : MonoBehaviour {
 			}
 			if (isGround && Input.GetKeyDown (KeyCode.Space)) {
 				//Debug.Log ("player get the KeyCode Space,you will jump.");
-				player_rigidbody.AddForce (Vector2.up*100* force_move);
+				player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
 				if (isWall) {
 					player_rigidbody.gravityScale = 5;
 				}
