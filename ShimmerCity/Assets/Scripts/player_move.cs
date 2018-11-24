@@ -158,7 +158,7 @@ public class player_move : MonoBehaviour {
 			}
 				
 			if (isLadder) {
-				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))
+				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.D))
 					player_animator.speed = 1.0f;
 				else
 					player_animator.speed = 0.0f;
