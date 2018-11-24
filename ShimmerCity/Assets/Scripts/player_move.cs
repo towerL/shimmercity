@@ -55,6 +55,10 @@ public class player_move : MonoBehaviour {
 	private bool timer = false;
 	private float start_time;
 
+	private bool speed_up=false;
+
+	private bool enemy_check=false;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -71,18 +75,38 @@ public class player_move : MonoBehaviour {
 	void Update () {
 		float h=Input.GetAxis("Horizontal");
 		timer = true;
+		speed_up = (isGround == true ? false : speed_up);
 		if (alive) {
 			if (h > 0.01f) {
-				if (!isBelt && !isPush)
+				if (!isBelt && !isPush && isGround)
 					player_rigidbody.AddForce (Vector2.right * force_move);
-				else if (!isPush)
-					player_rigidbody.AddForce (Vector2.right * force_move / 3);
-				else if (isPush) {
+				else if (!isPush && isGround) {
 					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * 0.49f;
+					pos.x += Time.deltaTime * 1.25f;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = 0.49f;
+					vel.x = 1.25f;
+					player_rigidbody.velocity = vel;
+				} else if (isPush && isGround) {
+					Vector3 pos = transform.position;
+					pos.x += Time.deltaTime * 1.2f;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = 1.2f;
+					player_rigidbody.velocity = vel;
+				} else if (!isLadder && !isGround && speed_up) {
+					Vector3 pos = transform.position;
+					pos.x += Time.deltaTime * 6.0f;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = 6.0f;
+					player_rigidbody.velocity = vel;
+				} else if ( isLadder && !isGround) {
+					Vector3 pos = transform.position;
+					pos.x += Time.deltaTime * 0.2f;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = 0.2f;
 					player_rigidbody.velocity = vel;
 				}
 				player_Scale.x = Mathf.Abs (player_Scale.x);
@@ -90,16 +114,35 @@ public class player_move : MonoBehaviour {
 				now_direction = direction.right_dir;
 				timer = false;
 			} else if (h < -0.01f) {
-				if (!isBelt && !isPush)
+				if (!isBelt && !isPush && isGround)
 					player_rigidbody.AddForce (-Vector2.right * force_move);
-				else if (!isPush)
-					player_rigidbody.AddForce (-Vector2.right * force_move / 3);
-				else if (isPush) {
+				else if (!isPush && isGround) {
 					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * 0.49f;
+					pos.x -= Time.deltaTime * 1.25f;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -0.49f;
+					vel.x = -1.25f;
+					player_rigidbody.velocity = vel;
+				} else if (isPush && isGround) {
+					Vector3 pos = transform.position;
+					pos.x -= Time.deltaTime * 1.2f;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = -1.2f;
+					player_rigidbody.velocity = vel;
+				} else if (!isLadder && !isGround && speed_up) {
+					Vector3 pos = transform.position;
+					pos.x -= Time.deltaTime * 6.0f;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = -6.0f;
+					player_rigidbody.velocity = vel;
+				} else if (isLadder && !isGround) {
+					Vector3 pos = transform.position;
+					pos.x -= Time.deltaTime * 0.2f;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = -0.2f;
 					player_rigidbody.velocity = vel;
 				}
 				player_Scale.x = -Mathf.Abs (player_Scale.x);
@@ -113,17 +156,29 @@ public class player_move : MonoBehaviour {
 			if (isLadder && isGround) {
 				isLadder = false;
 			}
+				
+			if (isLadder) {
+				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))
+					player_animator.speed = 1.0f;
+				else
+					player_animator.speed = 0.0f;
+			} else {
+				player_animator.speed = 1.0f;
+			}
 
-			if (Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.RightArrow)) {
+			/*if (Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.RightArrow)) {
 				velocity.x = 0;
 				timer = false;
-			}
+			}*/
+
+
 			if (isGround && Input.GetKeyDown (KeyCode.Space)) {
 				//Debug.Log ("player get the KeyCode Space,you will jump.");
 				player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
 				if (isWall) {
 					player_rigidbody.gravityScale = 5;
 				}
+				speed_up = true;
 				timer = false;
 			}
 
@@ -176,7 +231,7 @@ public class player_move : MonoBehaviour {
 				 
 			}
 
-			if (timer && !isLadder) {
+			if (timer && !isLadder &&isGround) {
 				float delttime = Time.time - start_time;
 				if (delttime > 5.0f) {
 					five_minutes = true;
@@ -191,9 +246,9 @@ public class player_move : MonoBehaviour {
 				player_animator.SetBool ("five_minutes", five_minutes);
 			}
 				
-			isStand=(Mathf.Abs(player_rigidbody.velocity.x)<0.1f?true:false) && !isPush;
-			isWalk = (Mathf.Abs (player_rigidbody.velocity.x) > 0.1f && Mathf.Abs (player_rigidbody.velocity.x) < 0.5f ? true : false) && !isPush;
-			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>0.5f?true:false) && !isPush;
+			isStand=(Mathf.Abs(player_rigidbody.velocity.x)<0.1f?true:false) && !isPush && isGround;
+			isWalk = (Mathf.Abs (player_rigidbody.velocity.x) > 0.1f && Mathf.Abs (player_rigidbody.velocity.x) < 0.5f ? true : false) && !isPush && isGround;
+			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>0.5f?true:false) && !isPush && isGround;
 
 			/*if (five_minutes)
 				player_boxcollider.offset = new Vector2 (0.0f, -2.1f);
@@ -262,6 +317,7 @@ public class player_move : MonoBehaviour {
 	void SetBelt(bool flag){
 		isBelt = flag;
 	}
+		
 
 	void SetPush(bool flag){
 		isPush = flag;
@@ -269,6 +325,10 @@ public class player_move : MonoBehaviour {
 		vel.x = 0.0f;
 		player_rigidbody.velocity = vel;
 		player_animator.SetBool ("isPush",flag);
+	}
+
+	void SetEnemy(bool flag){
+		enemy_check = flag;
 	}
 
 	/*(public void OnCollisionEnter2D(Collision2D col){

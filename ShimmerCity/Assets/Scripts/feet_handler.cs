@@ -5,7 +5,7 @@ using UnityEngine;
 public class feet_handler : MonoBehaviour {
 
 	public void OnCollisionEnter2D(Collision2D col){
-		if (col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Nail") {
+		if (col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Nail" || col.collider.tag == "Locker_sister" || col.collider.tag == "deerbug") {
 			SendMessageUpwards ("SetGround", true);
 		} else if (col.collider.tag == "Belt") {
 			SendMessageUpwards ("SetGround", true);
@@ -14,8 +14,10 @@ public class feet_handler : MonoBehaviour {
 			SendMessageUpwards ("SetNail", true);
 		}
 	}
+		
+
 	public void OnCollisionExit2D(Collision2D col){
-		if (col.collider.tag == "Ground" || col.collider.tag == "Box"|| col.collider.tag == "Nail") {
+		if (col.collider.tag == "Ground" || col.collider.tag == "Box"|| col.collider.tag == "Nail"  || col.collider.tag == "Locker_sister"  || col.collider.tag == "deerbug") {
 			SendMessageUpwards("SetGround",false);
 		}else if (col.collider.tag == "Belt") {
 			SendMessageUpwards("SetGround",false);
