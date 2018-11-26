@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31db4904286b6d4aa92824e833c8cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 865788827}
+  target: {fileID: 518015602}
   Distance_Threshold: 1
   velocity: 6
 --- !u!50 &386909004
@@ -1593,7 +1593,7 @@ GameObject:
   - component: {fileID: 386909004}
   - component: {fileID: 386909003}
   m_Layer: 0
-  m_Name: deerbug_short3
+  m_Name: deerbug_short_forElectricBox
   m_TagString: deerbug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3199,7 +3199,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 865788823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.61, y: -8.84, z: 0}
+  m_LocalPosition: {x: -30.2, y: 8.4, z: 0}
   m_LocalScale: {x: 0.8537625, y: 0.82796556, z: 0.95734}
   m_Children:
   - {fileID: 241818333}
@@ -3241,7 +3241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force_move: 100
-  jumpVelocity: 200
+  jumpVelocity: 280
 --- !u!1 &925147670
 GameObject:
   m_ObjectHideFlags: 0

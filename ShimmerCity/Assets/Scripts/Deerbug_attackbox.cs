@@ -18,18 +18,25 @@ public class Deerbug_attackbox : MonoBehaviour {
     private bool bisAttacking;
 
     public float velocity;
+
+    public static bool bisGethammer;
     // Use this for initialization
     void Start()
     {
         direction = -1;
         animator = GetComponent<Animator>();
+        bisGethammer = false;
     }
-
     // Update is called once per frame
     void Update()
     {
+        GetComponent<SpriteRenderer>().sortingOrder = -2;
+        if(bisGethammer == true)
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
+        }
         //移动
-        if (bisAttacking == false)
+        if (bisAttacking == false && bisGethammer == true)
         {
             transform.Translate(Vector2.right * direction * velocity * Time.deltaTime);
         }

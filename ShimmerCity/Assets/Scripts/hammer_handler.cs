@@ -7,6 +7,7 @@ public class hammer_handler : MonoBehaviour {
 		if (col.tag == "Player") {
 			//Debug.Log ("get the hammer!");
 			col.SendMessage ("SetIsHammer", true);
+            Deerbug_attackbox.bisGethammer = true;
 			Destroy (this.gameObject);
 		}
 	}
