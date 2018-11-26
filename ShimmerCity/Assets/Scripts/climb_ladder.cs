@@ -43,6 +43,7 @@ public class climb_ladder : MonoBehaviour {
 				//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), target);
 				//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
+				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), target);
 				if(used_below && !now_below){
 					Vector3 pos = player_boxcollider.position;
 					pos.y += 1.4f;
@@ -56,6 +57,11 @@ public class climb_ladder : MonoBehaviour {
 				velocity.y = -climbspeed;
 				col.GetComponent<Rigidbody2D> ().velocity=velocity;
 				Physics2D.IgnoreCollision (col.GetComponent<Collider2D>(),target);
+				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), target);
+				//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
+				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), target);
+				//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
+				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), target);
 				if(!used_below && (player_boxcollider_y>=ladder_transition_y+1.5f)){
 					Vector3 pos = player_boxcollider.position;
 					pos.y -= 1.4f;
@@ -86,6 +92,7 @@ public class climb_ladder : MonoBehaviour {
 			//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), this.GetComponent<Collider2D> (),false);
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), target,false);
 			//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), this.GetComponent<Collider2D> (),false);
+			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), target,false);
 			col.SendMessage ("SetInLadder",false);
 		}
 	}

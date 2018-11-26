@@ -9,7 +9,8 @@ public class player_move : MonoBehaviour {
 	enum direction {right_dir,left_dir,up_dir,down_dir};
 
 	private Rigidbody2D player_rigidbody;
-	private BoxCollider2D player_boxcollider;
+	//private BoxCollider2D player_boxcollider;
+	private CapsuleCollider2D player_boxcollider;
 	private Animator player_animator;
 	private Vector3 player_Scale;
 	private Vector2 velocity;
@@ -62,11 +63,12 @@ public class player_move : MonoBehaviour {
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
-		player_boxcollider = this.GetComponent<BoxCollider2D> ();
+		//player_boxcollider = this.GetComponent<BoxCollider2D> ();
+		player_boxcollider=this.GetComponent<CapsuleCollider2D>();
 		player_Scale = transform.localScale;
 		velocity = player_rigidbody.velocity;
 		player_rigidbody.freezeRotation = true;
-		player_boxcollider.offset=new Vector2(0.0f,-0.1f);
+		//player_boxcollider.offset=new Vector2(0.0f,-0.1f);
 		counter_close_range_attack = 0;
 		counter_far_distance_attack = 0;
 		start_time = Time.time;
@@ -75,7 +77,7 @@ public class player_move : MonoBehaviour {
 	void Update () {
 		float h=Input.GetAxis("Horizontal");
 		timer = true;
-		speed_up = (isGround == true ? false : speed_up);
+		speed_up = (isGround == true ? false : true);
 		if (alive) {
 			if (h > 0.01f) {
 				if (!isBelt && !isPush && isGround)
