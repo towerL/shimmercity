@@ -181,10 +181,7 @@ public class player_move : MonoBehaviour {
 				speed_up = true;
 				timer = false;
 			}
-
-			if (isGround && Input.GetKey (KeyCode.Y)) {
-				BroadcastMessage ("SetAttack", true);
-			}
+				
 			if (isGround && Input.GetKey(KeyCode.J)) {
 				close_range_attack = true;
 				far_distance_attack = false;
@@ -194,6 +191,10 @@ public class player_move : MonoBehaviour {
 					counter_far_distance_attack = 0;
 				}
 				timer = false;
+				if (isHammer) {
+					BroadcastMessage ("SetCloseAttack", true);
+					BroadcastMessage ("SetFurtherAttack", false);
+				}
 			}
 			if (isGround && Input.GetKey(KeyCode.K)) {
 				far_distance_attack = true;
@@ -204,8 +205,11 @@ public class player_move : MonoBehaviour {
 					counter_close_range_attack = 0;
 				}
 				timer = false;
-				BroadcastMessage ("SetAttack", true);
-				//isHammer = false;
+				if (isHammer) {
+					BroadcastMessage ("SetCloseAttack", false);
+					BroadcastMessage ("SetFurtherAttack", true);
+				}
+				isHammer = false;
 			}
 			close_range_attack=(counter_close_range_attack>0.0f?true:false);
 			far_distance_attack=(counter_far_distance_attack>0.0f?true:false);
@@ -221,11 +225,6 @@ public class player_move : MonoBehaviour {
 				Destroy (gameObject, 2);
 				timer = false;
 			}
-			//Debug.Log (counter_close_range_attack);
-			/*if (isGround && Input.GetKeyUp (KeyCode.K)) {
-				far_distance_attack = false;
-				close_range_attack = false;
-			}*/
 
 			if (isHammer && isSister) {
 				 
@@ -279,7 +278,6 @@ public class player_move : MonoBehaviour {
 		player_animator.SetBool ("alive",alive);
 		player_animator.SetBool ("gameexit",gameexit);
 		player_animator.SetBool ("isGround",isGround);
-		player_animator.SetBool ("isWall",isWall);
 		player_animator.SetBool ("isLadder",isLadder);
 		player_animator.SetBool ("isHammer",isHammer);
 		player_animator.SetBool ("isSister",isSister);
