@@ -72,7 +72,7 @@ public class EnemyController : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "deerbug" || collision.collider.tag == "box")
+        /*if (collision.collider.tag == "deerbug" || collision.collider.tag == "box")
         {
             transform.Rotate(Vector3.up * 180);
             if(ray_direction == Vector2.left)
@@ -83,7 +83,7 @@ public class EnemyController : MonoBehaviour {
             {
                 ray_direction = Vector2.left;
             }
-        }
+        }*/
         //transform.Rotate(Vector3.up * 180);
         //direction = -direction;
     }

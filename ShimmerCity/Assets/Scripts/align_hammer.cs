@@ -21,15 +21,23 @@ public class align_hammer : MonoBehaviour {
 	private bool inhand=true;
 	private bool exist = true;
 
+	//.private bool timer = false;
+	//private float time;
+
 	void Start () {
 		hammer_animator = this.GetComponent<Animator> ();
 		hammer_polygoncollider = this.GetComponent<PolygonCollider2D> ();
 		spriterender = this.gameObject.GetComponent<SpriteRenderer> ();
+		spriterender.sortingOrder = -2;
 	}
 		
 	void Update () {
 		if (infurtherattack && inhand && exist) {
 			spriterender.sprite = static_sprite;
+			/*if(!timer)
+				time = Time.time;
+			if(timer && (Time.time-time)>0.2f)*/
+			spriterender.sortingOrder = 3;
 			this.gameObject.AddComponent<Rigidbody2D> ();
 			hammer_rigidbody = this.GetComponent<Rigidbody2D> ();
 			hammer_rigidbody.AddForce (Vector2.right * pushmove);
