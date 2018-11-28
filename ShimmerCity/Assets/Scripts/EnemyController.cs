@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour {
 
     public Transform target;
 
+    public float _HP;
 
     public float Attack_Distance;
 
@@ -33,6 +34,7 @@ public class EnemyController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        _HP = 1;
         direction = -1;
         ray_direction = Vector2.left;
         animator = GetComponent<Animator>();
@@ -41,6 +43,11 @@ public class EnemyController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if(_HP <= 0)
+        {
+            animator.SetTrigger("Isdie");
+            this.Invoke("Destroy_monster", 3.0f);
+        }
         //移动
         if (bisAttacking == false)
         {
@@ -68,7 +75,7 @@ public class EnemyController : MonoBehaviour {
             bisAttacking = false;
         }
 
-
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -87,10 +94,16 @@ public class EnemyController : MonoBehaviour {
         //transform.Rotate(Vector3.up * 180);
         //direction = -direction;
     }
+
+    private void Destroy_monster()
+    {
+        Destroy(this.gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //transform.Rotate(Vector3.up * 180);
-        if(collision.tag == "board_edge" || collision.tag == "SceneEdge")
+        if(collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "deerbug")
         {
             transform.Rotate(Vector3.up * 180);
             if (ray_direction == Vector2.left)
