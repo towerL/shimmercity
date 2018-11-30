@@ -14,6 +14,9 @@ public class align_hammer : MonoBehaviour {
 	private SpriteRenderer spriterender;
 	public Sprite static_sprite;
 
+	private Vector2 beginpos;
+	private Vector2 endpos;
+
 	private bool incloseattack = false;
 	private bool infurtherattack = false;
 	private bool Rotate=false;
@@ -21,8 +24,11 @@ public class align_hammer : MonoBehaviour {
 	private bool inhand=true;
 	private bool exist = true;
 
+	public float attack_range;
 	//.private bool timer = false;
 	//private float time;
+
+
 
 	void Start () {
 		hammer_animator = this.GetComponent<Animator> ();
@@ -46,6 +52,10 @@ public class align_hammer : MonoBehaviour {
 			inhand = false;
 			infurtherattack = false;
 		}
+		if (incloseattack && inhand && exist) {
+
+		}
+
 		if (!exist) {
 			hammer_animator.Play ("hammer_hit");
 			//Destroy (gameObject, 2);
@@ -59,7 +69,7 @@ public class align_hammer : MonoBehaviour {
 
 	public void OnCollisionEnter2D(Collision2D col){
 		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" ){
-			Rotate= false;
+			Rotate = false;
 			hit_ground = true;
 			exist = false;
 			Vector2 direction = transform.position-target.position;
@@ -70,11 +80,11 @@ public class align_hammer : MonoBehaviour {
 		}
 	}
 
-	/*public void OnCollisionExit2D(Collision2D col){
+	public void OnCollisionExit2D(Collision2D col){
 		if (col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt") {
 			exist = false;
 		}
-	}*/
+	}
 
 	void SetCloseAttack(bool flag){
 		incloseattack = flag;
@@ -90,4 +100,5 @@ public class align_hammer : MonoBehaviour {
 		inhand = flag;
 		hammer_animator.SetBool ("inhand",inhand);
 	}
+
 }
