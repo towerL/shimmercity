@@ -12,6 +12,7 @@ public class deerbugBullet_control : MonoBehaviour {
 
     private Vector2 Direction;
 
+    public float Bullet_FlyTime;
 	// Use this for initialization
 	void Start () {
         render = GetComponent<SpriteRenderer>();
@@ -21,9 +22,13 @@ public class deerbugBullet_control : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(SetAttack == true)
+        if (render.sortingOrder != 2)
         {
-            if(render.sortingOrder == -2)
+            transform.position = Deerbug.transform.position;
+        }
+        if (SetAttack == true)
+        {
+            if(render.sortingOrder != 2)
             {
                 transform.position = Deerbug.transform.position;
             }
@@ -33,7 +38,7 @@ public class deerbugBullet_control : MonoBehaviour {
             pos.y = transform.position.y;
             pos.z = transform.position.z;
             transform.position = pos;
-            Invoke("SetBulletOrigin",3.0f);
+            Invoke("SetBulletOrigin", Bullet_FlyTime);
             //SetAttack = false;
         }
         else
@@ -52,9 +57,27 @@ public class deerbugBullet_control : MonoBehaviour {
     {
         SetAttack = false;
         render.sortingOrder = -2;
+        transform.position = Deerbug.transform.position;
     }
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Pipe" || collision.tag == "Player")
+        {
+            Debug.Log("子弹进入碰撞体");
+            render.sortingOrder = -2;
+            SetAttack = false;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Pipe" || collision.tag == "Player")
+        {
+            Debug.Log("子弹进入碰撞体");
+            render.sortingOrder = -2;
+            SetAttack = false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Pipe" || collision.tag == "Player")
         {

@@ -79,27 +79,23 @@ public class EnemyController : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*if (collision.collider.tag == "deerbug" || collision.collider.tag == "box")
+        if(collision.collider.tag == "hammer_in_attack")
         {
-            transform.Rotate(Vector3.up * 180);
-            if(ray_direction == Vector2.left)
-            {
-                ray_direction = Vector2.right;
-            }
-            else
-            {
-                ray_direction = Vector2.left;
-            }
-        }*/
-        //transform.Rotate(Vector3.up * 180);
-        //direction = -direction;
+            decreaseHp();
+            Fpbar_controller.Instance.Freame_Increase();
+        }
     }
 
     private void Destroy_monster()
     {
         Destroy(this.gameObject);
     }
-
+    private void decreaseHp()
+    {
+        _HP--;
+    }
+    
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //transform.Rotate(Vector3.up * 180);

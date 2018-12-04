@@ -92,6 +92,7 @@ public class DeerbugLong_congtroller : MonoBehaviour {
     private void SetBullet()
     {
         bisAttacking = true;
+        Bullet.SendMessage("SetBulletOrigin");
         Bullet.SendMessage("SetDirection", ray_direction);
     }
     private void SetMove()

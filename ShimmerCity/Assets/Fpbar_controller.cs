@@ -9,35 +9,57 @@ public class Fpbar_controller : MonoBehaviour {
     public static bool bisAcquire_sister;
     public Transform target;
     public Transform Camera_pos;
+    private Animator animator;
+    public static Fpbar_controller Instance;
+
+    private SpriteRenderer render;
     // Use this for initialization
     void Start () {
         bisAcquire_sister = false;
-        frameNumber = 0;
+        frameNumber = 2;
+        animator = GetComponent<Animator>();
+        this.GetComponent<SpriteRenderer>().sortingOrder = -5;
+        Instance = this;
+        render = gameObject.GetComponent<SpriteRenderer>();
+
+        render.sprite = frames[frameNumber];
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-        if(bisAcquire_sister == true)
+        //Debug.Log(frames.Length.ToString());
+        if (bisAcquire_sister == true)
         {
             this.GetComponent<SpriteRenderer>().sortingOrder = 5;
-            gameObject.GetComponent<SpriteRenderer>().sprite = frames[frameNumber];
+            //Texture2D img = frames[5];
+            //Sprite _NewSprite = Sprite.Create(img, new Rect(0, 0, img.width, img.height), new Vector2(0.5f, 0.5f));
+            //render.sprite = _NewSprite;
+            Texture2D img = (Texture2D)Resources.Load("fp(5)");
+            Sprite _NewSprite = Sprite.Create(img, render.sprite.textureRect, new Vector2(0.5f, 0.5f));
+            render.sprite = _NewSprite;
+        }
+        if (frameNumber >= 8)
+        {
+            animator.SetTrigger("SetFull");
         }
         Vector3 _pos;
         _pos.x = target.transform.position.x + 14.2f;
         _pos.y = target.transform.position.y + 8f;
         _pos.z = target.transform.position.z + 1;
 
-        //if (_pos.x >= Camera_pos.position.x + 14)
-        //{
-        //    _pos.x = Camera_pos.position.x + 14;
-        //}
-        //if (_pos.y >= Camera_pos.position.y + 8)
-        //{
-        //    _pos.y = Camera_pos.position.y + 8;
-        //}
-
-
         this.transform.position = _pos;
+    }
+    public void Freame_Increase()
+    {
+        frameNumber++;
+        if(frameNumber >= 8)
+        {
+            animator.SetTrigger("SetFull");
+        }
+    }
+    private void ReleaseSkill()
+    {
+        frameNumber = 0;
+        animator.SetTrigger("SetNull");
     }
 }
