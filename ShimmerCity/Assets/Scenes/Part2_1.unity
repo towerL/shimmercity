@@ -3118,7 +3118,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1563772424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.98, y: -69, z: 0}
+  m_LocalPosition: {x: 113.04, y: -68.14, z: 0}
   m_LocalScale: {x: 0.4800428, y: 0.465538, z: 0.53828096}
   m_Children:
   - {fileID: 2110912450}
@@ -11219,7 +11219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force_move: 70
-  jumpVelocity: 100
+  jumpVelocity: 130
 --- !u!70 &1563772426
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11248,7 +11248,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2.3
+  m_Mass: 4
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 30
@@ -13541,7 +13541,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1908278563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.85, y: -68.03, z: 0}
+  m_LocalPosition: {x: 14.55, y: -68.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2020462876}

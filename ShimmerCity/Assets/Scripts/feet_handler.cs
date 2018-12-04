@@ -12,6 +12,8 @@ public class feet_handler : MonoBehaviour {
 			SendMessageUpwards ("SetBelt", true);
 		} else if (col.collider.tag == "Nail") {
 			SendMessageUpwards ("SetNail", true);
+		} else if (col.collider.tag == "Pipe") {
+			SendMessageUpwards ("SetGround", true);
 		}
 	}
 		
@@ -24,6 +26,8 @@ public class feet_handler : MonoBehaviour {
 			SendMessageUpwards ("SetBelt", false);
 		}else if (col.collider.tag == "Nail") {
 			SendMessageUpwards ("SetNail", false);
+		}else if (col.collider.tag == "Pipe") {
+			SendMessageUpwards ("SetGround", false);
 		}
 	}
 }
