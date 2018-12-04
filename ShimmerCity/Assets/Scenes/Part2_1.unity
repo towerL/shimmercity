@@ -1837,6 +1837,11 @@ Prefab:
       propertyPath: m_Name
       value: deerbug_short (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114963564421677500, guid: 518e33ba95248f8409d93b084754d53a,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 415474468}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 518e33ba95248f8409d93b084754d53a, type: 2}
   m_IsPrefabAsset: 0
@@ -2648,6 +2653,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114963564421677500, guid: 518e33ba95248f8409d93b084754d53a,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 415474468}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 518e33ba95248f8409d93b084754d53a, type: 2}
   m_IsPrefabAsset: 0
@@ -3118,7 +3128,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1563772424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 113.04, y: -68.14, z: 0}
+  m_LocalPosition: {x: 161.3, y: -69, z: 0}
   m_LocalScale: {x: 0.4800428, y: 0.465538, z: 0.53828096}
   m_Children:
   - {fileID: 2110912450}
@@ -11199,6 +11209,7 @@ GameObject:
   - component: {fileID: 1563772427}
   - component: {fileID: 1563772426}
   - component: {fileID: 1563772425}
+  - component: {fileID: 1563772430}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -11213,13 +11224,13 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1563772424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3103c06233c80e44aaee793617a58e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   force_move: 70
-  jumpVelocity: 130
+  jumpVelocity: 200
 --- !u!70 &1563772426
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11323,6 +11334,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1563772430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563772424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60197b99d8b0bac4b8e43bab76bbe59f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vel_x: 6
+  force_move: 70
+  jumpVelocity: 170
 --- !u!1 &1566447756
 GameObject:
   m_ObjectHideFlags: 0
