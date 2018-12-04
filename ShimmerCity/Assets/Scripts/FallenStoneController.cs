@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallenStoneController : MonoBehaviour {
+public class FallenStoneController : MonoBehaviour
+{
     public string stone_name;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    if (collision.tag == "Stone")

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneController : MonoBehaviour {
+public class StoneController : MonoBehaviour
+{
     //移动初始位置
     float h0;
     public float speed;
     public string stone_name;
-    float mytime = 10.0f;
+    float mytime = 18.0f;
 
     void Start()
     {
@@ -26,17 +27,12 @@ public class StoneController : MonoBehaviour {
             var v = transform.position;
             v.y = h0;
             transform.position = v;
-            mytime = 10.0f;
-            var fallen_stone = GameObject.Find(stone_name);
-            fallen_stone.GetComponent<SpriteRenderer>().enabled = false;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Stone")
-        {
-            var fallen_stone = GameObject.Find(stone_name);
-            fallen_stone.GetComponent<SpriteRenderer>().enabled = true;
+            if (stone_name != "")
+            {
+                var fallen_stone = GameObject.Find(stone_name);
+                fallen_stone.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            mytime = 18.0f;
         }
     }
 }

@@ -6,7 +6,7 @@ public class PoisionAttack : MonoBehaviour {
     float attackTimer;
     float attackTime;
     private Animator ani;
-    float mytime = 6.0f;
+    float mytime = 1.0f;
 
 	void Start () {
         ani = GetComponent<Animator>();
@@ -15,11 +15,11 @@ public class PoisionAttack : MonoBehaviour {
     void Update()
     {
         mytime -= Time.deltaTime;
-        if (mytime < 0)
+        if (mytime < -3)
         {
             ani.Play("poision");
             ani.Play("poision_static");
-            mytime = 6.0f;
+            mytime = 1.0f;
         }
 
         //if (attackTimer > 0)
