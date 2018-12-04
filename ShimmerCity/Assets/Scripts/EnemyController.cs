@@ -103,7 +103,7 @@ public class EnemyController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //transform.Rotate(Vector3.up * 180);
-        if(collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "deerbug")
+        if(collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "deerbug" || collision.tag == "Pipe")
         {
             transform.Rotate(Vector3.up * 180);
             if (ray_direction == Vector2.left)

@@ -23,6 +23,7 @@ TagManager:
   - Pipe
   - Poision
   - Stone
+  - Deerbug_long
   layers:
   - Default
   - TransparentFX
