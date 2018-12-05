@@ -4,14 +4,34 @@ using UnityEngine;
 
 public class SwitchController : MonoBehaviour
 {
-
+    public GameObject objPrefab;
     private Animator door_ani;
+
+    public static bool bIsgetHammer;
+    private void Start()
+    {
+        bIsgetHammer = false;
+        //InvokeRepeating("AddDeerbugPrefab",0,5.0f);
+    }
 
     void Update()
     {
-
+        if(bIsgetHammer == true)
+        {
+            //Invoke("AddDeerbugPrefab", 10.0f);
+            bIsgetHammer = false;
+            Deerbug_attackbox.bisGethammer = true;
+            InvokeRepeating("AddDeerbugPrefab",0,5.0f); 
+        }
     }
-
+    private void AddDeerbugPrefab()
+    {
+        //GameObject deerbug_attackElectricbox = (GameObject)Resources.Load("Prefabs/deerbug_short_forElectricBox");
+        GameObject mPrefab = (MonoBehaviour.Instantiate(objPrefab, Vector3.zero, Quaternion.identity) as GameObject);
+        mPrefab.transform.position = transform.position;
+        mPrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.tag == "Player")

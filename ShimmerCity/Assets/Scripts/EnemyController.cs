@@ -46,7 +46,10 @@ public class EnemyController : MonoBehaviour {
         if(_HP <= 0)
         {
             animator.SetTrigger("Isdie");
-            this.Invoke("Destroy_monster", 3.0f);
+            bisAttacking = true;
+            
+            //Destroy(gameObject.GetComponent<Collider2D>());
+            this.Invoke("Destroy_monster", 1.0f);
         }
         //移动
         if (bisAttacking == false)
@@ -79,15 +82,16 @@ public class EnemyController : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "hammer_in_attack")
+        if(collision.collider.tag == "hammer_in_attack" || collision.collider.tag == "Player")
         {
             decreaseHp();
-            Fpbar_controller.Instance.Freame_Increase();
+            
         }
     }
 
     private void Destroy_monster()
     {
+        Fpbar_controller.Instance.Freame_Increase();
         Destroy(this.gameObject);
     }
     private void decreaseHp()
@@ -97,8 +101,7 @@ public class EnemyController : MonoBehaviour {
     
     
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //transform.Rotate(Vector3.up * 180);
+    { 
         if(collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "deerbug" || collision.tag == "Pipe")
         {
             transform.Rotate(Vector3.up * 180);

@@ -10,7 +10,14 @@ public class follow_player : MonoBehaviour {
     public float MaxX;
     public float MinY;
     public float MaxY;
-	void Update () {
+
+
+    public static follow_player Instance;
+    private void Start()
+    {
+        Instance = this;
+    }
+    void Update () {
  		Vector3 pos = transform.position;
 		pos.x = target.position.x;
 		pos.y = target.position.y;

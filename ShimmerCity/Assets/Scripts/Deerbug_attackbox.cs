@@ -20,16 +20,27 @@ public class Deerbug_attackbox : MonoBehaviour {
     public float velocity;
 
     public static bool bisGethammer;
+    
+    private float _HP;
     // Use this for initialization
     void Start()
     {
         direction = -1;
         animator = GetComponent<Animator>();
-        bisGethammer = false;
+        bisGethammer = true;
+        target = GameObject.Find("ElectricBox").transform ;
+        _HP = 1;
     }
     // Update is called once per frame
     void Update()
     {
+        if(_HP <= 0)
+        {
+            animator.SetTrigger("Isdie");
+            bisAttacking = true;
+            
+            this.Invoke("Destroy_monster", 1.0f);
+        }
         GetComponent<SpriteRenderer>().sortingOrder = -2;
         if(bisGethammer == true)
         {
@@ -55,20 +66,34 @@ public class Deerbug_attackbox : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "deerbug" || collision.collider.tag == "box" )
+        if (collision.collider.tag == "hammer_in_attack" || collision.collider.tag == "Player")
         {
-            transform.Rotate(Vector3.up * 180);
+            decreaseHp();
+            
         }
-        //transform.Rotate(Vector3.up * 180);
-        //direction = -direction;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //transform.Rotate(Vector3.up * 180);
-        if (collision.tag == "board_edge")
+        if (collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "Box")
         {
+            Debug.Log("进入trigger");
             transform.Rotate(Vector3.up * 180);
         }
-        //direction = direction * -1;
+        //else if(collision.tag == "deerbug")
+        //{
+        //    this.GetComponent<Collider2D>().enabled = false;
+        //}
     }
+
+
+    private void Destroy_monster()
+    {
+        Fpbar_controller.Instance.Freame_Increase();
+        Destroy(this.gameObject);
+    }
+    private void decreaseHp()
+    {
+        _HP--;
+    }
+
 }

@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BGControl : MonoBehaviour {
+    public static BGControl Instance;
     //获取black颜色
     Color a;
 	// Use this for initialization
 	void Start () {
         var bg = GameObject.Find("black");
         a = bg.GetComponent<SpriteRenderer>().color;
-	}
+        Instance = this;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

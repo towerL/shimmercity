@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class Fpbar_controller : MonoBehaviour {
 
     public Sprite[] frames;
-    private int frameNumber;
+    private int Pre_freamNumber;
+    private int Current_frameNumber;
     public static bool bisAcquire_sister;
     public Transform target;
     public Transform Camera_pos;
@@ -16,13 +17,12 @@ public class Fpbar_controller : MonoBehaviour {
     // Use this for initialization
     void Start () {
         bisAcquire_sister = false;
-        frameNumber = 2;
         animator = GetComponent<Animator>();
         this.GetComponent<SpriteRenderer>().sortingOrder = -5;
         Instance = this;
         render = gameObject.GetComponent<SpriteRenderer>();
-
-        render.sprite = frames[frameNumber];
+        Pre_freamNumber = 0;
+        Current_frameNumber = 0;
     }
 	
 	// Update is called once per frame
@@ -31,14 +31,14 @@ public class Fpbar_controller : MonoBehaviour {
         if (bisAcquire_sister == true)
         {
             this.GetComponent<SpriteRenderer>().sortingOrder = 5;
-            //Texture2D img = frames[5];
-            //Sprite _NewSprite = Sprite.Create(img, new Rect(0, 0, img.width, img.height), new Vector2(0.5f, 0.5f));
-            //render.sprite = _NewSprite;
-            Texture2D img = (Texture2D)Resources.Load("fp(5)");
-            Sprite _NewSprite = Sprite.Create(img, render.sprite.textureRect, new Vector2(0.5f, 0.5f));
-            render.sprite = _NewSprite;
         }
-        if (frameNumber >= 8)
+        if(Pre_freamNumber != Current_frameNumber)
+        {
+            animator.speed = 1;
+            Pre_freamNumber = Current_frameNumber;
+        }
+
+        if (Current_frameNumber >= 7)
         {
             animator.SetTrigger("SetFull");
         }
@@ -49,17 +49,21 @@ public class Fpbar_controller : MonoBehaviour {
 
         this.transform.position = _pos;
     }
+    private void Animation_Event_Function()
+    {
+        animator.speed = 0;
+    }
     public void Freame_Increase()
     {
-        frameNumber++;
-        if(frameNumber >= 8)
-        {
-            animator.SetTrigger("SetFull");
-        }
+        if (bisAcquire_sister != true)
+            return;
+        Pre_freamNumber = Current_frameNumber;
+        Current_frameNumber++;
     }
     private void ReleaseSkill()
     {
-        frameNumber = 0;
+        Current_frameNumber = 0;
+        Pre_freamNumber = 0;
         animator.SetTrigger("SetNull");
     }
 }

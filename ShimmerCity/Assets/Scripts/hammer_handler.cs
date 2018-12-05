@@ -8,7 +8,9 @@ public class hammer_handler : MonoBehaviour {
 			//Debug.Log ("get the hammer!");
 			col.SendMessage ("SetIsHammer", true);
             Deerbug_attackbox.bisGethammer = true;
-			Destroy (this.gameObject);
+            SwitchController.bIsgetHammer = true;
+
+            Destroy (this.gameObject);
 		}
 	}
 		
