@@ -1,14 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\player_move2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\player_move.cs">
     <Files>
-      <File FileName="Assets\Scripts\player_move.cs" Line="9" Column="54" />
-      <File FileName="Assets\Scripts\align_hammer.cs" Line="79" Column="38" />
-      <File FileName="Assets\Scripts\climb_ladder.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\feet_handler.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\StoneController.cs" Line="1" Column="1" />
-      <File FileName="Assets\player_move2.cs" Line="7" Column="26" />
+      <File FileName="Assets\Scripts\player_move.cs" Line="28" Column="2" />
+      <File FileName="Assets\Scripts\align_hammer.cs" Line="91" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

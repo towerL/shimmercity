@@ -51,15 +51,17 @@ public class align_hammer : MonoBehaviour {
 			Rotate = true;
 			inhand = false;
 			infurtherattack = false;
-		}
+		} 
 		if (incloseattack && inhand && exist) {
+			spriterender.sortingOrder = 3;
+		} 
+			
 
-		}
-
-		if (!exist) {
+		/*if (!exist) {
 			hammer_animator.Play ("hammer_hit");
 			//Destroy (gameObject, 2);
-		}
+		}*/
+		spriterender.sortingOrder =-2;
 		hammer_animator.SetBool ("Rotate",Rotate);
 		hammer_animator.SetBool ("hit_ground",hit_ground);
 		hammer_animator.SetBool ("incloseattack",incloseattack);
@@ -77,6 +79,17 @@ public class align_hammer : MonoBehaviour {
 			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 			hammer_animator.SetBool ("Rotate",Rotate);
 			hammer_animator.SetBool ("hit_ground",hit_ground);
+		}
+		if (col.collider.tag == "deerbug") {
+			ContactPoint2D contact = col.contacts[0];
+			Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+			Vector3 pos = contact.point;
+			Vector2 direction = transform.position-target.position;
+			float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+			hammer_animator.Play ("lying_hammer");
+			Debug.Log ("Hit the deerbug!");
+			//col.gameObject.SendMessage ();
 		}
 	}
 

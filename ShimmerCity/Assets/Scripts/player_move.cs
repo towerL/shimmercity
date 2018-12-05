@@ -24,13 +24,13 @@ public class player_move : MonoBehaviour {
 	private bool isGround = true;
 	private bool isWall = false;
 	private bool isLadder=false;
-	private bool isHammer=true;
-	//private bool isHammer=false;
+	//private bool isHammer=true;
+	private bool isHammer=false;
 	private bool isSister=true;
 	//private bool isSister=false;
 	private bool alive=true;
 	private bool close_range_attack=false;
-	private bool far_distance_attack=false;
+	private bool far_distance_attack=false; 
 	private bool isStand = true;
 	private bool isWalk = false;
 	private bool isRun = false;
@@ -59,6 +59,9 @@ public class player_move : MonoBehaviour {
 
 	private bool enemy_check=false;
 
+	private bool beltflag;
+	private float beltdir;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -78,7 +81,7 @@ public class player_move : MonoBehaviour {
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
-			if (h > 0.01f) {
+			if (h > 0.01f && !close_range_attack && !far_distance_attack) {
 				if (!isBelt && !isPush && isGround)
 					player_rigidbody.AddForce (Vector2.right * force_move);
 				else if (!isPush && isGround) {
@@ -114,7 +117,7 @@ public class player_move : MonoBehaviour {
 				transform.localScale = player_Scale;
 				now_direction = direction.right_dir;
 				timer = false;
-			} else if (h < -0.01f) {
+			} else if (h < -0.01f && !close_range_attack && !far_distance_attack) {
 				if (!isBelt && !isPush && isGround)
 					player_rigidbody.AddForce (-Vector2.right * force_move);
 				else if (!isPush && isGround) {
@@ -153,6 +156,18 @@ public class player_move : MonoBehaviour {
 			}
 			face_turned = (used_direction == now_direction ? false : true);
 			used_direction = now_direction;//further use
+
+			Vector3 postrans = transform.position;
+			if (isBelt && beltflag && beltdir > 0.0f) {	
+				postrans.x += Time.deltaTime * 1.0f;
+			}else if (isBelt && beltflag && beltdir < 0.0f) {	
+				postrans.x -= Time.deltaTime * 1.0f;
+			}/*else if (isBelt && !beltflag && beltdir > 0.0f) {	
+				postrans.y += Time.deltaTime * 1.0f;
+			}else if (isBelt && !beltflag && beltdir < 0.0f) {
+				postrans.y -= Time.deltaTime * 1.0f;
+			}*/
+			transform.position = postrans;
 
 			if (isLadder && isGround) {
 				isLadder = false;
@@ -231,7 +246,7 @@ public class player_move : MonoBehaviour {
 				 
 			}
 
-			if (timer && !isLadder &&isGround) {
+			if (timer && !isLadder &&isGround && isHammer) {
 				float delttime = Time.time - start_time;
 				if (delttime > 5.0f) {
 					five_minutes = true;
@@ -247,17 +262,9 @@ public class player_move : MonoBehaviour {
 			}
 				
 			isStand=(Mathf.Abs(player_rigidbody.velocity.x)<0.1f?true:false) && !isPush && isGround;
-			isWalk = (Mathf.Abs (player_rigidbody.velocity.x) > 0.1f && Mathf.Abs (player_rigidbody.velocity.x) < 0.5f ? true : false) && !isPush && isGround;
-			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>0.5f?true:false) && !isPush && isGround;
+			isWalk = (Mathf.Abs (player_rigidbody.velocity.x) > 0.1f && Mathf.Abs (player_rigidbody.velocity.x) < 1.3f ? true : false) && !isPush && isGround;
+			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>1.3f?true:false) && !isPush && isGround;
 
-			/*if (five_minutes)
-				player_boxcollider.offset = new Vector2 (0.0f, -2.1f);
-			else if (isGround && isWalk)
-				player_boxcollider.offset = new Vector2 (0.0f, 0.04f);
-			else if (isGround && isRun)
-				player_boxcollider.offset = new Vector2 (0.0f, -0.2f);
-			else 
-				player_boxcollider.offset = new Vector2 (0.0f, 0.0f);*/
 
 		} else {
 			//Debug.Log ("the player is dead!");
@@ -313,11 +320,6 @@ public class player_move : MonoBehaviour {
 		player_animator.SetBool ("isGround",flag);
 	}
 
-	void SetBelt(bool flag){
-		isBelt = flag;
-	}
-		
-
 	void SetPush(bool flag){
 		isPush = flag;
 		Vector2 vel = player_rigidbody.velocity;
@@ -328,6 +330,20 @@ public class player_move : MonoBehaviour {
 
 	void SetEnemy(bool flag){
 		enemy_check = flag;
+	}
+
+	void SetBelt(bool flag){
+		isBelt = flag;
+	}
+
+	void SetBeltFlag(bool flag){
+		beltflag = flag;
+		//Debug.Log (beltflag);
+	}
+
+	void SetBeltdir(float dir){
+		beltdir = dir;
+		//Debug.Log (beltdir);
 	}
 
 	/*(public void OnCollisionEnter2D(Collision2D col){

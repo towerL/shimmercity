@@ -39,4 +39,24 @@ public class BeltMove : MonoBehaviour
         }
     }
 
+	public void OnCollisionEnter2D(Collision2D col){
+		if (col.collider.tag == "Feet") {
+			GameObject.Find("Player").SendMessage ("SetBeltFlag",flag);
+			GameObject.Find("Player").SendMessage ("SetBeltdir",dir);
+		}
+	}
+
+	public void OnCollisionStay2D(Collision2D col){
+		if (col.collider.tag == "Feet") {
+			GameObject.Find("Player").SendMessage ("SetBeltFlag",flag);
+			GameObject.Find("Player").SendMessage ("SetBeltdir",dir);
+		}
+	}
+
+	public void OnCollisionExit2D(Collision2D col){
+		if (col.collider.tag == "Feet") {
+			GameObject.Find("Player").SendMessage ("SetBeltFlag",flag);
+			GameObject.Find("Player").SendMessage ("SetBeltdir",0.0f);
+		}
+	}
 }
