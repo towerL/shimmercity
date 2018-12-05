@@ -88,8 +88,8 @@ public class Deerbug_attackbox : MonoBehaviour {
 
     private void Destroy_monster()
     {
-        Fpbar_controller.Instance.Freame_Increase();
         Destroy(this.gameObject);
+        Fpbar_controller.Instance.Freame_Increase();
     }
     private void decreaseHp()
     {
