@@ -24,8 +24,8 @@ public class player_move : MonoBehaviour {
 	private bool isGround = true;
 	private bool isWall = false;
 	private bool isLadder=false;
-	//private bool isHammer=true;
-	private bool isHammer=false;
+	private bool isHammer=true;
+	//private bool isHammer=false;
 	private bool isSister=true;
 	//private bool isSister=false;
 	private bool alive=true;
@@ -242,8 +242,10 @@ public class player_move : MonoBehaviour {
 				timer = false;
 			}
 
-			if (isHammer && isSister) {
-				 
+			if (isHammer) {
+				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider);
+			} else {
+				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider,false);
 			}
 
 			if (timer && !isLadder &&isGround && isHammer) {

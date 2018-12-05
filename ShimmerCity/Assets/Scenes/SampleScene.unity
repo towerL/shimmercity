@@ -4315,14 +4315,14 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1573114357}
-  m_LocalRotation: {x: -0.2745674, y: -0.06440763, z: 0.204418, w: 0.93737817}
-  m_LocalPosition: {x: -0.26, y: -0.09, z: 0}
-  m_LocalScale: {x: 0.6712218, y: 0.73143864, z: 46.305157}
+  m_LocalRotation: {x: -0.27165252, y: 0.075767666, z: -0.2722309, w: 0.91997534}
+  m_LocalPosition: {x: -0.02, y: -0.02, z: 0}
+  m_LocalScale: {x: 0.24103132, y: 0.3288284, z: 49.08346}
   m_Children:
   - {fileID: 1073010195}
   m_Father: {fileID: 2073951993}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -29.236002, y: -15.487, z: 28.667002}
+  m_LocalEulerAnglesHint: {x: -27.295002, y: 18.863, z: -37.588}
 --- !u!1 &1496133752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,8 +4514,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.02, y: 2.38}
-    newSize: {x: 2.02, y: 2.38}
+    oldSize: {x: 4.35, y: 4.27}
+    newSize: {x: 4.35, y: 4.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -4668,16 +4668,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: -2
+  m_Sprite: {fileID: 21300000, guid: 956321fb553e9944caf5584bdae2c818, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.88235295}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.02, y: 2.38}
+  m_Size: {x: 4.35, y: 4.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1608212234
@@ -6374,7 +6374,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825945725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.6, y: 4.4, z: 0}
+  m_LocalPosition: {x: -21.3, y: -9.7, z: 0}
   m_LocalScale: {x: 0.8537625, y: 0.82796556, z: 0.95734}
   m_Children:
   - {fileID: 1391476212}

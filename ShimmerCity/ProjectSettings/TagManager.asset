@@ -24,6 +24,7 @@ TagManager:
   - Poision
   - Stone
   - Deerbug_long
+  - hammer_body
   layers:
   - Default
   - TransparentFX

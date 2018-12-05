@@ -40,20 +40,18 @@ public class align_hammer : MonoBehaviour {
 	void Update () {
 		if (infurtherattack && inhand && exist) {
 			spriterender.sprite = static_sprite;
-			/*if(!timer)
-				time = Time.time;
-			if(timer && (Time.time-time)>0.2f)*/
-			spriterender.sortingOrder = 3;
+			spriterender.sortingOrder = 0;
 			this.gameObject.AddComponent<Rigidbody2D> ();
 			hammer_rigidbody = this.GetComponent<Rigidbody2D> ();
 			hammer_rigidbody.AddForce (Vector2.right * pushmove);
 			hammer_rigidbody.AddForce (Vector2.up * projectilemove);
+		    
 			Rotate = true;
 			inhand = false;
 			infurtherattack = false;
 		} 
 		if (incloseattack && inhand && exist) {
-			spriterender.sortingOrder = 3;
+			spriterender.sortingOrder = 0;
 		} 
 			
 
@@ -61,7 +59,6 @@ public class align_hammer : MonoBehaviour {
 			hammer_animator.Play ("hammer_hit");
 			//Destroy (gameObject, 2);
 		}*/
-		spriterender.sortingOrder =-2;
 		hammer_animator.SetBool ("Rotate",Rotate);
 		hammer_animator.SetBool ("hit_ground",hit_ground);
 		hammer_animator.SetBool ("incloseattack",incloseattack);
@@ -77,6 +74,7 @@ public class align_hammer : MonoBehaviour {
 			Vector2 direction = transform.position-target.position;
 			float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+			Destroy (this.gameObject.GetComponent<Rigidbody> ());
 			hammer_animator.SetBool ("Rotate",Rotate);
 			hammer_animator.SetBool ("hit_ground",hit_ground);
 		}
