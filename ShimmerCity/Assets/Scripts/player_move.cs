@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class player_move : MonoBehaviour {
 
 	enum direction {right_dir,left_dir,up_dir,down_dir};

@@ -25,6 +25,9 @@ TagManager:
   - Stone
   - Deerbug_long
   - hammer_body
+  - Brick
+  - StaticBrick
+  - Ladder3_transition
   layers:
   - Default
   - TransparentFX

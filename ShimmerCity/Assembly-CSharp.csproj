@@ -55,11 +55,15 @@
   <ItemGroup>
      <Compile Include="Assets\align_hammer2.cs" />
      <Compile Include="Assets\Animation_Event.cs" />
+     <Compile Include="Assets\climb_ladder3.cs" />
      <Compile Include="Assets\deerbugBullet_control.cs" />
      <Compile Include="Assets\DeerbugLong_congtroller.cs" />
      <Compile Include="Assets\Feet_handler2.cs" />
+     <Compile Include="Assets\Feet_handler3.cs" />
      <Compile Include="Assets\Fpbar_controller.cs" />
+     <Compile Include="Assets\hands_handler3.cs" />
      <Compile Include="Assets\player_move2.cs" />
+     <Compile Include="Assets\player_move3.cs" />
      <Compile Include="Assets\Scripts\align_hammer.cs" />
      <Compile Include="Assets\Scripts\BeltMove.cs" />
      <Compile Include="Assets\Scripts\BGControl.cs" />

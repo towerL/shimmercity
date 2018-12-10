@@ -9,7 +9,7 @@ public class player_move2 : MonoBehaviour {
 	enum direction {right_dir,left_dir,up_dir,down_dir};
 
 	public float vel_x=6.0f;
-
+	public float vel_x_in_air=3.0f;
 	private Rigidbody2D player_rigidbody;
 	private CapsuleCollider2D player_boxcollider;
 	private Animator player_animator;
@@ -57,16 +57,34 @@ public class player_move2 : MonoBehaviour {
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
 			if (h > 0.01f) {
-				Vector2 vel = player_rigidbody.velocity;
-				vel.x = 6.0f;
-				player_rigidbody.velocity = vel;
+				if (!isGround && speed_up) {
+					Vector3 pos = transform.position;
+					pos.x += Time.deltaTime * vel_x_in_air;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = vel_x_in_air;
+					player_rigidbody.velocity = vel;
+				} else {
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = 6.0f;
+					player_rigidbody.velocity = vel;
+				}
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				timer = false;
 			} else if (h < -0.01f) {
-				Vector2 vel = player_rigidbody.velocity;
-				vel.x = -6.0f;
-				player_rigidbody.velocity = vel;
+				if (!isGround && speed_up) {
+					Vector3 pos = transform.position;
+					pos.x -= Time.deltaTime * vel_x_in_air;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = -vel_x_in_air;
+					player_rigidbody.velocity = vel;
+				} else {
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x =-6.0f;
+					player_rigidbody.velocity = vel;
+				}
 				player_Scale.x = -Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				timer = false;
@@ -161,6 +179,9 @@ public class player_move2 : MonoBehaviour {
 			Vector2 vel = player_rigidbody.velocity;
 			vel.x = 0.0f;
 			player_rigidbody.velocity = vel;
+		}
+		if(col.collider.tag == "Rock" ){
+			//hp--;
 		}
 
 	}
