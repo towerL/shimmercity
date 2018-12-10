@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeerbugLong_congtroller : MonoBehaviour {
-
+    public GameObject bulletPrefab;
     public LayerMask RayLayer;
     public float ray_Distance;
     //方向
@@ -77,23 +77,16 @@ public class DeerbugLong_congtroller : MonoBehaviour {
                     Invoke("SetAttackCD", AttackCD);//CD时间
                 }
             }
-            //else
-            //{
-            //    animator.SetTrigger("SetAttackEnd");
-            //    bisAttacking = false;
-            //}
         }
-        //else
-        //{
-        //    animator.SetTrigger("SetAttackEnd");
-        //    bisAttacking = false;
-        //}
     }
     private void SetBullet()
     {
         bisAttacking = true;
-        Bullet.SendMessage("SetBulletOrigin");
-        Bullet.SendMessage("SetDirection", ray_direction);
+        GameObject mPrefab = (MonoBehaviour.Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity) as GameObject);
+        mPrefab.GetComponent<SpriteRenderer>().sortingOrder = 5;
+        mPrefab.transform.position = transform.position;
+        mPrefab.SendMessage("SetBulletOrigin", this.transform);
+        mPrefab.SendMessage("SetDirection", ray_direction);
     }
     private void SetMove()
     {

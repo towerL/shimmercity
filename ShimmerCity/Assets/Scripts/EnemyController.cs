@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "hammer_in_attack" || collision.collider.tag == "Player")
+        if(collision.collider.tag == "hammer_in_attack" /*|| collision.collider.tag == "Player"*/)
         {
             decreaseHp();
             
