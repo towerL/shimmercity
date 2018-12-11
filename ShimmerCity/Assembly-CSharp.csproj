@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\brick_handler.cs" />
      <Compile Include="Assets\Scripts\add_flying_hammer.cs" />
      <Compile Include="Assets\Scripts\align_hammer.cs" />
      <Compile Include="Assets\Scripts\align_hammer2.cs" />
