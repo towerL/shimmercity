@@ -30,6 +30,7 @@ TagManager:
   - Ladder3_transition
   - bottle
   - Head
+  - Particle
   layers:
   - Default
   - TransparentFX

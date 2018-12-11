@@ -53,8 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\brick_handler.cs" />
-     <Compile Include="Assets\head_handler.cs" />
+     <Compile Include="Assets\Particle.cs" />
      <Compile Include="Assets\Scripts\add_flying_hammer.cs" />
      <Compile Include="Assets\Scripts\align_hammer.cs" />
      <Compile Include="Assets\Scripts\align_hammer2.cs" />
@@ -66,6 +65,7 @@
      <Compile Include="Assets\Scripts\boss_body.cs" />
      <Compile Include="Assets\Scripts\Boss_head.cs" />
      <Compile Include="Assets\Scripts\boss_head_1.cs" />
+     <Compile Include="Assets\Scripts\brick_handler.cs" />
      <Compile Include="Assets\Scripts\bullet.cs" />
      <Compile Include="Assets\Scripts\bullet_2.cs" />
      <Compile Include="Assets\Scripts\climb_ladder.cs" />
@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\HammerFloat.cs" />
      <Compile Include="Assets\Scripts\hands_handler.cs" />
      <Compile Include="Assets\Scripts\hands_handler3.cs" />
+     <Compile Include="Assets\Scripts\head_handler.cs" />
      <Compile Include="Assets\Scripts\HPbarControler.cs" />
      <Compile Include="Assets\Scripts\player_move.cs" />
      <Compile Include="Assets\Scripts\player_move2.cs" />
@@ -94,12 +95,12 @@
      <Compile Include="Assets\Scripts\RockController.cs" />
      <Compile Include="Assets\Scripts\Spider_Controller.cs" />
      <Compile Include="Assets\Scripts\SpiderCollider_Controller.cs" />
+     <Compile Include="Assets\Scripts\stair_layer_handler.cs" />
      <Compile Include="Assets\Scripts\Startmouse_Controller.cs" />
      <Compile Include="Assets\Scripts\startmouseBullet.cs" />
      <Compile Include="Assets\Scripts\StoneController.cs" />
      <Compile Include="Assets\Scripts\SwitchController.cs" />
      <Compile Include="Assets\Scripts\SwitchScene.cs" />
-     <Compile Include="Assets\stair_layer_handler.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/ASUS/Desktop/shimmercity/ShimmerCity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
