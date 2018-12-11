@@ -60,6 +60,12 @@
      <Compile Include="Assets\Scripts\BeltMove.cs" />
      <Compile Include="Assets\Scripts\BGControl.cs" />
      <Compile Include="Assets\Scripts\BloodImage.cs" />
+     <Compile Include="Assets\Scripts\Boss_behavior.cs" />
+     <Compile Include="Assets\Scripts\boss_body.cs" />
+     <Compile Include="Assets\Scripts\Boss_head.cs" />
+     <Compile Include="Assets\Scripts\boss_head_1.cs" />
+     <Compile Include="Assets\Scripts\bullet.cs" />
+     <Compile Include="Assets\Scripts\bullet_2.cs" />
      <Compile Include="Assets\Scripts\climb_ladder.cs" />
      <Compile Include="Assets\Scripts\climb_ladder3.cs" />
      <Compile Include="Assets\Scripts\Deerbug_attackbox.cs" />
