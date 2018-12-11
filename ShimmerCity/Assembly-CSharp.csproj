@@ -53,44 +53,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\add_flying_hammer.cs" />
-     <Compile Include="Assets\align_hammer2.cs" />
-     <Compile Include="Assets\Animation_Event.cs" />
-     <Compile Include="Assets\climb_ladder3.cs" />
-     <Compile Include="Assets\deerbugBullet_control.cs" />
-     <Compile Include="Assets\DeerbugLong_congtroller.cs" />
-     <Compile Include="Assets\Feet_handler2.cs" />
-     <Compile Include="Assets\Feet_handler3.cs" />
-     <Compile Include="Assets\Fpbar_controller.cs" />
-     <Compile Include="Assets\hands_handler3.cs" />
-     <Compile Include="Assets\player_move2.cs" />
-     <Compile Include="Assets\player_move3.cs" />
+     <Compile Include="Assets\Scripts\add_flying_hammer.cs" />
      <Compile Include="Assets\Scripts\align_hammer.cs" />
+     <Compile Include="Assets\Scripts\align_hammer2.cs" />
+     <Compile Include="Assets\Scripts\Animation_Event.cs" />
      <Compile Include="Assets\Scripts\BeltMove.cs" />
      <Compile Include="Assets\Scripts\BGControl.cs" />
      <Compile Include="Assets\Scripts\BloodImage.cs" />
      <Compile Include="Assets\Scripts\climb_ladder.cs" />
+     <Compile Include="Assets\Scripts\climb_ladder3.cs" />
      <Compile Include="Assets\Scripts\Deerbug_attackbox.cs" />
+     <Compile Include="Assets\Scripts\deerbugBullet_control.cs" />
+     <Compile Include="Assets\Scripts\DeerbugLong_congtroller.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\FallenStoneController.cs" />
      <Compile Include="Assets\Scripts\feet_handler.cs" />
+     <Compile Include="Assets\Scripts\Feet_handler2.cs" />
+     <Compile Include="Assets\Scripts\Feet_handler3.cs" />
      <Compile Include="Assets\Scripts\follow_player.cs" />
      <Compile Include="Assets\Scripts\FollowCamera.cs" />
+     <Compile Include="Assets\Scripts\Fpbar_controller.cs" />
      <Compile Include="Assets\Scripts\hammer_handler.cs" />
      <Compile Include="Assets\Scripts\HammerFloat.cs" />
      <Compile Include="Assets\Scripts\hands_handler.cs" />
+     <Compile Include="Assets\Scripts\hands_handler3.cs" />
      <Compile Include="Assets\Scripts\HPbarControler.cs" />
      <Compile Include="Assets\Scripts\player_move.cs" />
+     <Compile Include="Assets\Scripts\player_move2.cs" />
+     <Compile Include="Assets\Scripts\player_move3.cs" />
      <Compile Include="Assets\Scripts\player_sister.cs" />
      <Compile Include="Assets\Scripts\PoisionAttack.cs" />
      <Compile Include="Assets\Scripts\RockController.cs" />
+     <Compile Include="Assets\Scripts\Spider_Controller.cs" />
+     <Compile Include="Assets\Scripts\SpiderCollider_Controller.cs" />
+     <Compile Include="Assets\Scripts\Startmouse_Controller.cs" />
+     <Compile Include="Assets\Scripts\startmouseBullet.cs" />
      <Compile Include="Assets\Scripts\StoneController.cs" />
      <Compile Include="Assets\Scripts\SwitchController.cs" />
      <Compile Include="Assets\Scripts\SwitchScene.cs" />
-     <Compile Include="Assets\Spider_Controller.cs" />
-     <Compile Include="Assets\SpiderCollider_Controller.cs" />
-     <Compile Include="Assets\Startmouse_Controller.cs" />
-     <Compile Include="Assets\startmouseBullet.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/ASUS/Desktop/shimmercity/ShimmerCity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

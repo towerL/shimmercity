@@ -221,7 +221,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15886545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 8.13, z: 0}
+  m_LocalPosition: {x: 2.9, y: 7.83, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 1845389938}
@@ -243,7 +243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vel_x: 4
   vel_x_in_air: 3
-  jumpVelocity: 170
+  push_v: 1.2
+  jumpVelocity: 70
 --- !u!95 &15886551
 Animator:
   serializedVersion: 3
@@ -1061,7 +1062,7 @@ GameObject:
   - component: {fileID: 375680739}
   m_Layer: 0
   m_Name: bottle
-  m_TagString: Untagged
+  m_TagString: bottle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4116,10 +4117,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5697954, y: 0}
+  m_Offset: {x: 0.7556085, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4130,7 +4131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.105243325, y: 1}
+  m_Size: {x: 0.47686946, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1875834141
 GameObject:

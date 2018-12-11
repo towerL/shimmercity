@@ -28,6 +28,7 @@ TagManager:
   - Brick
   - StaticBrick
   - Ladder3_transition
+  - bottle
   layers:
   - Default
   - TransparentFX

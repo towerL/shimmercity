@@ -323,7 +323,7 @@ public class player_move : MonoBehaviour {
 	void SetPush(bool flag){
 		isPush = flag;
 		Vector2 vel = player_rigidbody.velocity;
-		vel.x = 0.0f;
+		vel.x = 0.0f;//???
 		player_rigidbody.velocity = vel;
 		player_animator.SetBool ("isPush",flag);
 	}

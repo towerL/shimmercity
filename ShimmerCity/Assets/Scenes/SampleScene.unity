@@ -4703,7 +4703,7 @@ GameObject:
   - component: {fileID: 1573114358}
   m_Layer: 8
   m_Name: Hammer_for_attack
-  m_TagString: hammer_in_attack
+  m_TagString: hammer_body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6586,7 +6586,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825945725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.08, y: 11.93, z: 0}
+  m_LocalPosition: {x: 21.3, y: 9.75, z: 0}
   m_LocalScale: {x: 0.8537625, y: 0.82796556, z: 0.95734}
   m_Children:
   - {fileID: 1391476212}
