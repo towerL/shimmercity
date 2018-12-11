@@ -107,6 +107,7 @@ public class align_hammer : MonoBehaviour {
 			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 			hammer_animator.Play ("lying_hammer");
 			Debug.Log ("Hit the deerbug!");
+			col.collider.SendMessage ("decreaseHp");
 			//col.gameObject.SendMessage ();
 		}
 	}

@@ -9,6 +9,8 @@ public class player_move3 : MonoBehaviour {
 	public float vel_x=6.0f;
 	public float vel_x_in_air=3.0f;
 	public float push_v = 1.2f;
+	public float ladder_v=0.2f;
+	public float pushmove=70.0f;
 	public float jumpVelocity=170;
 	private Rigidbody2D player_rigidbody;
 	private CapsuleCollider2D player_boxcollider;
@@ -66,10 +68,10 @@ public class player_move3 : MonoBehaviour {
 					player_rigidbody.velocity = vel;
 				} else if ( isLadder && !isGround) {
 					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * 0.2f;
+					pos.x += Time.deltaTime * ladder_v;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = 0.2f;
+					vel.x = ladder_v;
 					player_rigidbody.velocity = vel;
 				} else if(isGround && isPush){
 					Vector3 pos = transform.position;
@@ -79,8 +81,9 @@ public class player_move3 : MonoBehaviour {
 					vel.x = push_v;
 					player_rigidbody.velocity = vel;
 				} else {
+					player_rigidbody.AddForce (Vector2.right * pushmove);
+					float vx = player_rigidbody.velocity.x;
 					Vector2 vel = player_rigidbody.velocity;
-					float vx = Time.deltaTime * vel_x;
 					vel.x = (vx >= vel_x ? vel_x : vx);
 					player_rigidbody.velocity = vel;
 				}
@@ -97,10 +100,10 @@ public class player_move3 : MonoBehaviour {
 					player_rigidbody.velocity = vel;
 				} else if (isLadder && !isGround) {
 					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * 0.2f;
+					pos.x -= Time.deltaTime * ladder_v;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -0.2f;
+					vel.x = -ladder_v;
 					player_rigidbody.velocity = vel;
 				} else if(isGround && isPush){
 					Vector3 pos = transform.position;
@@ -110,8 +113,9 @@ public class player_move3 : MonoBehaviour {
 					vel.x = -push_v;
 					player_rigidbody.velocity = vel;
 				} else {
+					player_rigidbody.AddForce (Vector2.left * pushmove);
+					float vx = Mathf.Abs(player_rigidbody.velocity.x);
 					Vector2 vel = player_rigidbody.velocity;
-					float vx = Time.deltaTime * vel_x;
 					vel.x = -(vx >= vel_x ? vel_x : vx);
 					player_rigidbody.velocity = vel;
 				}
