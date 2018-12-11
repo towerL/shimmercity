@@ -12,7 +12,9 @@ public class align_hammer : MonoBehaviour {
 	private PolygonCollider2D hammer_polygoncollider;
 	private Animator hammer_animator;
 	private SpriteRenderer spriterender;
+
 	public Sprite static_sprite;
+	public Sprite init_sprite;
 
 	private Vector2 beginpos;
 	private Vector2 endpos;
@@ -40,17 +42,35 @@ public class align_hammer : MonoBehaviour {
 	void Update () {
 		if (infurtherattack && inhand && exist) {
 			spriterender.sprite = static_sprite;
-			spriterender.sortingOrder = 0;
-			this.gameObject.AddComponent<Rigidbody2D> ();
+			spriterender.sortingOrder = 3;
+			/*this.gameObject.AddComponent<Rigidbody2D> ();
 			hammer_rigidbody = this.GetComponent<Rigidbody2D> ();
 			hammer_rigidbody.AddForce (Vector2.right * pushmove);
 			hammer_rigidbody.AddForce (Vector2.up * projectilemove);
-		    
 			Rotate = true;
 			inhand = false;
 			infurtherattack = false;
+			*/
+			/*
+			GameObject hammer_cloned = new GameObject ();
+			hammer_cloned.AddComponent<SpriteRenderer> ();
+			SpriteRenderer hammer_sprite = hammer_cloned.GetComponent<SpriteRenderer> ();
+			hammer_sprite.sprite = init_sprite;
+			hammer_sprite.sortingOrder = 4;
+			hammer_cloned.name="hammer_thrown";
+			//hammer_cloned.transform.position = transform.Find ("hammer_in_attack").position;
+			hammer_cloned.AddComponent<PolygonCollider2D> ();
+			PolygonCollider2D hammer_collider = hammer_cloned.GetComponent<PolygonCollider2D> ();
+			hammer_collider.isTrigger = false;
+			hammer_cloned.AddComponent<Rigidbody2D> ();
+			Rigidbody2D hammer_cloned_rigidbody = hammer_cloned.GetComponent<Rigidbody2D> ();
+			hammer_rigidbody.AddForce (Vector2.right * pushmove);
+			hammer_rigidbody.AddForce (Vector2.up * projectilemove);*/
+
+			infurtherattack = false;
 		} 
 		if (incloseattack && inhand && exist) {
+			incloseattack = false;
 			spriterender.sortingOrder = 0;
 		} 
 			
