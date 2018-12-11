@@ -81,7 +81,7 @@ public class player_move3 : MonoBehaviour {
 					vel.x = push_v;
 					player_rigidbody.velocity = vel;
 				} else {
-					player_rigidbody.AddForce (Vector2.right * pushmove);
+					player_rigidbody.AddForce (10*Vector2.right * pushmove);
 					float vx = player_rigidbody.velocity.x;
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = (vx >= vel_x ? vel_x : vx);
@@ -113,7 +113,7 @@ public class player_move3 : MonoBehaviour {
 					vel.x = -push_v;
 					player_rigidbody.velocity = vel;
 				} else {
-					player_rigidbody.AddForce (Vector2.left * pushmove);
+					player_rigidbody.AddForce (10*Vector2.left * pushmove);
 					float vx = Mathf.Abs(player_rigidbody.velocity.x);
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = -(vx >= vel_x ? vel_x : vx);

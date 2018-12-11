@@ -221,12 +221,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15886545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.85, y: 5.86, z: 0}
+  m_LocalPosition: {x: -6.66, y: 7.65, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 1845389938}
   - {fileID: 397472304}
   - {fileID: 1445762051}
+  - {fileID: 1366941170}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -245,7 +246,7 @@ MonoBehaviour:
   vel_x_in_air: 3
   push_v: 1.2
   ladder_v: 0.2
-  pushmove: 120
+  pushmove: 40
   jumpVelocity: 70
 --- !u!95 &15886551
 Animator:
@@ -599,6 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  number: 1
 --- !u!1 &142111372
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +705,7 @@ GameObject:
   - component: {fileID: 175046125}
   - component: {fileID: 175046126}
   - component: {fileID: 175046127}
+  - component: {fileID: 175046128}
   m_Layer: 0
   m_Name: brick (2)
   m_TagString: Brick
@@ -794,6 +797,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.22990507}
   m_EdgeRadius: 0
+--- !u!114 &175046128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175046124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1.4
 --- !u!1 &226073824
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,31 +870,26 @@ Transform:
   m_Father: {fileID: 1425509933}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &292430920
-BoxCollider2D:
+--- !u!50 &292430920
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 292430918}
-  m_Enabled: 1
-  m_Density: 1
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.07152042}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.15, y: 0.38}
-    newSize: {x: 1.15, y: 0.38}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.15, y: 0.23695916}
-  m_EdgeRadius: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!61 &292430921
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -915,6 +925,7 @@ GameObject:
   - component: {fileID: 342697705}
   - component: {fileID: 342697706}
   - component: {fileID: 342697707}
+  - component: {fileID: 342697708}
   m_Layer: 0
   m_Name: brick (11)
   m_TagString: Brick
@@ -929,7 +940,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 342697704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 4.36, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1726230445}
@@ -1006,6 +1017,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &342697708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342697704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2
 --- !u!1 &352839247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1039,7 @@ GameObject:
   - component: {fileID: 352839248}
   - component: {fileID: 352839249}
   - component: {fileID: 352839250}
+  - component: {fileID: 352839251}
   m_Layer: 0
   m_Name: brick (11)
   m_TagString: Brick
@@ -1030,7 +1054,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 352839247}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 4.36, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568088426}
@@ -1107,6 +1131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &352839251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352839247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2.7
 --- !u!1 &375680736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,7 +1214,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 375680736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.38, y: -2.45, z: 0}
+  m_LocalPosition: {x: 2.79, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1251,6 +1287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 385027951}
   - component: {fileID: 385027952}
+  - component: {fileID: 385027953}
   m_Layer: 0
   m_Name: static_brick (4)
   m_TagString: StaticBrick
@@ -1296,6 +1333,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!50 &385027953
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 385027950}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &397472303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 397472304}
+  - component: {fileID: 397472305}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: hammer_in_attack
@@ -1324,6 +1382,31 @@ Transform:
   m_Father: {fileID: 15886549}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &397472305
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 397472303}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.12459132, y: 0.04983683}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.30228978, y: 0.551473}
+  m_EdgeRadius: 0
 --- !u!1 &417946421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1449,7 @@ GameObject:
   - component: {fileID: 465768447}
   - component: {fileID: 465768448}
   - component: {fileID: 465768449}
+  - component: {fileID: 465768450}
   m_Layer: 0
   m_Name: brick (8)
   m_TagString: Brick
@@ -1380,7 +1464,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 465768446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 4.36, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1041071797}
@@ -1457,6 +1541,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &465768450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465768446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1.6
 --- !u!1 &472395920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,6 +1563,7 @@ GameObject:
   - component: {fileID: 472395921}
   - component: {fileID: 472395922}
   - component: {fileID: 472395923}
+  - component: {fileID: 472395924}
   m_Layer: 0
   m_Name: brick (9)
   m_TagString: Brick
@@ -1558,6 +1655,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &472395924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 472395920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 3.1
 --- !u!1 &526958970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,6 +1676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526958971}
   - component: {fileID: 526958972}
+  - component: {fileID: 526958973}
   m_Layer: 0
   m_Name: static_brick
   m_TagString: StaticBrick
@@ -1612,6 +1722,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!50 &526958973
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 526958970}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &556417753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,6 +1752,7 @@ GameObject:
   - component: {fileID: 556417754}
   - component: {fileID: 556417755}
   - component: {fileID: 556417756}
+  - component: {fileID: 556417757}
   m_Layer: 0
   m_Name: brick (6)
   m_TagString: Brick
@@ -1713,6 +1844,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &556417757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 556417753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2.3
 --- !u!1 &601368915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,6 +1866,7 @@ GameObject:
   - component: {fileID: 601368916}
   - component: {fileID: 601368917}
   - component: {fileID: 601368918}
+  - component: {fileID: 601368919}
   m_Layer: 0
   m_Name: brick (3)
   m_TagString: Brick
@@ -1814,6 +1958,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &601368919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601368915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0.7
 --- !u!1 &606650448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,6 +1980,7 @@ GameObject:
   - component: {fileID: 606650449}
   - component: {fileID: 606650450}
   - component: {fileID: 606650451}
+  - component: {fileID: 606650452}
   m_Layer: 0
   m_Name: brick (13)
   m_TagString: Brick
@@ -1838,7 +1995,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 606650448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 3.28, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226073825}
@@ -1915,6 +2072,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &606650452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606650448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0.4
 --- !u!1 &610925754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +2094,7 @@ GameObject:
   - component: {fileID: 610925755}
   - component: {fileID: 610925756}
   - component: {fileID: 610925757}
+  - component: {fileID: 610925758}
   m_Layer: 0
   m_Name: brick (12)
   m_TagString: Brick
@@ -2016,6 +2186,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &610925758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 610925754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0.1
 --- !u!1 &619891310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,6 +2377,7 @@ GameObject:
   - component: {fileID: 693412366}
   - component: {fileID: 693412367}
   - component: {fileID: 693412368}
+  - component: {fileID: 693412369}
   m_Layer: 0
   m_Name: brick (3)
   m_TagString: Brick
@@ -2286,6 +2469,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &693412369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693412365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0.4
 --- !u!1 &710686707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2679,7 @@ GameObject:
   - component: {fileID: 872868587}
   - component: {fileID: 872868588}
   - component: {fileID: 872868589}
+  - component: {fileID: 872868590}
   m_Layer: 0
   m_Name: brick (9)
   m_TagString: Brick
@@ -2575,6 +2771,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &872868590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 872868586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1.8
 --- !u!1 &932959240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1554826830483366, guid: ceeecc0691bdd8c44b4b1ef239f010b7,
@@ -2605,6 +2813,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.280046, y: 0.44845867}
   m_EdgeRadius: 0
+--- !u!114 &932959244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932959240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e7f3e8f8c175f4b931d95966d5d907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &992968597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,7 +2913,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 932959243}
-  ladder_transition: {fileID: 1320270769}
   climbspeed: 5
 --- !u!61 &992968601
 BoxCollider2D:
@@ -2731,6 +2949,7 @@ GameObject:
   - component: {fileID: 1026701941}
   - component: {fileID: 1026701942}
   - component: {fileID: 1026701943}
+  - component: {fileID: 1026701944}
   m_Layer: 0
   m_Name: brick (5)
   m_TagString: Brick
@@ -2745,7 +2964,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1026701940}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.312, y: -0.64, z: 0}
+  m_LocalPosition: {x: 4.36, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2096726350}
@@ -2822,6 +3041,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &1026701944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1026701940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0.7
 --- !u!1 &1041071796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,6 +3219,7 @@ GameObject:
   - component: {fileID: 1306008725}
   - component: {fileID: 1306008726}
   - component: {fileID: 1306008727}
+  - component: {fileID: 1306008728}
   m_Layer: 0
   m_Name: brick (4)
   m_TagString: Brick
@@ -3002,7 +3234,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1306008724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.255, y: -0.64, z: 0}
+  m_LocalPosition: {x: 3.28, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2096726350}
@@ -3079,6 +3311,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &1306008728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306008724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1
 --- !u!1 &1320270767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3143,6 +3387,7 @@ GameObject:
   - component: {fileID: 1345647933}
   - component: {fileID: 1345647934}
   - component: {fileID: 1345647935}
+  - component: {fileID: 1345647936}
   m_Layer: 0
   m_Name: brick (2)
   m_TagString: Brick
@@ -3234,6 +3479,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &1345647936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345647932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1.4
 --- !u!1 &1352107282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,6 +3501,7 @@ GameObject:
   - component: {fileID: 1352107283}
   - component: {fileID: 1352107284}
   - component: {fileID: 1352107285}
+  - component: {fileID: 1352107286}
   m_Layer: 0
   m_Name: brick (4)
   m_TagString: Brick
@@ -3258,7 +3516,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1352107282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 3.28, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1956815720}
@@ -3335,6 +3593,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &1352107286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1352107282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1
 --- !u!1 &1364060773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,6 +3615,7 @@ GameObject:
   - component: {fileID: 1364060774}
   - component: {fileID: 1364060775}
   - component: {fileID: 1364060776}
+  - component: {fileID: 1364060777}
   m_Layer: 0
   m_Name: brick
   m_TagString: Brick
@@ -3436,6 +3707,108 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &1364060777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364060773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1
+--- !u!1 &1366941169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1366941170}
+  - component: {fileID: 1366941171}
+  - component: {fileID: 1366941173}
+  m_Layer: 0
+  m_Name: Head
+  m_TagString: Head
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1366941170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366941169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 15886549}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1366941171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366941169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadf9c96b6bca614189afe26ba6e0c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &1366941173
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366941169}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.6404674, y: 1.5881491}
+      - {x: 0.7515943, y: 1.5562081}
+      - {x: -0.0000047683716, y: 1.5132308}
+      - {x: -0.32441974, y: 1.5557969}
+      - {x: -0.05039811, y: 1.4079028}
+      - {x: 0.037653446, y: 1.5378475}
+      - {x: -0.07200241, y: 1.2777233}
+      - {x: -0.17018914, y: 1.5478975}
+      - {x: -0.6418979, y: 1.5748715}
+      - {x: 0.036337376, y: 1.5135437}
+      - {x: -0.05252123, y: 1.1277974}
+      - {x: -0.020830631, y: -0.21440208}
+      - {x: -0.07139802, y: 0.1653403}
+      - {x: -0.042499304, y: -1.3079453}
+      - {x: -0.019562244, y: -1.3744098}
+      - {x: -0.07126689, y: -0.06740451}
+      - {x: -0.019738674, y: -1.3408256}
+      - {x: -0.035732985, y: -0.10839105}
+      - {x: -0.06340146, y: 0.12621224}
+      - {x: -0.038832426, y: 1.5548128}
+      - {x: -0.097100735, y: 1.4524096}
+      - {x: 0.027872324, y: -0.9803951}
+      - {x: -0.05713582, y: -0.9652871}
+      - {x: -0.05876422, y: 1.3270676}
+      - {x: 0.75171113, y: 1.579839}
 --- !u!1 &1420485282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3445,6 +3818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420485283}
   - component: {fileID: 1420485284}
+  - component: {fileID: 1420485285}
   m_Layer: 0
   m_Name: static_brick (3)
   m_TagString: StaticBrick
@@ -3490,6 +3864,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!50 &1420485285
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1420485282}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1425509932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,6 +4079,7 @@ GameObject:
   - component: {fileID: 1569029907}
   - component: {fileID: 1569029908}
   - component: {fileID: 1569029909}
+  - component: {fileID: 1569029910}
   m_Layer: 0
   m_Name: brick (1)
   m_TagString: Brick
@@ -3776,6 +4171,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &1569029910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569029906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1.2
 --- !u!1001 &1608081992
 Prefab:
   m_ObjectHideFlags: 0
@@ -3819,6 +4226,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212865905869727856, guid: ceeecc0691bdd8c44b4b1ef239f010b7,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 68536425685125270, guid: ceeecc0691bdd8c44b4b1ef239f010b7, type: 2}
@@ -3896,6 +4308,7 @@ GameObject:
   - component: {fileID: 1723684519}
   - component: {fileID: 1723684520}
   - component: {fileID: 1723684521}
+  - component: {fileID: 1723684522}
   m_Layer: 0
   m_Name: brick (1)
   m_TagString: Brick
@@ -3987,6 +4400,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.22990507}
   m_EdgeRadius: 0
+--- !u!114 &1723684522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1723684518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1.2
 --- !u!1 &1726230444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4221,6 +4646,7 @@ GameObject:
   - component: {fileID: 1875834142}
   - component: {fileID: 1875834143}
   - component: {fileID: 1875834144}
+  - component: {fileID: 1875834145}
   m_Layer: 0
   m_Name: brick (14)
   m_TagString: Brick
@@ -4235,7 +4661,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1875834141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 4.36, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226073825}
@@ -4312,6 +4738,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &1875834145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1875834141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0.7
 --- !u!1 &1956815719
 GameObject:
   m_ObjectHideFlags: 0
@@ -4353,6 +4791,7 @@ GameObject:
   - component: {fileID: 1994463854}
   - component: {fileID: 1994463855}
   - component: {fileID: 1994463856}
+  - component: {fileID: 1994463857}
   m_Layer: 0
   m_Name: brick (5)
   m_TagString: Brick
@@ -4367,7 +4806,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1994463853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 4.36, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1956815720}
@@ -4444,6 +4883,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &1994463857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1994463853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1.3
 --- !u!1 &2003337494
 GameObject:
   m_ObjectHideFlags: 0
@@ -4454,6 +4905,7 @@ GameObject:
   - component: {fileID: 2003337495}
   - component: {fileID: 2003337496}
   - component: {fileID: 2003337497}
+  - component: {fileID: 2003337498}
   m_Layer: 0
   m_Name: brick (8)
   m_TagString: Brick
@@ -4468,7 +4920,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2003337494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 4.36, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1169314813}
@@ -4545,6 +4997,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &2003337498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2003337494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2.7
 --- !u!1 &2010091263
 GameObject:
   m_ObjectHideFlags: 0
@@ -4555,6 +5019,7 @@ GameObject:
   - component: {fileID: 2010091264}
   - component: {fileID: 2010091265}
   - component: {fileID: 2010091266}
+  - component: {fileID: 2010091267}
   m_Layer: 0
   m_Name: brick (10)
   m_TagString: Brick
@@ -4569,7 +5034,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2010091263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 3.28, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568088426}
@@ -4646,6 +5111,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &2010091267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2010091263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2.9
 --- !u!1 &2035529597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,6 +5133,7 @@ GameObject:
   - component: {fileID: 2035529598}
   - component: {fileID: 2035529599}
   - component: {fileID: 2035529600}
+  - component: {fileID: 2035529601}
   m_Layer: 0
   m_Name: brick (6)
   m_TagString: Brick
@@ -4747,6 +5225,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &2035529601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035529597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2
 --- !u!1 &2038453172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4756,6 +5246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2038453173}
   - component: {fileID: 2038453174}
+  - component: {fileID: 2038453175}
   m_Layer: 0
   m_Name: static_brick (2)
   m_TagString: StaticBrick
@@ -4801,6 +5292,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!50 &2038453175
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038453172}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &2046903149
 GameObject:
   m_ObjectHideFlags: 0
@@ -4811,6 +5322,7 @@ GameObject:
   - component: {fileID: 2046903150}
   - component: {fileID: 2046903151}
   - component: {fileID: 2046903152}
+  - component: {fileID: 2046903153}
   m_Layer: 0
   m_Name: brick (7)
   m_TagString: Brick
@@ -4825,7 +5337,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2046903149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 3.28, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1041071797}
@@ -4902,6 +5414,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &2046903153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046903149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2.4
 --- !u!1 &2072200215
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,6 +5436,7 @@ GameObject:
   - component: {fileID: 2072200216}
   - component: {fileID: 2072200217}
   - component: {fileID: 2072200218}
+  - component: {fileID: 2072200219}
   m_Layer: 0
   m_Name: brick (10)
   m_TagString: Brick
@@ -4926,7 +5451,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2072200215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 3.28, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1726230445}
@@ -5003,6 +5528,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &2072200219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072200215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1.9
 --- !u!1 &2086355314
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,6 +5550,7 @@ GameObject:
   - component: {fileID: 2086355315}
   - component: {fileID: 2086355316}
   - component: {fileID: 2086355317}
+  - component: {fileID: 2086355318}
   m_Layer: 0
   m_Name: brick (7)
   m_TagString: Brick
@@ -5027,7 +5565,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086355314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -0.6700001, z: 0}
+  m_LocalPosition: {x: 3.28, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1169314813}
@@ -5104,6 +5642,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.23695916}
   m_EdgeRadius: 0
+--- !u!114 &2086355318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086355314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54819b8bacaedf84bb6f99f263c4211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2.5
 --- !u!1 &2096726349
 GameObject:
   m_ObjectHideFlags: 0
