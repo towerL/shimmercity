@@ -371,7 +371,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 28506110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 0.15, z: -10}
+  m_LocalPosition: {x: -0.12, y: 0.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2853,8 +2853,8 @@ ParticleSystemRenderer:
   m_SortingOrder: 4
   m_RenderMode: 0
   m_SortMode: 3
-  m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MinParticleSize: 0.02
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -2941,7 +2941,7 @@ ParticleSystem:
       m_PostInfinity: 2
       m_RotationOrder: 4
   moveWithTransform: 2
-  moveWithCustomTransform: {fileID: 15886549}
+  moveWithCustomTransform: {fileID: 375680738}
   scalingMode: 1
   randomSeed: 0
   InitialModule:
@@ -3003,7 +3003,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3494,7 +3494,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 4
+    type: 10
     angle: 15
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -6649,14 +6649,14 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 1
     textureMode: 0
     ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
-    inheritParticleColor: 1
+    inheritParticleColor: 0
     generateLightingData: 0
     splitSubEmitterRibbons: 0
     colorOverLifetime:
@@ -6725,7 +6725,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6779,7 +6779,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.59230727, g: 0.12677999, b: 0.7264151, a: 0.4}
+      maxColor: {r: 0.7254902, g: 0.22244641, b: 0.1254902, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7415,7 +7415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af88fdd5be83a7d47aeaa84117ed20b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inner: {fileID: 1445762051}
+  inner: {fileID: 375680738}
 --- !u!1 &932959240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1554826830483366, guid: ceeecc0691bdd8c44b4b1ef239f010b7,
