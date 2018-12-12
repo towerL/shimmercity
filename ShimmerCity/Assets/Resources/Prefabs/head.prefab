@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212437910879692546}
   - component: {fileID: 70681728573119646}
   - component: {fileID: 114412065674448192}
+  - component: {fileID: 95321953956797724}
   m_Layer: 0
   m_Name: head
   m_TagString: Boss_head
@@ -37,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1510651185301282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.4, y: -1.58, z: 0}
-  m_LocalScale: {x: 0.489, y: 0.437, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,6 +58,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.3683, y: 1.5705}
   m_Size: {x: 1.5607, y: 3.7605}
   m_Direction: 0
+--- !u!95 &95321953956797724
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510651185301282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 512a76cc3cb4fe844b391801f5451bb6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114412065674448192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d0d80f74826c845be2be87a28ab525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 120
   maxPos_x: 9.28
   maxPos_y: 3.31
   minPos_x: -8.82
@@ -104,8 +124,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -487917325
-  m_SortingLayer: 2
+  m_SortingLayerID: -382734897
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7c2eb21b07cdc048a10b5789767c40a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

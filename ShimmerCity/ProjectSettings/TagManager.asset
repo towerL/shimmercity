@@ -31,6 +31,8 @@ TagManager:
   - bottle
   - Head
   - Particle
+  - Boss_body
+  - Boss_head
   layers:
   - Default
   - TransparentFX
@@ -67,4 +69,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: chactracter
+    uniqueID: 3912232399
     locked: 0

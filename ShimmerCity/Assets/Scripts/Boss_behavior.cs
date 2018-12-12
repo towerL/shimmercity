@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Boss_behavior : MonoBehaviour {
 
-    //public float bullet_speed = 2.0f;
     public int Boss_health = 200;
     public int cur_Bosshealth;
     public float walk_run_dis = 0.1f;
@@ -16,20 +15,17 @@ public class Boss_behavior : MonoBehaviour {
     bool exist_body = false;
     bool exist_head = false;
     float bullet_speed = 2.0f;
-    //int chose_act = 0;
     public float e_timer = 6.0f;
     public float e_timer_1 = 2.0f;
     public float e_timer_2 = 3.0f;
     public float e_timer_3 = 3.0f;
     public float e_timer_4 =1.0f;
     public float change_pos = 4.0f;
+    public int count_down=0;
     Animator e_animator;
     GameObject player;
     GameObject bosshead;
     GameObject bossbody;
-    GameObject bulletpre;
-    //CharacterController e_cc;
-    // Use this for initialization
     void Start ()
     {
         cur_Bosshealth = Boss_health;
@@ -66,6 +62,11 @@ public class Boss_behavior : MonoBehaviour {
         {
             if (isblink)
             {
+                change_pos = 4.0f;
+                e_timer = 6.0f;
+                e_timer_1 = 2.0f;
+                e_timer_2 = 3.0f;
+                e_timer_4 = 1.0f;
                 //this.enabled = true;
                 //e_animator.ResetTrigger("blink");
                 e_animator.SetBool("blink", false);
@@ -116,19 +117,17 @@ public class Boss_behavior : MonoBehaviour {
             }
             if (cur_Bosshealth < 120 && !isblink)
             {
-
-                   
                     Vector3 new_position = this.transform.position;
                     Vector3 new_position_1 = new Vector3(0, 2, 0) + this.transform.position;
                     if (this.transform.localEulerAngles.y == 0)
                     {
-                        bossbody = Instantiate(Resources.Load("prefabs/body"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
-                        bosshead = Instantiate(Resources.Load("prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 0,0))) as GameObject;
+                        bossbody = Instantiate(Resources.Load("Prefabs/body"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+                        bosshead = Instantiate(Resources.Load("Prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 0,0))) as GameObject;
                     }
                     else
                     {
-                        bossbody = Instantiate(Resources.Load("prefabs/body"), new_position, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
-                        bosshead = Instantiate(Resources.Load("prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
+                        bossbody = Instantiate(Resources.Load("Prefabs/body"), new_position, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
+                        bosshead = Instantiate(Resources.Load("Prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
                     }
                 Destroy(gameObject);
             }
@@ -148,7 +147,7 @@ public class Boss_behavior : MonoBehaviour {
             e_timer_1 = 2.0f;
             e_timer_3 = 3.0f;
             e_timer_4 = 1.0f;
-            int chose_act = 0;
+            int chose_act = Random.Range(0, 2); ;
             if (e_timer_2 <= 0)
             {
                 chose_act = Random.Range(0, 2);
@@ -185,26 +184,15 @@ public class Boss_behavior : MonoBehaviour {
                         Vector3 new_position = transform.position + new Vector3(0, 0.5f, 0);
                         GameObject bulletInstance = Instantiate(Resources.Load("prefabs/New Prefab"), new_position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
                         Rigidbody2D bullet_rig = bulletInstance.GetComponent<Rigidbody2D>();
-                        //int far_attack_chose = Random.Range(0, 3);
-                        //  if (far_attack_chose == 0)
                         bullet_rig.velocity = new Vector2(-bullet_speed, 0);
-                        //  if (far_attack_chose == 1)
-                       // bullet_rig.velocity = new Vector2(-bullet_speed, 1);
-                        // if (far_attack_chose == 2)
-                        //bullet_rig.velocity = new Vector2(-bullet_speed, -1);
                     }
                     else
                     {
                         Vector3 new_position = transform.position + new Vector3(0, 0.5f, 0);
                         GameObject bulletInstance = Instantiate(Resources.Load("prefabs/New Prefab"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
                         Rigidbody2D bullet_rig = bulletInstance.GetComponent<Rigidbody2D>();
-                        //int far_attack_chose = Random.Range(0, 3);
-                        //if(far_attack_chose==0)
                         bullet_rig.velocity = new Vector2(bullet_speed, 0);
-                        //if(far_attack_chose==1)
-                      //  bullet_rig.velocity = new Vector2(bullet_speed, 1);
-                        //if(far_attack_chose==2)
-                      //  bullet_rig.velocity = new Vector2(bullet_speed, -1);
+ 
                     }
                     far_attact_in = 1.0f;
                 }
@@ -220,6 +208,7 @@ public class Boss_behavior : MonoBehaviour {
             e_timer_2 = 3.0f;
             e_timer_3 = 3.0f;
             e_timer_4 = 1.0f;
+            far_attact_in = 1.0f;
             e_timer -= Time.deltaTime;
             //Debug.Log(e_timer);
             //e_animator.ResetTrigger("attack_near_1");
@@ -261,7 +250,7 @@ public class Boss_behavior : MonoBehaviour {
                 e_animator.SetTrigger("stay");
                 e_animator.SetTrigger("attack_near_1");
             }
-            if (e_timer <= -0.25)
+            if (e_timer <= -0.3)
                 e_timer = 6.0f;
         }
         if (dis <= 5)
@@ -269,17 +258,12 @@ public class Boss_behavior : MonoBehaviour {
             e_timer = 6.0f;
             e_timer_2 = 3.0f;
             e_timer_3 = 3.0f;
-            //e_animator.SetTrigger("idle_1");
-            //e_animator.SetTrigger("skill_1");
-            //e_animator.SetBool("blink", false);
             e_animator.ResetTrigger("attack_far");
             e_animator.ResetTrigger("attack_near_1");
-            //  e_animator.ResetTrigger("attack_near_2");
             e_animator.ResetTrigger("move");
             e_animator.SetTrigger("stay");
             e_timer_1 = e_timer_1 - Time.deltaTime;
             change_pos = change_pos - Time.deltaTime;
-            Debug.Log(e_timer_1);
             if (e_timer_1 <= 0)
             {
                 e_animator.ResetTrigger("blink");
@@ -297,16 +281,15 @@ public class Boss_behavior : MonoBehaviour {
                 e_animator.ResetTrigger("attack_near_2");
                 e_animator.ResetTrigger("attack_far_1");
                 e_animator.ResetTrigger("move");
-                //e_animator.ReSetTrigger("stay");
                 e_animator.SetBool("blink", true);
                 if (e_timer_4 <= 0)
                 {
-                    //  this.enabled = false;
+                    count_down++;
                     isblink = true;
-                    if (player.transform.position.x <= 0)
-                        this.transform.position = new Vector3(7.63f, -1.81f, 0);        //temp
+                    if (player.transform.position.x <= 5.9)
+                        this.transform.position = new Vector3(13.3506f, -0.6321502f, 0);        //temp
                     else
-                        this.transform.position = new Vector3(-7.88f, -1.81f, 0);       //temp
+                        this.transform.position = new Vector3(-5.59f, -0.36f, 0);       //temp
                     e_timer_4 = 1.0f; 
                 }
                 else
