@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66349d8f69aff54469354b79877119ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet_speed: 2
   Boss_health: 200
   cur_Bosshealth: 0
   walk_run_dis: 0.1
