@@ -41,6 +41,8 @@ public class player_move3 : MonoBehaviour {
 
 	private bool enemy_check=false;
 
+	private GameObject ProtectLayer;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -184,6 +186,23 @@ public class player_move3 : MonoBehaviour {
 
 			if (Input.GetKeyDown (KeyCode.L)) {
 				GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L")) as GameObject;
+				Physics2D.IgnoreCollision (player_boxcollider,skill_hammer.GetComponent<Collider2D>());
+				foreach(Collider2D col in GetComponentsInChildren<Collider2D>())
+					Physics2D.IgnoreCollision (col,skill_hammer.GetComponent<Collider2D>());
+			}
+
+			if (Input.GetKeyDown (KeyCode.U)) {
+				if(!ProtectLayer)
+					ProtectLayer = Instantiate (Resources.Load ("prefabs/Protect")) as GameObject;
+			}
+
+			if (Input.GetKeyDown (KeyCode.I)) {
+				if (ProtectLayer)
+					Destroy (ProtectLayer);
+			}
+
+			if (Input.GetKeyDown (KeyCode.C)) {
+				GameObject win_the_game = Instantiate (Resources.Load ("prefabs/Win")) as GameObject;
 			}
 
 			if (timer && isGround) {

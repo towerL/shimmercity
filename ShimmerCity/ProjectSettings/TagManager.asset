@@ -34,6 +34,7 @@ TagManager:
   - Boss_body
   - Boss_head
   - Skill_L
+  - protect
   layers:
   - Default
   - TransparentFX
@@ -44,7 +45,7 @@ TagManager:
   - 
   - 
   - Collider
-  - 
+  - Boss
   - 
   - 
   - 

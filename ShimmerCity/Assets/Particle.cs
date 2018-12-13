@@ -11,6 +11,7 @@ public class Particle : MonoBehaviour {
 	void Start () {
 		particle = GetComponent<ParticleSystem> ();
 		shape_paticle = particle.shape;
+		inner = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
 	void Update () {
