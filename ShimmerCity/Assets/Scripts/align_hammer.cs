@@ -99,7 +99,7 @@ public class align_hammer : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
-		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" ){
+		/*if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" ){
 			Rotate = false;
 			hit_ground = true;
 			exist = false;
@@ -109,7 +109,7 @@ public class align_hammer : MonoBehaviour {
 			Destroy (this.gameObject.GetComponent<Rigidbody> ());
 			hammer_animator.SetBool ("Rotate",Rotate);
 			hammer_animator.SetBool ("hit_ground",hit_ground);
-		}
+		}*/
 		if (col.collider.tag == "deerbug") {
 			ContactPoint2D contact = col.contacts[0];
 			Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);

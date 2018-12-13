@@ -60,9 +60,9 @@ public class boss_body : MonoBehaviour {
         else
             newposition = this.transform.position + new Vector3(walk_run_dis, 0, 0);
         this.transform.position = Vector3.SmoothDamp(this.transform.position, newposition, ref velocity, speed_hang);
-        if (this.transform.position.x <= -7.63f)
+        if (this.transform.position.x <= -5.45f)
             change_dir = true;
-        if (this.transform.position.x >= 7.63f)
+        if (this.transform.position.x >= 12.72f)
             change_dir = true;
     }
 }

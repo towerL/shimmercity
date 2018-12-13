@@ -6,10 +6,10 @@ public class boss_head_1 : MonoBehaviour {
     GameObject player;
     GameObject bossbody;
     public float HP = 120f;
-    public float maxPos_x = 9.28f;
-    public float maxPos_y = 3.31f;
-    public float minPos_x = -8.82f;
-    public float minPos_y = -4.71f;
+    public float maxPos_x = 20.5f;
+    public float maxPos_y = 9.69f;
+    public float minPos_x = -7.13f;
+    public float minPos_y = -3.98f;
     float attack_in = 2.0f;
     // float timeCounter1;
     //  float timeCounter2;
