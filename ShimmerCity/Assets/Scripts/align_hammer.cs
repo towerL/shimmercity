@@ -32,7 +32,8 @@ public class align_hammer : MonoBehaviour {
 
 	//public GameObject flying_hammer;
 	private float timer_flying_hammer;
-	public static GameObject flying_hammer_instance;
+	//public  GameObject flying_hammer_instance;
+	private bool player_dir;
 
 	void Start () {
 		hammer_animator = this.GetComponent<Animator> ();
@@ -40,6 +41,7 @@ public class align_hammer : MonoBehaviour {
 		spriterender = this.gameObject.GetComponent<SpriteRenderer> ();
 		spriterender.sortingOrder = -2;
 		timer_flying_hammer = Time.time;
+		player_dir = true;
 	}
 		
 	void Update () {
@@ -73,19 +75,23 @@ public class align_hammer : MonoBehaviour {
 			//GameObject.Instantiate (flying_hammer, target.position+new Vector3(0.0f,5.0f,0.0f),Quaternion.identity);	
 			//	timer_flying_hammer = Time.time;
 			//}
-
-			/*flying_hammer_instance=Resources.Load("flying_hammer") as GameObject;
-			Instantiate (flying_hammer_instance);
+			//flying_hammer_instance=Resources.Load("prefabs/flying_hammer") as GameObject;
+			//Instantiate (flying_hammer_instance);
+			GameObject flying_hammer_instance=Instantiate(Resources.Load("prefabs/flying_hammer")) as GameObject;
 			Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
-			flying_hammer_rigidbody.AddForce (Vector2.right *1000);
-			flying_hammer_rigidbody.AddForce (Vector2.up *1000);*/
+			if(player_dir)
+				flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);
+			else
+				flying_hammer_rigidbody.AddForce (-Vector2.right *pushmove);
+			flying_hammer_rigidbody.AddForce (Vector2.up *projectilemove);
+
+			//Debug.Log (flying_hammer_rigidbody.velocity);
 			infurtherattack = false;
 		} 
 		if (incloseattack && inhand && exist) {
 			incloseattack = false;
 			spriterender.sortingOrder = 0;
 		} 
-			
 
 		/*if (!exist) {
 			hammer_animator.Play ("hammer_hit");
@@ -143,6 +149,10 @@ public class align_hammer : MonoBehaviour {
 	void SetHammer(bool flag){
 		inhand = flag;
 		hammer_animator.SetBool ("inhand",inhand);
+	}
+
+	void SetPlayerDir(bool flag){
+		player_dir = flag;
 	}
 
 }

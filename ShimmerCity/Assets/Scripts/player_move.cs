@@ -225,6 +225,10 @@ public class player_move : MonoBehaviour {
 					BroadcastMessage ("SetCloseAttack", false);
 					BroadcastMessage ("SetFurtherAttack", true);
 				}
+				if(player_Scale.x>0.0f)
+					BroadcastMessage ("SetPlayerDir", true);
+				else
+					BroadcastMessage ("SetPlayerDir", false);
 				//isHammer = false;
 			}
 			close_range_attack=(counter_close_range_attack>0.0f?true:false);

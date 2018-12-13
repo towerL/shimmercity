@@ -22,14 +22,14 @@ public class add_flying_hammer : MonoBehaviour {
 		hammer_rigidbody = this.GetComponent<Rigidbody2D> ();
 		spriterender = this.gameObject.GetComponent<SpriteRenderer> ();
 		spriterender.sortingOrder = -2;
+		//hammer_rigidbody.AddForce (-Vector2.right *pushmove);
+		//hammer_rigidbody.AddForce (Vector2.up *projectilemove);
+		//Debug.Log (hammer_rigidbody.velocity.y);
 	}
 
 	void Update () {
 		if (exist) {
 			spriterender.sortingOrder = 3;
-			//flying_hammer_instance=GameObject.Instantiate (flying_hammer, transform.position,Quaternion.identity) as GameObject;	
-			//hammer_rigidbody.AddForce (Vector2.right * pushmove);
-			//hammer_rigidbody.AddForce (Vector2.up * projectilemove);
 			Rotate = true;
 		} else if (!exist) {
 			hammer_animator.Play ("hammer_hit");
@@ -37,6 +37,7 @@ public class add_flying_hammer : MonoBehaviour {
 		}
 		hammer_animator.SetBool ("Rotate",Rotate);
 		hammer_animator.SetBool ("hit_ground",hit_ground);
+		hammer_animator.SetBool ("exist",exist);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
