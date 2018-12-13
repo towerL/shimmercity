@@ -33,6 +33,7 @@ TagManager:
   - Particle
   - Boss_body
   - Boss_head
+  - Skill_L
   layers:
   - Default
   - TransparentFX

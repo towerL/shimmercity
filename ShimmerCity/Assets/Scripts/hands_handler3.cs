@@ -9,13 +9,11 @@ public class hands_handler3 : MonoBehaviour {
 				Vector3 pos = col.transform.position;
 				pos.x += Time.deltaTime * 1.2f;
 				col.transform.position = pos;
-				//Debug.Log ("right!");
 				SendMessageUpwards ("SetPush", true);
 			} else if (col.transform.position.x < this.transform.parent.position.x && Input.GetKey (KeyCode.A)) {
 				Vector3 pos = col.transform.position;
 				pos.x -= Time.deltaTime * 1.2f;
 				col.transform.position = pos;
-				//Debug.Log ("left!");
 				SendMessageUpwards ("SetPush", true);
 			} else {
 				SendMessageUpwards("SetPush",false);

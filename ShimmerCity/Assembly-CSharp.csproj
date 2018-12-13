@@ -101,6 +101,7 @@
      <Compile Include="Assets\Scripts\StoneController.cs" />
      <Compile Include="Assets\Scripts\SwitchController.cs" />
      <Compile Include="Assets\Scripts\SwitchScene.cs" />
+     <Compile Include="Assets\Skill_hammer.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/ASUS/Desktop/shimmercity/ShimmerCity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

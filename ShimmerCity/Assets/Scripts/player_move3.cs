@@ -182,6 +182,10 @@ public class player_move3 : MonoBehaviour {
 				timer = false;
 			}
 
+			if (Input.GetKeyDown (KeyCode.L)) {
+				GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L")) as GameObject;
+			}
+
 			if (timer && isGround) {
 				float delttime = Time.time - start_time;
 				if (delttime > 5.0f) {
