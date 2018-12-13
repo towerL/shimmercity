@@ -35,6 +35,16 @@ public class align_hammer : MonoBehaviour {
 	//public  GameObject flying_hammer_instance;
 	private bool player_dir;
 
+	public Collider2D target_collider;
+	private Vector3 Position;
+	private Quaternion Rotation;
+	private Vector3 Scale;
+	private Vector2 Velocity;
+	private bool getposvalue;
+	private bool getrotvalue;
+	private bool getscavalue;
+	private bool getvelvalue;
+
 	void Start () {
 		hammer_animator = this.GetComponent<Animator> ();
 		hammer_polygoncollider = this.GetComponent<PolygonCollider2D> ();
@@ -42,6 +52,10 @@ public class align_hammer : MonoBehaviour {
 		spriterender.sortingOrder = -2;
 		timer_flying_hammer = Time.time;
 		player_dir = true;
+		getposvalue = false;
+		getrotvalue = false;
+		getscavalue = false;
+		getvelvalue = false;
 	}
 		
 	void Update () {
@@ -75,18 +89,24 @@ public class align_hammer : MonoBehaviour {
 			//GameObject.Instantiate (flying_hammer, target.position+new Vector3(0.0f,5.0f,0.0f),Quaternion.identity);	
 			//	timer_flying_hammer = Time.time;
 			//}
-			//flying_hammer_instance=Resources.Load("prefabs/flying_hammer") as GameObject;
-			//Instantiate (flying_hammer_instance);
-			GameObject flying_hammer_instance=Instantiate(Resources.Load("prefabs/flying_hammer")) as GameObject;
-			Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
-			if(player_dir)
-				flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);
-			else
-				flying_hammer_rigidbody.AddForce (-Vector2.right *pushmove);
-			flying_hammer_rigidbody.AddForce (Vector2.up *projectilemove);
-
-			//Debug.Log (flying_hammer_rigidbody.velocity);
-			infurtherattack = false;
+			if (getposvalue && getrotvalue && getscavalue && getvelvalue) {
+				GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer"), Position,Rotation) as GameObject;
+				Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
+				flying_hammer_transform.localScale = Scale;
+				Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
+				Physics2D.IgnoreCollision (target_collider,flying_hammer_instance.GetComponent<Collider2D>());
+				//flying_hammer_rigidbody.velocity = Velocity;555
+				if(player_dir)
+					flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);
+				else
+					flying_hammer_rigidbody.AddForce (-Vector2.right *pushmove);
+				flying_hammer_rigidbody.AddForce (Vector2.up *projectilemove);
+				getposvalue = false;
+				getrotvalue = false;
+				getscavalue = false;
+				getvelvalue = false;
+				infurtherattack = false;
+			}				
 		} 
 		if (incloseattack && inhand && exist) {
 			incloseattack = false;
@@ -155,4 +175,23 @@ public class align_hammer : MonoBehaviour {
 		player_dir = flag;
 	}
 
+	void SetPos(Vector3 Pos){
+		getposvalue = true;
+		Position = Pos;
+	}
+
+	void SetRot(Quaternion Rot){
+		getrotvalue = true;
+		Rotation = Rot;
+	}
+
+	void SetSca(Vector3 Sca){
+		getscavalue = true;
+		Scale = Sca;
+	}
+
+	void SetVel(Vector2 Vel){
+		getvelvalue = true;
+		Velocity = Vel;
+	}
 }

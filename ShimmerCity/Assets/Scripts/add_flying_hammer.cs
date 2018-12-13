@@ -32,8 +32,8 @@ public class add_flying_hammer : MonoBehaviour {
 			spriterender.sortingOrder = 3;
 			Rotate = true;
 		} else if (!exist) {
-			hammer_animator.Play ("hammer_hit");
-			Destroy (gameObject, 2);
+			//hammer_animator.Play ("hammer_hit");
+			Destroy (gameObject,0.2f);
 		}
 		hammer_animator.SetBool ("Rotate",Rotate);
 		hammer_animator.SetBool ("hit_ground",hit_ground);
@@ -41,8 +41,8 @@ public class add_flying_hammer : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
-		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" ){
-			//Rotate = false;
+		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" || col.collider.tag == "Nail"){
+			Rotate = false;
 			hit_ground = true;
 			exist = false;
 			hammer_animator.SetBool ("Rotate",Rotate);

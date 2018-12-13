@@ -60,11 +60,18 @@ public class player_move : MonoBehaviour {
 	private bool beltflag;
 	private float beltdir;
 
+	GameObject hammer;
+	Transform hammer_transform;
+	Rigidbody2D hammer_rigidbody;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
 		//player_boxcollider = this.GetComponent<BoxCollider2D> ();
 		player_boxcollider=this.GetComponent<CapsuleCollider2D>();
+		hammer_transform = transform.Find("Hammer_for_attack");
+		hammer = GameObject.Find("Hammer_for_attack");
+		hammer_rigidbody = hammer.GetComponent<Rigidbody2D> ();
 		player_Scale = transform.localScale;
 		velocity = player_rigidbody.velocity;
 		player_rigidbody.freezeRotation = true;
@@ -350,6 +357,13 @@ public class player_move : MonoBehaviour {
 	void SetBeltdir(float dir){
 		beltdir = dir;
 		//Debug.Log (beltdir);
+	}
+
+	public void HammerMessage(){
+		hammer.SendMessage ("SetPos",hammer_transform.position);
+		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
+		hammer.SendMessage ("SetRot",hammer_transform.rotation);
+		hammer.SendMessage ("SetSca",hammer_transform.localScale);
 	}
 
 	/*(public void OnCollisionEnter2D(Collision2D col){
