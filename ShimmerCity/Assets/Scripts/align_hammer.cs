@@ -30,13 +30,16 @@ public class align_hammer : MonoBehaviour {
 	//.private bool timer = false;
 	//private float time;
 
-
+	//public GameObject flying_hammer;
+	private float timer_flying_hammer;
+	public static GameObject flying_hammer_instance;
 
 	void Start () {
 		hammer_animator = this.GetComponent<Animator> ();
 		hammer_polygoncollider = this.GetComponent<PolygonCollider2D> ();
 		spriterender = this.gameObject.GetComponent<SpriteRenderer> ();
 		spriterender.sortingOrder = -2;
+		timer_flying_hammer = Time.time;
 	}
 		
 	void Update () {
@@ -66,7 +69,16 @@ public class align_hammer : MonoBehaviour {
 			Rigidbody2D hammer_cloned_rigidbody = hammer_cloned.GetComponent<Rigidbody2D> ();
 			hammer_rigidbody.AddForce (Vector2.right * pushmove);
 			hammer_rigidbody.AddForce (Vector2.up * projectilemove);*/
+			//if (Time.time - timer_flying_hammer > 1.0f) {
+			//GameObject.Instantiate (flying_hammer, target.position+new Vector3(0.0f,5.0f,0.0f),Quaternion.identity);	
+			//	timer_flying_hammer = Time.time;
+			//}
 
+			/*flying_hammer_instance=Resources.Load("flying_hammer") as GameObject;
+			Instantiate (flying_hammer_instance);
+			Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
+			flying_hammer_rigidbody.AddForce (Vector2.right *1000);
+			flying_hammer_rigidbody.AddForce (Vector2.up *1000);*/
 			infurtherattack = false;
 		} 
 		if (incloseattack && inhand && exist) {

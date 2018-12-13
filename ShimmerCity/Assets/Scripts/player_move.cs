@@ -199,7 +199,8 @@ public class player_move : MonoBehaviour {
 			if (isGround && Input.GetKey(KeyCode.J)) {
 				close_range_attack = true;
 				far_distance_attack = false;
-				counter_close_range_attack++;
+				//counter_close_range_attack++;
+				counter_close_range_attack=1;
 				if (counter_far_distance_attack > 0) {
 					attack_transform = true;
 					counter_far_distance_attack = 0;
@@ -210,10 +211,11 @@ public class player_move : MonoBehaviour {
 					BroadcastMessage ("SetFurtherAttack", false);
 				}
 			}
-			if (isGround && Input.GetKey(KeyCode.K)) {
+			if (isGround && Input.GetKeyDown(KeyCode.K)) {
 				far_distance_attack = true;
 				close_range_attack = false;
-				counter_far_distance_attack++;
+				//counter_far_distance_attack++;
+				counter_far_distance_attack=1;
 				if (counter_close_range_attack > 0) {
 					attack_transform = true;
 					counter_close_range_attack = 0;
@@ -223,7 +225,7 @@ public class player_move : MonoBehaviour {
 					BroadcastMessage ("SetCloseAttack", false);
 					BroadcastMessage ("SetFurtherAttack", true);
 				}
-				isHammer = false;
+				//isHammer = false;
 			}
 			close_range_attack=(counter_close_range_attack>0.0f?true:false);
 			far_distance_attack=(counter_far_distance_attack>0.0f?true:false);
@@ -239,7 +241,7 @@ public class player_move : MonoBehaviour {
 				Destroy (gameObject, 2);
 				timer = false;
 			}
-
+				
 			if (isHammer) {
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider);
 			} else {
