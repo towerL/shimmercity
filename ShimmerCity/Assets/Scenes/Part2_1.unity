@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ca5f610eb9b7e43a5f252f72a9eefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_Step: -0.5
+  move_Step: -0.7
 --- !u!95 &150990281
 Animator:
   serializedVersion: 3
@@ -1345,7 +1345,7 @@ Transform:
   m_GameObject: {fileID: 150990279}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 32.58, y: -66.12, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children:
   - {fileID: 816493329}
   m_Father: {fileID: 0}
@@ -11616,7 +11616,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494193528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.05, y: -69.21, z: 0}
+  m_LocalPosition: {x: 27.81, y: -68.86, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1011748115}

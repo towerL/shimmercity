@@ -40,6 +40,8 @@ AnimationClip:
       value: {fileID: 21300000, guid: b3cc6b41f47e63a4db8c8bb7db1ec8ac, type: 3}
     - time: 1
       value: {fileID: 21300000, guid: 3558def3ee703ee4fa280bad43bad161, type: 3}
+    - time: 1.1
+      value: {fileID: 21300000, guid: 62dd914241ee0b649bef763c42577633, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -70,12 +72,13 @@ AnimationClip:
     - {fileID: 21300000, guid: cf54b9a6759bb69488c92c96a22e7a82, type: 3}
     - {fileID: 21300000, guid: b3cc6b41f47e63a4db8c8bb7db1ec8ac, type: 3}
     - {fileID: 21300000, guid: 3558def3ee703ee4fa280bad43bad161, type: 3}
+    - {fileID: 21300000, guid: 62dd914241ee0b649bef763c42577633, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.1
+    m_StopTime: 1.2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -96,6 +99,13 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
+  - time: 0
+    functionName: Spider_Down
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.1
     functionName: Spider_Down
     data: 
@@ -160,6 +170,13 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1
+    functionName: Spider_Up
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1
     functionName: Spider_Up
     data: 
     objectReferenceParameter: {fileID: 0}
