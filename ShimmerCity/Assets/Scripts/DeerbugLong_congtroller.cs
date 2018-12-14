@@ -25,7 +25,7 @@ public class DeerbugLong_congtroller : MonoBehaviour {
 
     public float AttackCD;
 
-    public GameObject Bullet;
+    //public GameObject Bullet;
     bool Ray_toPlayer()
     {
         Vector2 position = transform.position;
@@ -114,6 +114,10 @@ public class DeerbugLong_congtroller : MonoBehaviour {
             }
         }
         //direction = direction * -1;
+    }
+    private void decreaseHP()
+    {
+        _HP--;
     }
     private void Destroy_monster()
     {
