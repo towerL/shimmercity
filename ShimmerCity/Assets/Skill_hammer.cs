@@ -28,7 +28,7 @@ public class Skill_hammer : MonoBehaviour {
 
 	void Update () {	
 		if (stage1){
-			float rotangle = 20.0f * Time.deltaTime;
+			float rotangle = 100.0f * Time.deltaTime;
 			transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, 90.0f), rotangle);
 			angle -= rotangle;
 			if (angle <= 0.0f) {

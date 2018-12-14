@@ -77,15 +77,10 @@ public class climb_ladder : MonoBehaviour {
 			} else if (Input.GetKey (KeyCode.Space)) {
 				col.GetComponent<Rigidbody2D> ().gravityScale = 10;
 				col.SendMessage ("SetInLadder", false);
-			} /*else {
-				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
-				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x/100;
-				velocity.y = 0;
+			} else {
+				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x;
+				velocity.y = 0.0f;;
 				col.GetComponent<Rigidbody2D> ().velocity=velocity;
-			}*/
-			else {
-				col.GetComponent<Rigidbody2D> ().velocity = new Vector3(0.0f,0.0f,0.0f);
-				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 			}
 		}
 		if(col.tag == "Player")

@@ -22,8 +22,9 @@ public class hands_handler : MonoBehaviour {
 			}
 		}
 		if(col.tag == "deerbug"){
-			//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> (), col.GetComponent<PolygonCollider2D>());
+			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> (), col.GetComponent<PolygonCollider2D>());
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), col.GetComponent<PolygonCollider2D>());
+			//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), col.GetComponent<PolygonCollider2D>());
 		}
 	}
 		
@@ -32,8 +33,9 @@ public class hands_handler : MonoBehaviour {
 			SendMessageUpwards("SetPush",false);
 		}
 		if(col.tag == "deerbug"){
-			//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> (), col.GetComponent<PolygonCollider2D>(),false);
+			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> (), col.GetComponent<PolygonCollider2D>(),false);
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), col.GetComponent<PolygonCollider2D>(),false);
+			//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), col.GetComponent<PolygonCollider2D>(),false);
 		}
 	}
 

@@ -183,6 +183,9 @@ public class player_move2 : MonoBehaviour {
 		if(col.collider.tag == "Rock" ){
 			//hp--;
 		}
+		if(col.collider.tag == "stone_stand" ){
+			Physics2D.IgnoreCollision (col.collider,GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> ());
+		}
 
 	}
 
@@ -192,11 +195,16 @@ public class player_move2 : MonoBehaviour {
 			vel.x = 0.0f;
 			player_rigidbody.velocity = vel;
 		}
+		if(col.collider.tag == "stone_stand" ){
+			Physics2D.IgnoreCollision (col.collider,GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> ());
+		}
 
 	}
 
 	public void OnCollisionExit2D(Collision2D col){
-		
+		if(col.collider.tag == "stone_stand" ){
+			Physics2D.IgnoreCollision (col.collider,GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (),false);
+		}
 	}
 
 

@@ -35,6 +35,7 @@ TagManager:
   - Boss_head
   - Skill_L
   - protect
+  - stone_stand
   layers:
   - Default
   - TransparentFX

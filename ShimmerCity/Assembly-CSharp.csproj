@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\bottle_handler.cs" />
      <Compile Include="Assets\fpbarUI_Control.cs" />
+     <Compile Include="Assets\ignore_ground.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\changepicture.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\fadein_out.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\Loadprogress.cs" />

@@ -185,10 +185,12 @@ public class player_move3 : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown (KeyCode.L)) {
-				GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L")) as GameObject;
-				Physics2D.IgnoreCollision (player_boxcollider,skill_hammer.GetComponent<Collider2D>());
-				foreach(Collider2D col in GetComponentsInChildren<Collider2D>())
-					Physics2D.IgnoreCollision (col,skill_hammer.GetComponent<Collider2D>());
+				for (int i = 1; i <= 2; i++) {
+					GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L")) as GameObject;
+					Physics2D.IgnoreCollision (player_boxcollider, skill_hammer.GetComponent<Collider2D> ());
+					foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
+						Physics2D.IgnoreCollision (col, skill_hammer.GetComponent<Collider2D> ());
+				}
 			}
 
 			if (Input.GetKeyDown (KeyCode.U)) {
