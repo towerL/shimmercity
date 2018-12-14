@@ -43,10 +43,9 @@ public class Fpbar_controller : MonoBehaviour {
             animator.SetTrigger("SetFull");
         }
         Vector3 _pos;
-        _pos.x = target.transform.position.x + 14.2f;
-        _pos.y = target.transform.position.y + 8f;
-        _pos.z = target.transform.position.z + 1;
-
+        _pos.x = target.transform.position.x - 11.8f;
+        _pos.y = target.transform.position.y + 7.6f;
+        _pos.z = target.transform.position.z + 1 ;
         this.transform.position = _pos;
     }
     private void Animation_Event_Function()
