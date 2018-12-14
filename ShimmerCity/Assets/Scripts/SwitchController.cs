@@ -6,11 +6,12 @@ public class SwitchController : MonoBehaviour
 {
     public GameObject objPrefab;
     private Animator door_ani;
-
+    private bool cancel;
     public static bool bIsgetHammer;
     private void Start()
     {
         bIsgetHammer = false;
+        cancel = false;
         //InvokeRepeating("AddDeerbugPrefab",0,5.0f);
     }
 
@@ -21,7 +22,13 @@ public class SwitchController : MonoBehaviour
             //Invoke("AddDeerbugPrefab", 10.0f);
             bIsgetHammer = false;
             Deerbug_attackbox.bisGethammer = true;
-            InvokeRepeating("AddDeerbugPrefab",0,5.0f); 
+            this.InvokeRepeating("AddDeerbugPrefab",0,5.0f); 
+        }
+        if(cancel == true)
+        {
+            this.CancelInvoke("AddDeerbugPrefab");
+            cancel = false;
+            
         }
     }
     private void AddDeerbugPrefab()
@@ -38,6 +45,11 @@ public class SwitchController : MonoBehaviour
         {
             var door = GameObject.Find("door1");
             door.GetComponent<Animator>().SetBool("IsDoorOpen", false);
+            
+            Debug.Log("取消出现怪物");
+            cancel = true;
+
+
         }
     }
 }

@@ -7,7 +7,7 @@ public class Deerbug_attackbox : MonoBehaviour {
     //方向
     private int direction = 1;
 
-    public Transform target;
+    private Transform target;
 
     private GameObject curTraget, lastTraget;
 
@@ -66,7 +66,7 @@ public class Deerbug_attackbox : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "hammer_in_attack" || collision.collider.tag == "Player")
+        if (collision.collider.tag == "hammer_in_attack" /*|| collision.collider.tag == "Player"*/)
         {
             decreaseHp();
             

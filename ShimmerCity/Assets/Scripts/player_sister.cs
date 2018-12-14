@@ -8,7 +8,9 @@ public class player_sister : MonoBehaviour {
             //Debug.Log ("get the sister!");
             Fpbar_controller.bisAcquire_sister = true;
             col.SendMessage ("SetSister",true);
-			Destroy(this.gameObject);
+            UIBGAddSister_Control.Instance.setActive();
+
+            Destroy(this.gameObject);
 		}
 	}
 
