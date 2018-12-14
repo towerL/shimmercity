@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UI_fadein_out : MonoBehaviour
 {
-
     private float alpha = 0.0f;
     private float alphaSpeed = 2.0f;
 
@@ -12,7 +11,7 @@ public class UI_fadein_out : MonoBehaviour
 
     IEnumerator WaitAndPrint()
     {
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(3);
         print("WaitAndPrint " + Time.time);
     }
     IEnumerator Start()

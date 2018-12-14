@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 4e0d4acfae97b8e4bab06f5cd19198d8
   - enabled: 1
+    path: Assets/Scenes/SettingScene.unity
+    guid: eff37b36e0ad1554c88f5c2b44e3a1c0
+  - enabled: 1
     path: Assets/Scenes/IntroScene.unity
     guid: 2dea9272f90bc9942b6b4e7876a03957
   - enabled: 1
@@ -20,6 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PresenScene.unity
     guid: 24a976922c8d1bd4db9f6ac6b1a91b8f
+  - enabled: 1
+    path: Assets/Scenes/WorkAlloScene.unity
+    guid: 592a278313613864091c1eba9fa5bdb6
+  - enabled: 1
+    path: Assets/Scenes/WorkAlloScene2.unity
+    guid: 1f914d6dab93d5f4f919cb1b971448fb
+  - enabled: 1
+    path: Assets/Scenes/WorkAlloScene3.unity
+    guid: 842eeee1c36f00a4093198b8eb11a1e7
+  - enabled: 1
+    path: Assets/Scenes/OppoScene.unity
+    guid: 4df3f27ea1ccd794f83f2349f8de414c
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
