@@ -14,13 +14,25 @@ public class Startmouse_Controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(_HP <= 0)
+        {
+            GetComponent<Animator>().SetTrigger("SetDie");
+            Invoke("SetDie", 0.5f);
+        }
 	}
+    private void SetDie()
+    {
+        Destroy(this.gameObject);
+    }
     void loadBullet()
     {
         GameObject mPrefab = (MonoBehaviour.Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity) as GameObject);
         mPrefab.GetComponent<SpriteRenderer>().sortingOrder = 5;
         mPrefab.transform.position = transform.position;
         mPrefab.SendMessage("SetDirection", direction);
+    }
+    private void decreaseHP()
+    {
+        _HP--;
     }
 }
