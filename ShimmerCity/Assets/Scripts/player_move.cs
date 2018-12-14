@@ -110,14 +110,14 @@ public class player_move : MonoBehaviour {
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = 6.0f;
 					player_rigidbody.velocity = vel;
-				} else if ( isLadder && !isGround) {
+				} /*else if ( isLadder && !isGround) {
 					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * 0.2f;
+					pos.x += 0;//Time.deltaTime * 0.2f;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = 0.2f;
+					vel.x = 0;//p00.2f;;
 					player_rigidbody.velocity = vel;
-				}
+				}*/
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				now_direction = direction.right_dir;
@@ -146,14 +146,14 @@ public class player_move : MonoBehaviour {
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = -6.0f;
 					player_rigidbody.velocity = vel;
-				} else if (isLadder && !isGround) {
+				} /*else if (isLadder && !isGround) {
 					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * 0.2f;
+					pos.x -= 0;//Time.deltaTime * 0.2f;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -0.2f;
+					vel.x = 0;//-0.2f;
 					player_rigidbody.velocity = vel;
-				}
+				}*/
 				player_Scale.x = -Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				now_direction = direction.left_dir;
@@ -179,7 +179,8 @@ public class player_move : MonoBehaviour {
 			}
 				
 			if (isLadder) {
-				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.D))
+				//if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.D))
+				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))
 					player_animator.speed = 1.0f;
 				else
 					player_animator.speed = 0.0f;

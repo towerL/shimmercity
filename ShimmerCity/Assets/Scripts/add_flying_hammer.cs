@@ -41,7 +41,7 @@ public class add_flying_hammer : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
-		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" || col.collider.tag == "Nail"){
+		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" || col.collider.tag == "Nail" || col.collider.tag == "Locker_sister" ){
 			Rotate = false;
 			hit_ground = true;
 			exist = false;

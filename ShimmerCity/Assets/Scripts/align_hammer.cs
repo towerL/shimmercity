@@ -122,10 +122,15 @@ public class align_hammer : MonoBehaviour {
 		hammer_animator.SetBool ("incloseattack",incloseattack);
 		hammer_animator.SetBool ("infurtherattack",infurtherattack);
 		hammer_animator.SetBool ("inhand",inhand);
+		hammer_animator.SetBool ("getposval",getposvalue);
+		hammer_animator.SetBool ("getrotval",getrotvalue);
+		hammer_animator.SetBool ("getscaval",getscavalue);
+		hammer_animator.SetBool ("getvelval",getvelvalue);
+		hammer_animator.SetBool ("exist",exist);
 	}
-
+	/*
 	public void OnCollisionEnter2D(Collision2D col){
-		/*if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" ){
+		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" ){
 			Rotate = false;
 			hit_ground = true;
 			exist = false;
@@ -135,7 +140,7 @@ public class align_hammer : MonoBehaviour {
 			Destroy (this.gameObject.GetComponent<Rigidbody> ());
 			hammer_animator.SetBool ("Rotate",Rotate);
 			hammer_animator.SetBool ("hit_ground",hit_ground);
-		}*/
+		}
 		if (col.collider.tag == "deerbug") {
 			ContactPoint2D contact = col.contacts[0];
 			Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
@@ -154,7 +159,7 @@ public class align_hammer : MonoBehaviour {
 		if (col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt") {
 			exist = false;
 		}
-	}
+	}*/
 
 	void SetCloseAttack(bool flag){
 		incloseattack = flag;
@@ -178,20 +183,24 @@ public class align_hammer : MonoBehaviour {
 	void SetPos(Vector3 Pos){
 		getposvalue = true;
 		Position = Pos;
+		hammer_animator.SetBool ("getposval",getposvalue);
 	}
 
 	void SetRot(Quaternion Rot){
 		getrotvalue = true;
 		Rotation = Rot;
+		hammer_animator.SetBool ("getrotval",getrotvalue);
 	}
 
 	void SetSca(Vector3 Sca){
 		getscavalue = true;
 		Scale = Sca;
+		hammer_animator.SetBool ("getscaval",getscavalue);
 	}
 
 	void SetVel(Vector2 Vel){
 		getvelvalue = true;
 		Velocity = Vel;
+		hammer_animator.SetBool ("getvelval",getvelvalue);
 	}
 }

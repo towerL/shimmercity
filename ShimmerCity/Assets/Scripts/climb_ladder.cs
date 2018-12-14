@@ -33,50 +33,60 @@ public class climb_ladder : MonoBehaviour {
 		now_below = (player_boxcollider_y < ladder_transition_y ? true : false);
 		if (col.tag == "Player" && climb) {
 			if (Input.GetKey (KeyCode.W)) {
+				Vector3 posplayer = player_boxcollider.position;
+				posplayer.x = ladder_transition.position.x;
+				player_boxcollider.position = posplayer;
 				//Debug.Log ("climb up!");
 				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x;
 				velocity.y = climbspeed;
-				col.GetComponent<Rigidbody2D> ().velocity=velocity;
-				Physics2D.IgnoreCollision (col.GetComponent<Collider2D>(),target);
+				col.GetComponent<Rigidbody2D> ().velocity = velocity;
+				Physics2D.IgnoreCollision (col.GetComponent<Collider2D> (), target);
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), target);
 				//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), target);
 				//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<PolygonCollider2D> (), target);
-				if(used_below && !now_below){
+				if (used_below && !now_below) {
 					Vector3 pos = player_boxcollider.position;
 					pos.y += 1.4f;
 					player_boxcollider.position = pos;
 				}
-				col.SendMessage ("SetInLadder",true);
+				col.SendMessage ("SetInLadder", true);
 			} else if (Input.GetKey (KeyCode.S)) {
 				//Debug.Log ("climb down!");
+				Vector3 posplayer = player_boxcollider.position;
+				posplayer.x = ladder_transition.position.x;
+				player_boxcollider.position = posplayer;
 				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x;
 				velocity.y = -climbspeed;
-				col.GetComponent<Rigidbody2D> ().velocity=velocity;
-				Physics2D.IgnoreCollision (col.GetComponent<Collider2D>(),target);
+				col.GetComponent<Rigidbody2D> ().velocity = velocity;
+				Physics2D.IgnoreCollision (col.GetComponent<Collider2D> (), target);
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), target);
 				//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), target);
 				//Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), this.GetComponent<Collider2D> ());
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<PolygonCollider2D> (), target);
-				if(!used_below && (player_boxcollider_y>=ladder_transition_y+1.5f)){
+				if (!used_below && (player_boxcollider_y >= ladder_transition_y + 1.5f)) {
 					Vector3 pos = player_boxcollider.position;
 					pos.y -= 1.4f;
 					player_boxcollider.position = pos;
 				}
-				col.SendMessage ("SetInLadder",true);
-			} else if(Input.GetKey(KeyCode.Space)){
+				col.SendMessage ("SetInLadder", true);
+			} else if (Input.GetKey (KeyCode.Space)) {
 				col.GetComponent<Rigidbody2D> ().gravityScale = 10;
-				col.SendMessage ("SetInLadder",false);
+				col.SendMessage ("SetInLadder", false);
 			} /*else {
 				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x/100;
 				velocity.y = 0;
 				col.GetComponent<Rigidbody2D> ().velocity=velocity;
 			}*/
+			else {
+				col.GetComponent<Rigidbody2D> ().velocity = new Vector3(0.0f,0.0f,0.0f);
+				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
+			}
 		}
 		if(col.tag == "Player")
 			used_below = now_below;
