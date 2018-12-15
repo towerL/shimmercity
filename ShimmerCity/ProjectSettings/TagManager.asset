@@ -36,6 +36,11 @@ TagManager:
   - Skill_L
   - protect
   - stone_stand
+  - boss
+  - b0ss_hand
+  - boss_tentacle
+  - bullet_1
+  - bullet_2
   layers:
   - Default
   - TransparentFX
