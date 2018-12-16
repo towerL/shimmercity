@@ -1357,7 +1357,6 @@ MonoBehaviour:
   cur_Bosshealth: 0
   walk_run_dis: 0.1
   far_attact_in: 1
-  isdeath: 0
   isfreeze: 0
   e_timer: 6
   e_timer_1: 2

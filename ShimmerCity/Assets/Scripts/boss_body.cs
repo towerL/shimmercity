@@ -7,6 +7,7 @@ public class boss_body : MonoBehaviour {
 
     GameObject player;
     GameObject boss_head;
+    GameObject dead_boss;
     public float HP = 120f;
     bool head_connect = false;
     bool pl_isground = false;
@@ -23,23 +24,38 @@ public class boss_body : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Vector3 new_position;
-        if (this.transform.localEulerAngles.y == 0)
-            new_position = this.transform.position + new Vector3(-2, 0, 0);
-        else
-            new_position = this.transform.position + new Vector3(2, 0, 0);
 
-        if (timer <= 0)
+        if (HP > 0)
         {
-            GameObject bullet;
+            Vector3 new_position;
             if (this.transform.localEulerAngles.y == 0)
-                bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                new_position = this.transform.position + new Vector3(-2, 0, 0);
             else
-                bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
-            timer = 5.0f;
+                new_position = this.transform.position + new Vector3(2, 0, 0);
+
+            if (timer <= 0)
+            {
+                GameObject bullet;
+                if (this.transform.localEulerAngles.y == 0)
+                    bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                else
+                    bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
+                timer = 5.0f;
+            }
+            timer = timer - Time.deltaTime;
+            move();
         }
-        timer = timer - Time.deltaTime;
-        move();
+        else
+        {
+            Vector3 new_position;
+            new_position = this.transform.position;
+            if (this.transform.localEulerAngles.y == 0)
+                dead_boss = Instantiate(Resources.Load("prefabs/dead_boss_1"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+            else
+                dead_boss = Instantiate(Resources.Load("prefabs/dead_boss_1"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
+            Destroy(boss_head);
+            Destroy(gameObject);
+        }
     }
     void move()
     {

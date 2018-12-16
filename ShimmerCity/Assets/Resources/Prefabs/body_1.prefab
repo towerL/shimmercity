@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 70084741168156558}
   - component: {fileID: 114617631661268396}
   - component: {fileID: 95601453427620722}
-  m_Layer: 0
-  m_Name: body
+  m_Layer: 9
+  m_Name: body_1
   m_TagString: Boss_body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

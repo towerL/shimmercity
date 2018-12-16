@@ -8,7 +8,6 @@ public class Boss_behavior : MonoBehaviour {
     public int cur_Bosshealth;
     public float walk_run_dis = 0.1f;
     public double far_attact_in = 1.0;
-    public bool isdeath = false;
     public bool isfreeze = false;
     bool isblink = false;
     float dis;
@@ -38,16 +37,7 @@ public class Boss_behavior : MonoBehaviour {
 	void Update ()
     {
         dis = Vector2.Distance(this.transform.position, player.transform.position);
-        if(cur_Bosshealth>0)
-        {
-            Activity();
-        }
-        else if(isdeath)
-        {
-            e_animator.SetTrigger("die");
-            isdeath = true;
-        }
-
+        Activity();
 	}
 
     void Activity()
@@ -121,19 +111,22 @@ public class Boss_behavior : MonoBehaviour {
                     Vector3 new_position_1 = new Vector3(0, 2, 0) + this.transform.position;
                     if (this.transform.localEulerAngles.y == 0)
                     {
-                        bossbody = Instantiate(Resources.Load("Prefabs/body"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+                        bossbody = Instantiate(Resources.Load("Prefabs/body_1"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
                         bosshead = Instantiate(Resources.Load("Prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 0,0))) as GameObject;
                     }
                     else
                     {
-                        bossbody = Instantiate(Resources.Load("Prefabs/body"), new_position, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
+                        bossbody = Instantiate(Resources.Load("Prefabs/body_1"), new_position, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
                         bosshead = Instantiate(Resources.Load("Prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
                     }
                 Destroy(gameObject);
             }
         }
-    }
+        else
+        {
 
+        }
+    }
 
     void stage1_behavior()
     {
@@ -297,4 +290,6 @@ public class Boss_behavior : MonoBehaviour {
             }
         }
     }
+
+
 }
