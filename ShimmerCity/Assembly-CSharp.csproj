@@ -105,6 +105,8 @@
      <Compile Include="Assets\Scripts\hands_handler3.cs" />
      <Compile Include="Assets\Scripts\head_handler.cs" />
      <Compile Include="Assets\Scripts\HPbarControler.cs" />
+     <Compile Include="Assets\Scripts\ice_bottle.cs" />
+     <Compile Include="Assets\Scripts\Liightning.cs" />
      <Compile Include="Assets\Scripts\player_move.cs" />
      <Compile Include="Assets\Scripts\player_move2.cs" />
      <Compile Include="Assets\Scripts\player_move3.cs" />

@@ -19,12 +19,14 @@ public class Boss_behavior : MonoBehaviour {
     public float e_timer_2 = 3.0f;
     public float e_timer_3 = 3.0f;
     public float e_timer_4 =1.0f;
+    public float e_timer_5 = 5.0f;
     public float change_pos = 4.0f;
     public int count_down=0;
     Animator e_animator;
     GameObject player;
     GameObject bosshead;
     GameObject bossbody;
+    GameObject ice;
     void Start ()
     {
         cur_Bosshealth = Boss_health;
@@ -50,6 +52,12 @@ public class Boss_behavior : MonoBehaviour {
             this.transform.localEulerAngles = new Vector3(0, 0, 0);
         if (!isfreeze)
         {
+            if(count_down==1)
+            {
+                Destroy(ice);
+                count_down = 0;
+            }
+
             if (isblink)
             {
                 change_pos = 4.0f;
@@ -124,7 +132,22 @@ public class Boss_behavior : MonoBehaviour {
         }
         else
         {
-
+            if(count_down==0)
+            {
+                Vector3 new_position;
+                new_position = this.transform.position;
+                if (this.transform.localEulerAngles.y == 0)
+                    ice = Instantiate(Resources.Load("prefabs/iceblock_1"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                else
+                    ice = Instantiate(Resources.Load("prefabs/iceblock_1"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
+                count_down++;
+            }
+            if(e_timer_5<=0)
+            {
+                e_timer_5 = 5.0f;
+                isfreeze = false;
+            }
+            e_timer_5 = e_timer_5 - Time.deltaTime;
         }
     }
 
@@ -277,7 +300,6 @@ public class Boss_behavior : MonoBehaviour {
                 e_animator.SetBool("blink", true);
                 if (e_timer_4 <= 0)
                 {
-                    count_down++;
                     isblink = true;
                     if (player.transform.position.x <= 5.9)
                         this.transform.position = new Vector3(13.3506f, -0.6321502f, 0);        //temp
@@ -288,6 +310,14 @@ public class Boss_behavior : MonoBehaviour {
                 else
                     e_timer_4 = e_timer_4 - Time.deltaTime;
             }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag=="icebottle")
+        {
+            isfreeze = true;
         }
     }
 

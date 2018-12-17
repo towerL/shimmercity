@@ -41,6 +41,7 @@ TagManager:
   - boss_tentacle
   - bullet_1
   - bullet_2
+  - icebottle
   layers:
   - Default
   - TransparentFX
@@ -52,9 +53,9 @@ TagManager:
   - 
   - Collider
   - Boss
-  - 
-  - 
-  - 
+  - Player
+  - icebottle
+  - lightning
   - 
   - 
   - 
@@ -80,4 +81,7 @@ TagManager:
     locked: 0
   - name: chactracter
     uniqueID: 3912232399
+    locked: 0
+  - name: iceblock
+    uniqueID: 92919639
     locked: 0
