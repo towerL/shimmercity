@@ -14,18 +14,27 @@ public class UI_sister : MonoBehaviour {
     private Transform tx;
     Vector3 sister_postion;
     bool visible = true;
+
+    //有无锤子
+    bool hasHammer;
+
+    //是否第一次进入
+    bool hasEnter = true;
+    IEnumerator WaitAndPrint()
+    {
+        yield return new WaitForSeconds(1.5f);
+        print("WaitAndPrint " + Time.time);
+    }
+
     void Start()
     {
+        var player = GameObject.Find("Player");
+        hasHammer = player.GetComponent<Animator>().GetBool("isHammer");
         if (!theCamera)
         {
             theCamera = Camera.main;
         }
         tx = theCamera.transform;
-    }
-
-	public void OnBecameVisible()
-    {
-
     }
 
     //fade脚本
@@ -73,6 +82,22 @@ public class UI_sister : MonoBehaviour {
         var OK = GameObject.Find("S1-3_4OK");
         OK.GetComponent<onclickdestroy>().MouseExit();
     }
+    void myfun4(BaseEventData eventData)
+    {
+        var OK = GameObject.Find("S1-5-4OK");
+        OK.GetComponent<onclickdestroy>().MouseClick();
+    }
+
+    void myfun5(BaseEventData eventData)
+    {
+        var OK = GameObject.Find("S1-5-4OK");
+        OK.GetComponent<onclickdestroy>().MouseEnter();
+    }
+    void myfun6(BaseEventData eventData)
+    {
+        var OK = GameObject.Find("S1-5-4OK");
+        OK.GetComponent<onclickdestroy>().MouseExit();
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -115,5 +140,57 @@ public class UI_sister : MonoBehaviour {
             visible = false;
         }
 	}
+
+    IEnumerator OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            if (hasHammer && hasEnter) {
+                var bg1_4 = GameObject.Find("S1-4_1bg_box");
+                var sister_box1_4 = GameObject.Find("S1-4_2sister_box");
+                bg1_4.AddComponent<fadein_out>();
+                setPara(bg1_4, 2.0f, 0.0f, true);
+                sister_box1_4.AddComponent<fadein_out>();
+                setPara(sister_box1_4, 2.0f, 0.3f, true);
+
+                yield return StartCoroutine("WaitAndPrint");
+
+                bg1_4.AddComponent<remove>();
+                setPara2(bg1_4, 2.0f);
+
+                sister_box1_4.AddComponent<remove>();
+                setPara2(sister_box1_4, 2.0f);
+
+                hasEnter = false;
+                Destroy(this.gameObject);
+            }
+
+            if (!hasHammer && hasEnter) {
+                var bg1_5 = GameObject.Find("S1-5_1bg_box");
+                var sister_box1_5 = GameObject.Find("S1-5_2sister_box");
+                var words1_5 = GameObject.Find("S1-5_3words");
+                var OK1_5 = GameObject.Find("S1-5-4OK");
+                bg1_5.AddComponent<fadein_out>();
+                setPara(bg1_5, 2.0f, 0.0f, true);
+
+                sister_box1_5.AddComponent<fadein_out>();
+                setPara(sister_box1_5, 2.0f, 0.3f, true);
+
+                words1_5.AddComponent<fadein_out>();
+                setPara(words1_5, 2.0f, 0.8f, true);
+
+                OK1_5.AddComponent<fadein_out>();
+                setPara(OK1_5, 2.0f, 1.1f, true);
+
+                var btn = GameObject.Find("Button_ok2");
+                EventTrigger trigger = btn.GetComponent<EventTrigger>();
+                AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun4);
+                AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun5);
+                AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun6);
+                hasEnter = false;
+            }
+
+        }
+    }
 
 }

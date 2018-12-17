@@ -10,7 +10,7 @@ public class player_sister : MonoBehaviour {
             col.SendMessage ("SetSister",true);
             UIBGAddSister_Control.Instance.setActive();
 
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
 		}
 	}
 
