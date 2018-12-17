@@ -43,6 +43,15 @@ public class player_move3 : MonoBehaviour {
 
 	private GameObject ProtectLayer;
 
+	public float skill_time;
+	private float timer_for_skill;
+	private bool timer_for_triple;
+	private int skill_counter;
+
+	GameObject hammer;
+	Transform hammer_transform;
+	Rigidbody2D hammer_rigidbody;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -52,15 +61,21 @@ public class player_move3 : MonoBehaviour {
 		player_rigidbody.freezeRotation = true;
 		counter_close_range_attack = 0;
 		counter_far_distance_attack = 0;
+		hammer_transform = transform.Find("Hammer_for_attack");
+		hammer = GameObject.Find("Hammer_for_attack");
+		hammer_rigidbody = hammer.GetComponent<Rigidbody2D> ();
 		start_time = Time.time;
+		timer_for_skill = Time.time;
+		timer_for_triple = false;
+		skill_counter = 0;
 	}
 
 	void Update () {
-		float h=Input.GetAxis("Horizontal");
+		//float h=Input.GetAxis("Horizontal");
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
-			if (h > 0.01f) {
+			if (Input.GetKey(KeyCode.D)) {
 				if (!isLadder && !isGround && speed_up) {
 					Vector3 pos = transform.position;
 					pos.x += Time.deltaTime * vel_x_in_air;
@@ -92,7 +107,7 @@ public class player_move3 : MonoBehaviour {
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				timer = false;
-			} else if (h < -0.01f) {
+			} else if (Input.GetKey(KeyCode.A)) {
 				if (!isLadder && !isGround && speed_up) {
 					Vector3 pos = transform.position;
 					pos.x -= Time.deltaTime * vel_x_in_air;
@@ -145,10 +160,11 @@ public class player_move3 : MonoBehaviour {
 				timer = false;
 			}
 
+			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider);
 			if (isGround && Input.GetKey(KeyCode.J)) {
 				close_range_attack = true;
 				far_distance_attack = false;
-				counter_close_range_attack++;
+				counter_close_range_attack=1;
 				if (counter_far_distance_attack > 0) {
 					attack_transform = true;
 					counter_far_distance_attack = 0;
@@ -157,10 +173,10 @@ public class player_move3 : MonoBehaviour {
 				BroadcastMessage ("SetCloseAttack", true);
 				BroadcastMessage ("SetFurtherAttack", false);
 			}
-			if (isGround && Input.GetKey(KeyCode.K)) {
+			if (isGround && Input.GetKeyDown(KeyCode.K)) {
 				far_distance_attack = true;
 				close_range_attack = false;
-				counter_far_distance_attack++;
+				counter_far_distance_attack=1;
 				if (counter_close_range_attack > 0) {
 					attack_transform = true;
 					counter_close_range_attack = 0;
@@ -168,6 +184,10 @@ public class player_move3 : MonoBehaviour {
 				timer = false;
 				BroadcastMessage ("SetCloseAttack", false);
 				BroadcastMessage ("SetFurtherAttack", true);
+				if(player_Scale.x>0.0f)
+					BroadcastMessage ("SetPlayerDir", true);
+				else
+					BroadcastMessage ("SetPlayerDir", false);
 			}
 			close_range_attack=(counter_close_range_attack>0.0f?true:false);
 			far_distance_attack=(counter_far_distance_attack>0.0f?true:false);
@@ -184,12 +204,25 @@ public class player_move3 : MonoBehaviour {
 				timer = false;
 			}
 
-			if (Input.GetKeyDown (KeyCode.L)) {
-				for (int i = 1; i <= 2; i++) {
-					GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L")) as GameObject;
-					Physics2D.IgnoreCollision (player_boxcollider, skill_hammer.GetComponent<Collider2D> ());
-					foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
-						Physics2D.IgnoreCollision (col, skill_hammer.GetComponent<Collider2D> ());
+			if (Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
+				timer_for_triple=true;
+				timer_for_skill = Time.time;
+			}
+
+			if(timer_for_triple){
+				if (skill_counter < 3) {
+					float now_timer = Time.time;
+					if (now_timer - timer_for_skill >= skill_time) {
+						GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L")) as GameObject;
+						Physics2D.IgnoreCollision (player_boxcollider, skill_hammer.GetComponent<Collider2D> ());
+						foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
+							Physics2D.IgnoreCollision (col, skill_hammer.GetComponent<Collider2D> ());
+						skill_counter++;
+						timer_for_skill = now_timer;
+					}
+				} else {
+					timer_for_triple = false;
+					skill_counter = 0;
 				}
 			}
 
@@ -259,6 +292,13 @@ public class player_move3 : MonoBehaviour {
 
 	void SetEnemy(bool flag){
 		enemy_check = flag;
+	}
+
+	public void HammerMessage(){
+		hammer.SendMessage ("SetPos",hammer_transform.position);
+		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
+		hammer.SendMessage ("SetRot",hammer_transform.rotation);
+		hammer.SendMessage ("SetSca",hammer_transform.localScale);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){

@@ -4324,22 +4324,22 @@ Prefab:
     - target: {fileID: 224554922323027814, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224554922323027814, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224139093911965492, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224139093911965492, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114451603303150810, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
@@ -7670,7 +7670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2073951993}
   pushmove: 1500
-  projectilemove: 2000
+  projectilemove: 2200
   static_sprite: {fileID: 0}
   init_sprite: {fileID: 0}
   attack_range: 0
