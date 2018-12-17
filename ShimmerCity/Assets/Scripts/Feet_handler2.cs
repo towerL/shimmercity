@@ -8,14 +8,26 @@ public class Feet_handler2 : MonoBehaviour {
 			SendMessageUpwards ("SetGround", true);
 		} else if (col.collider.tag == "Pipe") {
 			SendMessageUpwards ("SetGround", true);
+			SendMessageUpwards ("SetPipe", true);
 		}
 	}
+
+	public void OnCollisionStay2D(Collision2D col){
+		if (col.collider.tag == "Ground" || col.collider.tag == "deerbug" || col.collider.tag == "Deerbug_long" || col.collider.tag == "stone_stand" ) {
+			SendMessageUpwards ("SetGround", true);
+		} else if (col.collider.tag == "Pipe") {
+			SendMessageUpwards ("SetGround", true);
+			SendMessageUpwards ("SetPipe", true);
+		}
+	}
+
 		
 	public void OnCollisionExit2D(Collision2D col){
 		if (col.collider.tag == "Ground" || col.collider.tag == "deerbug" || col.collider.tag == "Deerbug_long" || col.collider.tag == "stone_stand"  ) {
 			SendMessageUpwards("SetGround",false);
 		}else if (col.collider.tag == "Pipe") {
-			SendMessageUpwards ("SetGround", false);
+			SendMessageUpwards("SetGround",false);
+			SendMessageUpwards ("SetPipe", false);
 		}
 	}
 }

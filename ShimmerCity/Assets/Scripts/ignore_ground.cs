@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ignore_ground : MonoBehaviour {
 
-	void Start () {
-		
+	public void OnCollisionEnter2D(Collision2D col){
+		if (col.collider.tag == "Ground")
+			GetComponent<Collider2D> ().isTrigger = true;
 	}
 
-	void Update () {
-		
+	public void OnTriggerExit2D(Collider2D col){
+		if (col.tag == "Ground")
+			GetComponent<Collider2D> ().isTrigger = false;
 	}
-
-	//public void OnCollisionEnter2D(Collision2D col){
+		
 }

@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\bottle_handler.cs" />
+     <Compile Include="Assets\falling_rock_handler.cs" />
+     <Compile Include="Assets\hands_handler2.cs" />
+     <Compile Include="Assets\head_handler2.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\changepicture.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\fadein_out.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\Light_dark_cycle.cs" />

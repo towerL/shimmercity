@@ -8,6 +8,8 @@ public class RockController : MonoBehaviour {
     public float speed;
     float mytime = 10.0f;
 
+	public float harm=10.0f;
+
 	void Start () {
         h0 = transform.position.y;
 	}
@@ -25,6 +27,19 @@ public class RockController : MonoBehaviour {
             mytime = 10.0f;
         }
 	}
+
+	private void OnTriggerStay2D(Collider2D col){
+		if (col.tag == "Player"){
+			col.SendMessage ("PlayerDecreaseHP",harm);
+			Destroy (gameObject);
+		}
+	}
+
+
+
+
+
+
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
     //    if (collision.collider.tag == "Ground")

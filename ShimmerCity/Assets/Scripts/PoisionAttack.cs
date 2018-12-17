@@ -8,6 +8,8 @@ public class PoisionAttack : MonoBehaviour {
     private Animator ani;
     float mytime = 1.0f;
 
+	public float harm=10.0f;
+
 	void Start () {
         ani = GetComponent<Animator>();
 	}
@@ -44,4 +46,10 @@ public class PoisionAttack : MonoBehaviour {
         //    ani.SetBool("IsBegin", false);
         //}
     }
+
+	private void OnTriggerStay2D(Collider2D col){
+		if (col.tag == "Player"){
+			col.SendMessage ("PlayerDecreaseHP",harm);
+		}
+	}
 }

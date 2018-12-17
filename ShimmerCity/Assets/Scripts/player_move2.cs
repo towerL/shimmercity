@@ -10,6 +10,7 @@ public class player_move2 : MonoBehaviour {
 
 	public float vel_x=6.0f;
 	public float vel_x_in_air=3.0f;
+	public float vel_x_on_pipe = 1.2f;
 	private Rigidbody2D player_rigidbody;
 	private CapsuleCollider2D player_boxcollider;
 	private Animator player_animator;
@@ -20,6 +21,7 @@ public class player_move2 : MonoBehaviour {
 	public float jumpVelocity=170;
 
 	private bool isGround = true;
+	private bool isPipe = false;
 	private bool alive=true;
 	private bool close_range_attack=false;
 	private bool far_distance_attack=false;
@@ -44,6 +46,8 @@ public class player_move2 : MonoBehaviour {
 	Transform hammer_transform;
 	Rigidbody2D hammer_rigidbody;
 
+	private float player_health;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -57,20 +61,29 @@ public class player_move2 : MonoBehaviour {
 		counter_close_range_attack = 0;
 		counter_far_distance_attack = 0;
 		start_time = Time.time;
+		player_health = 100.0f;
 	}
 
 	void Update () {
-		//float h=Input.GetAxis("Horizontal");
+		//Debug.Log (player_health);
+		float h=Input.GetAxis("Horizontal");
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
-			if (Input.GetKey (KeyCode.D)&& !close_range_attack && !far_distance_attack) {
-				if (!isGround && speed_up) {
+			if (h>0.01f&& !close_range_attack && !far_distance_attack) {
+				if (!isPipe && !isGround && speed_up) {
 					Vector3 pos = transform.position;
 					pos.x += Time.deltaTime * vel_x_in_air;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = vel_x_in_air;
+					player_rigidbody.velocity = vel;
+				} else if (isGround && isPipe) {
+					Vector3 pos = transform.position;
+					pos.x += Time.deltaTime * vel_x_on_pipe;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = vel_x_on_pipe;
 					player_rigidbody.velocity = vel;
 				} else {
 					player_rigidbody.AddForce (Vector2.right * force_move);
@@ -81,8 +94,15 @@ public class player_move2 : MonoBehaviour {
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				timer = false;
-			} else if (Input.GetKey (KeyCode.A)&& !close_range_attack && !far_distance_attack) {
-				if (!isGround && speed_up) {
+			} else if (h<-0.01f&& !close_range_attack && !far_distance_attack) {
+				if (!isPipe && !isGround && speed_up) {
+					Vector3 pos = transform.position;
+					pos.x -= Time.deltaTime * vel_x_on_pipe;
+					transform.position = pos;
+					Vector2 vel = player_rigidbody.velocity;
+					vel.x = -vel_x_on_pipe;
+					player_rigidbody.velocity = vel;
+				} else if (isGround && isPipe) {
 					Vector3 pos = transform.position;
 					pos.x -= Time.deltaTime * vel_x_in_air;
 					transform.position = pos;
@@ -100,7 +120,7 @@ public class player_move2 : MonoBehaviour {
 				timer = false;
 			} 
 
-			if (isGround && Input.GetKeyDown (KeyCode.Space)) {
+			if (isGround && Input.GetKeyDown(KeyCode.Space)) {
 				player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
 				speed_up = true;
 				timer = false;
@@ -186,8 +206,16 @@ public class player_move2 : MonoBehaviour {
 		player_animator.SetBool ("isGround",flag);
 	}
 
+	void SetPipe(bool flag){
+		isPipe = flag;
+	}
+
 	void SetEnemy(bool flag){
 		enemy_check = flag;
+	}
+
+	void PlayerDecreaseHP(float harm_blood){
+		player_health -= harm_blood;
 	}
 
 	public void HammerMessage(){
