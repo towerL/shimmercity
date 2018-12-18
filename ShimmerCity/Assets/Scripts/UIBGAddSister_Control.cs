@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UIBGAddSister_Control : MonoBehaviour {
 
     public static UIBGAddSister_Control Instance;
     // Use this for initialization
     void Start () {
-        gameObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            this.gameObject.SetActive(true);
+        }
+
         Instance = this;
     }
 	
@@ -17,7 +26,7 @@ public class UIBGAddSister_Control : MonoBehaviour {
         {
             gameObject.SetActive(true);
         }
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
     }
     public void setActive()
     {

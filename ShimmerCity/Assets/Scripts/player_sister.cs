@@ -10,6 +10,8 @@ public class player_sister : MonoBehaviour {
             col.SendMessage ("SetSister",true);
             UIBGAddSister_Control.Instance.setActive();
             SisterHead_Control.Instance.Active();
+            fpbarUI_Control.Instance.setActive();
+            //GameObject.Find("FpbarUI").SendMessage("setActive");
             //Destroy(this.gameObject);
         }
 	}

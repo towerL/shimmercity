@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class SisterHead_Control : MonoBehaviour {
     public static SisterHead_Control Instance;
 
@@ -12,11 +13,19 @@ public class SisterHead_Control : MonoBehaviour {
     void Start () {
         Instance = this;
         frameNum = 0;
-        this.gameObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            this.gameObject.SetActive(true);
+        }
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
     private void OnGUI()

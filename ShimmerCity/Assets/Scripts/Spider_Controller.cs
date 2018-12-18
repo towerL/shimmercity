@@ -19,7 +19,7 @@ public class Spider_Controller : MonoBehaviour {
     {
         foreach(Transform child in transform)
         {
-            Debug.Log("Spider down");
+            //Debug.Log("Spider down");
             Vector3 _pos = child.position;
             _pos.y += move_Step;
             child.transform.position = _pos;
@@ -29,7 +29,7 @@ public class Spider_Controller : MonoBehaviour {
     {
         foreach (Transform child in transform)
         {
-            Debug.Log("Spider up");
+            //Debug.Log("Spider up");
             Vector3 _pos = child.position;
             _pos.y -= move_Step;
             child.transform.position = _pos;

@@ -9,7 +9,6 @@ public class Fpbar_controller : MonoBehaviour {
     private int Current_frameNumber;
     public static bool bisAcquire_sister;
     public Transform target;
-    public Transform Camera_pos;
     private Animator animator;
     public static Fpbar_controller Instance;
     private bool bisShow;
@@ -38,7 +37,11 @@ public class Fpbar_controller : MonoBehaviour {
         //    animator.speed = 1;
         //    Pre_freamNumber = Current_frameNumber;
         //}
-
+        if(bisAcquire_sister == true)
+        {
+            SisterHead_Control.Instance.Active();
+            UIBGAddSister_Control.Instance.setActive();
+        }
         if (Current_frameNumber >= 8 && bisShow == false)
         {
             this.GetComponent<SpriteRenderer>().sortingOrder = 10;
