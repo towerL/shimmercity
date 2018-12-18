@@ -9,9 +9,9 @@ public class player_sister : MonoBehaviour {
             Fpbar_controller.bisAcquire_sister = true;
             col.SendMessage ("SetSister",true);
             UIBGAddSister_Control.Instance.setActive();
-
+            SisterHead_Control.Instance.Active();
             //Destroy(this.gameObject);
-		}
+        }
 	}
 
 }
