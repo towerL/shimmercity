@@ -76,9 +76,20 @@ public class boss_body : MonoBehaviour {
         else
             newposition = this.transform.position + new Vector3(walk_run_dis, 0, 0);
         this.transform.position = Vector3.SmoothDamp(this.transform.position, newposition, ref velocity, speed_hang);
-        if (this.transform.position.x <= -5.45f)
+        if (this.transform.position.x <= -6.85f)
             change_dir = true;
-        if (this.transform.position.x >= 12.72f)
+        if (this.transform.position.x >= 14.26f)
             change_dir = true;
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "hammer_body")
+        {
+            HP -= 5;
+        }
+        if (col.gameObject.tag == "hammer_in_attack")
+        {
+            HP -= 10;
+        }
     }
 }

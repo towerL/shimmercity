@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 60612416475403664}
   - component: {fileID: 114076528996096768}
   - component: {fileID: 95111826149140006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: flying_hammer3
   m_TagString: hammer_body
   m_Icon: {fileID: 0}

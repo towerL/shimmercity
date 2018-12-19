@@ -27,11 +27,13 @@ public class Boss_behavior : MonoBehaviour {
     GameObject bosshead;
     GameObject bossbody;
     GameObject ice;
+    Rigidbody2D rd_boss;
     void Start ()
     {
         cur_Bosshealth = Boss_health;
         player = GameObject.FindGameObjectWithTag("Player");
         e_animator = GetComponent<Animator>();
+        rd_boss = GetComponent<Rigidbody2D>();
        // e_cc = GetComponent<CharacterController>();
 	}
 	
@@ -318,6 +320,15 @@ public class Boss_behavior : MonoBehaviour {
         if(col.gameObject.tag=="icebottle")
         {
             isfreeze = true;
+        }
+
+        if(col.gameObject.tag=="hammer_body")
+        {
+            cur_Bosshealth -= 5;
+        }
+        if(col.gameObject.tag=="hammer_in_attack")
+        {
+            cur_Bosshealth -= 10;
         }
     }
 

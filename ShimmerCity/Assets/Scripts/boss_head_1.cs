@@ -86,5 +86,16 @@ public class boss_head_1 : MonoBehaviour {
         if (this.transform.position.y < minPos_y)
             vel_y = -vel_y;
 
-    }  
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "hammer_body")
+        {
+            HP -= 5;
+        }
+        if (col.gameObject.tag == "hammer_in_attack")
+        {
+            HP -= 10;
+        }
+    }
 }

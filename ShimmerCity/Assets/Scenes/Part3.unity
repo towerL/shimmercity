@@ -1747,7 +1747,7 @@ GameObject:
   - component: {fileID: 397472307}
   - component: {fileID: 397472305}
   - component: {fileID: 397472308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hammer_for_attack
   m_TagString: hammer_in_attack
   m_Icon: {fileID: 0}
@@ -13882,11 +13882,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1085396540287050, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1708069520649730, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532987335110888, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
