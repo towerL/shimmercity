@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitTime: 13
+  WaitTime: 5
 --- !u!114 &131490035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 11.1
+  WaitTime: 3.1
   flag: 1
 --- !u!212 &131490036
 SpriteRenderer:
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitTime: 13
+  WaitTime: 5
 --- !u!114 &161557158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 10
+  WaitTime: 2
   flag: 1
 --- !u!212 &161557159
 SpriteRenderer:
@@ -2939,7 +2939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitTime: 13
+  WaitTime: 5
 --- !u!114 &672367114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2952,7 +2952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 10.8
+  WaitTime: 2.8
   flag: 1
 --- !u!212 &672367115
 SpriteRenderer:
@@ -4424,22 +4424,22 @@ Prefab:
     - target: {fileID: 224554922323027814, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224554922323027814, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224139093911965492, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224139093911965492, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114451603303150810, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
@@ -4478,6 +4478,7 @@ GameObject:
   - component: {fileID: 810269304}
   - component: {fileID: 810269306}
   - component: {fileID: 810269305}
+  - component: {fileID: 810269307}
   m_Layer: 0
   m_Name: door2
   m_TagString: Untagged
@@ -4563,6 +4564,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &810269307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 810269303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853f420f610ba104c81c195be2a6b1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &833442112
 GameObject:
   m_ObjectHideFlags: 0
@@ -9065,7 +9077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitTime: 13
+  WaitTime: 5
 --- !u!114 &1810171259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9078,7 +9090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 10.3
+  WaitTime: 2.3
   flag: 1
 --- !u!212 &1810171260
 SpriteRenderer:

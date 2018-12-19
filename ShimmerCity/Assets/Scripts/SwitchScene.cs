@@ -85,7 +85,7 @@ public class SwitchScene : MonoBehaviour {
 
         var door = GameObject.Find("door2");
         door.GetComponent<Animator>().SetBool("IsDoorOpen", true);
-        SceneManager.LoadScene("Part2_1");
+        
     }
 
     void myfun5(BaseEventData eventData)
