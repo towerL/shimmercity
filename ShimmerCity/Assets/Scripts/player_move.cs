@@ -22,8 +22,8 @@ public class player_move : MonoBehaviour {
 	private bool isGround = true;
 	private bool isWall = false;
 	private bool isLadder=false;
-	//private bool isHammer=true;
-	private bool isHammer=false;
+	private bool isHammer=true;
+	//private bool isHammer=false;
 	private bool isSister=true;
 	//private bool isSister=false;
 	private bool alive=true;
@@ -197,11 +197,11 @@ public class player_move : MonoBehaviour {
 				timer = false;
 			}
 				
-			if (isGround && isHammer && Input.GetKeyDown(KeyCode.J)) {
+			if (isGround && isHammer && Input.GetKey(KeyCode.J)) {
 				close_range_attack = true;
 				far_distance_attack = false;
-				//counter_close_range_attack++;
-				counter_close_range_attack=1;
+				counter_close_range_attack++;
+				//counter_close_range_attack=1;
 				if (counter_far_distance_attack > 0) {
 					attack_transform = true;
 					counter_far_distance_attack = 0;
@@ -212,6 +212,8 @@ public class player_move : MonoBehaviour {
 					BroadcastMessage ("SetFurtherAttack", false);
 				}
 			}
+			//if (isGround && isHammer && Input.GetKeyUp (KeyCode.J))
+			//	counter_close_range_attack = 0;
 			if (isGround && isHammer && Input.GetKeyDown(KeyCode.K)) {
 				far_distance_attack = true;
 				close_range_attack = false;
