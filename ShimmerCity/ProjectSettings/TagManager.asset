@@ -16,6 +16,27 @@ TagManager:
   - deerbug
   - hammer_body
   - falling_rock
+  - Brick
+  - StaticBrick
+  - bottle
+  - protect
+  - Particle
+  - Skill_L
+  - Ladder3_transition
+  - Head
+  - Background
+  - boss
+  - boss_tentacle
+  - b0ss_hand
+  - board_edge
+  - Ladder
+  - SceneEdge
+  - Box
+  - Nail
+  - Belt
+  - Ladder2_transition
+  - Ladder1_transition
+  - Locker_sister
   layers:
   - Default
   - TransparentFX
@@ -25,8 +46,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - boss
+  - player
   - 
   - 
   - 

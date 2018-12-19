@@ -229,11 +229,13 @@ public class player_move3 : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.U)) {
 				if(!ProtectLayer)
 					ProtectLayer = Instantiate (Resources.Load ("prefabs/Protect")) as GameObject;
+				BroadcastMessage ("SetProtectLayer",true);
 			}
 
 			if (Input.GetKeyDown (KeyCode.I)) {
 				if (ProtectLayer)
 					Destroy (ProtectLayer);
+				BroadcastMessage ("SetProtectLayer",false);
 			}
 
 			if (Input.GetKeyDown (KeyCode.C)) {
