@@ -37,6 +37,11 @@ TagManager:
   - Ladder2_transition
   - Ladder1_transition
   - Locker_sister
+  - boss_body
+  - icebottle
+  - bullet_1
+  - bullet_2
+  - Switch
   layers:
   - Default
   - TransparentFX
@@ -48,9 +53,9 @@ TagManager:
   - 
   - boss
   - player
-  - 
-  - 
-  - 
+  - icebottle
+  - lightning
+  - Collider
   - 
   - 
   - 
@@ -73,4 +78,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: character
+    uniqueID: 2282521329
+    locked: 0
+  - name: icebox
+    uniqueID: 2367401737
     locked: 0
