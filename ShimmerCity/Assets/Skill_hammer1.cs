@@ -20,32 +20,38 @@ public class Skill_hammer1 : MonoBehaviour {
 	private float disappear;
 	public float disappear_speed;
 
+	private int rotflag;
+
 	void Start () {
-		angle = startangle;
 		stage1 = true;
 		stage2 = false;
 		target = GameObject.FindGameObjectWithTag("Player").transform;
-		transform.position = target.position + new Vector3 (-left_align,up_align,0.0f);
-		pos=transform.position + new Vector3 (-0.93f, -2.02f, 0.0f);
+		rotflag = target.localScale.x>0.0f?1:-1;
+		Vector3 Scale = transform.localScale;
+		Scale.x=transform.localScale.x *rotflag;
+		transform.localScale = Scale;
+		transform.position = target.position + new Vector3 (-left_align*rotflag,up_align,0.0f);
+		pos=transform.position + new Vector3 (-0.93f*rotflag, -2.02f, 0.0f);
+		angle = startangle*rotflag;;
 	}
 
 	void FixedUpdate () {	
 		if (stage1){
-			float rotangle = rot1_speed * Time.deltaTime;
+			float rotangle = rot1_speed * Time.deltaTime*rotflag;
 			transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, 90.0f), rotangle);
 			angle -= rotangle;
-			if (angle <= 0.0f) {
+			if (angle*rotflag<= 0.0f) {
 				stage1 = false;
 				stage2 = true;
 			}	
 		}
 		if (stage2) {
 			float rotangle = rot2_speed * Time.deltaTime;
-			transform.Translate (rotangle/endangle*new Vector3(0.93f,2.02f,0.0f));
-			transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, -90.0f), rotangle);
+			transform.Translate (rotangle/endangle*new Vector3(0.93f*rotflag,2.02f,0.0f));
+			transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, -90.0f), rotangle*rotflag);
 			angle += rotangle;
-			transform.localScale = bigger*(angle/endangle)*new Vector3(1.0f,1.0f,1.0f);
-			if (angle >= endangle) {
+			transform.localScale = bigger*(angle/endangle)*new Vector3(1.0f*rotflag,1.0f,1.0f);
+			if (angle>= endangle) {
 				stage2 = false;
 				disappear = 0.0f;
 			}
@@ -71,6 +77,10 @@ public class Skill_hammer1 : MonoBehaviour {
 		}
 		if (col.collider.tag == "Skill_L") {
 			Physics2D.IgnoreCollision (col.collider,GetComponent<Collider2D>());
+		}
+		if (col.collider.tag == "deerbug") {
+			Debug.Log ("Hit the deerbug!");
+			col.collider.SendMessage ("decreaseHp");
 		}
 	}
 }

@@ -49,7 +49,13 @@ public class add_flying_hammer2 : MonoBehaviour {
 			hammer_animator.SetBool ("hit_ground",hit_ground);
 		}
 		if (col.collider.tag == "deerbug") {
-			hammer_animator.Play ("lying_hammer");
+			col.collider.SendMessage ("decreaseHp");
+		}
+		if (col.collider.tag == "Deerbug_long") {
+			Debug.Log ("emmm");
+			col.collider.SendMessage ("decreaseHp");
+		}
+		if (col.collider.tag == "Start_mouse") {
 			col.collider.SendMessage ("decreaseHp");
 		}
 	}

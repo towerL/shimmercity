@@ -208,9 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   left_align: 1.2
-  up_align: 2
+  up_align: 1.2
   startangle: 60
-  endangle: 90
+  endangle: 100
   bigger: 1.7
   rot1_speed: 200
   rot2_speed: 900

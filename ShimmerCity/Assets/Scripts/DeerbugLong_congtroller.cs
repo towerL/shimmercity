@@ -115,7 +115,7 @@ public class DeerbugLong_congtroller : MonoBehaviour {
         }
         //direction = direction * -1;
     }
-    private void decreaseHP()
+    private void decreaseHp()
     {
         _HP--;
     }

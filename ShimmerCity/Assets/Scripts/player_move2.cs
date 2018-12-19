@@ -48,6 +48,12 @@ public class player_move2 : MonoBehaviour {
 
 	private float player_health;
 
+	public float skill_time;
+	private float timer_for_skill;
+	private bool timer_for_triple;
+	private int skill_counter;
+	private bool skill_L = false;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -129,10 +135,12 @@ public class player_move2 : MonoBehaviour {
 			}
 			 
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider);
-			if (isGround && Input.GetKey(KeyCode.J)) {
+			if (isGround && Input.GetKeyDown(KeyCode.J)) {
 				close_range_attack = true;
 				far_distance_attack = false;
-				counter_close_range_attack=1;
+				counter_close_range_attack++;
+				//counter_close_range_attack=1;
+				player_animator.SetInteger("counter_close_range_attack",counter_close_range_attack);
 				if (counter_far_distance_attack > 0) {
 					attack_transform = true;
 					counter_far_distance_attack = 0;
@@ -163,6 +171,33 @@ public class player_move2 : MonoBehaviour {
 				counter_close_range_attack--;
 			if (far_distance_attack)
 				counter_far_distance_attack--;
+
+			if (isGround && Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
+				timer_for_triple=true;
+				timer_for_skill = Time.time;
+				timer = false;
+				skill_L = true;
+			}
+
+			if(timer_for_triple){
+				if (skill_counter < 3) {
+					float now_timer = Time.time;
+					if (now_timer - timer_for_skill >= skill_time) {
+						GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L_2")) as GameObject;
+						Physics2D.IgnoreCollision (player_boxcollider, skill_hammer.GetComponent<Collider2D> ());
+						foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
+							Physics2D.IgnoreCollision (col, skill_hammer.GetComponent<Collider2D> ());
+						skill_counter++;
+						timer_for_skill = now_timer;
+					}
+				} else {
+					timer_for_triple = false;
+					skill_L = false;
+					skill_counter = 0;
+				}
+				timer = false;
+			}
+				
 			//for test
 			if (Input.GetKey (KeyCode.Q)) {
 				alive = false;
@@ -201,6 +236,8 @@ public class player_move2 : MonoBehaviour {
 		//player_animator.SetBool ("gameexit",gameexit);
 		player_animator.SetBool ("isGround",isGround);
 		player_animator.SetBool ("five_minutes",five_minutes);
+		player_animator.SetInteger("counter_close_range_attack",counter_close_range_attack);
+		player_animator.SetBool ("skill_L",skill_L);
 	}
 		
 	void SetGround(bool flag){

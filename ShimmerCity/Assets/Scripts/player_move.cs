@@ -70,6 +70,8 @@ public class player_move : MonoBehaviour {
 	private int skill_counter;
 	private bool skill_L = false;
 
+	private float player_health;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -88,6 +90,7 @@ public class player_move : MonoBehaviour {
 		timer_for_skill = Time.time;
 		timer_for_triple = false;
 		skill_counter = 0;
+		player_health = 100.0f;
 	}
 
 	void Update () {

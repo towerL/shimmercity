@@ -128,19 +128,8 @@ public class align_hammer : MonoBehaviour {
 		hammer_animator.SetBool ("getvelval",getvelvalue);
 		hammer_animator.SetBool ("exist",exist);
 	}
-	/*
-	public void OnCollisionEnter2D(Collision2D col){
-		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" ){
-			Rotate = false;
-			hit_ground = true;
-			exist = false;
-			Vector2 direction = transform.position-target.position;
-			float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-			Destroy (this.gameObject.GetComponent<Rigidbody> ());
-			hammer_animator.SetBool ("Rotate",Rotate);
-			hammer_animator.SetBool ("hit_ground",hit_ground);
-		}
+
+	/*public void OnCollisionEnter2D(Collision2D col){
 		if (col.collider.tag == "deerbug") {
 			ContactPoint2D contact = col.contacts[0];
 			Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
@@ -148,18 +137,20 @@ public class align_hammer : MonoBehaviour {
 			Vector2 direction = transform.position-target.position;
 			float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-			hammer_animator.Play ("lying_hammer");
 			Debug.Log ("Hit the deerbug!");
 			col.collider.SendMessage ("decreaseHp");
-			//col.gameObject.SendMessage ();
-		}
-	}
-
-	public void OnCollisionExit2D(Collision2D col){
-		if (col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt") {
-			exist = false;
 		}
 	}*/
+
+	public void OnCollisionEnter2D(Collision2D col){
+		if (col.collider.tag == "Skill_L") {
+			Physics2D.IgnoreCollision (col.collider,GetComponent<Collider2D>());
+		}
+		if (col.collider.tag == "deerbug") {
+			col.collider.SendMessage ("decreaseHp");
+		}
+	}
+		
 
 	void SetCloseAttack(bool flag){
 		incloseattack = flag;

@@ -31,7 +31,7 @@ public class Startmouse_Controller : MonoBehaviour {
         mPrefab.transform.position = transform.position;
         mPrefab.SendMessage("SetDirection", direction);
     }
-    private void decreaseHP()
+    private void decreaseHp()
     {
         _HP--;
     }

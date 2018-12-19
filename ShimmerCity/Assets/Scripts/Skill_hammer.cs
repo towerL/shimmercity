@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Skill_hammer : MonoBehaviour {
 
-	public Transform target;
+	public float left_align;
+	public float up_align;
 	public float startangle;
 	public float endangle;
 	public float bigger;
 	public float rot1_speed;
 	public float rot2_speed;
+	private Transform target;
 	private float angle;
 	private bool stage1;
 	private bool stage2;
@@ -19,6 +21,7 @@ public class Skill_hammer : MonoBehaviour {
 	private float disappear;
 	public float disappear_speed;
 
+	private int rotflag;
 	void Start () {
 		angle = startangle;
 		stage1 = true;
@@ -66,11 +69,12 @@ public class Skill_hammer : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
-		if (col.collider.tag == "Boss") {
-
-		}
 		if (col.collider.tag == "Skill_L") {
 			Physics2D.IgnoreCollision (col.collider,GetComponent<Collider2D>());
+		}
+		if (col.collider.tag == "deerbug") {
+			Debug.Log ("Hit the deerbug!");
+			col.collider.SendMessage ("decreaseHp");
 		}
 	}
 }
