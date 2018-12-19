@@ -43,6 +43,7 @@ TagManager:
   - bullet_2
   - Switch
   - Start_mouse
+  - destination
   layers:
   - Default
   - TransparentFX
