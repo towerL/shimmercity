@@ -325,6 +325,8 @@
     <Compile Include="Assets\LoadScene\scenescripts\UI_fadein_out.cs" />
     <Compile Include="Assets\LoadScene\scenescripts\UI_sister.cs" />
     <Compile Include="Assets\LoadScene\scenescripts\zoomin.cs" />
+    <Compile Include="Assets\ParseBtn_Control.cs" />
+    <Compile Include="Assets\PromptBtn_Control.cs" />
     <Compile Include="Assets\protect_layer_handler.cs" />
     <Compile Include="Assets\Scripts\add_flying_hammer.cs" />
     <Compile Include="Assets\Scripts\add_flying_hammer2.cs" />
