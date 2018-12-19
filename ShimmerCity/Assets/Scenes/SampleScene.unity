@@ -543,7 +543,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &127806365
 GameObject:
   m_ObjectHideFlags: 0
@@ -4469,7 +4469,7 @@ Prefab:
     - target: {fileID: 224231509329426056, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 224995978307161974, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
@@ -5691,7 +5691,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &1073010194
 GameObject:
   m_ObjectHideFlags: 0
@@ -8357,7 +8357,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &1683029594
 GameObject:
   m_ObjectHideFlags: 0
