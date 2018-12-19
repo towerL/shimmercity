@@ -88,10 +88,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 913, y: 442}
-  m_MaxSize: {x: 22008, y: 10021}
+  m_MinSize: {x: 911, y: 442}
+  m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 151
+  controlID: 135
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 152
+  controlID: 136
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -204,8 +204,8 @@ MonoBehaviour:
     y: 0
     width: 429
     height: 947
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -288,23 +288,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 9a05ffff2a06fffff48bffff12efffffbcfbffffe4fbffff00000000d0520000
+    m_SelectedIDs: 3ec1ffff
+    m_LastClickedID: -16066
+    m_ExpandedIDs: 5ceeffff3af5ffff00000000da4800007e4c0000f64d0000bc4e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: S1-2_1bg_box
-      m_OriginalName: S1-2_1bg_box
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 20836
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 7}
     m_SearchString: 
@@ -384,20 +384,20 @@ MonoBehaviour:
     m_ScenePaths: []
     m_ShowAllHits: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/Scenes
   m_ViewMode: 0
   m_StartGridSize: 64
-  m_LastFolders:
-  - Assets
+  m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: "C:\\Users\\i\\Desktop\\\u7F51\u6613\u6E38\u620F\\shimmercity\\ShimmerCity"
+  m_LastProjectPath: C:\Users\ASUS\Desktop\shimmercity\ShimmerCity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ca370000
     m_LastClickedID: 14282
-    m_ExpandedIDs: 00000000ea090000f20a0000540b0000bc0b0000400c0000500d0000480e0000a60f000076100000941000001e110000901100000e12000066140000e2150000ee150000d01600002a170000f2170000fa17000012180000a61a0000fa430000fc430000fe43000000440000
+    m_ExpandedIDs: 00000000743500000a360000e8360000ea360000ea380000da3900003a3a0000943a00000a3b0000023c0000e03c00002c3e0000ee3e00000c3f00008e3f0000f63f00006c4000009642000004430000f24300004c450000c8450000d0450000e6450000144600003e4800005e4c0000604c0000624c0000644c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -425,7 +425,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 120}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000ea090000f20a0000540b0000bc0b0000400c0000500d0000480e0000a60f000076100000941000001e110000901100000e1200007c130000061400006614000098140000ec140000ee150000d016000070170000f2170000fa1700001218000042180000a61a0000fa430000fc430000fe43000000440000
+    m_ExpandedIDs: ffffffff00000000743500000a360000e8360000ea360000ea380000da3900003a3a0000943a00000a3b0000023c0000e03c00002c3e0000ee3e00000c3f00008e3f0000f63f00006c4000009642000004430000f24300004c450000c8450000d0450000e6450000144600003e4800005e4c0000604c0000624c0000644c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -590,9 +590,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.491172, y: -4.817778, z: 90}
+    m_Target: {x: -4.071552, y: -8.704934, z: 256.875}
     speed: 2
-    m_Value: {x: -5.491172, y: -4.817778, z: 90}
+    m_Value: {x: -4.071552, y: -8.704934, z: 256.875}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -624,9 +624,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 3.7353766
+    m_Target: 43.61365
     speed: 2
-    m_Value: 3.7353766
+    m_Value: 43.61365
   m_Ortho:
     m_Target: 1
     speed: 2
