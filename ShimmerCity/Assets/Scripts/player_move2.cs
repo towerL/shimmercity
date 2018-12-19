@@ -65,7 +65,7 @@ public class player_move2 : MonoBehaviour {
 	}
 
 	void Update () {
-		//Debug.Log (player_health);
+		Debug.Log (player_health);
 		float h=Input.GetAxis("Horizontal");
 		timer = true;
 		speed_up = (isGround == true ? false : true);
@@ -78,17 +78,18 @@ public class player_move2 : MonoBehaviour {
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = vel_x_in_air;
 					player_rigidbody.velocity = vel;
-				} else if (isGround && isPipe) {
+				} /*else if (isGround && isPipe) {
 					Vector3 pos = transform.position;
 					pos.x += Time.deltaTime * vel_x_on_pipe;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = vel_x_on_pipe;
 					player_rigidbody.velocity = vel;
-				} else {
-					player_rigidbody.AddForce (Vector2.right * force_move);
+				}*/ else {
+					//player_rigidbody.AddForce (Vector2.right * force_move);
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = (vel_x>=vel.x?vel.x:vel_x);
+					//vel.x = (vel_x>=vel.x?vel.x:vel_x);
+					vel.x=vel_x;
 					player_rigidbody.velocity = vel;
 				}
 				player_Scale.x = Mathf.Abs (player_Scale.x);
@@ -102,17 +103,18 @@ public class player_move2 : MonoBehaviour {
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = -vel_x_on_pipe;
 					player_rigidbody.velocity = vel;
-				} else if (isGround && isPipe) {
+				} /*else if (isGround && isPipe) {
 					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * vel_x_in_air;
+					pos.x -= Time.deltaTime * vel_x_on_pipe;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -vel_x_in_air;
+					vel.x = -vel_x_on_pipe;
 					player_rigidbody.velocity = vel;
-				} else {
-					player_rigidbody.AddForce (-Vector2.right * force_move);
+				}*/ else {
+					//player_rigidbody.AddForce (-Vector2.right * force_move);
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = (-vel_x<=vel.x?vel.x:-vel_x);
+					//vel.x = (-vel_x<=vel.x?vel.x:-vel_x);
+					vel.x=-vel_x;
 					player_rigidbody.velocity = vel;
 				}
 				player_Scale.x = -Mathf.Abs (player_Scale.x);

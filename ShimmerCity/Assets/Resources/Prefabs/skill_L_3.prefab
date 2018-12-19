@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4854465517595894}
   - component: {fileID: 61304100614941412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: kernel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 212873864495484784}
   - component: {fileID: 60098896434982966}
   - component: {fileID: 114226815027830210}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: skill_L_3
   m_TagString: Skill_L
   m_Icon: {fileID: 0}

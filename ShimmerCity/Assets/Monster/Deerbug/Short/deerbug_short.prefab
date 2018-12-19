@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50095954771898442}
   - component: {fileID: 114963564421677500}
   - component: {fileID: 60037062730951646}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: deerbug_short
   m_TagString: deerbug
   m_Icon: {fileID: 0}
@@ -38,9 +38,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262830899192670}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.69, y: -13.34, z: 0.12971501}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalRotation: {x: 0, y: -1, z: -0, w: 0.0000010927846}
+  m_LocalPosition: {x: -20.079935, y: -1.1649933, z: 0.12971383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
     m_Bits: 256
   ray_Distance: 10
   target: {fileID: 0}
-  _HP: 0
+  _HP: 1
   Attack_Distance: 1.2
 --- !u!212 &212877948192964114
 SpriteRenderer:
@@ -338,7 +338,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 319cafc0794fce541a6edbb2a3d58d53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b81439e6d353a0a49934de499f95ac5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

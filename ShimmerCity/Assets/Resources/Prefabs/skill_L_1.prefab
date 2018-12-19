@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4854465517595894}
   - component: {fileID: 61304100614941412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: kernel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,8 +37,8 @@ GameObject:
   - component: {fileID: 4523183832274382}
   - component: {fileID: 212873864495484784}
   - component: {fileID: 60098896434982966}
-  - component: {fileID: 114226815027830210}
-  m_Layer: 0
+  - component: {fileID: 114718290650101384}
+  m_Layer: 9
   m_Name: skill_L_1
   m_TagString: Skill_L
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114226815027830210
+--- !u!114 &114718290650101384
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,13 +204,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1485420880906124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7845d69468f5d408c653a9af2cc56a, type: 3}
+  m_Script: {fileID: 11500000, guid: 025c9adc696fe2542ba46b95d51389e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  left_align: 1.2
+  up_align: 2
   startangle: 60
-  endangle: 80
-  bigger: 2
+  endangle: 90
+  bigger: 1.7
   rot1_speed: 200
   rot2_speed: 900
   Disappear: 10
@@ -249,7 +250,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 956321fb553e9944caf5584bdae2c818, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -68,6 +68,7 @@ public class player_move : MonoBehaviour {
 	private float timer_for_skill;
 	private bool timer_for_triple;
 	private int skill_counter;
+	private bool skill_L = false;
 
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
@@ -250,9 +251,11 @@ public class player_move : MonoBehaviour {
 			if (far_distance_attack)
 				counter_far_distance_attack--;
 
-			if (Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
+			if (isGround && isHammer && Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
 				timer_for_triple=true;
 				timer_for_skill = Time.time;
+				timer = false;
+				skill_L = true;
 			}
 
 			if(timer_for_triple){
@@ -268,8 +271,10 @@ public class player_move : MonoBehaviour {
 					}
 				} else {
 					timer_for_triple = false;
+					skill_L = false;
 					skill_counter = 0;
 				}
+				timer = false;
 			}
 
 			//for test
@@ -333,6 +338,7 @@ public class player_move : MonoBehaviour {
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetBool ("isPush",isPush);
 		player_animator.SetInteger("counter_close_range_attack",counter_close_range_attack);
+		player_animator.SetBool ("skill_L",skill_L);
 	}
 
 	private void doubleclick(){
