@@ -3,9 +3,15 @@ using UnityEngine;
 
 public class climb_ladder3 : MonoBehaviour {
 	public Collider2D target;
+	public Transform ladder_transition;
+	private Transform player_boxcollider;
 	private Vector2 velocity;
 	public float climbspeed = 2.0f;
 	private bool climb=false;
+
+	void Start(){
+		player_boxcollider=GameObject.FindGameObjectWithTag("Player").transform;
+	}
 
 	private void OnTriggerStay2D(Collider2D col){
 		if (col.tag == "Player" && !climb) {
@@ -13,6 +19,9 @@ public class climb_ladder3 : MonoBehaviour {
 		}
 		if (col.tag == "Player" && climb) {
 			if (Input.GetKey (KeyCode.W)) {
+				Vector3 posplayer = player_boxcollider.position;
+				posplayer.x = ladder_transition.position.x;
+				player_boxcollider.position = posplayer;
 				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x;
 				velocity.y = climbspeed;
@@ -24,6 +33,9 @@ public class climb_ladder3 : MonoBehaviour {
 				col.SendMessage ("SetInLadder",true);
 				target.SendMessage ("SetLayerOrder",true);
 			} else if (Input.GetKey (KeyCode.S)) {
+				Vector3 posplayer = player_boxcollider.position;
+				posplayer.x = ladder_transition.position.x;
+				player_boxcollider.position = posplayer;
 				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x;
 				velocity.y = -climbspeed;
@@ -35,6 +47,9 @@ public class climb_ladder3 : MonoBehaviour {
 				col.SendMessage ("SetInLadder",true);
 				target.SendMessage ("SetLayerOrder",true);
 			} else if(Input.GetKey(KeyCode.Space)){
+				Vector3 posplayer = player_boxcollider.position;
+				posplayer.x = ladder_transition.position.x;
+				player_boxcollider.position = posplayer;
 				col.GetComponent<Rigidbody2D> ().gravityScale = 10;
 				col.SendMessage ("SetInLadder",false);
 				target.SendMessage ("SetLayerOrder",false);

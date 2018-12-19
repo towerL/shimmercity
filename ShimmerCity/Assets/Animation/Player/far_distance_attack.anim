@@ -849,7 +849,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0.15384616
+  - time: 0.23076923
     functionName: HammerMessage
     data: 
     objectReferenceParameter: {fileID: 0}

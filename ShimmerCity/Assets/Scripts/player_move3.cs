@@ -97,7 +97,7 @@ public class player_move3 : MonoBehaviour {
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = push_v;
 					player_rigidbody.velocity = vel;
-				} else {
+				} else if(!isLadder){
 					player_rigidbody.AddForce (10*Vector2.right * pushmove);
 					float vx = player_rigidbody.velocity.x;
 					Vector2 vel = player_rigidbody.velocity;
@@ -129,7 +129,7 @@ public class player_move3 : MonoBehaviour {
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = -push_v;
 					player_rigidbody.velocity = vel;
-				} else {
+				} else if(!isLadder){
 					player_rigidbody.AddForce (10*Vector2.left * pushmove);
 					float vx = Mathf.Abs(player_rigidbody.velocity.x);
 					Vector2 vel = player_rigidbody.velocity;
@@ -146,7 +146,7 @@ public class player_move3 : MonoBehaviour {
 			}
 
 			if (isLadder) {
-				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.D))
+				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))
 					player_animator.speed = 1.0f;
 				else
 					player_animator.speed = 0.0f;

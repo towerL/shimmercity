@@ -246,7 +246,7 @@ MonoBehaviour:
   vel_x: 4
   vel_x_in_air: 3
   push_v: 1.2
-  ladder_v: 0.2
+  ladder_v: 0
   pushmove: 40
   jumpVelocity: 70
   skill_time: 0.7
@@ -13000,6 +13000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 932959243}
+  ladder_transition: {fileID: 1320270769}
   climbspeed: 5
 --- !u!61 &992968601
 BoxCollider2D:
