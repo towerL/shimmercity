@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Liightning : MonoBehaviour {
-    public float maxPos_x = 20.5f;
-    public float maxPos_y = 9.69f;
-    public float minPos_x = -7.13f;
-    public float minPos_y = -3.98f;
-    public float vel_x = 1.0f;
-    public float vel_y = 1.0f;
+    public float maxPos_x = 8.08f;
+    public float maxPos_y = 1.23f;
+    public float minPos_x = -19.3f;
+    public float minPos_y = -13.2f;
+    public float vel_x=1.0f;
+    public float vel_y=1.0f;
     public float starttime;
     // Use this for initialization
     void Start () {
@@ -18,7 +18,10 @@ public class Liightning : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (starttime <= 0)
+        {
             this.transform.position = this.transform.position + new Vector3(vel_x * Time.deltaTime, vel_y * Time.deltaTime, 0);
+            Check();
+        }
         else
             starttime = starttime - Time.deltaTime;
     }

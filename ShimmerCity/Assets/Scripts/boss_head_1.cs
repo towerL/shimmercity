@@ -6,6 +6,7 @@ public class boss_head_1 : MonoBehaviour {
     GameObject player;
     GameObject bossbody;
     GameObject dead_boss;
+    GameObject ladder;
     public float HP = 120f;
     public float maxPos_x = 20.5f;
     public float maxPos_y = 9.69f;
@@ -22,6 +23,7 @@ public class boss_head_1 : MonoBehaviour {
     {
         player = GameObject.FindGameObjectWithTag("Player");
         bossbody = GameObject.FindGameObjectWithTag("Boss_body");
+        ladder = GameObject.FindGameObjectWithTag("Ladder");
     }
         // Update is called once per frame
         void Update ()
@@ -62,6 +64,7 @@ public class boss_head_1 : MonoBehaviour {
         }
         else
         {
+            ladder.SendMessage("SetPushable",true);
             Vector3 new_position;
             new_position = bossbody.transform.position;
             if (bossbody.transform.localEulerAngles.y == 0)

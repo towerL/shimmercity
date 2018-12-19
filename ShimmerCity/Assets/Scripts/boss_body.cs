@@ -9,8 +9,6 @@ public class boss_body : MonoBehaviour {
     GameObject boss_head;
     GameObject dead_boss;
     public float HP = 120f;
-    bool head_connect = false;
-    bool pl_isground = false;
     float walk_run_dis = 0.1f;
     float speed_hang = 0.07f;
     bool change_dir = false;
@@ -78,7 +76,7 @@ public class boss_body : MonoBehaviour {
         this.transform.position = Vector3.SmoothDamp(this.transform.position, newposition, ref velocity, speed_hang);
         if (this.transform.position.x <= -6.85f)
             change_dir = true;
-        if (this.transform.position.x >= 14.26f)
+        if (this.transform.position.x >= 19.09869f)
             change_dir = true;
     }
     void OnCollisionEnter2D(Collision2D col)

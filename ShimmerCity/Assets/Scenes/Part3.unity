@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 59419511}
   - component: {fileID: 59419514}
   - component: {fileID: 59419513}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: lightning_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,13 +502,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefbd887c1413e14791efeacf4c59427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPos_x: 20.5
-  maxPos_y: 9.69
-  minPos_x: -7.13
-  minPos_y: -3.98
+  maxPos_x: 8.08
+  maxPos_y: 1.23
+  minPos_x: -19.3
+  minPos_y: -13.2
   vel_x: 1
-  vel_y: 1.5
-  starttime: 15
+  vel_y: 1
+  starttime: 30
 --- !u!70 &59419514
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7628,7 +7628,7 @@ GameObject:
   - component: {fileID: 674599359}
   - component: {fileID: 674599362}
   - component: {fileID: 674599361}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: lightning_03 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7723,13 +7723,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefbd887c1413e14791efeacf4c59427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPos_x: 20.5
-  maxPos_y: 9.69
-  minPos_x: -7.13
-  minPos_y: -3.98
-  vel_x: 2
+  maxPos_x: 8.08
+  maxPos_y: 1.23
+  minPos_x: -19.3
+  minPos_y: -13.2
+  vel_x: 1
   vel_y: 1
-  starttime: 35
+  starttime: 90
 --- !u!70 &674599362
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7971,7 +7971,7 @@ GameObject:
   - component: {fileID: 778105853}
   - component: {fileID: 778105856}
   - component: {fileID: 778105855}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: lightning_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7985,7 +7985,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778105851}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.7, z: 0}
+  m_LocalPosition: {x: -0.24, y: 1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1815156351}
@@ -8066,13 +8066,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefbd887c1413e14791efeacf4c59427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPos_x: 20.5
-  maxPos_y: 9.69
-  minPos_x: -7.13
-  minPos_y: -3.98
+  maxPos_x: 8.08
+  maxPos_y: 1.23
+  minPos_x: -19.3
+  minPos_y: -13.2
   vel_x: 1
   vel_y: 1
-  starttime: 5
+  starttime: 0
 --- !u!70 &778105856
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -13411,7 +13411,7 @@ GameObject:
   - component: {fileID: 1228709730}
   - component: {fileID: 1228709733}
   - component: {fileID: 1228709732}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: lightning_03 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13506,13 +13506,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefbd887c1413e14791efeacf4c59427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPos_x: 20.5
-  maxPos_y: 9.69
-  minPos_x: -7.13
-  minPos_y: -3.98
+  maxPos_x: 8.08
+  maxPos_y: 1.23
+  minPos_x: -19.3
+  minPos_y: -13.2
   vel_x: 1
-  vel_y: 2.5
-  starttime: 45
+  vel_y: 1
+  starttime: 120
 --- !u!70 &1228709733
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -13853,11 +13853,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4653245025352522, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.966369
+      value: 17.37
       objectReference: {fileID: 0}
     - target: {fileID: 4653245025352522, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.55
+      value: -1.59
       objectReference: {fileID: 0}
     - target: {fileID: 4653245025352522, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
       propertyPath: m_LocalPosition.z
@@ -13894,6 +13894,44 @@ Prefab:
     - target: {fileID: 1532987335110888, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 212945278783183660, guid: 307fb53188a52f247b8294018cb71a73,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -2012445967
+      objectReference: {fileID: 0}
+    - target: {fileID: 212945278783183660, guid: 307fb53188a52f247b8294018cb71a73,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212473632206693904, guid: 307fb53188a52f247b8294018cb71a73,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -2012445967
+      objectReference: {fileID: 0}
+    - target: {fileID: 212473632206693904, guid: 307fb53188a52f247b8294018cb71a73,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212628938060231492, guid: 307fb53188a52f247b8294018cb71a73,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -2012445967
+      objectReference: {fileID: 0}
+    - target: {fileID: 212628938060231492, guid: 307fb53188a52f247b8294018cb71a73,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653245025352522, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.6792
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653245025352522, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.62447
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307fb53188a52f247b8294018cb71a73, type: 2}
@@ -15291,7 +15329,7 @@ GameObject:
   - component: {fileID: 1743573778}
   - component: {fileID: 1743573781}
   - component: {fileID: 1743573780}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: lightning_03 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15386,13 +15424,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefbd887c1413e14791efeacf4c59427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPos_x: 20.5
-  maxPos_y: 9.69
-  minPos_x: -7.13
-  minPos_y: -3.98
-  vel_x: 1.5
+  maxPos_x: 8.08
+  maxPos_y: 1.23
+  minPos_x: -19.3
+  minPos_y: -13.2
+  vel_x: 1
   vel_y: 1
-  starttime: 25
+  starttime: 60
 --- !u!70 &1743573781
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
