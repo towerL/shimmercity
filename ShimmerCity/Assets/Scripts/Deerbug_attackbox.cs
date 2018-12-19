@@ -8,6 +8,7 @@ public class Deerbug_attackbox : MonoBehaviour {
     private int direction = 1;
 
     private Transform target;
+    private Transform Player;
 
     private GameObject curTraget, lastTraget;
 
@@ -29,6 +30,7 @@ public class Deerbug_attackbox : MonoBehaviour {
         animator = GetComponent<Animator>();
         bisGethammer = true;
         target = GameObject.Find("ElectricBox").transform ;
+        Player = GameObject.Find("Player").transform;
         _HP = 1;
     }
     // Update is called once per frame
@@ -51,9 +53,10 @@ public class Deerbug_attackbox : MonoBehaviour {
         {
             transform.Translate(Vector2.right * direction * velocity * Time.deltaTime);
         }
+        float distance_Player = (transform.position - Player.position).sqrMagnitude;
         float distance = (transform.position - target.position).sqrMagnitude;
         //Debug.Log(distance);
-        if (distance <= Distance_Threshold * 10)
+        if (distance <= Distance_Threshold * 10 || distance_Player <= Distance_Threshold * 10)
         {
             animator.SetBool("Isattack", true);
             bisAttacking = true;
