@@ -5,9 +5,10 @@
       <File FileName="Assets\protect_layer_handler.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\climb_ladder3.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\climb_ladder.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\player_move3.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\player_move.cs" Line="222" Column="42" />
+      <File FileName="Assets\Scripts\player_move3.cs" Line="216" Column="80" />
+      <File FileName="Assets\Scripts\player_move.cs" Line="262" Column="80" />
       <File FileName="Assets\Scripts\add_flying_hammer.cs" Line="36" Column="11" />
+      <File FileName="Assets\Scripts\Skill_hammer.cs" Line="32" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

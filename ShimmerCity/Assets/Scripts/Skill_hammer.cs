@@ -8,6 +8,8 @@ public class Skill_hammer : MonoBehaviour {
 	public float startangle;
 	public float endangle;
 	public float bigger;
+	public float rot1_speed;
+	public float rot2_speed;
 	private float angle;
 	private bool stage1;
 	private bool stage2;
@@ -15,6 +17,7 @@ public class Skill_hammer : MonoBehaviour {
 
 	public float Disappear;
 	private float disappear;
+	public float disappear_speed;
 
 	void Start () {
 		angle = startangle;
@@ -26,9 +29,9 @@ public class Skill_hammer : MonoBehaviour {
 
 	}
 
-	void Update () {	
+	void FixedUpdate () {	
 		if (stage1){
-			float rotangle = 100.0f * Time.deltaTime;
+			float rotangle = rot1_speed * Time.deltaTime;
 			transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, 90.0f), rotangle);
 			angle -= rotangle;
 			if (angle <= 0.0f) {
@@ -37,7 +40,7 @@ public class Skill_hammer : MonoBehaviour {
 			}	
 		}
 		if (stage2) {
-			float rotangle = 600.0f * Time.deltaTime;
+			float rotangle = rot2_speed * Time.deltaTime;
 			transform.Translate (rotangle/endangle*new Vector3(0.93f,2.02f,0.0f));
 			transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, -90.0f), rotangle);
 			angle += rotangle;
@@ -49,7 +52,7 @@ public class Skill_hammer : MonoBehaviour {
 		}
 		if (!stage1 && !stage2) {
 			if (disappear <= Disappear) {
-				disappear += Time.deltaTime;
+				disappear += Time.deltaTime*disappear_speed;
 			}
 			if (GetComponent<SpriteRenderer> ().material.color.a <= 1) {
 				GetComponent<Renderer> ().material.color = new Color (GetComponent<Renderer> ().material.color.r
@@ -65,6 +68,9 @@ public class Skill_hammer : MonoBehaviour {
 	public void OnCollisionEnter2D(Collision2D col){
 		if (col.collider.tag == "Boss") {
 
+		}
+		if (col.collider.tag == "Skill_L") {
+			Physics2D.IgnoreCollision (col.collider,GetComponent<Collider2D>());
 		}
 	}
 }

@@ -249,7 +249,7 @@ MonoBehaviour:
   ladder_v: 0
   pushmove: 40
   jumpVelocity: 70
-  skill_time: 0.7
+  skill_time: 0.3
 --- !u!95 &15886551
 Animator:
   serializedVersion: 3
@@ -13561,6 +13561,8 @@ MonoBehaviour:
   startangle: 60
   endangle: 80
   bigger: 2
+  rot1_speed: 0
+  rot2_speed: 0
   Disappear: 1
 --- !u!60 &1232496826
 PolygonCollider2D:

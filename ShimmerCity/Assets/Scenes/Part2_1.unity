@@ -1348,7 +1348,7 @@ GameObject:
   - component: {fileID: 111609574}
   - component: {fileID: 111609575}
   - component: {fileID: 111609576}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4603,7 +4603,7 @@ GameObject:
   - component: {fileID: 474656573}
   - component: {fileID: 474656575}
   - component: {fileID: 474656574}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Hands
   m_TagString: Hands
   m_Icon: {fileID: 0}
@@ -10394,7 +10394,7 @@ GameObject:
   - component: {fileID: 1011748119}
   - component: {fileID: 1011748118}
   - component: {fileID: 1011748120}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Hammer_for_attack
   m_TagString: hammer_in_attack
   m_Icon: {fileID: 0}
@@ -13664,7 +13664,7 @@ GameObject:
   - component: {fileID: 1494193533}
   - component: {fileID: 1494193532}
   - component: {fileID: 1494193534}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -16896,7 +16896,7 @@ GameObject:
   - component: {fileID: 1807210190}
   - component: {fileID: 1807210191}
   - component: {fileID: 1807210192}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Feet
   m_TagString: Feet
   m_Icon: {fileID: 0}

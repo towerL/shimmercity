@@ -213,7 +213,7 @@ public class player_move3 : MonoBehaviour {
 				if (skill_counter < 3) {
 					float now_timer = Time.time;
 					if (now_timer - timer_for_skill >= skill_time) {
-						GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L")) as GameObject;
+						GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L_3")) as GameObject;
 						Physics2D.IgnoreCollision (player_boxcollider, skill_hammer.GetComponent<Collider2D> ());
 						foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
 							Physics2D.IgnoreCollision (col, skill_hammer.GetComponent<Collider2D> ());

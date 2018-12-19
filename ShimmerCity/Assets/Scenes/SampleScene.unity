@@ -4424,22 +4424,22 @@ Prefab:
     - target: {fileID: 224554922323027814, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224554922323027814, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224139093911965492, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224139093911965492, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114451603303150810, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
@@ -5641,7 +5641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073010195}
   - component: {fileID: 1073010196}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7214,7 +7214,7 @@ GameObject:
   - component: {fileID: 1383291477}
   - component: {fileID: 1383291479}
   - component: {fileID: 1383291478}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Hands
   m_TagString: Hands
   m_Icon: {fileID: 0}
@@ -7583,7 +7583,7 @@ GameObject:
   - component: {fileID: 1528759588}
   - component: {fileID: 1528759590}
   - component: {fileID: 1528759589}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Feet
   m_TagString: Feet
   m_Icon: {fileID: 0}
@@ -7656,7 +7656,7 @@ GameObject:
   - component: {fileID: 1573114359}
   - component: {fileID: 1573114358}
   - component: {fileID: 1573114362}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Hammer_for_attack
   m_TagString: hammer_in_attack
   m_Icon: {fileID: 0}
@@ -9152,7 +9152,7 @@ GameObject:
   - component: {fileID: 1825945728}
   - component: {fileID: 1825945727}
   - component: {fileID: 1825945726}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9173,6 +9173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force_move: 200
   jumpVelocity: 170
+  skill_time: 0.3
 --- !u!70 &1825945727
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
