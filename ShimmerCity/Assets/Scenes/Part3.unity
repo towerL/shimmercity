@@ -12924,7 +12924,7 @@ GameObject:
   - component: {fileID: 992968600}
   m_Layer: 0
   m_Name: ladder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13564,6 +13564,7 @@ MonoBehaviour:
   rot1_speed: 0
   rot2_speed: 0
   Disappear: 1
+  disappear_speed: 0
 --- !u!60 &1232496826
 PolygonCollider2D:
   m_ObjectHideFlags: 0

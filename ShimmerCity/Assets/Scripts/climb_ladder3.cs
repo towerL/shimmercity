@@ -8,9 +8,11 @@ public class climb_ladder3 : MonoBehaviour {
 	private Vector2 velocity;
 	public float climbspeed = 2.0f;
 	private bool climb=false;
+	private bool pushable;
 
 	void Start(){
 		player_boxcollider=GameObject.FindGameObjectWithTag("Player").transform;
+		pushable = false;
 	}
 
 	private void OnTriggerStay2D(Collider2D col){
@@ -71,5 +73,10 @@ public class climb_ladder3 : MonoBehaviour {
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), target,false);
 			col.SendMessage ("SetInLadder",false);
 		}
+	}
+
+	void SetPushable(bool flag){
+		pushable = flag;
+		Debug.Log ("get the boss message");
 	}
 }
