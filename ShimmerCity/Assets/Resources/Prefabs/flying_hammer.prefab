@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 96877410015594750}
   m_Layer: 8
   m_Name: trail
-  m_TagString: Untagged
+  m_TagString: hammer_trail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,7 +220,7 @@ TrailRenderer:
   m_GameObject: {fileID: 1294625397369072}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0

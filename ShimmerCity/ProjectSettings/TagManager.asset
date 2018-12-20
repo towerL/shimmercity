@@ -46,6 +46,7 @@ TagManager:
   - destination
   - shield
   - Boss_body
+  - hammer_trail
   layers:
   - Default
   - TransparentFX
