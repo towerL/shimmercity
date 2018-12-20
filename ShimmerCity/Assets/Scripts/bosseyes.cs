@@ -9,11 +9,13 @@ public class bosseyes : MonoBehaviour {
     float radius = 0.2f; // 半径
     Vector3 oldPos; // 开始时候的坐标
     GameObject door;
+    GameObject door_tag;
     // Use this for initialization
     void Start()
     {
         oldPos = transform.position; // 将最初的位置保存到oldPos
         door = GameObject.Find("door_01");
+        door_tag = GameObject.Find("door_tag");
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class bosseyes : MonoBehaviour {
         if(col.tag=="Player")
         {
             door.SendMessage("getkey");
+            door_tag.SendMessage("getkey");
             Destroy(gameObject);
         }
     }
