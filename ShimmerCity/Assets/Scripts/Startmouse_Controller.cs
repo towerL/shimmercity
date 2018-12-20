@@ -17,7 +17,7 @@ public class Startmouse_Controller : MonoBehaviour {
 		if(_HP <= 0)
         {
             GetComponent<Animator>().SetTrigger("SetDie");
-            Invoke("SetDie", 0.5f);
+            Invoke("SetDie", 1f);
         }
 	}
     private void SetDie()

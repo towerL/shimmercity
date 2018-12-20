@@ -71,7 +71,7 @@ public class player_move2 : MonoBehaviour {
 	}
 
 	void Update () {
-		Debug.Log (player_health);
+		//Debug.Log (player_health);
 		float h=Input.GetAxis("Horizontal");
 		timer = true;
 		speed_up = (isGround == true ? false : true);

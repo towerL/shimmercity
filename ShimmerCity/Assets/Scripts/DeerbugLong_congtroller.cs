@@ -53,7 +53,7 @@ public class DeerbugLong_congtroller : MonoBehaviour {
         if (_HP <= 0)
         {
             animator.SetTrigger("SetDie");
-            this.Invoke("Destroy_monster", 3.0f);
+            this.Invoke("Destroy_monster", 0.8f);
         }
         //Debug.Log(ray_direction);
         //移动
