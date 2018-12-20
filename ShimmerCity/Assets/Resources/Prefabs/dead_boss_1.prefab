@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212730209365787726}
   - component: {fileID: 95347870293047700}
   - component: {fileID: 114700244420522248}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: dead_boss_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
