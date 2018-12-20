@@ -59,7 +59,7 @@ public class paper_handler : MonoBehaviour {
     {
         var word2 = GameObject.Find("S6_6word2");
         if (word2.GetComponent<SpriteRenderer>().color.a >= 0.99) {
-            SceneManager.LoadScene("Part3");
+            SceneManager.LoadScene("connectScene2");
         }
 	}
 
@@ -107,11 +107,11 @@ public class paper_handler : MonoBehaviour {
 
             //第三组淡入
             hero2.AddComponent<fadein_out>();
-            setPara(hero2, 2.0f, 5.0f, true);
+            setPara(hero2, 2.0f, 4.5f, true);
             flashes.AddComponent<fadein_out>();
-            setPara(flashes, 10.0f, 5.3f, true);
+            setPara(flashes, 10.0f, 4.8f, true);
             word2.AddComponent<fadein_out>();
-            setPara(word2, 2.0f, 5.8f, true);
+            setPara(word2, 2.0f, 5.3f, true);
 
 
 

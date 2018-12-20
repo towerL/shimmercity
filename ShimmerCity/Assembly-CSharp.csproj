@@ -58,6 +58,8 @@
      <Compile Include="Assets\hands_handler2.cs" />
      <Compile Include="Assets\head_handler2.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\changepicture.cs" />
+     <Compile Include="Assets\LoadScene\scenescripts\connectcontroller.cs" />
+     <Compile Include="Assets\LoadScene\scenescripts\connectcontroller2.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\fadein_out.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\Light_dark_cycle.cs" />
      <Compile Include="Assets\LoadScene\scenescripts\liquidcontroller.cs" />

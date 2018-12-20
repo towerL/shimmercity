@@ -39,8 +39,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/ConnectScene.unity
+    guid: 44e05b71b18ae264bb5e1ff2d40d72cf
+  - enabled: 1
     path: Assets/Scenes/Part2_1.unity
     guid: 9f4d3a0eb3bac104cb75d686d5e8b6cd
+  - enabled: 1
+    path: Assets/Scenes/connectScene2.unity
+    guid: 912248e6b8065cc418f972d1aee748bb
   - enabled: 1
     path: Assets/Scenes/Part3.unity
     guid: e1bb8d936b5d9d64589aa5450dc14663
