@@ -55,11 +55,12 @@ public class paper_handler : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-    IEnumerator Update()
+    void Update()
     {
-        yield return StartCoroutine("WaitAndPrint");
-        SceneManager.LoadScene("Part3");
-        Debug.Log("test");
+        var word2 = GameObject.Find("S6_6word2");
+        if (word2.GetComponent<SpriteRenderer>().color.a >= 0.99) {
+            SceneManager.LoadScene("Part3");
+        }
 	}
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -112,14 +113,12 @@ public class paper_handler : MonoBehaviour {
             word2.AddComponent<fadein_out>();
             setPara(word2, 2.0f, 5.8f, true);
 
-            //bg1_4.AddComponent<remove>();
-            //setPara2(bg1_4, 2.0f);
 
-            //sister_box1_4.AddComponent<remove>();
-            //setPara2(sister_box1_4, 2.0f);
 
-            hasEnter = false;
-            Destroy(this.gameObject);
+            //Debug.Log("test");
+
+            //hasEnter = false;
+            //Destroy(this.gameObject);
 
         }
     }

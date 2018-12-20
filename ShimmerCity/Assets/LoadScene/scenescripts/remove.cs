@@ -22,7 +22,9 @@ public class remove : MonoBehaviour {
         }
         if (WaitTime < 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            c.a = 0.0f;
+            gameObject.gameObject.GetComponent<SpriteRenderer>().color = c;
         }
     }
 }

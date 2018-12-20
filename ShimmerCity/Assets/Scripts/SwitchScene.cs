@@ -15,6 +15,9 @@ public class SwitchScene : MonoBehaviour {
 
     //是否第一次进入
     bool hasEnter = true;
+
+    float dis_time = 2.0f;
+    Color c1;
     IEnumerator WaitAndPrint()
     {
         yield return new WaitForSeconds(1.5f);
@@ -30,7 +33,10 @@ public class SwitchScene : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (dis_time >= 0)
+        {
+            dis_time -= 0.01f;
+        }
 	}
 
     //fade脚本
@@ -109,7 +115,7 @@ public class SwitchScene : MonoBehaviour {
                 SceneManager.LoadScene("Part2_1");
             }
 
-            if (!hasSister && hasHammer && hasEnter) {
+            if (!hasSister && hasHammer) {
                 var bg1_6 = GameObject.Find("S1-6_1bg_box");
                 var purple1_6 = GameObject.Find("S1-6_2purple");
                 var words1_6 = GameObject.Find("S1-6_3words");
@@ -133,8 +139,9 @@ public class SwitchScene : MonoBehaviour {
 
                 words1_6.AddComponent<remove>();
                 setPara2(words1_6, 2.0f);
+
             }
-            if (!hasSister && !hasHammer && hasEnter) {
+            if (!hasSister && !hasHammer) {
                 var bg1_7 = GameObject.Find("S1-7_1bg_box");
                 var mayor1_7 = GameObject.Find("S1-7_2mayor_box");
                 var words1_7 = GameObject.Find("S1-7_3words");
@@ -167,14 +174,36 @@ public class SwitchScene : MonoBehaviour {
                 AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerClick, myfun4);
                 AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerEnter, myfun5);
                 AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerExit, myfun6);
+                hasEnter = false;
             }
             
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.collider.tag == "Player") { 
-            hasEnter = false;
+        if (collision.collider.tag == "Player") {
+            var bg1_6 = GameObject.Find("S1-6_1bg_box");
+            var purple1_6 = GameObject.Find("S1-6_2purple");
+            var words1_6 = GameObject.Find("S1-6_3words");
+            Destroy(bg1_6.GetComponent<fadein_out>());
+            Destroy(purple1_6.GetComponent<fadein_out>());
+            Destroy(words1_6.GetComponent<fadein_out>());
+            Destroy(bg1_6.GetComponent<remove>());
+            Destroy(purple1_6.GetComponent<remove>());
+            Destroy(words1_6.GetComponent<remove>());
+
+            //var bg1_7 = GameObject.Find("S1-7_1bg_box");
+            //var mayor1_7 = GameObject.Find("S1-7_2mayor_box");
+            //var words1_7 = GameObject.Find("S1-7_3words");
+            //var thinking1_7 = GameObject.Find("S1-7_4thinking");
+            //var confirm1_7 = GameObject.Find("S1-7_5confirm");
+
+            //Destroy(bg1_7.GetComponent<fadein_out>());
+            //Destroy(mayor1_7.GetComponent<fadein_out>());
+            //Destroy(words1_7.GetComponent<fadein_out>());
+            //Destroy(thinking1_7.GetComponent<fadein_out>());
+            //Destroy(confirm1_7.GetComponent<fadein_out>());
+
         }
     }
 }
