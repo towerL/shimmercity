@@ -72,7 +72,6 @@ public class Deerbug_attackbox : MonoBehaviour {
         if (collision.collider.tag == "hammer_in_attack" /*|| collision.collider.tag == "Player"*/)
         {
             decreaseHp();
-            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -82,10 +81,25 @@ public class Deerbug_attackbox : MonoBehaviour {
             Debug.Log("进入trigger");
             transform.Rotate(Vector3.up * 180);
         }
-        //else if(collision.tag == "deerbug")
-        //{
-        //    this.GetComponent<Collider2D>().enabled = false;
-        //}
+        if(collision.tag == "deerbug")
+        {
+            GetComponent<PolygonCollider2D>().enabled = false;
+            Destroy(GetComponent<Rigidbody2D>());
+            GameObject.Find("Deerbug_Number").SendMessage("AddNumber");
+            GameObject.Find("Deerbug_Number").SendMessage("Active");
+        }
+        if (collision.tag == "hammer_in_attack" /*|| collision.collider.tag == "Player"*/)
+        {
+            decreaseHp();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "deerbug")
+        {
+            GetComponent<PolygonCollider2D>().enabled = true;
+            this.gameObject.AddComponent<Rigidbody2D>();
+        }
     }
 
 
