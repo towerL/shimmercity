@@ -11,12 +11,23 @@ public class follow_player : MonoBehaviour {
     public float MinY;
     public float MaxY;
 
-
     public static follow_player Instance;
+
+	private GameObject shield_prefabs;
+	private bool flag1;
+	private bool flag2;
+	private float begin_timer;
+	public float period;
+	private float now_timer;
+	private bool shield;
+
     private void Start()
     {
         Instance = this;
-    }
+		flag1 = false;
+		flag2 = false;
+		shield = false;
+	}
     void Update () {
  		Vector3 pos = transform.position;
 		pos.x = target.position.x;
@@ -26,5 +37,26 @@ public class follow_player : MonoBehaviour {
         if (pos.y > MaxY) pos.y = MaxY;
         else if (pos.y < MinY) pos.y = MinY;
 		transform.position = pos;
+		if (flag1 && flag2) {
+			begin_timer = Time.time;
+			flag1 = false;
+			flag2 = false;
+			shield = true;
+		}
+		if (shield) {
+			now_timer = Time.time;
+			if (Time.time - begin_timer >= period) {
+				shield_prefabs=Instantiate (Resources.Load ("prefabs/shield_10s")) as GameObject;
+				shield = false;
+			}
+		}
+
+	}
+
+	void SetShieldFlag1(bool flag){
+		flag1 = true;
+	}
+	void SetShieldFlag2(bool flag){
+		flag2 = true;
 	}
 }

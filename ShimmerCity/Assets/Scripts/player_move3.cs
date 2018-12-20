@@ -54,6 +54,12 @@ public class player_move3 : MonoBehaviour {
 
 	private float player_health;
 
+	private bool shield;
+	private bool in_shield;
+	private float shield_timer;
+	private float shield_now_timer;
+	public float shield_functimer;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -71,6 +77,8 @@ public class player_move3 : MonoBehaviour {
 		timer_for_triple = false;
 		skill_counter = 0;
 		player_health = 100.0f;
+		shield = false;
+		in_shield = false;
 	}
 
 	void Update () {
@@ -229,16 +237,29 @@ public class player_move3 : MonoBehaviour {
 				}
 			}
 
-			if (Input.GetKeyDown (KeyCode.U)) {
+			if (Input.GetKeyDown (KeyCode.U)&&shield) {
 				if(!ProtectLayer)
 					ProtectLayer = Instantiate (Resources.Load ("prefabs/Protect")) as GameObject;
 				BroadcastMessage ("SetProtectLayer",true);
+				shield = false;
+				shield_timer = Time.time;
+				in_shield = true;
 			}
 
-			if (Input.GetKeyDown (KeyCode.I)) {
+			/*if (Input.GetKeyDown (KeyCode.I)) {
 				if (ProtectLayer)
 					Destroy (ProtectLayer);
 				BroadcastMessage ("SetProtectLayer",false);
+			}*/
+			if (in_shield) {
+				shield_now_timer= Time.time;
+				if (shield_now_timer-shield_timer>=shield_functimer) {
+					if (ProtectLayer)
+						Destroy (ProtectLayer);
+					BroadcastMessage ("SetProtectLayer", false);
+					in_shield = false;
+					GameObject.FindWithTag ("MainCamera").SendMessage ("SetShieldFlag2",true);
+				}
 			}
 
 			if (Input.GetKeyDown (KeyCode.C)) {
@@ -297,6 +318,10 @@ public class player_move3 : MonoBehaviour {
 
 	void SetEnemy(bool flag){
 		enemy_check = flag;
+	}
+
+	void SetShield(bool flag){
+		shield = true;
 	}
 
 	public void HammerMessage(){

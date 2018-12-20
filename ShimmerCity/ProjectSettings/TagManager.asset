@@ -44,6 +44,8 @@ TagManager:
   - Switch
   - Start_mouse
   - destination
+  - shield
+  - Boss_body
   layers:
   - Default
   - TransparentFX
