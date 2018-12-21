@@ -60,6 +60,29 @@ public class AI_player : MonoBehaviour {
 	private float shield_now_timer;
 	public float shield_functimer;
 
+	private GameObject target_boss;
+	private Transform target_boss_transform;
+
+	enum location_hor{left,right,near};
+	enum location_ver{up,down};
+	private bool stage;
+	private location_hor AI_Location_hor;
+	private location_ver AI_Location_ver;
+	private float area_attack;
+
+	private float player_speed; 
+	private Vector3 player_positon;
+	private Vector2 player_velocity;
+	private float close_attack_timer;
+	private bool AI_attack;
+	private bool init_close_attack;
+	private int AI_count;
+
+	private bool isAttack;
+	private float Away_timer;
+
+	private bool move;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -79,10 +102,169 @@ public class AI_player : MonoBehaviour {
 		player_health = 100.0f;
 		shield = false;
 		in_shield = false;
+
+		target_boss = GameObject.Find ("bottle");
+		target_boss_transform = target_boss.transform;
+		stage = true;
+		AI_Location_hor = location_hor.left;
+		AI_Location_ver = location_ver.up;
+		area_attack = 2.2f;
+		player_speed = 6.0f;
+		AI_attack = true;
+		init_close_attack=false;
+		AI_count = 0;
+		isAttack = false;
+		move = true;
+	}
+		
+	private location_hor AI_location_horcheck(){
+		if (transform.position.x < target_boss_transform.position.x - area_attack)
+			return location_hor.left;
+		else if (transform.position.x > target_boss_transform.position.x + area_attack)
+			return location_hor.right;
+		else
+			return location_hor.near;
+	}
+
+	private location_ver AI_location_vercheck(){
+		if (transform.position.y > target_boss_transform.position.y + area_attack) 
+			return location_ver.up;
+		else
+			return location_ver.down;
+	}
+
+	public void SetMove(){
+		move=true;
+	}
+
+	public void SetCount(){
+		AI_count++;
 	}
 
 	void FixedUpdate () {
-		//float h=Input.GetAxis("Horizontal");
+		AI_Location_hor = AI_location_horcheck ();
+		AI_Location_ver = AI_location_vercheck ();
+		if (stage) {
+			if (move &&!isAttack && AI_Location_hor == location_hor.left) {
+				if (!isPush) {
+					player_positon = transform.position;
+					player_positon.x += player_speed * Time.deltaTime;
+					transform.position = player_positon;
+					player_velocity = player_rigidbody.velocity;
+					player_velocity.x = 6.0f;
+					player_rigidbody.velocity = player_velocity;
+				} else {
+					player_positon = transform.position;
+					player_positon.x += Time.deltaTime * push_v;
+					transform.position = player_positon;
+					player_velocity = player_rigidbody.velocity;
+					player_velocity.x = push_v;
+					player_rigidbody.velocity = player_velocity;
+				}
+				player_Scale.x = Mathf.Abs (player_Scale.x);
+				transform.localScale = player_Scale;
+			} else if (move && !isAttack && AI_Location_hor == location_hor.right) {
+				if (!isPush) {
+					player_positon = transform.position;
+					player_positon.x -= player_speed * Time.deltaTime;
+					transform.position = player_positon;
+					player_velocity = player_rigidbody.velocity;
+					player_velocity.x = -6.0f;
+					player_rigidbody.velocity = player_velocity;
+				} else {
+					player_positon = transform.position;
+					player_positon.x -= Time.deltaTime * push_v;
+					transform.position = player_positon;
+					player_velocity = player_rigidbody.velocity;
+					player_velocity.x = push_v;
+					player_rigidbody.velocity = player_velocity;
+				}
+				player_Scale.x = -Mathf.Abs (player_Scale.x);
+				transform.localScale = player_Scale;
+			} else if(!isAttack && AI_Location_hor == location_hor.near ){
+				if (AI_Location_ver == location_ver.up) {
+					Debug.Log ("here attack?");
+
+				} else {
+					if (!AI_attack && !init_close_attack) {
+						close_attack_timer = Time.time;
+						init_close_attack = true;
+						player_animator.SetBool ("close_attack",AI_attack);
+					}
+					if (init_close_attack) {
+						//////////////////////////////
+						if (Time.time - close_attack_timer >= 0.2f) {
+							AI_attack = true;
+							init_close_attack = false;
+						}
+					}
+					if (AI_attack) {
+						BroadcastMessage ("SetCloseAttack", true);
+						player_velocity = player_rigidbody.velocity;
+						player_velocity.x = 0.0f;
+						player_rigidbody.velocity = player_velocity;
+						move = false;
+						player_animator.Play ("close_attack");
+						if (AI_count >= 1) {
+							isAttack = true;
+							AI_attack = false;
+							AI_count = 0;
+							Away_timer = Time.time;
+						}
+					}
+				}
+			}else if (isAttack && Time.time - Away_timer <= 1.5f) {
+				if (transform.position.x<target_boss_transform.position.x) {
+					player_positon = transform.position;
+					player_positon.x -= player_speed * Time.deltaTime;
+					transform.position = player_positon;
+					player_velocity = player_rigidbody.velocity;
+					player_velocity.x = -6.0f;
+					player_rigidbody.velocity = player_velocity;
+					player_Scale.x = -Mathf.Abs (player_Scale.x);
+					transform.localScale = player_Scale;
+				} else if (transform.position.x>target_boss_transform.position.x) {
+					player_positon = transform.position;
+					player_positon.x += player_speed * Time.deltaTime;
+					transform.position = player_positon;
+					player_velocity = player_rigidbody.velocity;
+					player_velocity.x = 6.0f;
+					player_rigidbody.velocity = player_velocity;
+					player_Scale.x = Mathf.Abs (player_Scale.x);
+					transform.localScale = player_Scale;
+				}
+			} 
+
+			if (isAttack && (Time.time-Away_timer)*6.0f>= 7.5f && Time.time - Away_timer <= 4.0f) {
+				player_positon = transform.position;
+				player_positon.x += 0.0f;
+				transform.position = player_positon;
+				player_velocity = player_rigidbody.velocity;
+				player_velocity.x = 0.0f;
+				player_rigidbody.velocity = player_velocity;
+			}else if (isAttack && Time.time - Away_timer > 4.0f){
+				isAttack = false;
+				move = true;
+			}
+
+		}
+
+		Debug.Log (isAttack);
+
+		player_animator.SetFloat ("vel_x",Mathf.Abs(player_rigidbody.velocity.x));
+		player_animator.SetBool ("close_attack",AI_attack);
+		player_animator.SetBool ("isGround",isGround);
+		player_animator.SetBool ("five_minutes",five_minutes);
+		player_animator.SetBool ("isPush",isPush);
+
+
+
+
+
+
+
+
+		/*
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
@@ -206,7 +388,7 @@ public class AI_player : MonoBehaviour {
 				counter_close_range_attack--;
 			if (far_distance_attack)
 				counter_far_distance_attack--;
-			//for test
+			
 			if (Input.GetKey (KeyCode.Q)) {
 				alive = false;
 				player_boxcollider.isTrigger = true;
@@ -245,12 +427,7 @@ public class AI_player : MonoBehaviour {
 				shield_timer = Time.time;
 				in_shield = true;
 			}
-
-			/*if (Input.GetKeyDown (KeyCode.I)) {
-				if (ProtectLayer)
-					Destroy (ProtectLayer);
-				BroadcastMessage ("SetProtectLayer",false);
-			}*/
+				
 			if (in_shield) {
 				shield_now_timer= Time.time;
 				if (shield_now_timer-shield_timer>=shield_functimer) {
@@ -283,18 +460,15 @@ public class AI_player : MonoBehaviour {
 		} else {
 			if (Input.GetKeyDown (KeyCode.R)) {
 				gameexit = true;	
-				//Debug.Log ("game is over!");
 			}
 		}
 		player_animator.SetFloat ("velocity_x",Mathf.Abs(player_rigidbody.velocity.x));
 		player_animator.SetFloat ("velocity_y",player_rigidbody.velocity.y);
 		player_animator.SetBool ("close_attack",close_range_attack);
 		player_animator.SetBool ("far_attack",far_distance_attack);
-		//player_animator.SetBool ("alive",alive);
-		//player_animator.SetBool ("gameexit",gameexit);
 		player_animator.SetBool ("isGround",isGround);
 		player_animator.SetBool ("five_minutes",five_minutes);
-		player_animator.SetBool ("isPush",isPush);
+		player_animator.SetBool ("isPush",isPush);*/
 	}
 
 	void SetGround(bool flag){
@@ -332,18 +506,5 @@ public class AI_player : MonoBehaviour {
 		hammer.SendMessage ("SetSca",hammer_transform.localScale);
 		hammer.SendMessage ("SetRot",hammer_transform.rotation);
 	}
-
-	public void OnCollisionEnter2D(Collision2D col){
-
-	}
-
-	public void OnCollisionStay2D(Collision2D col){
-
-	}
-
-	public void OnCollisionExit2D(Collision2D col){
-
-	}
-
-
+		
 }

@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 15886548}
   - component: {fileID: 15886547}
   - component: {fileID: 15886546}
-  - component: {fileID: 15886551}
   - component: {fileID: 15886550}
+  - component: {fileID: 15886551}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -147,7 +147,7 @@ Rigidbody2D:
   m_Mass: 2.3
   m_LinearDrag: 10
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 30
   m_Material: {fileID: 6200000, guid: 8b3d28783ea4f1f43b741750a5ef143a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
   push_v: 1.2
   ladder_v: 0.2
   pushmove: 70
-  jumpVelocity: 170
+  jumpVelocity: 70
   skill_time: 0.3
   shield_functimer: 5
 --- !u!95 &15886551
@@ -260,7 +260,7 @@ Animator:
   m_GameObject: {fileID: 15886545}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6b07e614c7d71d40af71a1053e41e8c, type: 2}
+  m_Controller: {fileID: 9100000, guid: c68a6f8d892cd4344a7dd5f35ff2e2a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -927,7 +927,7 @@ GameObject:
   - component: {fileID: 142111373}
   - component: {fileID: 142111376}
   m_Layer: 8
-  m_Name: bossshow_03
+  m_Name: boss
   m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1729,7 +1729,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 375680736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.48, y: 8.28, z: 0}
+  m_LocalPosition: {x: 10.29, y: 2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17006,7 +17006,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1845389937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f94937f209c82446ba2713224c9a17f, type: 3}
+  m_Script: {fileID: 11500000, guid: d2f09cafdb63a0e4d91e184c1e96c1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1845389940
