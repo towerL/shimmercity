@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Liightning : MonoBehaviour {
-    public float maxPos_x = 8.08f;
-    public float maxPos_y = 1.23f;
+    public float maxPos_x = 8.88f;
+    public float maxPos_y = 1.96f;
     public float minPos_x = -19.3f;
     public float minPos_y = -13.2f;
-    public float vel_x=1.0f;
-    public float vel_y=1.0f;
+    float vel_x=1.0f;
+    float vel_y=1.0f;
     public float starttime;
     // Use this for initialization
     void Start () {

@@ -17,7 +17,7 @@ public class Boss_behavior : MonoBehaviour {
     public float e_timer_5 = 5.0f;
     public float change_pos = 4.0f;
     public bool isattacked = false;
-    float stoptime = 0.2f;
+    float stoptime = 0.1f;
     bool isblink = false;
     float dis;
     bool exist_body = false;
@@ -61,7 +61,7 @@ public class Boss_behavior : MonoBehaviour {
             {
                 rd.material.color = cl;
                 e_animator.speed = anispeed;
-                stoptime = 0.2f;
+                stoptime = 0.1f;
                 isattacked = false;
             }
         }
@@ -343,9 +343,9 @@ public class Boss_behavior : MonoBehaviour {
         {
             isfreeze = true;
         }
-
         if(col.gameObject.tag=="hammer_body")
         {
+            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             rd.material.color = Color.red;
             anispeed = e_animator.speed;
             isattacked = true;
@@ -353,6 +353,7 @@ public class Boss_behavior : MonoBehaviour {
         }
         if(col.gameObject.tag=="hammer_in_attack")
         {
+            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             rd.material.color = Color.red;
             anispeed = e_animator.speed;
             isattacked = true;
@@ -362,8 +363,6 @@ public class Boss_behavior : MonoBehaviour {
 
     void isattack()
     {
-
-
         e_animator.speed = 0f;
     }
 }

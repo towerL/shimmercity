@@ -49,6 +49,7 @@ TagManager:
   - hammer_trail
   - brick_edge
   - Boss_head
+  - lightning
   layers:
   - Default
   - TransparentFX

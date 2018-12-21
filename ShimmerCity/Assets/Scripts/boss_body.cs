@@ -16,7 +16,7 @@ public class boss_body : MonoBehaviour {
     float speed_hang = 0.07f;
     bool change_dir = false;
     float timer = 5.0f;
-    float changecolor = 0.2f;
+    float changecolor = 0.1f;
     bool isattacked = false;
     float anispeed;
     // Use this for initialization
@@ -30,8 +30,6 @@ public class boss_body : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
         if (HP > 0)
         {
             if (isattacked)
@@ -41,7 +39,7 @@ public class boss_body : MonoBehaviour {
                 {
                     e_animator.speed = anispeed;
                     rd.material.color = cl;
-                    changecolor = 0.2f;
+                    changecolor = 0.1f;
                     isattacked = false;
                 }
                 changecolor -= Time.deltaTime;
@@ -107,6 +105,7 @@ public class boss_body : MonoBehaviour {
     {
         if (col.gameObject.tag == "hammer_body")
         {
+            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
@@ -114,6 +113,7 @@ public class boss_body : MonoBehaviour {
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
+            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;

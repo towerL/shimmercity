@@ -1365,7 +1365,8 @@ MonoBehaviour:
   e_timer_4: 1
   e_timer_5: 5
   change_pos: 4
-  count_down: 0
+  isattacked: 0
+  anispeed: 0
 --- !u!212 &212473632206693904
 SpriteRenderer:
   m_ObjectHideFlags: 1
