@@ -9,33 +9,40 @@ public class Boss_behavior : MonoBehaviour {
     public float walk_run_dis = 0.1f;
     public double far_attact_in = 1.0;
     public bool isfreeze = false;
+    public float e_timer = 6.0f;
+    public float e_timer_1 = 2.0f;
+    public float e_timer_2 = 3.0f;
+    public float e_timer_3 = 3.0f;
+    public float e_timer_4 = 1.0f;
+    public float e_timer_5 = 5.0f;
+    public float change_pos = 4.0f;
+    public bool isattacked = false;
+    float stoptime = 0.2f;
     bool isblink = false;
     float dis;
     bool exist_body = false;
     bool exist_head = false;
     float bullet_speed = 2.0f;
-    public float e_timer = 6.0f;
-    public float e_timer_1 = 2.0f;
-    public float e_timer_2 = 3.0f;
-    public float e_timer_3 = 3.0f;
-    public float e_timer_4 =1.0f;
-    public float e_timer_5 = 5.0f;
-    public float change_pos = 4.0f;
-    public int count_down=0;
+    int count_down=0;
+    public float anispeed;
     Animator e_animator;
     GameObject player;
     GameObject bosshead;
     GameObject bossbody;
     GameObject ice;
     Rigidbody2D rd_boss;
+    Color cl;
+    Renderer rd;
     void Start ()
     {
         cur_Bosshealth = Boss_health;
         player = GameObject.FindGameObjectWithTag("Player");
         e_animator = GetComponent<Animator>();
         rd_boss = GetComponent<Rigidbody2D>();
-       // e_cc = GetComponent<CharacterController>();
-	}
+        rd = gameObject.GetComponent<Renderer>();
+        cl = rd.material.color;
+        // e_cc = GetComponent<CharacterController>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -46,110 +53,125 @@ public class Boss_behavior : MonoBehaviour {
 
     void Activity()
     {
-        float x_e = this.transform.position.x;
-        float x_p = player.transform.position.x;
-        if (x_p > x_e)                                                      //不要瞬间转身
-            this.transform.localEulerAngles = new Vector3(0, -180, 0);
-        else
-            this.transform.localEulerAngles = new Vector3(0, 0, 0);
-        if (!isfreeze)
+        if (isattacked)
         {
-            if(count_down==1)
+            isattack();
+            stoptime -= Time.deltaTime;
+            if(stoptime<=0)
             {
-                Destroy(ice);
-                count_down = 0;
+                rd.material.color = cl;
+                e_animator.speed = anispeed;
+                stoptime = 0.2f;
+                isattacked = false;
             }
-
-            if (isblink)
+        }
+        else
+        {
+            float x_e = this.transform.position.x;
+            float x_p = player.transform.position.x;
+            if (x_p > x_e)                                                      //不要瞬间转身
+                this.transform.localEulerAngles = new Vector3(0, -180, 0);
+            else
+                this.transform.localEulerAngles = new Vector3(0, 0, 0);
+            if (!isfreeze)
             {
-                change_pos = 4.0f;
-                e_timer = 6.0f;
-                e_timer_1 = 2.0f;
-                e_timer_2 = 3.0f;
-                e_timer_4 = 1.0f;
-                //this.enabled = true;
-                //e_animator.ResetTrigger("blink");
-                e_animator.SetBool("blink", false);
-                e_animator.ResetTrigger("attack_near_1");
-                e_animator.ResetTrigger("attack_near_2");
-                e_animator.ResetTrigger("move");
-                e_animator.SetTrigger("stay");
-                change_pos = 4.0f;
-                if(e_timer_3>=0)
+                if (count_down == 1)
                 {
-                    if (far_attact_in <= 0)
+                    Destroy(ice);
+                    count_down = 0;
+                }
+
+                if (isblink)
+                {
+                    change_pos = 4.0f;
+                    e_timer = 6.0f;
+                    e_timer_1 = 2.0f;
+                    e_timer_2 = 3.0f;
+                    e_timer_4 = 1.0f;
+                    //this.enabled = true;
+                    //e_animator.ResetTrigger("blink");
+                    e_animator.SetBool("blink", false);
+                    e_animator.ResetTrigger("attack_near_1");
+                    e_animator.ResetTrigger("attack_near_2");
+                    e_animator.ResetTrigger("move");
+                    e_animator.SetTrigger("stay");
+                    change_pos = 4.0f;
+                    if (e_timer_3 >= 0)
                     {
-                        e_animator.ResetTrigger("blink");
-                        e_animator.ResetTrigger("attack_near_1");
-                        e_animator.ResetTrigger("attack_near_2");
-                        e_animator.ResetTrigger("move");
-                        e_animator.SetTrigger("stay");
-                        e_animator.SetTrigger("attack_far");
-                        if (this.transform.localEulerAngles.y == 0)
+                        if (far_attact_in <= 0)
                         {
-                            Vector3 new_position = transform.position + new Vector3(-2, -0.5f, 0);
-                            GameObject bulletInstance_1 = Instantiate(Resources.Load("prefabs/New Prefab"), new_position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
-                            Rigidbody2D bullet_rig_1 = bulletInstance_1.GetComponent<Rigidbody2D>();
-                            bullet_rig_1.velocity = new Vector2(-bullet_speed, 0);
+                            e_animator.ResetTrigger("blink");
+                            e_animator.ResetTrigger("attack_near_1");
+                            e_animator.ResetTrigger("attack_near_2");
+                            e_animator.ResetTrigger("move");
+                            e_animator.SetTrigger("stay");
+                            e_animator.SetTrigger("attack_far");
+                            if (this.transform.localEulerAngles.y == 0)
+                            {
+                                Vector3 new_position = transform.position + new Vector3(-2, -0.5f, 0);
+                                GameObject bulletInstance_1 = Instantiate(Resources.Load("prefabs/New Prefab"), new_position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
+                                Rigidbody2D bullet_rig_1 = bulletInstance_1.GetComponent<Rigidbody2D>();
+                                bullet_rig_1.velocity = new Vector2(-bullet_speed, 0);
+                            }
+                            else
+                            {
+                                Vector3 new_position = transform.position + new Vector3(2, -0.5f, 0);
+                                GameObject bulletInstance_1 = Instantiate(Resources.Load("prefabs/New Prefab"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+                                Rigidbody2D bullet_rig_1 = bulletInstance_1.GetComponent<Rigidbody2D>();
+                                bullet_rig_1.velocity = new Vector2(bullet_speed, 0);
+                            }
+                            far_attact_in = 1.0f;
                         }
                         else
-                        {
-                            Vector3 new_position = transform.position + new Vector3(2, -0.5f, 0);
-                            GameObject bulletInstance_1 = Instantiate(Resources.Load("prefabs/New Prefab"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
-                            Rigidbody2D bullet_rig_1 = bulletInstance_1.GetComponent<Rigidbody2D>();
-                            bullet_rig_1.velocity = new Vector2(bullet_speed, 0);
-                        }
-                        far_attact_in = 1.0f;
+                            far_attact_in = far_attact_in - Time.deltaTime;
+                        e_timer_3 = e_timer_3 - Time.deltaTime;
                     }
                     else
-                        far_attact_in = far_attact_in - Time.deltaTime;
-                    e_timer_3 = e_timer_3 - Time.deltaTime;
+                    {
+                        isblink = false;
+                        e_timer_3 = 3.0f;
+                    }
                 }
-                else
+                if (cur_Bosshealth >= 120 && !isblink)
                 {
-                    isblink = false;
-                    e_timer_3 = 3.0f;
+                    stage1_behavior();
                 }
-            }
-            if (cur_Bosshealth >= 120&& !isblink)
-            {
-                stage1_behavior();
-            }
-            if (cur_Bosshealth < 120 && !isblink)
-            {
+                if (cur_Bosshealth < 120 && !isblink)
+                {
                     Vector3 new_position = this.transform.position;
                     Vector3 new_position_1 = new Vector3(0, 2, 0) + this.transform.position;
                     if (this.transform.localEulerAngles.y == 0)
                     {
                         bossbody = Instantiate(Resources.Load("Prefabs/body_1"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
-                        bosshead = Instantiate(Resources.Load("Prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 0,0))) as GameObject;
+                        bosshead = Instantiate(Resources.Load("Prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
                     }
                     else
                     {
                         bossbody = Instantiate(Resources.Load("Prefabs/body_1"), new_position, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
                         bosshead = Instantiate(Resources.Load("Prefabs/head"), new_position_1, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
                     }
-                Destroy(gameObject);
+                    Destroy(gameObject);
+                }
             }
-        }
-        else
-        {
-            if(count_down==0)
+            else
             {
-                Vector3 new_position;
-                new_position = this.transform.position;
-                if (this.transform.localEulerAngles.y == 0)
-                    ice = Instantiate(Resources.Load("prefabs/iceblock_1"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
-                else
-                    ice = Instantiate(Resources.Load("prefabs/iceblock_1"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
-                count_down++;
+                if (count_down == 0)
+                {
+                    Vector3 new_position;
+                    new_position = this.transform.position;
+                    if (this.transform.localEulerAngles.y == 0)
+                        ice = Instantiate(Resources.Load("prefabs/iceblock_1"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                    else
+                        ice = Instantiate(Resources.Load("prefabs/iceblock_1"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
+                    count_down++;
+                }
+                if (e_timer_5 <= 0)
+                {
+                    e_timer_5 = 5.0f;
+                    isfreeze = false;
+                }
+                e_timer_5 = e_timer_5 - Time.deltaTime;
             }
-            if(e_timer_5<=0)
-            {
-                e_timer_5 = 5.0f;
-                isfreeze = false;
-            }
-            e_timer_5 = e_timer_5 - Time.deltaTime;
         }
     }
 
@@ -324,13 +346,24 @@ public class Boss_behavior : MonoBehaviour {
 
         if(col.gameObject.tag=="hammer_body")
         {
+            rd.material.color = Color.red;
+            anispeed = e_animator.speed;
+            isattacked = true;
             cur_Bosshealth -= 5;
         }
         if(col.gameObject.tag=="hammer_in_attack")
         {
+            rd.material.color = Color.red;
+            anispeed = e_animator.speed;
+            isattacked = true;
             cur_Bosshealth -= 10;
         }
     }
 
+    void isattack()
+    {
 
+
+        e_animator.speed = 0f;
+    }
 }

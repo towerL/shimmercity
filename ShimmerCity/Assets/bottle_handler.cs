@@ -6,9 +6,10 @@ public class bottle_handler : MonoBehaviour {
 
     public bool isground = false;
     GameObject icebottle;
+    GameObject ground;
 	// Use this for initialization
 	void Start () {
-		
+        ground = GameObject.Find("Ground");
 	}
 	
 	// Update is called once per frame
@@ -22,7 +23,7 @@ public class bottle_handler : MonoBehaviour {
 	}
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag=="Ground")
+        if(col.gameObject == ground)
         {
             isground = true;
         }

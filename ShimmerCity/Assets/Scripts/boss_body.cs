@@ -8,15 +8,24 @@ public class boss_body : MonoBehaviour {
     GameObject player;
     GameObject boss_head;
     GameObject dead_boss;
+    Renderer rd;
+    Animator e_animator;
+    Color cl;
     public float HP = 120f;
     float walk_run_dis = 0.1f;
     float speed_hang = 0.07f;
     bool change_dir = false;
     float timer = 5.0f;
-	// Use this for initialization
-	void Start () {
+    float changecolor = 0.2f;
+    bool isattacked = false;
+    float anispeed;
+    // Use this for initialization
+    void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         boss_head = GameObject.FindGameObjectWithTag("Boss_head");
+        rd = gameObject.GetComponent<Renderer>();
+        e_animator = gameObject.GetComponent<Animator>();
+        cl = rd.material.color;
     }
 	
 	// Update is called once per frame
@@ -25,23 +34,38 @@ public class boss_body : MonoBehaviour {
 
         if (HP > 0)
         {
-            Vector3 new_position;
-            if (this.transform.localEulerAngles.y == 0)
-                new_position = this.transform.position + new Vector3(-2, 0, 0);
-            else
-                new_position = this.transform.position + new Vector3(2, 0, 0);
-
-            if (timer <= 0)
+            if (isattacked)
             {
-                GameObject bullet;
-                if (this.transform.localEulerAngles.y == 0)
-                    bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
-                else
-                    bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
-                timer = 5.0f;
+                isattack();
+                if (changecolor <= 0)
+                {
+                    e_animator.speed = anispeed;
+                    rd.material.color = cl;
+                    changecolor = 0.2f;
+                    isattacked = false;
+                }
+                changecolor -= Time.deltaTime;
             }
-            timer = timer - Time.deltaTime;
-            move();
+            else
+            {
+                Vector3 new_position;
+                if (this.transform.localEulerAngles.y == 0)
+                    new_position = this.transform.position + new Vector3(-2, 0, 0);
+                else
+                    new_position = this.transform.position + new Vector3(2, 0, 0);
+
+                if (timer <= 0)
+                {
+                    GameObject bullet;
+                    if (this.transform.localEulerAngles.y == 0)
+                        bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                    else
+                        bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
+                    timer = 5.0f;
+                }
+                timer = timer - Time.deltaTime;
+                move();
+            }
         }
         else
         {
@@ -83,11 +107,22 @@ public class boss_body : MonoBehaviour {
     {
         if (col.gameObject.tag == "hammer_body")
         {
+            anispeed = e_animator.speed;
+            isattacked = true;
+            rd.material.color = Color.red;
             HP -= 5;
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
+            anispeed = e_animator.speed;
+            isattacked = true;
+            rd.material.color = Color.red;
             HP -= 10;
         }
+    }
+
+    void isattack()
+    {
+       e_animator.speed = 0f;
     }
 }
