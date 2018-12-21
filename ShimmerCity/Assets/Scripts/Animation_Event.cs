@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class Animation_Event : MonoBehaviour {
 
-	// Use this for initialization
+	GameObject hammer;
+	Transform hammer_transform;
+	Rigidbody2D hammer_rigidbody;
+
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		hammer_transform = transform.Find("Hammer_for_attack");
+		hammer = GameObject.Find("Hammer_for_attack");
+		hammer_rigidbody = hammer.GetComponent<Rigidbody2D> ();
 	}
 
-    void ShowMsg(string msg, int count)
-    {
-        Debug.Log(msg);
-    }
+	public void HammerMessage1(){
+		hammer.SendMessage ("SetPos",hammer_transform.position);
+	}
+	public void HammerMessage2(){
+		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
+	}
+	public void HammerMessage3(){
+		hammer.SendMessage ("SetRot",hammer_transform.rotation);
+	}
+	public void HammerMessage4(){
+		hammer.SendMessage ("SetSca",hammer_transform.localScale);
+	}
 }

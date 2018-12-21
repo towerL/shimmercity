@@ -41,8 +41,8 @@ public class climb_ladder3 : MonoBehaviour {
 		if (inladder) {
 			Physics2D.IgnoreLayerCollision (9, 10);
 			Physics2D.IgnoreLayerCollision (9, 11);
-			target.SendMessage ("SetLayerOrder", false);
-			//target.SendMessage ("SetLayerOrder", true);
+			//target.SendMessage ("SetLayerOrder", false);
+			target.SendMessage ("SetLayerOrder", true);
 		} else {
 			Physics2D.IgnoreLayerCollision (9, 10,false);
 			Physics2D.IgnoreLayerCollision (9, 11,false);

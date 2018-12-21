@@ -81,7 +81,7 @@ public class player_move3 : MonoBehaviour {
 		in_shield = false;
 	}
 
-	void Update () {
+	void FixedUpdate () {
 		//float h=Input.GetAxis("Horizontal");
 		timer = true;
 		speed_up = (isGround == true ? false : true);
@@ -324,11 +324,13 @@ public class player_move3 : MonoBehaviour {
 		shield = true;
 	}
 
-	public void HammerMessage(){
+	public void HammerMessage1(){
 		hammer.SendMessage ("SetPos",hammer_transform.position);
 		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
-		hammer.SendMessage ("SetRot",hammer_transform.rotation);
+	}
+	public void HammerMessage2(){
 		hammer.SendMessage ("SetSca",hammer_transform.localScale);
+		hammer.SendMessage ("SetRot",hammer_transform.rotation);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){

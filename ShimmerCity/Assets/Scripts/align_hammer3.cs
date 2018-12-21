@@ -38,7 +38,8 @@ public class align_hammer3 : MonoBehaviour {
 		getvelvalue = false;
 	}
 
-	void Update () {
+	void FixedUpdate () {
+		Position = GameObject.Find("Hammer_for_attack").transform.position;
 		if (infurtherattack) {
 			if (getposvalue && getrotvalue && getscavalue && getvelvalue) {
 				GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer3"), Position, Rotation) as GameObject;
@@ -46,6 +47,13 @@ public class align_hammer3 : MonoBehaviour {
 				flying_hammer_transform.localScale = Scale/2;
 				Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
 				Physics2D.IgnoreCollision (target_collider,flying_hammer_instance.GetComponent<Collider2D>());
+				/*Vector2 hammer_vel = flying_hammer_rigidbody.velocity;
+				hammer_vel.y = 20.0f;
+				if(player_dir)
+					hammer_vel.x = 15.0f;
+				else
+					hammer_vel.x = -15.0f;
+				flying_hammer_rigidbody.velocity=hammer_vel;*/
 				flying_hammer_rigidbody.AddForce (Vector2.up *projectilemove);
 				if(player_dir)
 					flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);

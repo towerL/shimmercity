@@ -90,7 +90,7 @@ public class align_hammer : MonoBehaviour {
 			//	timer_flying_hammer = Time.time;
 			//}
 			if (getposvalue && getrotvalue && getscavalue && getvelvalue) {
-				GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer"), Position,Rotation) as GameObject;
+				GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer1"), Position,Rotation) as GameObject;
 				Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
 				flying_hammer_transform.localScale = Scale;
 				Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();

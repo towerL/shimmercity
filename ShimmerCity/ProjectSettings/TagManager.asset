@@ -47,6 +47,8 @@ TagManager:
   - shield
   - Boss_body
   - hammer_trail
+  - brick_edge
+  - Boss_head
   layers:
   - Default
   - TransparentFX
@@ -61,7 +63,7 @@ TagManager:
   - icebottle
   - lightning
   - Collider
-  - 
+  - protect_layer
   - 
   - 
   - 

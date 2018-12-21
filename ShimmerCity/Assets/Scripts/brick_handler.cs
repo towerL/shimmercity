@@ -25,9 +25,9 @@ public class brick_handler : MonoBehaviour {
 
 	public int level;
 	public int index;
-	public float build_timer=3.0f;
-	public float show_timer=15.0f;
-	public float disappear_timer=2.0f;
+	private float build_timer=1.5f;
+	private float show_timer=10.0f;
+	private float disappear_timer=2.0f;
 	public bool tag_for_delta;
 	private float total_period;
 	private float base_timer;
@@ -41,8 +41,8 @@ public class brick_handler : MonoBehaviour {
 		period = show_time + disappear_time;
 		time = new System.Random ();
 		change_index = true;
-		total_period = build_timer + show_timer + disappear_timer;
-		used_time = (tag_for_delta==false?Time.time:Time.time+total_period);
+		total_period = build_timer + show_timer*2 + disappear_timer;
+		used_time = (tag_for_delta==false?Time.time:Time.time+total_period/2);
 		base_timer = (level - 1) * build_timer;
 		offset_timer =(index - 1) * build_timer / 3;
 	}
