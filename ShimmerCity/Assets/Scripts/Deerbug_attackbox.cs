@@ -69,7 +69,7 @@ public class Deerbug_attackbox : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "hammer_in_attack" /*|| collision.collider.tag == "Player"*/)
+        if (collision.collider.tag == "hammer_in_attack" || collision.collider.tag == "Skill_L")
         {
             decreaseHp();
         }
@@ -106,8 +106,17 @@ public class Deerbug_attackbox : MonoBehaviour {
     private void Destroy_monster()
     {
         Destroy(this.gameObject);
-        Fpbar_controller.Instance.Freame_Increase();
-        GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+        //Fpbar_controller.Instance.Freame_Increase();
+        GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+        try
+        {
+            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+        }
+        catch
+        {
+            return;
+        }
+        
     }
     private void decreaseHp()
     {

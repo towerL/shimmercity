@@ -93,7 +93,15 @@ public class EnemyController : MonoBehaviour {
     {
         Destroy(this.gameObject);
         Fpbar_controller.Instance.Freame_Increase();
-        GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+        GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+        try
+        {
+            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+        }
+        catch
+        {
+            return;
+        }
     }
     private void decreaseHp()
     {
