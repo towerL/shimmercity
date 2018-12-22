@@ -15,6 +15,8 @@ public class climb_ladder3 : MonoBehaviour {
 	private Vector3 endpos;
 	private bool inladder;
 
+	private bool isGround=true;
+
 	void Start(){
 		player_boxcollider=GameObject.FindGameObjectWithTag("Player").transform;
 		//pushable = false;
@@ -23,7 +25,7 @@ public class climb_ladder3 : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (climb && !(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))) {
+		if (inladder && climb && !(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))) {
 			Vector3 posplayer = player_boxcollider.position;
 			posplayer.x = ladder_transition.position.x;
 			player_boxcollider.position = posplayer;
@@ -55,9 +57,13 @@ public class climb_ladder3 : MonoBehaviour {
 		}
 	}
 
+	void SetGround(bool flag){
+		isGround = flag;
+	}
+
 	private void OnTriggerStay2D(Collider2D col){
 		if (col.tag == "Player" && !climb) {
-			climb = (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.x) < 0.01f ? true : false) && (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.y) < 0.01f ? true : false);
+			climb = isGround && (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.x) < 0.01f ? true : false) && (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.y) < 0.01f ? true : false);
 		}
 		if (col.tag == "Player" && climb) {
 			if (Input.GetKey (KeyCode.W)) {

@@ -305,6 +305,16 @@ public class player_move3 : MonoBehaviour {
 		foreach (GameObject ladder in ladders){
 			ladder.SendMessage("SetGround",isGround);
 		}
+
+		if (isLadder) {
+			for (int i = 0; i <= 14; i++) {
+				Physics2D.IgnoreLayerCollision (9,i);
+			}
+		} else {
+			for (int i = 0; i <= 14; i++) {
+				Physics2D.IgnoreLayerCollision (9,i,false);
+			}
+		}
 	}
 
 	void Setmove(){
