@@ -18,6 +18,7 @@ public class player_move : MonoBehaviour {
 
 	public float force_move=70;
 	public float jumpVelocity=170;
+	public float vel_x_in_air=3.0f;
 
 	private bool isGround = true;
 	private bool isWall = false;
@@ -124,19 +125,14 @@ public class player_move : MonoBehaviour {
 					player_rigidbody.velocity = vel;
 				} else if (!isLadder && !isGround && speed_up) {
 					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * 6.0f;
+					pos.x += Time.deltaTime * vel_x_in_air;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = 6.0f;
+					vel.x = vel_x_in_air;
 					player_rigidbody.velocity = vel;
-				} /*else if ( isLadder && !isGround) {
-					Vector3 pos = transform.position;
-					pos.x += 0;//Time.deltaTime * 0.2f;
-					transform.position = pos;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = 0;//p00.2f;;
-					player_rigidbody.velocity = vel;
-				}*/
+				} else {
+
+				}
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				now_direction = direction.right_dir;
@@ -160,18 +156,13 @@ public class player_move : MonoBehaviour {
 					player_rigidbody.velocity = vel;
 				} else if (!isLadder && !isGround && speed_up) {
 					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * 6.0f;
+					pos.x -= Time.deltaTime * vel_x_in_air;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -6.0f;
+					vel.x = -vel_x_in_air;
 					player_rigidbody.velocity = vel;
-				} else if (isLadder && !isGround) {
-					Vector3 pos = transform.position;
-					pos.x -= 0;//Time.deltaTime * 0.2f;
-					transform.position = pos;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = 0;//-0.2f;
-					player_rigidbody.velocity = vel;
+				} else {
+
 				}
 				player_Scale.x = -Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
@@ -423,53 +414,22 @@ public class player_move : MonoBehaviour {
 		hammer.SendMessage ("SetSca",hammer_transform.localScale);
 	}
 
-	/*(public void OnCollisionEnter2D(Collision2D col){
-		if(col.collider.tag == "Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" || col.collider.tag == "Locker_sister"){
-			isGround = true;
-			player_rigidbody.gravityScale=30;
+	public void OnCollisionEnter2D(Collision2D col){
+		if(col.collider.tag == "Belt"&&!isGround){
+			Vector3 pos = transform.position;
+			pos.x -= Time.deltaTime * 3.0f;
+			transform.position = pos;
+			player_rigidbody.gravityScale = 40;
+			//Physics2D.IgnoreCollision (player_boxcollider,col.collider);
 		}
-		if (col.collider.tag == "Belt")
-			isBelt = true;
-		/*if (col.collider.tag == "Ladder") {
-			//isLadder = true;
-			//player_rigidbody.gravityScale = 0;
-		}*/
-		//will be used
-		/*if(col.collider.tag == "Wall"){
-			isWall = true;
-			player_rigidbody.velocity=Vector2.zero;
-			player_rigidbody.gravityScale=5;
-		}*/
-		/*if (col.collider.tag == "Enemy") {
-			underattack=false;
-		}
-		player_animator.SetBool("attack",underattack);*/
-		//player_animator.SetBool("isGround",isGround);
-		//player_animator.SetBool ("isLadder",isLadder);
-		//player_animator.SetBool("isWall",isWall);
-	//}
-	/*public void OnCollisionExit2D(Collision2D col){
-		if(col.collider.tag=="Ground" || col.collider.tag == "Box" || col.collider.tag == "Belt" || col.collider.tag=="Locker_sister")
-			isGround = false;
-		if (col.collider.tag == "Belt")
-			isBelt = false;
-		/*if (col.collider.tag == "Ladder") {
-			isLadder = false;
+
+	}
+
+	public void OnCollisionExit2D(Collision2D col){
+		if(col.collider.tag == "Belt"){
 			player_rigidbody.gravityScale = 20;
-		}*/
-		//will be used
-		/*if(col.collider.tag == "Wall"){
-			isWall = false;
-			player_rigidbody.gravityScale=30;
-		}*/
-		/*if (col.collider.tag == "Enemy") {
-			underattack=false;
+			//Physics2D.IgnoreCollision (player_boxcollider,col.collider,false);
 		}
-		player_animator.SetBool("attack",underattack);*/
-		//player_animator.SetBool("isGround",isGround);
-		//player_animator.SetBool ("isLadder",isLadder);
-		//anim.SetBool("isWall",isWall);
-	//}
 
-
+	}
 }
