@@ -15,6 +15,7 @@ public class climb_ladder : MonoBehaviour {
 	private bool used_below;
 	private bool now_below;
 	private bool used_ground=true;
+	private bool isGround=true;
 
 	void Start(){
 		player_boxcollider=GameObject.FindGameObjectWithTag("Player").transform;
@@ -25,9 +26,21 @@ public class climb_ladder : MonoBehaviour {
 		climb = false;
 	}
 
+	void FixedUpdate(){
+		if (climb && !(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))) {
+			Vector3 posplayer = player_boxcollider.position;
+			posplayer.x = ladder_transition.position.x;
+			player_boxcollider.position = posplayer;
+		}
+	}
+
+	void SetGround(bool flag){
+		isGround = flag;
+	}
+
 	private void OnTriggerStay2D(Collider2D col){
 		if (col.tag == "Player" && !climb) {
-			climb = (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.x) < 0.01f ? true : false) && (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.y) < 0.01f ? true : false);
+			climb = isGround && (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.x) < 0.01f ? true : false) && (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.y) < 0.01f ? true : false);
 		}
 		player_boxcollider_y = player_boxcollider.position.y;
 		now_below = (player_boxcollider_y < ladder_transition_y ? true : false);

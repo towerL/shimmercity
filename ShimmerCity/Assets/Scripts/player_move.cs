@@ -75,6 +75,8 @@ public class player_move : MonoBehaviour {
 
 	private bool moveable;
 
+	private GameObject[] ladders;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -115,10 +117,10 @@ public class player_move : MonoBehaviour {
 					player_rigidbody.velocity = vel;
 				} else if (isPush && isGround) {
 					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * 1.2f;
+					pos.x += Time.deltaTime * 2.4f;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = 1.2f;
+					vel.x = 2.4f;
 					player_rigidbody.velocity = vel;
 				} else if (!isLadder && !isGround && speed_up) {
 					Vector3 pos = transform.position;
@@ -151,10 +153,10 @@ public class player_move : MonoBehaviour {
 					player_rigidbody.velocity = vel;
 				} else if (isPush && isGround) {
 					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * 1.2f;
+					pos.x -= Time.deltaTime * 2.4f;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -1.2f;
+					vel.x = -2.4f;
 					player_rigidbody.velocity = vel;
 				} else if (!isLadder && !isGround && speed_up) {
 					Vector3 pos = transform.position;
@@ -352,6 +354,10 @@ public class player_move : MonoBehaviour {
 		player_animator.SetBool ("isPush",isPush);
 		player_animator.SetInteger("counter_close_range_attack",counter_close_range_attack);
 		player_animator.SetBool ("skill_L",skill_L);
+		ladders = GameObject.FindGameObjectsWithTag ("Ladder");
+		foreach (GameObject ladder in ladders){
+			ladder.SendMessage("SetGround",isGround);
+		}
 	}
 
 	private void doubleclick(){

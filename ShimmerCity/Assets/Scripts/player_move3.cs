@@ -62,6 +62,8 @@ public class player_move3 : MonoBehaviour {
 
 	private bool moveable;
 
+	private GameObject[] ladders;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -299,6 +301,10 @@ public class player_move3 : MonoBehaviour {
 		player_animator.SetBool ("isGround",isGround);
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetBool ("isPush",isPush);
+		ladders = GameObject.FindGameObjectsWithTag ("Ladder");
+		foreach (GameObject ladder in ladders){
+			ladder.SendMessage("SetGround",isGround);
+		}
 	}
 
 	void Setmove(){

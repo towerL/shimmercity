@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 651180323}
   ladder_transition: {fileID: 1179940645}
-  climbspeed: 2
+  climbspeed: 4
 --- !u!61 &174051027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1744,7 +1744,7 @@ Rigidbody2D:
   m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 6200000, guid: 4057ed427f782ec4697618a90a3f57ed, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -7099,7 +7099,7 @@ Rigidbody2D:
   m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 6200000, guid: 4057ed427f782ec4697618a90a3f57ed, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -8131,7 +8131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 160838790}
   ladder_transition: {fileID: 835749240}
-  climbspeed: 2
+  climbspeed: 4
 --- !u!1 &1319019359
 GameObject:
   m_ObjectHideFlags: 0
@@ -10676,7 +10676,7 @@ Rigidbody2D:
   m_Mass: 2.3
   m_LinearDrag: 10
   m_AngularDrag: 0.05
-  m_GravityScale: 35
+  m_GravityScale: 20
   m_Material: {fileID: 6200000, guid: 8b3d28783ea4f1f43b741750a5ef143a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -12034,7 +12034,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825945725}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.96, y: 8.29, z: -0}
+  m_LocalPosition: {x: -18.06, y: -12.25, z: -0}
   m_LocalScale: {x: 0.8537625, y: 0.8279656, z: 0.9573401}
   m_Children:
   - {fileID: 1391476212}

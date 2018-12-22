@@ -22,7 +22,12 @@ public class climb_ladder3 : MonoBehaviour {
 		inladder = false;
 	}
 
-	void Update(){
+	void FixedUpdate(){
+		if (climb && !(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))) {
+			Vector3 posplayer = player_boxcollider.position;
+			posplayer.x = ladder_transition.position.x;
+			player_boxcollider.position = posplayer;
+		}
 		if (pushable) {
 			if (transform.position.x <= ladder_endpos.position.x) {
 				endpos = transform.position;
