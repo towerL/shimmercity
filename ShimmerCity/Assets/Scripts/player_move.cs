@@ -259,8 +259,11 @@ public class player_move : MonoBehaviour {
 				timer_for_skill = Time.time;
 				timer = false;
 				skill_L = true;
-			}
-
+            }
+            if(Input.GetKeyDown(KeyCode.P) && Fpbar_controller.Instance.bisFull == true)
+            {
+                Fpbar_controller.Instance.ReleaseSkill();
+            }
 			if(timer_for_triple){
 				if (skill_counter < 3) {
 					float now_timer = Time.time;

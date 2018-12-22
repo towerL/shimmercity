@@ -13,6 +13,10 @@ public class Fpbar_controller : MonoBehaviour {
     public static Fpbar_controller Instance;
     private bool bisShow;
     private SpriteRenderer render;
+
+    public bool bisFull;
+    public bool bisReleasing;
+
     // Use this for initialization
     void Start () {
         bisAcquire_sister = false;
@@ -23,6 +27,8 @@ public class Fpbar_controller : MonoBehaviour {
         Pre_freamNumber = 0;
         Current_frameNumber = 0;
         bisShow = false;
+        bisFull = false;
+        bisReleasing = false;
     }
 	
 	// Update is called once per frame
@@ -45,8 +51,18 @@ public class Fpbar_controller : MonoBehaviour {
         if (Current_frameNumber >= 8 && bisShow == false)
         {
             this.GetComponent<SpriteRenderer>().sortingOrder = 10;
+            bisFull = true;
             Invoke("Hide", 3);
             //animator.SetTrigger("SetFull");
+        }
+        if(bisReleasing == true)
+        {
+            fpbarUI_Control.Instance.GetComponent<Slider>().value -= Time.deltaTime * 1.0f;
+        }
+        if(fpbarUI_Control.Instance.GetComponent<Slider>().value == 0)
+        {
+            CancelInvoke("SisterHead_decrease");
+            bisReleasing = false;
         }
         Vector3 _pos;
         _pos.x = target.transform.position.x + 3.0f;
@@ -54,6 +70,7 @@ public class Fpbar_controller : MonoBehaviour {
         _pos.z = target.transform.position.z;
         this.transform.position = _pos;
     }
+
     void Hide()
     {
         render.sortingOrder = -10;
@@ -65,16 +82,35 @@ public class Fpbar_controller : MonoBehaviour {
     }
     public void Freame_Increase()
     {
+        if(bisAcquire_sister == false)
+        {
+            return;
+        }
+        if (bisReleasing == true)
+            return;
+        fpbarUI_Control.Instance.GetComponent<Slider>().value += 2.5f;
         if (bisAcquire_sister != true)
             return;
         Pre_freamNumber = Current_frameNumber;
         Current_frameNumber++;
     }
-    private void ReleaseSkill()
+    public void ReleaseSkill()
     {
+        if (bisAcquire_sister == false)
+            return;
+        if (bisReleasing == true)
+            return;
         Current_frameNumber = 0;
         Pre_freamNumber = 0;
-        animator.SetTrigger("SetNull");
+        //fpbarUI_Control.Instance.GetComponent<Slider>().value = 0;
+        //animator.SetTrigger("SetNull");
         bisShow = false;
+        bisFull = false;
+        bisReleasing = true;
+        InvokeRepeating("SisterHead_decrease", 0, 2.5f);
+    }
+    private void SisterHead_decrease()
+    {
+        GameObject.Find("Sister_Head").SendMessage("Fpbardecrease");
     }
 }

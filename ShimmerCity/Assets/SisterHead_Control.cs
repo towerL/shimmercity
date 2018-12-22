@@ -34,11 +34,21 @@ public class SisterHead_Control : MonoBehaviour {
     }
     public void Fpbaradd()
     {
+        if (Fpbar_controller.Instance.bisReleasing == true)
+            return;
         if(frameNum >= Frames.Length)
         {
             return;
         }
         frameNum++;
+    }
+    public void Fpbardecrease()
+    {
+        if (frameNum <= 0)
+        {
+            return;
+        }
+        frameNum--;
     }
     public void Active()
     {
