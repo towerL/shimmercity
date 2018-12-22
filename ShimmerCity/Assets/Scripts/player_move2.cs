@@ -53,6 +53,9 @@ public class player_move2 : MonoBehaviour {
 	private bool timer_for_triple;
 	private int skill_counter;
 	private bool skill_L = false;
+	private bool sister_skill = false;
+
+	private bool moveable;
 
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
@@ -68,6 +71,8 @@ public class player_move2 : MonoBehaviour {
 		counter_far_distance_attack = 0;
 		start_time = Time.time;
 		player_health = 100.0f;
+
+		moveable = true;
 	}
 
 	void Update () {
@@ -76,7 +81,7 @@ public class player_move2 : MonoBehaviour {
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
-			if (Input.GetKey(KeyCode.D)&& !close_range_attack && !far_distance_attack) {
+			if (moveable&&(Input.GetKey(KeyCode.D)||(Input.GetKey(KeyCode.RightArrow))) && !close_range_attack && !far_distance_attack) {
 				if (!isPipe && !isGround && speed_up) {
 					Vector3 pos = transform.position;
 					pos.x += Time.deltaTime * vel_x_in_air;
@@ -92,7 +97,7 @@ public class player_move2 : MonoBehaviour {
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				timer = false;
-			} else if (Input.GetKey(KeyCode.A)&& !close_range_attack && !far_distance_attack) {
+			} else if (moveable && (Input.GetKey(KeyCode.A)||(Input.GetKey(KeyCode.LeftArrow))) && !close_range_attack && !far_distance_attack) {
 				if (!isPipe && !isGround && speed_up) {
 					Vector3 pos = transform.position;
 					pos.x -= Time.deltaTime * vel_x_in_air;
@@ -118,6 +123,7 @@ public class player_move2 : MonoBehaviour {
 			 
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider);
 			if (isGround && Input.GetKeyDown(KeyCode.J)) {
+				moveable = false;
 				close_range_attack = true;
 				far_distance_attack = false;
 				counter_close_range_attack++;
@@ -159,6 +165,12 @@ public class player_move2 : MonoBehaviour {
 				timer_for_skill = Time.time;
 				timer = false;
 				skill_L = true;
+			}
+
+			if(Input.GetKeyDown(KeyCode.P) && Fpbar_controller.Instance.bisFull == true)
+			{
+				Fpbar_controller.Instance.ReleaseSkill();
+				sister_skill = true;
 			}
 
 			if(timer_for_triple){
@@ -222,6 +234,10 @@ public class player_move2 : MonoBehaviour {
 		player_animator.SetBool ("skill_L",skill_L);
 	}
 		
+	void Setmove(){
+		moveable = true;
+	}
+
 	void SetGround(bool flag){
 		isGround = flag;
 		player_animator.SetBool ("isGround",flag);

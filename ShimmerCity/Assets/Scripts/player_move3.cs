@@ -60,6 +60,8 @@ public class player_move3 : MonoBehaviour {
 	private float shield_now_timer;
 	public float shield_functimer;
 
+	private bool moveable;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -79,6 +81,7 @@ public class player_move3 : MonoBehaviour {
 		player_health = 100.0f;
 		shield = false;
 		in_shield = false;
+		moveable = true;
 	}
 
 	void FixedUpdate () {
@@ -86,7 +89,7 @@ public class player_move3 : MonoBehaviour {
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
-			if (Input.GetKey(KeyCode.D)) {
+			if (moveable&&(Input.GetKey(KeyCode.D)||(Input.GetKey(KeyCode.RightArrow))) && !close_range_attack && !far_distance_attack) {
 				if (!isLadder && !isGround && speed_up) {
 					Vector3 pos = transform.position;
 					pos.x += Time.deltaTime * vel_x_in_air;
@@ -118,7 +121,7 @@ public class player_move3 : MonoBehaviour {
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				timer = false;
-			} else if (Input.GetKey(KeyCode.A)) {
+			} else if (moveable && (Input.GetKey(KeyCode.A)||(Input.GetKey(KeyCode.LeftArrow))) && !close_range_attack && !far_distance_attack) {
 				if (!isLadder && !isGround && speed_up) {
 					Vector3 pos = transform.position;
 					pos.x -= Time.deltaTime * vel_x_in_air;
@@ -173,6 +176,7 @@ public class player_move3 : MonoBehaviour {
 
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider);
 			if (isGround && Input.GetKey(KeyCode.J)) {
+				moveable = false;
 				close_range_attack = true;
 				far_distance_attack = false;
 				counter_close_range_attack=1;
@@ -295,6 +299,10 @@ public class player_move3 : MonoBehaviour {
 		player_animator.SetBool ("isGround",isGround);
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetBool ("isPush",isPush);
+	}
+
+	void Setmove(){
+		moveable = true;
 	}
 
 	void SetGround(bool flag){
