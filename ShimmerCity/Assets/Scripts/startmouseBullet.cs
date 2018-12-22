@@ -9,7 +9,7 @@ public class startmouseBullet : MonoBehaviour {
 
     private Vector2 _Direction;
 
-    
+    public float V;
     public float Bullet_FlyTime;
     // Use this for initialization
     void Start () {
@@ -21,7 +21,7 @@ public class startmouseBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 temp_pos;
-        temp_pos.x = transform.position.x + (0.05f * _Direction.x);
+        temp_pos.x = transform.position.x + (0.1f * _Direction.x);
         temp_pos.y = transform.position.y;
         temp_pos.z = transform.position.z;
         transform.position = temp_pos;

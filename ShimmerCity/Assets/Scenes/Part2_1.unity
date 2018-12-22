@@ -4113,6 +4113,7 @@ GameObject:
   - component: {fileID: 421086944}
   - component: {fileID: 421086946}
   - component: {fileID: 421086945}
+  - component: {fileID: 421086947}
   m_Layer: 12
   m_Name: Start_Mouse
   m_TagString: Start_mouse
@@ -4126,9 +4127,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 421086940}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.3, y: 0.7, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.2, y: -0.07, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1015159777}
   m_RootOrder: 3
@@ -4212,6 +4213,7 @@ MonoBehaviour:
     type: 2}
   _HP: 1
   direction: {x: -1, y: 0}
+  V: 0.05
 --- !u!60 &421086945
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4379,6 +4381,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &421086947
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421086940}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.13, y: 3.56}
+    newSize: {x: 4.13, y: 3.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.13, y: 3.56}
+  m_EdgeRadius: 0
 --- !u!1 &432772191
 GameObject:
   m_ObjectHideFlags: 0
@@ -7659,7 +7686,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 739617129}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.93, y: -69.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8998,11 +9025,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4666498604587076, guid: d4b4c187e6661ee4ba4fc07521815e7b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 28.81
+      value: -17.9
       objectReference: {fileID: 0}
     - target: {fileID: 4666498604587076, guid: d4b4c187e6661ee4ba4fc07521815e7b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -10.39
+      value: -58
       objectReference: {fileID: 0}
     - target: {fileID: 4666498604587076, guid: d4b4c187e6661ee4ba4fc07521815e7b, type: 2}
       propertyPath: m_LocalPosition.z

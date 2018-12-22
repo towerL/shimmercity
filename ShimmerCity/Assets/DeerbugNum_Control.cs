@@ -23,15 +23,8 @@ public class DeerbugNum_Control : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-		if(Number == 0)
-        {
-            //this.gameObject.SetActive(false);
-        }
-        else
-        {
-            this.gameObject.SetActive(true);
-            this.GetComponent<Text>().text = "Deerbug✖" + Number.ToString();
-        }
+        this.gameObject.SetActive(true);
+        this.GetComponent<Text>().text = "Deerbug✖" + Number.ToString();
 
 	}
 }

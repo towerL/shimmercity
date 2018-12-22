@@ -31,7 +31,7 @@ public class deerbugBullet_control : MonoBehaviour {
 	}
     private void SetBulletOrigin(Transform deerbug)
     {
-        render.sortingOrder = 5;
+        //render.sortingOrder = 5;
         transform.position = deerbug.position;
         
     }

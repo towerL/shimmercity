@@ -23,6 +23,9 @@ public class Deerbug_attackbox : MonoBehaviour {
     public static bool bisGethammer;
     
     private float _HP;
+
+    private bool bisAttackElectrictBox;
+
     // Use this for initialization
     void Start()
     {
@@ -32,19 +35,20 @@ public class Deerbug_attackbox : MonoBehaviour {
         target = GameObject.Find("ElectricBox").transform ;
         Player = GameObject.Find("Player").transform;
         _HP = 1;
+        bisAttackElectrictBox = false;
     }
     // Update is called once per frame
     void Update()
     {
-        if(_HP <= 0)
+        if (_HP <= 0)
         {
             animator.SetTrigger("Isdie");
             bisAttacking = true;
-            
             this.Invoke("Destroy_monster", 1.0f);
+
         }
         GetComponent<SpriteRenderer>().sortingOrder = -2;
-        if(bisGethammer == true)
+        if (bisGethammer == true)
         {
             GetComponent<SpriteRenderer>().sortingOrder = 1;
         }
@@ -55,6 +59,20 @@ public class Deerbug_attackbox : MonoBehaviour {
         }
         float distance_Player = (transform.position - Player.position).sqrMagnitude;
         float distance = (transform.position - target.position).sqrMagnitude;
+
+        if (distance <= Distance_Threshold * 10)
+        {
+            GetComponent<PolygonCollider2D>().enabled = false;
+            Destroy(GetComponent<Rigidbody2D>());
+            if(bisAttackElectrictBox == false)
+            {
+                GameObject.Find("Deerbug_Number").SendMessage("AddNumber");
+                bisAttackElectrictBox = true;
+            }
+            
+            GameObject.Find("Deerbug_Number").SendMessage("Active");
+        }
+
         //Debug.Log(distance);
         if (distance <= Distance_Threshold * 10 || distance_Player <= Distance_Threshold * 10)
         {
@@ -81,30 +99,25 @@ public class Deerbug_attackbox : MonoBehaviour {
             Debug.Log("进入trigger");
             transform.Rotate(Vector3.up * 180);
         }
-        if(collision.tag == "deerbug")
-        {
-            GetComponent<PolygonCollider2D>().enabled = false;
-            Destroy(GetComponent<Rigidbody2D>());
-            GameObject.Find("Deerbug_Number").SendMessage("AddNumber");
-            GameObject.Find("Deerbug_Number").SendMessage("Active");
-        }
-        if (collision.tag == "hammer_in_attack" /*|| collision.collider.tag == "Player"*/)
+
+        if (collision.tag == "hammer_in_attack" || collision.tag == "Skill_L")
         {
             decreaseHp();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "deerbug")
-        {
-            GetComponent<PolygonCollider2D>().enabled = true;
-            this.gameObject.AddComponent<Rigidbody2D>();
-        }
+
     }
 
 
     private void Destroy_monster()
     {
+        if (bisAttackElectrictBox == true)
+        {
+            GameObject.Find("Deerbug_Number").SendMessage("DecreaseNumber");
+            bisAttackElectrictBox = false;
+        }
         Destroy(this.gameObject);
         //Fpbar_controller.Instance.Freame_Increase();
         GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
