@@ -345,7 +345,10 @@ public class Boss_behavior : MonoBehaviour {
         }
         if(col.gameObject.tag=="hammer_body")
         {
+            if(this.transform.localEulerAngles.y==-180)
             this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            else
+                this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             rd.material.color = Color.red;
             anispeed = e_animator.speed;
             isattacked = true;
@@ -353,7 +356,10 @@ public class Boss_behavior : MonoBehaviour {
         }
         if(col.gameObject.tag=="hammer_in_attack")
         {
-            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            if (this.transform.localEulerAngles.y == -180)
+                this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            else
+                this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             rd.material.color = Color.red;
             anispeed = e_animator.speed;
             isattacked = true;

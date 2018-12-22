@@ -105,7 +105,10 @@ public class boss_body : MonoBehaviour {
     {
         if (col.gameObject.tag == "hammer_body")
         {
-            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            if (this.transform.localEulerAngles.y == -180)
+                this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            else
+                this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
@@ -113,7 +116,10 @@ public class boss_body : MonoBehaviour {
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
-            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            if (this.transform.localEulerAngles.y == -180)
+                this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            else
+                this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;

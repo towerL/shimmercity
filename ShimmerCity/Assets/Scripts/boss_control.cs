@@ -67,19 +67,21 @@ public class boss_control : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.L) && count == 0)
         {
             Vector3 new_position = this.transform.position;
-            Vector3 new_position_1 = new Vector3(0, 2, 0) + this.transform.position;
+            Vector3 new_position_1 = new Vector3(0, 3, 0) + this.transform.position;
             if (this.transform.localEulerAngles.y == 0)
             {
-                bossbody = Instantiate(Resources.Load("Prefabs/pl_body"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
                 bosshead = Instantiate(Resources.Load("Prefabs/pl_head"), new_position_1, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+                bossbody = Instantiate(Resources.Load("Prefabs/pl_body"), new_position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+
                 bossbody.SendMessage("setHP", Boss_health);
                 bosshead.SendMessage("setHP", Boss_health);
                 Destroy(gameObject);
             }
             else
             {
-                bossbody = Instantiate(Resources.Load("Prefabs/pl_body"), new_position, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
                 bosshead = Instantiate(Resources.Load("Prefabs/pl_head"), new_position_1, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
+                bossbody = Instantiate(Resources.Load("Prefabs/pl_body"), new_position, Quaternion.Euler(new Vector3(0, 180f, 0))) as GameObject;
+
                 bossbody.SendMessage("setHP", Boss_health);
                 bosshead.SendMessage("setHP", Boss_health);
                 Destroy(gameObject);

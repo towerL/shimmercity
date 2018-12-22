@@ -7,6 +7,11 @@ public class boss_head_1 : MonoBehaviour {
     GameObject bossbody;
     GameObject dead_boss;
     GameObject ladder;
+    Animator e_animator;
+    Color cl;
+    Renderer rd;
+    float changecolor = 0.1f;
+    bool isattacked = false;
     public float HP = 120f;
     public float maxPos_x = 20.5f;
     public float maxPos_y = 9.69f;
@@ -18,49 +23,68 @@ public class boss_head_1 : MonoBehaviour {
     float stopTime;
     float moveTime;
     float vel_x=1.0f, vel_y=1.0f;
+    float anispeed;
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         bossbody = GameObject.FindGameObjectWithTag("Boss_body");
         ladder = GameObject.FindGameObjectWithTag("Ladder");
+        rd = gameObject.GetComponent<Renderer>();
+        e_animator = gameObject.GetComponent<Animator>();
+        cl = rd.material.color;
     }
         // Update is called once per frame
         void Update ()
     {
         if (HP > 0)
         {
-            float x_e = this.transform.position.x;
-            float x_p = player.transform.position.x;
-            if (x_p > x_e)
-                this.transform.localEulerAngles = new Vector3(0, -180, 0);
-            else
-                this.transform.localEulerAngles = new Vector3(0, 0, 0);
-            this.transform.position = this.transform.position + new Vector3(vel_x * Time.deltaTime, vel_y * Time.deltaTime, 0);
-            Check();
-            if (attack_in <= 0)
+            if (isattacked)
             {
-                GameObject bulletInstance_1 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
-                GameObject bulletInstance_2 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
-                GameObject bulletInstance_3 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
-                GameObject bulletInstance_4 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
-                GameObject bulletInstance_5 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
-                GameObject bulletInstance_6 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
-                Rigidbody2D bullet_rig_1 = bulletInstance_1.GetComponent<Rigidbody2D>();
-                Rigidbody2D bullet_rig_2 = bulletInstance_2.GetComponent<Rigidbody2D>();
-                Rigidbody2D bullet_rig_3 = bulletInstance_3.GetComponent<Rigidbody2D>();
-                Rigidbody2D bullet_rig_4 = bulletInstance_4.GetComponent<Rigidbody2D>();
-                Rigidbody2D bullet_rig_5 = bulletInstance_5.GetComponent<Rigidbody2D>();
-                Rigidbody2D bullet_rig_6 = bulletInstance_6.GetComponent<Rigidbody2D>();
-                bullet_rig_1.velocity = new Vector2(2.0f, 2.0f);
-                bullet_rig_2.velocity = new Vector2(-2.0f, -2.0f);
-                bullet_rig_3.velocity = new Vector2(0, 2.0f);
-                bullet_rig_4.velocity = new Vector2(2.0f, -2.0f);
-                bullet_rig_5.velocity = new Vector2(-2.0f, 2.0f);
-                bullet_rig_6.velocity = new Vector2(0, -2.0f);
-                attack_in = 2.0f;
+                isattack();
+                if (changecolor <= 0)
+                {
+                    e_animator.speed = anispeed;
+                    rd.material.color = cl;
+                    changecolor = 0.1f;
+                    isattacked = false;
+                }
+                changecolor -= Time.deltaTime;
             }
-            attack_in = attack_in - Time.deltaTime;
+            else
+            {
+                float x_e = this.transform.position.x;
+                float x_p = player.transform.position.x;
+                if (x_p > x_e)
+                    this.transform.localEulerAngles = new Vector3(0, -180, 0);
+                else
+                    this.transform.localEulerAngles = new Vector3(0, 0, 0);
+                this.transform.position = this.transform.position + new Vector3(vel_x * Time.deltaTime, vel_y * Time.deltaTime, 0);
+                Check();
+                if (attack_in <= 0)
+                {
+                    GameObject bulletInstance_1 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
+                    GameObject bulletInstance_2 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
+                    GameObject bulletInstance_3 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
+                    GameObject bulletInstance_4 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
+                    GameObject bulletInstance_5 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
+                    GameObject bulletInstance_6 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
+                    Rigidbody2D bullet_rig_1 = bulletInstance_1.GetComponent<Rigidbody2D>();
+                    Rigidbody2D bullet_rig_2 = bulletInstance_2.GetComponent<Rigidbody2D>();
+                    Rigidbody2D bullet_rig_3 = bulletInstance_3.GetComponent<Rigidbody2D>();
+                    Rigidbody2D bullet_rig_4 = bulletInstance_4.GetComponent<Rigidbody2D>();
+                    Rigidbody2D bullet_rig_5 = bulletInstance_5.GetComponent<Rigidbody2D>();
+                    Rigidbody2D bullet_rig_6 = bulletInstance_6.GetComponent<Rigidbody2D>();
+                    bullet_rig_1.velocity = new Vector2(2.0f, 2.0f);
+                    bullet_rig_2.velocity = new Vector2(-2.0f, -2.0f);
+                    bullet_rig_3.velocity = new Vector2(0, 2.0f);
+                    bullet_rig_4.velocity = new Vector2(2.0f, -2.0f);
+                    bullet_rig_5.velocity = new Vector2(-2.0f, 2.0f);
+                    bullet_rig_6.velocity = new Vector2(0, -2.0f);
+                    attack_in = 2.0f;
+                }
+                attack_in = attack_in - Time.deltaTime;
+            }
         }
         else
         {
@@ -94,11 +118,29 @@ public class boss_head_1 : MonoBehaviour {
     {
         if (col.gameObject.tag == "hammer_body")
         {
+            if (this.transform.localEulerAngles.y == -180)
+                this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            else
+                this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+            anispeed = e_animator.speed;
+            isattacked = true;
+            rd.material.color = Color.red;
             HP -= 5;
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
+            if (this.transform.localEulerAngles.y == -180)
+                this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+            else
+                this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+            anispeed = e_animator.speed;
+            isattacked = true;
+            rd.material.color = Color.red;
             HP -= 10;
         }
+    }
+    void isattack()
+    {
+        e_animator.speed = 0f;
     }
 }
