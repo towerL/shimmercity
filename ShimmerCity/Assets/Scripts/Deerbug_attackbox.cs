@@ -62,8 +62,8 @@ public class Deerbug_attackbox : MonoBehaviour {
 
         if (distance <= Distance_Threshold * 10)
         {
-            GetComponent<PolygonCollider2D>().enabled = false;
-            Destroy(GetComponent<Rigidbody2D>());
+            //GetComponent<PolygonCollider2D>().enabled = false;
+            //Destroy(GetComponent<Rigidbody2D>());
             if(bisAttackElectrictBox == false)
             {
                 GameObject.Find("Deerbug_Number").SendMessage("AddNumber");
@@ -87,30 +87,42 @@ public class Deerbug_attackbox : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "hammer_in_attack" || collision.collider.tag == "Skill_L")
+        //if ((collision.collider.tag == "hammer_in_attack" || collision.collider.tag == "Skill_L"))
+        //{
+        //    decreaseHp();
+        //}
+        if(collision.collider.tag == "deerbug" && bisAttackElectrictBox == true)
         {
-            decreaseHp();
+            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "Box")
         {
-            Debug.Log("进入trigger");
+           // Debug.Log("进入trigger");
             transform.Rotate(Vector3.up * 180);
         }
-
-        if (collision.tag == "hammer_in_attack" || collision.tag == "Skill_L")
-        {
-            decreaseHp();
-        }
+        //if (collision.tag == "hammer_in_attack" && bisAttackElectrictBox == true)
+        //{
+        //    decreaseHp();
+        //    Debug.Log("普攻");
+        //}
+        //怪物碰撞体去掉后 大招锤不死
+        //if ((collision.tag == "Skill_L") && bisAttackElectrictBox == true)
+        //{
+        //    Debug.Log("技能");
+        //    decreaseHp();
+        //}
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
 
     }
 
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+    }
     private void Destroy_monster()
     {
         if (bisAttackElectrictBox == true)

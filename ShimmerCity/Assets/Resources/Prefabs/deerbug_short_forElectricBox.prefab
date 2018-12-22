@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4756911124578076}
   - component: {fileID: 212759792606278732}
   - component: {fileID: 95957119974569988}
-  - component: {fileID: 61139060863095654}
   - component: {fileID: 50900384178317942}
   - component: {fileID: 114465619045200896}
+  - component: {fileID: 61139060863095654}
   - component: {fileID: 60824370144019684}
   m_Layer: 12
   m_Name: deerbug_short_forElectricBox

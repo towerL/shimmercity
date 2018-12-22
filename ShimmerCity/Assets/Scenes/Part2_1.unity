@@ -172,10 +172,10 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &34444268
@@ -9025,11 +9025,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4666498604587076, guid: d4b4c187e6661ee4ba4fc07521815e7b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.9
+      value: -28.54
       objectReference: {fileID: 0}
     - target: {fileID: 4666498604587076, guid: d4b4c187e6661ee4ba4fc07521815e7b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -58
+      value: -60.34
       objectReference: {fileID: 0}
     - target: {fileID: 4666498604587076, guid: d4b4c187e6661ee4ba4fc07521815e7b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9060,6 +9060,10 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1494193530}
+    - target: {fileID: 1971841923146808, guid: d4b4c187e6661ee4ba4fc07521815e7b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b4c187e6661ee4ba4fc07521815e7b, type: 2}
   m_IsPrefabAsset: 0
