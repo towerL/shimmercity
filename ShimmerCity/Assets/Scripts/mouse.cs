@@ -8,11 +8,13 @@ public class mouse : MonoBehaviour {
     Vector3 mousePositionOnScreen;//获取到点击屏幕的屏幕坐标
     Vector3 mousePositionInWorld;//将点击屏幕的屏幕坐标转换为世界坐标
     Animator an;
+    AudioSource aus;
     float timer = 0;
     void Start()
     {
         Cursor.visible = false;
         an = this.GetComponent<Animator>();
+        aus = this.GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -20,6 +22,7 @@ public class mouse : MonoBehaviour {
         MouseFollow();
         if(Input.GetMouseButtonDown(0))
         {
+            mouseclick();
             an.SetBool("click", true);
             timer = 0.03f;
         }
@@ -50,6 +53,11 @@ public class mouse : MonoBehaviour {
         transform.position = new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, transform.position.z);
     }
 
-
+    void mouseclick()
+    {
+        AudioClip clip = (AudioClip)Resources.Load(("Audios/coe/通用/click4"), typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
 
 }

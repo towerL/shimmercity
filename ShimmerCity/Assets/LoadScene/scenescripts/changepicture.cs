@@ -5,11 +5,12 @@ using UnityEngine;
 public class changepicture : MonoBehaviour {
     public Sprite newImage;
     Sprite oldImage;
-
-	// Use this for initialization
-	void Start () {
+    AudioSource aus;
+    // Use this for initialization
+    void Start () {
         oldImage = gameObject.GetComponent<SpriteRenderer>().sprite;
-	}
+        aus = gameObject.GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,7 +18,8 @@ public class changepicture : MonoBehaviour {
 	}
 
     public void MouseEnter() {
-        gameObject.GetComponent<SpriteRenderer>().sprite = newImage;       
+        gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
+        mouse_touch();
     }
 
     public void MouseExit() {
@@ -27,6 +29,12 @@ public class changepicture : MonoBehaviour {
     public void MouseClick() {
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
         oldImage = newImage;
+    }
+    void mouse_touch()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/鼠标接触", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
     }
 
 }

@@ -18,7 +18,7 @@ public class onclickslidedown : MonoBehaviour
     Vector3 target;
     Vector3 target2;
     bool flag = false;
-
+    AudioSource aus;
     // Use this for initialization
     void Start()
     {
@@ -27,7 +27,7 @@ public class onclickslidedown : MonoBehaviour
         var item2 = GameObject.Find(objectName2);
         target = new Vector3(item.transform.position.x, item.transform.position.y - dis, transform.position.z);
         target2 = new Vector3(item2.transform.position.x, item2.transform.position.y - dis, transform.position.z);
-
+        aus = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,6 +45,7 @@ public class onclickslidedown : MonoBehaviour
     public void MouseEnter()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
+        mouse_touch();
     }
 
     public void MouseExit()
@@ -57,5 +58,11 @@ public class onclickslidedown : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
         //oldImage = newImage;
         flag = true;
+    }
+    void mouse_touch()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/鼠标接触", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
     }
 }
