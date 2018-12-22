@@ -72,11 +72,11 @@ public class player_move2 : MonoBehaviour {
 
 	void Update () {
 		//Debug.Log (player_health);
-		float h=Input.GetAxis("Horizontal");
+		//float h=Input.GetAxis("Horizontal");
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
-			if (h>0.01f&& !close_range_attack && !far_distance_attack) {
+			if (Input.GetKey(KeyCode.D)&& !close_range_attack && !far_distance_attack) {
 				if (!isPipe && !isGround && speed_up) {
 					Vector3 pos = transform.position;
 					pos.x += Time.deltaTime * vel_x_in_air;
@@ -84,42 +84,24 @@ public class player_move2 : MonoBehaviour {
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = vel_x_in_air;
 					player_rigidbody.velocity = vel;
-				} /*else if (isGround && isPipe) {
-					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * vel_x_on_pipe;
-					transform.position = pos;
+				} else {
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = vel_x_on_pipe;
-					player_rigidbody.velocity = vel;
-				}*/ else {
-					//player_rigidbody.AddForce (Vector2.right * force_move);
-					Vector2 vel = player_rigidbody.velocity;
-					//vel.x = (vel_x>=vel.x?vel.x:vel_x);
 					vel.x=vel_x;
 					player_rigidbody.velocity = vel;
 				}
 				player_Scale.x = Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				timer = false;
-			} else if (h<-0.01f&& !close_range_attack && !far_distance_attack) {
+			} else if (Input.GetKey(KeyCode.A)&& !close_range_attack && !far_distance_attack) {
 				if (!isPipe && !isGround && speed_up) {
 					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * vel_x_on_pipe;
+					pos.x -= Time.deltaTime * vel_x_in_air;
 					transform.position = pos;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -vel_x_on_pipe;
+					vel.x = -vel_x_in_air;
 					player_rigidbody.velocity = vel;
-				} /*else if (isGround && isPipe) {
-					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * vel_x_on_pipe;
-					transform.position = pos;
+				}  else {
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -vel_x_on_pipe;
-					player_rigidbody.velocity = vel;
-				}*/ else {
-					//player_rigidbody.AddForce (-Vector2.right * force_move);
-					Vector2 vel = player_rigidbody.velocity;
-					//vel.x = (-vel_x<=vel.x?vel.x:-vel_x);
 					vel.x=-vel_x;
 					player_rigidbody.velocity = vel;
 				}

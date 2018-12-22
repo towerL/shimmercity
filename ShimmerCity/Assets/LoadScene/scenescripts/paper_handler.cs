@@ -103,7 +103,7 @@ public class paper_handler : MonoBehaviour {
             setPara3(manual, 6.0f, 5.0f, true, 3.0f);
 
             giveup.AddComponent<newslidein>();
-            setPara4(giveup, 4.05f, 8.0f, true, 3.5f,6.0f);
+            setPara4(giveup, 4.6f, 8.0f, true, 3.5f,6.0f);
 
             //第三组淡入
             hero2.AddComponent<fadein_out>();

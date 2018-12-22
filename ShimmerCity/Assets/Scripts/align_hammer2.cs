@@ -32,7 +32,7 @@ public class align_hammer2 : MonoBehaviour {
 		spriterender.sortingOrder = -2;
 		timer_flying_hammer = Time.time;
 		player_dir = true;
-		Position = transform.Find ("Hammer_for_attack").position;
+		Position = transform.position;
 		getposvalue = false;
 		getrotvalue = false;
 		getscavalue = false;

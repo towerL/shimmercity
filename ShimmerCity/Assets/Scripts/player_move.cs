@@ -22,8 +22,8 @@ public class player_move : MonoBehaviour {
 	private bool isGround = true;
 	private bool isWall = false;
 	private bool isLadder=false;
-	private bool isHammer=true;
-	//private bool isHammer=false;
+	//private bool isHammer=true;
+	private bool isHammer=false;
 	private bool isSister=true;
 	//private bool isSister=false;
 	private bool alive=true;
