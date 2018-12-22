@@ -67,7 +67,7 @@ public class boss_control : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.L) && count == 0)
         {
             Vector3 new_position = this.transform.position;
-            Vector3 new_position_1 = new Vector3(0, 3, 0) + this.transform.position;
+            Vector3 new_position_1 = new Vector3(0, 3.5f, 0) + this.transform.position;
             if (this.transform.localEulerAngles.y == 0)
             {
                 bosshead = Instantiate(Resources.Load("Prefabs/pl_head"), new_position_1, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;

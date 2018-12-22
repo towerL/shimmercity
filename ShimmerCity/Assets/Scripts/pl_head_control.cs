@@ -18,10 +18,12 @@ public class pl_head_control : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.D))
         {
+            this.transform.localEulerAngles = new Vector3(0, 180, 0);
             this.transform.position = this.transform.position + new Vector3(vel_x * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.A))
         {
+            this.transform.localEulerAngles = new Vector3(0, 0, 0);
             this.transform.position = this.transform.position + new Vector3(-vel_x * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.S))
