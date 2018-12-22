@@ -69,8 +69,11 @@ public class player_move : MonoBehaviour {
 	private bool timer_for_triple;
 	private int skill_counter;
 	private bool skill_L = false;
+	private bool sister_skill = false;
 
 	private float player_health;
+
+	private bool moveable;
 
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
@@ -91,6 +94,8 @@ public class player_move : MonoBehaviour {
 		timer_for_triple = false;
 		skill_counter = 0;
 		player_health = 100.0f;
+
+		moveable = true;
 	}
 
 	void Update () {
@@ -98,7 +103,7 @@ public class player_move : MonoBehaviour {
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
-			if ((Input.GetKey(KeyCode.D)||(Input.GetKey(KeyCode.RightArrow))) && !close_range_attack && !far_distance_attack) {
+			if (moveable&&(Input.GetKey(KeyCode.D)||(Input.GetKey(KeyCode.RightArrow))) && !close_range_attack && !far_distance_attack) {
 				if (!isBelt && !isPush && isGround)
 					player_rigidbody.AddForce (Vector2.right * force_move);
 				else if (!isPush && isGround) {
@@ -134,7 +139,7 @@ public class player_move : MonoBehaviour {
 				transform.localScale = player_Scale;
 				now_direction = direction.right_dir;
 				timer = false;
-			} else if ((Input.GetKey(KeyCode.A)||(Input.GetKey(KeyCode.LeftArrow))) && !close_range_attack && !far_distance_attack) {
+			} else if (moveable && (Input.GetKey(KeyCode.A)||(Input.GetKey(KeyCode.LeftArrow))) && !close_range_attack && !far_distance_attack) {
 				if (!isBelt && !isPush && isGround)
 					player_rigidbody.AddForce (-Vector2.right * force_move);
 				else if (!isPush && isGround) {
@@ -210,6 +215,7 @@ public class player_move : MonoBehaviour {
 			}
 				
 			if (isGround && isHammer && Input.GetKeyDown(KeyCode.J)) {
+				moveable = false;
 				close_range_attack = true;
 				far_distance_attack = false;
 				counter_close_range_attack++;
@@ -254,7 +260,7 @@ public class player_move : MonoBehaviour {
 			if (far_distance_attack)
 				counter_far_distance_attack--;
 
-			if (isGround && isHammer && Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
+			if (sister_skill && isGround && isHammer && Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
 				timer_for_triple=true;
 				timer_for_skill = Time.time;
 				timer = false;
@@ -263,6 +269,7 @@ public class player_move : MonoBehaviour {
             if(Input.GetKeyDown(KeyCode.P) && Fpbar_controller.Instance.bisFull == true)
             {
                 Fpbar_controller.Instance.ReleaseSkill();
+				sister_skill = true;
             }
 			if(timer_for_triple){
 				if (skill_counter < 3) {
@@ -349,6 +356,10 @@ public class player_move : MonoBehaviour {
 
 	private void doubleclick(){
 		//todo
+	}
+
+	void Setmove(){
+		moveable = true;
 	}
 
 	void SetInLadder(bool flag){
