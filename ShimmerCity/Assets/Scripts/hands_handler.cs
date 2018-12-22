@@ -5,13 +5,13 @@ using UnityEngine;
 public class hands_handler : MonoBehaviour {
 	private void OnTriggerStay2D(Collider2D col){
 		if (col.tag == "Box") {
-			if (col.transform.position.x > this.transform.parent.position.x && Input.GetKey (KeyCode.D)) {
+			if (col.transform.position.x > this.transform.parent.position.x && (Input.GetKey(KeyCode.D)||(Input.GetKey(KeyCode.RightArrow))) ) {
 				Vector3 pos = col.transform.position;
 				pos.x += Time.deltaTime * 1.2f;
 				col.transform.position = pos;
 				//Debug.Log ("right!");
 				SendMessageUpwards ("SetPush", true);
-			} else if (col.transform.position.x < this.transform.parent.position.x && Input.GetKey (KeyCode.A)) {
+			} else if (col.transform.position.x < this.transform.parent.position.x && (Input.GetKey(KeyCode.A)||(Input.GetKey(KeyCode.LeftArrow)))) {
 				Vector3 pos = col.transform.position;
 				pos.x -= Time.deltaTime * 1.2f;
 				col.transform.position = pos;

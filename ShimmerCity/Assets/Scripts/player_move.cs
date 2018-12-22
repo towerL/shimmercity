@@ -98,7 +98,7 @@ public class player_move : MonoBehaviour {
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
-			if (h > 0.01f && !close_range_attack && !far_distance_attack) {
+			if ((Input.GetKey(KeyCode.D)||(Input.GetKey(KeyCode.RightArrow))) && !close_range_attack && !far_distance_attack) {
 				if (!isBelt && !isPush && isGround)
 					player_rigidbody.AddForce (Vector2.right * force_move);
 				else if (!isPush && isGround) {
@@ -134,7 +134,7 @@ public class player_move : MonoBehaviour {
 				transform.localScale = player_Scale;
 				now_direction = direction.right_dir;
 				timer = false;
-			} else if (h < -0.01f && !close_range_attack && !far_distance_attack) {
+			} else if ((Input.GetKey(KeyCode.A)||(Input.GetKey(KeyCode.LeftArrow))) && !close_range_attack && !far_distance_attack) {
 				if (!isBelt && !isPush && isGround)
 					player_rigidbody.AddForce (-Vector2.right * force_move);
 				else if (!isPush && isGround) {

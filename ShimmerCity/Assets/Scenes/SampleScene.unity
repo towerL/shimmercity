@@ -8177,6 +8177,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.5, y: 0}
+  - {x: -0.43524733, y: -1.8130574}
   - {x: -0.49634516, y: 2.6326284}
 --- !u!1 &1341472791
 GameObject:
