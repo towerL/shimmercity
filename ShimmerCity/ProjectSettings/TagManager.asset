@@ -50,6 +50,7 @@ TagManager:
   - brick_edge
   - Boss_head
   - lightning
+  - mouse
   layers:
   - Default
   - TransparentFX
@@ -65,7 +66,7 @@ TagManager:
   - lightning
   - Collider
   - protect_layer
-  - 
+  - mouse
   - 
   - 
   - 
