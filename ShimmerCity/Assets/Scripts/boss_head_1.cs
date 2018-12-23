@@ -10,6 +10,7 @@ public class boss_head_1 : MonoBehaviour {
     Animator e_animator;
     Color cl;
     Renderer rd;
+    AudioSource aus;
     float changecolor = 0.1f;
     bool isattacked = false;
     public float HP = 120f;
@@ -30,6 +31,7 @@ public class boss_head_1 : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         bossbody = GameObject.FindGameObjectWithTag("Boss_body");
         ladder = GameObject.FindGameObjectWithTag("Ladder");
+        aus = gameObject.GetComponent<AudioSource>();
         rd = gameObject.GetComponent<Renderer>();
         e_animator = gameObject.GetComponent<Animator>();
         cl = rd.material.color;
@@ -63,6 +65,7 @@ public class boss_head_1 : MonoBehaviour {
                 Check();
                 if (attack_in <= 0)
                 {
+                    setbullet();
                     GameObject bulletInstance_1 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
                     GameObject bulletInstance_2 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
                     GameObject bulletInstance_3 = Instantiate(Resources.Load("prefabs/New Prefab"), this.transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as GameObject;
@@ -142,5 +145,11 @@ public class boss_head_1 : MonoBehaviour {
     void isattack()
     {
         e_animator.speed = 0f;
+    }
+    void setbullet()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景三/boss头放子弹", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
     }
 }
