@@ -123,7 +123,8 @@ public class climb_ladder3 : MonoBehaviour {
 		}
 	}
 
-	void SetPushable(bool flag){
-		pushable = flag;
+	void SetPushable(){
+        Debug.Log("!???????");
+		pushable = true;
 	}
 }

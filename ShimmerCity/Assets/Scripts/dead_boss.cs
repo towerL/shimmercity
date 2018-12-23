@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class dead_boss : MonoBehaviour {
-
-
     float e_timer = 1.2f;
     Animator e_an;
     GameObject eyes;
     GameObject door;
     GameObject door_tag;
+    GameObject ladder;
     bool isshow = false;
 	// Use this for initialization
 	void Start () {
+        ladder = GameObject.FindGameObjectWithTag("Ladder");
+        ladder.SendMessage("SetPushable");
         e_an = this.GetComponent<Animator>();
         door = GameObject.Find("door_01");
         door_tag = GameObject.Find("door_tag");
