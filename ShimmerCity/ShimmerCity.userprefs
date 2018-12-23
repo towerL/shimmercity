@@ -1,11 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Feet_handler2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Feet_handler3.cs">
     <Files>
-      <File FileName="Assets\Scripts\player_move3.cs" Line="117" Column="1" />
-      <File FileName="Assets\Scripts\player_move.cs" Line="420" Column="33" />
-      <File FileName="Assets\Scripts\player_move2.cs" Line="240" Column="39" />
-      <File FileName="Assets\Scripts\Feet_handler2.cs" Line="21" Column="4" />
+      <File FileName="Assets\Scripts\player_move3.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\player_move.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\player_move2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Feet_handler2.cs" Line="14" Column="20" />
+      <File FileName="Assets\Scripts\hands_handler.cs" Line="36" Column="147" />
+      <File FileName="Assets\head_handler2.cs" Line="1" Column="1" />
+      <File FileName="Assets\hands_handler2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\feet_handler.cs" Line="35" Column="116" />
+      <File FileName="Assets\Scripts\Feet_handler3.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -57,6 +57,8 @@ public class player_move2 : MonoBehaviour {
 
 	private bool moveable;
 
+	private bool Onstone;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -73,6 +75,8 @@ public class player_move2 : MonoBehaviour {
 		player_health = 100.0f;
 
 		moveable = true;
+
+		Onstone = false;
 	}
 
 	void Update () {
@@ -238,12 +242,21 @@ public class player_move2 : MonoBehaviour {
 		player_animator.SetBool ("skill_L",skill_L);
 		if (!isGround)
 			player_rigidbody.gravityScale = 15;
-		else
+		else if(isGround)
 			player_rigidbody.gravityScale = 10;
+
+		if (Onstone)
+			player_rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+		else
+			player_rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
 	}
 		
 	void Setmove(){
 		moveable = true;
+	}
+
+	void SetStone(bool flag){
+		Onstone = flag;
 	}
 
 	void SetGround(bool flag){
