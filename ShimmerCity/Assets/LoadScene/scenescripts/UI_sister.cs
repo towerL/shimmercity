@@ -115,17 +115,17 @@ public class UI_sister : MonoBehaviour {
             //setPara2(bg, 2.0f);
 
             sister_box.AddComponent<fadein_out>();
-            setPara(sister_box, 2.0f, 0.3f, true);
+            setPara(sister_box, 2.3f, 0.3f, true);
             //sister_box.AddComponent<remove>();
             //setPara2(sister_box, 2.0f);
 
             words.AddComponent<fadein_out>();
-            setPara(words, 2.0f, 0.3f, true);
+            setPara(words, 2.8f, 0.3f, true);
             //words.AddComponent<remove>();
             //setPara2(words, 2.0f);
 
             OK.AddComponent<fadein_out>();
-            setPara(OK, 2.0f, 0.3f, true);
+            setPara(OK, 3.1f, 0.3f, true);
             //OK.AddComponent<remove>();
             //setPara2(OK, 2.0f);
             //OK.AddComponent<onclickdestroy>();
@@ -159,7 +159,7 @@ public class UI_sister : MonoBehaviour {
                 setPara2(bg1_4, 2.0f);
 
                 sister_box1_4.AddComponent<remove>();
-                setPara2(sister_box1_4, 2.0f);
+                setPara2(sister_box1_4, 2.3f);
 
                 hasEnter = false;
                 Destroy(this.gameObject);
@@ -174,13 +174,13 @@ public class UI_sister : MonoBehaviour {
                 setPara(bg1_5, 2.0f, 0.0f, true);
 
                 sister_box1_5.AddComponent<fadein_out>();
-                setPara(sister_box1_5, 2.0f, 0.3f, true);
+                setPara(sister_box1_5, 2.3f, 0.3f, true);
 
                 words1_5.AddComponent<fadein_out>();
-                setPara(words1_5, 2.0f, 0.3f, true);
+                setPara(words1_5, 2.8f, 0.3f, true);
 
                 OK1_5.AddComponent<fadein_out>();
-                setPara(OK1_5, 2.0f, 0.3f, true);
+                setPara(OK1_5, 3.1f, 0.3f, true);
 
                 var btn = GameObject.Find("Button_ok2");
                 EventTrigger trigger = btn.GetComponent<EventTrigger>();

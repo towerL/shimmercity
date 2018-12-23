@@ -35,7 +35,10 @@ public class SwitchController : MonoBehaviour
     {
         //GameObject deerbug_attackElectricbox = (GameObject)Resources.Load("Prefabs/deerbug_short_forElectricBox");
         GameObject mPrefab = (MonoBehaviour.Instantiate(objPrefab, Vector3.zero, Quaternion.identity) as GameObject);
-        mPrefab.transform.position = transform.position;
+        Vector3 _pos = transform.position;
+        _pos.x -= 3.0f;
+        _pos.y -= 1.5f;
+        mPrefab.transform.position = _pos;
         mPrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
         
     }

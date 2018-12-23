@@ -15,7 +15,7 @@ public class zoomin : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        start = Vector3.Slerp(start, end, Time.smoothDeltaTime * start.x * 2.0f);
+        start = Vector3.Slerp(start, end, Time.smoothDeltaTime * start.x * 0.5f);
         gameObject.GetComponent<SpriteRenderer>().transform.localScale = start;
     }
 }

@@ -29,6 +29,7 @@ public class onclickslidedown : MonoBehaviour
     {
         oldImage = gameObject.GetComponent<SpriteRenderer>().sprite;
         var item = GameObject.Find(objectName);
+        aus = gameObject.GetComponent<AudioSource>();
         start_x = item.transform.position.x;//水平移动的起点
         start_y = item.transform.position.y;//竖直移动的起点
         //var item2 = GameObject.Find(objectName2);

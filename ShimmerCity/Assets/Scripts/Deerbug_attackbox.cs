@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Deerbug_attackbox : MonoBehaviour {
 
+    public LayerMask RayLayer;
+    private Vector2 ray_direction;
+    public float ray_Distance;
+
+    private Transform Player;
+
     //方向
     private int direction = 1;
 
     private Transform target;
-    private Transform Player;
 
     private GameObject curTraget, lastTraget;
 
@@ -26,10 +31,23 @@ public class Deerbug_attackbox : MonoBehaviour {
 
     private bool bisAttackElectrictBox;
 
+
+    bool Ray_toPlayer()
+    {
+        Vector2 position = transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(position, ray_direction, ray_Distance, RayLayer);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
     // Use this for initialization
     void Start()
     {
         direction = -1;
+        ray_direction = Vector2.left;
         animator = GetComponent<Animator>();
         bisGethammer = true;
         target = GameObject.Find("ElectricBox").transform ;
@@ -74,7 +92,7 @@ public class Deerbug_attackbox : MonoBehaviour {
         }
 
         //Debug.Log(distance);
-        if (distance <= Distance_Threshold * 10 || distance_Player <= Distance_Threshold * 10)
+        if (distance <= Distance_Threshold * 10 || (distance_Player <= 10 && Ray_toPlayer()))
         {
             animator.SetBool("Isattack", true);
             bisAttacking = true;

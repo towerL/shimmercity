@@ -296,6 +296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31db4904286b6d4aa92824e833c8cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RayLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  ray_Distance: 10
   Distance_Threshold: 1.6
   velocity: 6
 --- !u!212 &212759792606278732

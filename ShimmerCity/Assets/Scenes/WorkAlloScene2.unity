@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 2.5
+  WaitTime: 1.8
   flag: 1
 --- !u!212 &361529842
 SpriteRenderer:
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 3
+  WaitTime: 2.3
   flag: 1
 --- !u!212 &1275408650
 SpriteRenderer:
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 1.5
+  WaitTime: 1
   flag: 1
 --- !u!212 &1394086246
 SpriteRenderer:
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 1.9
+  WaitTime: 1.3
   flag: 1
 --- !u!212 &1746467732
 SpriteRenderer:
@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 3
+  WaitTime: 2.3
   flag: 1
 --- !u!212 &1789328359
 SpriteRenderer:
