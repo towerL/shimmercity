@@ -14,6 +14,7 @@ public class protect_layer_handler : MonoBehaviour {
 		protectlayer_render.sortingOrder = -2;
 		protectlayer = false;
 		circle.isTrigger = true;
+		circle.enabled = false;
 	}
 	void Update () {
 		if (protectlayer) {
@@ -22,11 +23,13 @@ public class protect_layer_handler : MonoBehaviour {
 		} else {
 			protectlayer_render.sortingOrder = -2;
 			circle.isTrigger = true;
+			circle.enabled = false;
 		}
 	}
 
 	void SetProtectLayer(bool flag){
 		protectlayer = flag;
+		circle.enabled = true;
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){

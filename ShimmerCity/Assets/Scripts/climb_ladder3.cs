@@ -19,8 +19,8 @@ public class climb_ladder3 : MonoBehaviour {
 
 	void Start(){
 		player_boxcollider=GameObject.FindGameObjectWithTag("Player").transform;
-		//pushable = false;
-		pushable = true;
+		pushable = false;
+		//pushable = true;
 		inladder = false;
 	}
 
@@ -99,13 +99,13 @@ public class climb_ladder3 : MonoBehaviour {
 				Vector3 posplayer = player_boxcollider.position;
 				posplayer.x = transform.position.x;
 				player_boxcollider.position = posplayer;
-				col.GetComponent<Rigidbody2D> ().gravityScale = 30;
+				col.GetComponent<Rigidbody2D> ().gravityScale = 10;
 				col.SendMessage ("SetInLadder",false);
 				climb = false;
-				/*Physics2D.IgnoreCollision (col.GetComponent<Collider2D>(),target,false);
+				Physics2D.IgnoreCollision (col.GetComponent<Collider2D>(),target,false);
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Hands").GetComponent<Collider2D> (), target,false);
 				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), target,false);
-				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), target,false);*/
+				Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), target,false);
 			} 
 		}
 	}
@@ -125,6 +125,5 @@ public class climb_ladder3 : MonoBehaviour {
 
 	void SetPushable(bool flag){
 		pushable = flag;
-		Debug.Log ("get the boss message");
 	}
 }

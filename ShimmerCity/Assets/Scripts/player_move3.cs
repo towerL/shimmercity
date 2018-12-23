@@ -348,6 +348,10 @@ public class player_move3 : MonoBehaviour {
 		shield = true;
 	}
 
+	public void DecreaseHp(float harm){
+		player_health -= harm;
+	}
+
 	public void HammerMessage1(){
 		hammer.SendMessage ("SetPos",hammer_transform.position);
 		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
@@ -358,11 +362,27 @@ public class player_move3 : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
-
+		if (col.collider.tag == "b0ss_hand") {
+			player_health -= 1.0f;
+			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			Debug.Log ("boss_hand1");
+		}else if (col.collider.tag == "boss_tentacle") {
+			player_health -= 2.0f;
+			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			Debug.Log ("boss_tentacle1");
+		}
 	}
 
 	public void OnCollisionStay2D(Collision2D col){
-
+		if (col.collider.tag == "b0ss_hand") {
+			player_health -= 1.0f;
+			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			Debug.Log ("boss_hand2");
+		}else if (col.collider.tag == "boss_tentacle") {
+			player_health -= 2.0f;
+			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			Debug.Log ("boss_tentacle2");
+		}
 	}
 
 	public void OnCollisionExit2D(Collision2D col){
