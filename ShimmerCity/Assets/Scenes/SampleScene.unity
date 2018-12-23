@@ -2627,7 +2627,7 @@ GameObject:
   - component: {fileID: 458415805}
   - component: {fileID: 458415807}
   - component: {fileID: 458415806}
-  - component: {fileID: 458415808}
+  - component: {fileID: 458415809}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -2713,7 +2713,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &458415808
+--- !u!114 &458415809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2721,10 +2721,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 458415804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 1.5
+  dis: 100
+  speed: 60
+  flag: 3
 --- !u!1 &504662083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,10 +3644,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 591763085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 1.5
+  dis: 100
+  speed: 60
+  flag: 1
 --- !u!1 &602762447
 GameObject:
   m_ObjectHideFlags: 0
@@ -10741,7 +10747,7 @@ GameObject:
   - component: {fileID: 1653055549}
   - component: {fileID: 1653055551}
   - component: {fileID: 1653055550}
-  - component: {fileID: 1653055552}
+  - component: {fileID: 1653055553}
   m_Layer: 5
   m_Name: green
   m_TagString: Untagged
@@ -10827,7 +10833,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1653055552
+--- !u!114 &1653055553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10835,10 +10841,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1653055548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 1.5
+  dis: 100
+  speed: 60
+  flag: 2
 --- !u!1 &1667438680
 GameObject:
   m_ObjectHideFlags: 0
@@ -12206,7 +12215,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14670,7 +14679,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

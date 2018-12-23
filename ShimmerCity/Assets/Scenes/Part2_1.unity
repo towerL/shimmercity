@@ -2978,7 +2978,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7291,7 +7291,7 @@ GameObject:
   - component: {fileID: 432772192}
   - component: {fileID: 432772195}
   - component: {fileID: 432772194}
-  - component: {fileID: 432772193}
+  - component: {fileID: 432772196}
   m_Layer: 5
   m_Name: bg
   m_TagString: Untagged
@@ -7318,19 +7318,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3206.0002, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &432772193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114847202928515216, guid: b440bbb904cfd394396c78ed61108359,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 432772191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaitTime: 1.5
 --- !u!114 &432772194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7393,6 +7380,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &432772196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 432772191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitTime: 1.5
+  dis: 100
+  speed: 60
+  flag: 1
 --- !u!1 &432817997
 GameObject:
   m_ObjectHideFlags: 0
@@ -13532,7 +13534,7 @@ GameObject:
   - component: {fileID: 740144961}
   - component: {fileID: 740144964}
   - component: {fileID: 740144963}
-  - component: {fileID: 740144962}
+  - component: {fileID: 740144965}
   m_Layer: 5
   m_Name: sister
   m_TagString: Untagged
@@ -13559,19 +13561,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3206.0002, y: -11}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &740144962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114000052637618288, guid: b440bbb904cfd394396c78ed61108359,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 740144960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaitTime: 1.5
 --- !u!114 &740144963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13634,6 +13623,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &740144965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 740144960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitTime: 1.5
+  dis: 100
+  speed: 60
+  flag: 2
 --- !u!1 &766718562
 GameObject:
   m_ObjectHideFlags: 0
@@ -25747,7 +25751,7 @@ GameObject:
   - component: {fileID: 1509980113}
   - component: {fileID: 1509980116}
   - component: {fileID: 1509980115}
-  - component: {fileID: 1509980114}
+  - component: {fileID: 1509980117}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -25774,19 +25778,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3206.0002, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1509980114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114287627426260676, guid: b440bbb904cfd394396c78ed61108359,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1509980112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaitTime: 1.5
 --- !u!114 &1509980115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25849,6 +25840,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1509980117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1509980112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitTime: 1.5
+  dis: 500
+  speed: 60
+  flag: 3
 --- !u!1 &1520620102
 GameObject:
   m_ObjectHideFlags: 0
@@ -29584,7 +29590,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

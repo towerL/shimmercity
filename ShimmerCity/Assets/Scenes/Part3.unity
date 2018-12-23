@@ -724,10 +724,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 87418540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 3
+  dis: 100
+  speed: 60
+  flag: 4
 --- !u!114 &87418543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,10 +1126,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 155578804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 3
+  dis: 100
+  speed: 60
+  flag: 4
 --- !u!114 &155578807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1918,10 +1924,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 394519883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 3
+  dis: 100
+  speed: 60
+  flag: 3
 --- !u!114 &394519886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7139,10 +7148,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 518942792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 3
+  dis: 100
+  speed: 60
+  flag: 1
 --- !u!114 &518942795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13800,10 +13812,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032412316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 3
+  dis: 100
+  speed: 60
+  flag: 4
 --- !u!114 &1032412319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16375,10 +16390,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1697321633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d4ed11f42d78c4e8e8ed2f998e58cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce3b7d87aa8b641854a017ecf385ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaitTime: 3
+  dis: 100
+  speed: 60
+  flag: 2
 --- !u!114 &1697321636
 MonoBehaviour:
   m_ObjectHideFlags: 0
