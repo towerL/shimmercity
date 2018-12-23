@@ -14,13 +14,14 @@ public class passpart3 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         var obj = GameObject.Find("door_01");
-        isdooropen = obj.GetComponent<Animator>().GetBool("IsOpen");
+        isdooropen = obj.GetComponent<Animator>().GetBool("haskey");
 		
 	}
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (isdooropen && col.tag == "Hands")
+        if (isdooropen && col.gameObject.tag == "Player")
         {
+            Debug.Log("!");
             SceneManager.LoadScene("ParaScene");
         }
     }
