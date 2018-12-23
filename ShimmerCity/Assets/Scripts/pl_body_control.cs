@@ -19,6 +19,7 @@ public class pl_body_control : MonoBehaviour {
     float changecolor = 0.1f;
     bool isattacked = false;
     float anispeed;
+
     // Use this for initialization
     void Start()
     {

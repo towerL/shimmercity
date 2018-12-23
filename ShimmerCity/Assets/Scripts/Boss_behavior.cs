@@ -13,7 +13,7 @@ public class Boss_behavior : MonoBehaviour {
     public float e_timer_1 = 2.0f;
     public float e_timer_2 = 3.0f;
     public float e_timer_3 = 3.0f;
-    public float e_timer_4 = 0.8f;
+    public float e_timer_4 = 0.3f;
     public float e_timer_5 = 5.0f;
     public float change_pos = 4.0f;
     public bool isattacked = false;
@@ -30,7 +30,6 @@ public class Boss_behavior : MonoBehaviour {
     GameObject bosshead;
     GameObject bossbody;
     GameObject ice;
-    Rigidbody2D rd_boss;
     Color cl;
     Renderer rd;
     AudioSource aus;
@@ -39,7 +38,6 @@ public class Boss_behavior : MonoBehaviour {
         cur_Bosshealth = Boss_health;
         player = GameObject.FindGameObjectWithTag("Player");
         e_animator = GetComponent<Animator>();
-        rd_boss = GetComponent<Rigidbody2D>();
         rd = gameObject.GetComponent<Renderer>();
         cl = rd.material.color;
         // e_cc = GetComponent<CharacterController>();
@@ -89,7 +87,7 @@ public class Boss_behavior : MonoBehaviour {
                     e_timer = 6.0f;
                     e_timer_1 = 2.0f;
                     e_timer_2 = 3.0f;
-                    e_timer_4 = 0.8f;
+                    e_timer_4 = 0.3f;
                     //this.enabled = true;
                     //e_animator.ResetTrigger("blink");
                     e_animator.SetBool("blink", false);
@@ -188,7 +186,7 @@ public class Boss_behavior : MonoBehaviour {
             e_timer = 6.0f;
             e_timer_1 = 2.0f;
             e_timer_3 = 3.0f;
-            e_timer_4 = 0.8f;
+            e_timer_4 = 0.3f;
             int chose_act = Random.Range(0, 2); ;
             if (e_timer_2 <= 0)
             {
@@ -249,7 +247,7 @@ public class Boss_behavior : MonoBehaviour {
             e_timer_1 = 2.0f;
             e_timer_2 = 3.0f;
             e_timer_3 = 3.0f;
-            e_timer_4 = 0.8f;
+            e_timer_4 = 0.3f;
             far_attact_in = 1.0f;
             e_timer -= Time.deltaTime;
             //Debug.Log(e_timer);
@@ -333,7 +331,7 @@ public class Boss_behavior : MonoBehaviour {
                         this.transform.position = new Vector3(13.3506f, -1.422398f, 0);        //temp
                     else
                         this.transform.position = new Vector3(-5.59f, -1.422398f, 0);       //temp
-                    e_timer_4 = 0.8f; 
+                    e_timer_4 = 0.3f; 
                 }
                 else
                     e_timer_4 = e_timer_4 - Time.deltaTime;
