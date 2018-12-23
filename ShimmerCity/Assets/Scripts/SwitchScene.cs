@@ -129,7 +129,7 @@ public class SwitchScene : MonoBehaviour {
                 setPara(purple1_6, 2.0f, 0.3f, true);
 
                 words1_6.AddComponent<fadein_out>();
-                setPara(words1_6, 2.0f, 0.8f, true);
+                setPara(words1_6, 2.0f, 0.3f, true);
 
                 yield return StartCoroutine("WaitAndPrint");
 
@@ -157,13 +157,13 @@ public class SwitchScene : MonoBehaviour {
                 setPara(mayor1_7, 2.0f, 0.3f, true);
 
                 words1_7.AddComponent<fadein_out>();
-                setPara(words1_7, 2.0f, 0.8f, true);
+                setPara(words1_7, 2.0f, 0.3f, true);
 
                 thinking1_7.AddComponent<fadein_out>();
-                setPara(thinking1_7, 2.0f, 1.1f, true);
+                setPara(thinking1_7, 2.0f, 0.3f, true);
 
                 confirm1_7.AddComponent<fadein_out>();
-                setPara(confirm1_7, 2.0f, 1.1f, true);
+                setPara(confirm1_7, 2.0f, 0.3f, true);
 
                 var btn_thinking = GameObject.Find("Button_thinking");
                 EventTrigger trigger = btn_thinking.GetComponent<EventTrigger>();

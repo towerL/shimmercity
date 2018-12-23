@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 3.1
+  WaitTime: 2.3
   flag: 1
 --- !u!212 &131490036
 SpriteRenderer:
@@ -2665,7 +2665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 0.8
+  WaitTime: 0.3
   flag: 1
 --- !u!212 &458415807
 SpriteRenderer:
@@ -9132,7 +9132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeSpeed: 2
-  WaitTime: 2.8
+  WaitTime: 2.3
   flag: 1
 --- !u!212 &1440466053
 SpriteRenderer:
