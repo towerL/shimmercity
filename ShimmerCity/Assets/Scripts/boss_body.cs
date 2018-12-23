@@ -11,6 +11,7 @@ public class boss_body : MonoBehaviour {
     Renderer rd;
     Animator e_animator;
     Color cl;
+    AudioSource aus;
     public float HP = 120f;
     float walk_run_dis = 0.1f;
     float speed_hang = 0.07f;
@@ -25,6 +26,7 @@ public class boss_body : MonoBehaviour {
         boss_head = GameObject.FindGameObjectWithTag("Boss_head");
         rd = gameObject.GetComponent<Renderer>();
         e_animator = gameObject.GetComponent<Animator>();
+        aus = gameObject.GetComponent<AudioSource>();
         cl = rd.material.color;
     }
 	
@@ -54,6 +56,7 @@ public class boss_body : MonoBehaviour {
 
                 if (timer <= 0)
                 {
+                    setbullet();
                     GameObject bullet;
                     if (this.transform.localEulerAngles.y == 0)
                         bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
@@ -126,9 +129,14 @@ public class boss_body : MonoBehaviour {
             HP -= 10;
         }
     }
-
     void isattack()
     {
        e_animator.speed = 0f;
+    }
+    void setbullet()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景三/boss发射导弹", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
     }
 }

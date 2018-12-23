@@ -38,6 +38,15 @@ public class Liightning : MonoBehaviour {
 
         if (this.transform.position.y < minPos_y)
             vel_y = -vel_y;
+    }
 
+    void setspeedx(float a)
+    {
+        vel_x = a;
+    }
+
+    void setspeedy(float b)
+    {
+        vel_y = b;
     }
 }

@@ -13,7 +13,7 @@ public class Boss_behavior : MonoBehaviour {
     public float e_timer_1 = 2.0f;
     public float e_timer_2 = 3.0f;
     public float e_timer_3 = 3.0f;
-    public float e_timer_4 = 1.0f;
+    public float e_timer_4 = 0.8f;
     public float e_timer_5 = 5.0f;
     public float change_pos = 4.0f;
     public bool isattacked = false;
@@ -33,6 +33,7 @@ public class Boss_behavior : MonoBehaviour {
     Rigidbody2D rd_boss;
     Color cl;
     Renderer rd;
+    AudioSource aus;
     void Start ()
     {
         cur_Bosshealth = Boss_health;
@@ -42,6 +43,7 @@ public class Boss_behavior : MonoBehaviour {
         rd = gameObject.GetComponent<Renderer>();
         cl = rd.material.color;
         // e_cc = GetComponent<CharacterController>();
+        aus = gameObject.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -69,9 +71,9 @@ public class Boss_behavior : MonoBehaviour {
         {
             float x_e = this.transform.position.x;
             float x_p = player.transform.position.x;
-            if (x_p > x_e)                                                      //不要瞬间转身
+            if (x_p > x_e&&x_p-x_e>1)                                                      //不要瞬间转身
                 this.transform.localEulerAngles = new Vector3(0, -180, 0);
-            else
+            if(x_p<=x_e&&x_p-x_e<-1)
                 this.transform.localEulerAngles = new Vector3(0, 0, 0);
             if (!isfreeze)
             {
@@ -87,7 +89,7 @@ public class Boss_behavior : MonoBehaviour {
                     e_timer = 6.0f;
                     e_timer_1 = 2.0f;
                     e_timer_2 = 3.0f;
-                    e_timer_4 = 1.0f;
+                    e_timer_4 = 0.8f;
                     //this.enabled = true;
                     //e_animator.ResetTrigger("blink");
                     e_animator.SetBool("blink", false);
@@ -186,7 +188,7 @@ public class Boss_behavior : MonoBehaviour {
             e_timer = 6.0f;
             e_timer_1 = 2.0f;
             e_timer_3 = 3.0f;
-            e_timer_4 = 1.0f;
+            e_timer_4 = 0.8f;
             int chose_act = Random.Range(0, 2); ;
             if (e_timer_2 <= 0)
             {
@@ -247,7 +249,7 @@ public class Boss_behavior : MonoBehaviour {
             e_timer_1 = 2.0f;
             e_timer_2 = 3.0f;
             e_timer_3 = 3.0f;
-            e_timer_4 = 1.0f;
+            e_timer_4 = 0.8f;
             far_attact_in = 1.0f;
             e_timer -= Time.deltaTime;
             //Debug.Log(e_timer);
@@ -289,6 +291,7 @@ public class Boss_behavior : MonoBehaviour {
                 e_animator.ResetTrigger("move");
                 e_animator.SetTrigger("stay");
                 e_animator.SetTrigger("attack_near_1");
+                attack_ten();
             }
             if (e_timer <= -0.3)
                 e_timer = 6.0f;
@@ -324,12 +327,13 @@ public class Boss_behavior : MonoBehaviour {
                 e_animator.SetBool("blink", true);
                 if (e_timer_4 <= 0)
                 {
+                    blink();
                     isblink = true;
                     if (player.transform.position.x <= 5.9)
-                        this.transform.position = new Vector3(13.3506f, -0.6321502f, 0);        //temp
+                        this.transform.position = new Vector3(13.3506f, -1.422398f, 0);        //temp
                     else
-                        this.transform.position = new Vector3(-5.59f, -0.36f, 0);       //temp
-                    e_timer_4 = 1.0f; 
+                        this.transform.position = new Vector3(-5.59f, -1.422398f, 0);       //temp
+                    e_timer_4 = 0.8f; 
                 }
                 else
                     e_timer_4 = e_timer_4 - Time.deltaTime;
@@ -371,4 +375,19 @@ public class Boss_behavior : MonoBehaviour {
     {
         e_animator.speed = 0f;
     }
+
+    void attack_ten()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景三/boss触手", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
+    void blink()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景三/boss瞬移", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
 }
