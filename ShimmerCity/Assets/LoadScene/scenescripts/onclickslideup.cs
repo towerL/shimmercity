@@ -15,16 +15,24 @@ public class onclickslideup : MonoBehaviour {
     Sprite oldImage;
     //目标位置
     Vector3 target;
+    Vector3 target2;
     //Vector3 target2;
     bool flag = false;
     AudioSource aus;
+    public bool hasclick;
+    bool click = true;
+    float start_x;
+    float start_y;
     // Use this for initialization
     void Start()
     {
         oldImage = gameObject.GetComponent<SpriteRenderer>().sprite;
         var item = GameObject.Find(objectName);
+        start_x = item.transform.position.x;//水平移动的起点
+        start_y = item.transform.position.y;//竖直移动的起点
         //var item2 = GameObject.Find(objectName2);
         target = new Vector3(item.transform.position.x, item.transform.position.y - dis, transform.position.z);
+        target2 = item.transform.position;
         //target2 = new Vector3(item2.transform.position.x, item2.transform.position.y - dis, transform.position.z);
         aus = gameObject.GetComponent<AudioSource>();
     }
@@ -35,7 +43,16 @@ public class onclickslideup : MonoBehaviour {
         if (flag)
         {
             var item = GameObject.Find(objectName);
-            item.transform.position = Vector3.MoveTowards(item.transform.position, target, speed * Time.deltaTime);
+            if (System.Math.Abs(item.transform.position.y - start_y) >= 0.1f && hasclick)
+            {
+                //var item = GameObject.Find(objectName);
+                item.transform.position = Vector3.MoveTowards(item.transform.position, target2, speed * Time.deltaTime);
+                click = false;
+            }
+            else if (System.Math.Abs(item.transform.position.y - start_y) <= dis && click) {
+                //var item = GameObject.Find(objectName);
+                item.transform.position = Vector3.MoveTowards(item.transform.position, target, speed * Time.deltaTime);
+            }          
             //var item2 = GameObject.Find(objectName2);
             //item2.transform.position = Vector3.MoveTowards(item2.transform.position, target2, speed * Time.deltaTime);
         }
@@ -57,6 +74,8 @@ public class onclickslideup : MonoBehaviour {
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
         //oldImage = newImage;
         flag = true;
+        hasclick = false;
+        click = true;
     }
     void mouse_touch()
     {

@@ -9,8 +9,19 @@ public class Light_dark_cycle : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.6f);
     }
+
+    IEnumerator WaitAndPrint2()
+    {
+        yield return new WaitForSeconds(5.0f);
+    }
     IEnumerator Start()
     {
+        yield return StartCoroutine("WaitAndPrint2");
+        gameObject.GetComponent<SpriteRenderer>().sprite = darkImage;
+        yield return StartCoroutine("WaitAndPrint");
+        gameObject.GetComponent<SpriteRenderer>().sprite = lightImage;
+        yield return StartCoroutine("WaitAndPrint");
+        gameObject.GetComponent<SpriteRenderer>().sprite = darkImage;
         yield return StartCoroutine("WaitAndPrint");
         gameObject.GetComponent<SpriteRenderer>().sprite = lightImage;
         yield return StartCoroutine("WaitAndPrint");

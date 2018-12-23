@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1510d8da067efeb4d8391e8bf995b13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeSpeed: 0.3
+  FadeSpeed: 2
   WaitTime: 0.8
   flag: 1
 --- !u!212 &1400491826

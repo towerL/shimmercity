@@ -91,7 +91,7 @@ public class BGControl : MonoBehaviour {
         if (collision.collider.tag == "deerbug")
         {
             var bg = GameObject.Find("black");
-            a.a += 0.0001f;
+            a.a += 0.00001f;
             bg.GetComponent<SpriteRenderer>().color = a;
         }
     }
