@@ -90,8 +90,10 @@ public class player_move2 : MonoBehaviour {
 					vel.x = vel_x_in_air;
 					player_rigidbody.velocity = vel;
 				} else {
+					player_rigidbody.AddForce (10*Vector2.right * force_move);
+					float vx = player_rigidbody.velocity.x;
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x=vel_x;
+					vel.x = (vx >= vel_x ? vel_x : vx);
 					player_rigidbody.velocity = vel;
 				}
 				player_Scale.x = Mathf.Abs (player_Scale.x);
@@ -106,8 +108,10 @@ public class player_move2 : MonoBehaviour {
 					vel.x = -vel_x_in_air;
 					player_rigidbody.velocity = vel;
 				}  else {
+					player_rigidbody.AddForce (10*Vector2.left * force_move);
+					float vx = Mathf.Abs(player_rigidbody.velocity.x);
 					Vector2 vel = player_rigidbody.velocity;
-					vel.x=-vel_x;
+					vel.x = -(vx >= vel_x ? vel_x : vx);
 					player_rigidbody.velocity = vel;
 				}
 				player_Scale.x = -Mathf.Abs (player_Scale.x);
@@ -232,6 +236,10 @@ public class player_move2 : MonoBehaviour {
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetInteger("counter_close_range_attack",counter_close_range_attack);
 		player_animator.SetBool ("skill_L",skill_L);
+		if (!isGround)
+			player_rigidbody.gravityScale = 15;
+		else
+			player_rigidbody.gravityScale = 10;
 	}
 		
 	void Setmove(){
