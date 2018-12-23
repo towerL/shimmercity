@@ -91,7 +91,8 @@ public class EnemyController : MonoBehaviour {
     private void Destroy_monster()
     {
         Destroy(this.gameObject);
-        Fpbar_controller.Instance.Freame_Increase();
+        if(Fpbar_controller.bisAcquire_sister != false)
+            Fpbar_controller.Instance.Freame_Increase();
         GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
         try
         {

@@ -25,8 +25,8 @@ public class player_move : MonoBehaviour {
 	private bool isLadder=false;
 	//private bool isHammer=true;
 	private bool isHammer=false;
-	private bool isSister=true;
-	//private bool isSister=false;
+	//private bool isSister=true;
+	private bool isSister=false;
 	private bool alive=true;
 	private bool close_range_attack=false;
 	private bool far_distance_attack=false; 

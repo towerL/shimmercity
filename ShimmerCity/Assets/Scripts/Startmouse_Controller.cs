@@ -59,7 +59,7 @@ public class Startmouse_Controller : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Pipe")
+        if (collision.tag == "Pipe" || collision.tag == "deerbug"|| collision.tag == "Start_mouse" || collision.tag == "Deerbug_long")
         {
             direction.x = -direction.x;
             transform.Rotate(new Vector3(0, 180.0f, 0));

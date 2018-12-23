@@ -26,13 +26,14 @@ public class SwitchScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        var player = GameObject.Find("Player");
-        hasHammer = player.GetComponent<Animator>().GetBool("isHammer");
-        hasSister = player.GetComponent<Animator>().GetBool("isSister");
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        var player = GameObject.Find("Player");
+        hasHammer = player.GetComponent<Animator>().GetBool("isHammer");
+        hasSister = player.GetComponent<Animator>().GetBool("isSister");
         if (dis_time >= 0)
         {
             dis_time -= 0.01f;

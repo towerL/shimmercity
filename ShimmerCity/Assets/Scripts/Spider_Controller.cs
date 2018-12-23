@@ -35,4 +35,11 @@ public class Spider_Controller : MonoBehaviour {
             child.transform.position = _pos;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "deerbug")
+        {
+            //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+        }
+    }
 }

@@ -30,13 +30,17 @@ public class SisterHead_Control : MonoBehaviour {
 	}
     private void OnGUI()
     {
+        if(frameNum >= Frames.Length)
+        {
+            frameNum = Frames.Length - 1;
+        }
         this.GetComponent<Image>().sprite = Sprite.Create(Frames[frameNum], new Rect(0, 0, Frames[frameNum].width, Frames[frameNum].height), new Vector2(0, 0));
     }
     public void Fpbaradd()
     {
         if (Fpbar_controller.Instance.bisReleasing == true)
             return;
-        if(frameNum >= Frames.Length)
+        if(frameNum >= Frames.Length -1)
         {
             return;
         }

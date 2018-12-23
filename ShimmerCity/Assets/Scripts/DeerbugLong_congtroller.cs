@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class DeerbugLong_congtroller : MonoBehaviour {
     public GameObject bulletPrefab;
     public LayerMask RayLayer;
@@ -79,6 +79,19 @@ public class DeerbugLong_congtroller : MonoBehaviour {
             }
         }
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(SceneManager.GetActiveScene().name == "Part2_1")
+        {
+            if(collision.collider.tag == "hammer_in_attack")
+            {
+                decreaseHp();
+            }
+        }
+    }
+
     private void SetBullet()
     {
         bisAttacking = true;
