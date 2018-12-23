@@ -206,7 +206,24 @@ public class player_move : MonoBehaviour {
 				speed_up = true;
 				timer = false;
 			}
-				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			/*普攻J*/
 			if (isGround && isHammer && Input.GetKeyDown(KeyCode.J)) {
 				moveable = false;
 				close_range_attack = true;
@@ -224,8 +241,7 @@ public class player_move : MonoBehaviour {
 					BroadcastMessage ("SetFurtherAttack", false);
 				}
 			}
-			//if (isGround && isHammer && Input.GetKeyUp (KeyCode.J))
-			//	counter_close_range_attack = 0;
+			/*远程攻*/
 			if (isGround && isHammer && Input.GetKeyDown(KeyCode.K)) {
 				far_distance_attack = true;
 				close_range_attack = false;
@@ -252,7 +268,7 @@ public class player_move : MonoBehaviour {
 				counter_close_range_attack--;
 			if (far_distance_attack)
 				counter_far_distance_attack--;
-
+			/*技能L键盘*/
 			if (sister_skill && isGround && isHammer && Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
 				timer_for_triple=true;
 				timer_for_skill = Time.time;
@@ -282,6 +298,41 @@ public class player_move : MonoBehaviour {
 				}
 				timer = false;
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			//for test
 			if (Input.GetKey (KeyCode.Q)) {

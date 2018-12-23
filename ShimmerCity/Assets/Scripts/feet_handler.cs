@@ -50,7 +50,6 @@ public class feet_handler : MonoBehaviour {
 		}else if(col.collider.tag == "deerbug"){
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> (), col.collider,false);
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), col.collider,false);
-			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), col.collider,false);
 		}
 	}
 }

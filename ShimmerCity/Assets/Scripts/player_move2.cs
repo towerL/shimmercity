@@ -242,7 +242,7 @@ public class player_move2 : MonoBehaviour {
 		player_animator.SetBool ("skill_L",skill_L);
 		if (!isGround)
 			player_rigidbody.gravityScale = 15;
-		else if(isGround)
+		else 
 			player_rigidbody.gravityScale = 10;
 
 		if (Onstone)
@@ -253,6 +253,7 @@ public class player_move2 : MonoBehaviour {
 		
 	void Setmove(){
 		moveable = true;
+		player_rigidbody.velocity = new Vector3 (0.0f, -1.0f, 0.0f);
 	}
 
 	void SetStone(bool flag){

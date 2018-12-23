@@ -939,7 +939,6 @@ GameObject:
   - component: {fileID: 42968563}
   - component: {fileID: 42968562}
   - component: {fileID: 42968561}
-  - component: {fileID: 42968560}
   m_Layer: 0
   m_Name: FallingStone (22)
   m_TagString: Stone
@@ -961,26 +960,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &42968560
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 42968558}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &42968561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,7 +1808,7 @@ GameObject:
   - component: {fileID: 91428077}
   m_Layer: 0
   m_Name: Spider (7)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1948,7 +1927,6 @@ GameObject:
   - component: {fileID: 93600141}
   - component: {fileID: 93600140}
   - component: {fileID: 93600139}
-  - component: {fileID: 93600138}
   m_Layer: 0
   m_Name: FallingStone (19)
   m_TagString: Stone
@@ -1970,26 +1948,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &93600138
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 93600136}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &93600139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2123,7 +2081,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 98703437}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2636,7 +2594,7 @@ GameObject:
   - component: {fileID: 150990284}
   m_Layer: 0
   m_Name: Spider
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4817,7 +4775,7 @@ GameObject:
   - component: {fileID: 248833590}
   m_Layer: 0
   m_Name: Spider (4)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7172,7 +7130,7 @@ GameObject:
   - component: {fileID: 424888881}
   m_Layer: 0
   m_Name: Spider (8)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8591,7 +8549,7 @@ GameObject:
   - component: {fileID: 470416760}
   m_Layer: 0
   m_Name: Spider (1)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8752,7 +8710,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.74298286, y: 0}
+  m_Offset: {x: 0.34914398, y: -0.1629715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8763,7 +8721,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23251724, y: 1}
+  m_Size: {x: 1.020195, y: 2.4667206}
   m_EdgeRadius: 0
 --- !u!1 &475292262
 GameObject:
@@ -9722,7 +9680,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 510708003}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -10185,7 +10143,6 @@ GameObject:
   - component: {fileID: 516800036}
   - component: {fileID: 516800035}
   - component: {fileID: 516800034}
-  - component: {fileID: 516800033}
   m_Layer: 0
   m_Name: FallingStone (24)
   m_TagString: Stone
@@ -10207,26 +10164,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &516800033
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 516800031}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &516800034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10640,7 +10577,7 @@ GameObject:
   - component: {fileID: 552909654}
   m_Layer: 0
   m_Name: Spider (3)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11465,7 +11402,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 575656315}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11836,7 +11773,6 @@ GameObject:
   - component: {fileID: 621714457}
   - component: {fileID: 621714456}
   - component: {fileID: 621714455}
-  - component: {fileID: 621714454}
   m_Layer: 0
   m_Name: FallingStone (20)
   m_TagString: Stone
@@ -11858,26 +11794,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &621714454
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 621714452}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &621714455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12900,7 +12816,7 @@ GameObject:
   - component: {fileID: 705802553}
   m_Layer: 0
   m_Name: Spider (2)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13815,7 +13731,6 @@ GameObject:
   - component: {fileID: 774771354}
   - component: {fileID: 774771353}
   - component: {fileID: 774771352}
-  - component: {fileID: 774771351}
   m_Layer: 0
   m_Name: FallingStone (18)
   m_TagString: Stone
@@ -13837,26 +13752,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &774771351
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 774771349}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &774771352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15430,7 +15325,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.033615112, y: -0.59252995}
@@ -16467,7 +16362,7 @@ GameObject:
   - component: {fileID: 943422195}
   m_Layer: 0
   m_Name: Spider (9)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16790,7 +16685,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 948328611}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -16821,7 +16716,7 @@ GameObject:
   - component: {fileID: 958308215}
   m_Layer: 0
   m_Name: Spider (5)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17522,7 +17417,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 980299200}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -17588,7 +17483,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 996722158}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -17619,7 +17514,7 @@ GameObject:
   - component: {fileID: 997772457}
   m_Layer: 0
   m_Name: Spider (13)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17738,7 +17633,6 @@ GameObject:
   - component: {fileID: 1009792204}
   - component: {fileID: 1009792203}
   - component: {fileID: 1009792202}
-  - component: {fileID: 1009792201}
   m_Layer: 0
   m_Name: FallingStone (17)
   m_TagString: Stone
@@ -17760,26 +17654,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1009792201
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1009792199}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &1009792202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20052,7 +19926,7 @@ GameObject:
   - component: {fileID: 1139991666}
   m_Layer: 0
   m_Name: Spider (10)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20340,7 +20214,7 @@ GameObject:
   - component: {fileID: 1146910956}
   m_Layer: 0
   m_Name: Spider (12)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24809,7 +24683,6 @@ GameObject:
   - component: {fileID: 1447099786}
   - component: {fileID: 1447099785}
   - component: {fileID: 1447099784}
-  - component: {fileID: 1447099783}
   m_Layer: 0
   m_Name: FallingStone (21)
   m_TagString: Stone
@@ -24831,26 +24704,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1447099783
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1447099781}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &1447099784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25342,7 +25195,7 @@ GameObject:
   - component: {fileID: 1487588069}
   m_Layer: 0
   m_Name: Spider (6)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25504,7 +25357,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: bb101311b7dc7454fa0d45043a730a60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -25523,7 +25376,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494193528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.3, y: -67, z: 0}
+  m_LocalPosition: {x: 281.1, y: -60.9, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1011748115}
@@ -25703,7 +25556,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1499238240}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -25991,7 +25844,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1522413247}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -26276,7 +26129,7 @@ GameObject:
   - component: {fileID: 1547117200}
   m_Layer: 0
   m_Name: Spider (11)
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27307,7 +27160,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1571374961}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -28417,7 +28270,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1601517774}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -29540,7 +29393,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1638620852}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -30876,7 +30729,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1687196694}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -30942,7 +30795,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1694900235}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -32153,6 +32006,7 @@ GameObject:
   - component: {fileID: 1792756173}
   - component: {fileID: 1792756174}
   - component: {fileID: 1792756175}
+  - component: {fileID: 1792756176}
   m_Layer: 0
   m_Name: stone_stand
   m_TagString: stone_stand
@@ -32167,7 +32021,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1792756172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1499238241}
@@ -32181,11 +32035,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1792756172}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8914c3c6c3a602645b84fb9326a2ddef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.042808533, y: 1.0652905}
+  m_Offset: {x: 0.029510498, y: 1.0652905}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -32196,7 +32050,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3710022, y: 0.19392776}
+  m_Size: {x: 1.5982971, y: 0.19392776}
   m_EdgeRadius: 0
 --- !u!114 &1792756175
 MonoBehaviour:
@@ -32209,6 +32063,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630204cbc140a7d41af4647f64028c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &1792756176
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792756172}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 1.0846552, y: 0.020878911}
+  - {x: 0.68792844, y: 0.020879865}
 --- !u!1 &1798900586
 GameObject:
   m_ObjectHideFlags: 0
@@ -32593,11 +32465,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1807210189}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8b3d28783ea4f1f43b741750a5ef143a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08665705, y: -1.4835739}
+  m_Offset: {x: 0.08665705, y: -1.5650558}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -32608,7 +32480,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7442398, y: 0.14942932}
+  m_Size: {x: 0.7442398, y: 0.3123932}
   m_EdgeRadius: 0
 --- !u!114 &1807210192
 MonoBehaviour:
@@ -34482,7 +34354,6 @@ GameObject:
   - component: {fileID: 1906272907}
   - component: {fileID: 1906272906}
   - component: {fileID: 1906272905}
-  - component: {fileID: 1906272904}
   m_Layer: 0
   m_Name: FallingStone (14)
   m_TagString: Stone
@@ -34504,26 +34375,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1906272904
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1906272902}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &1906272905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35749,7 +35600,6 @@ GameObject:
   - component: {fileID: 1948089993}
   - component: {fileID: 1948089992}
   - component: {fileID: 1948089991}
-  - component: {fileID: 1948089990}
   m_Layer: 0
   m_Name: FallingStone (23)
   m_TagString: Stone
@@ -35771,26 +35621,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1948089990
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1948089988}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &1948089991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36517,7 +36347,6 @@ GameObject:
   - component: {fileID: 1974973791}
   - component: {fileID: 1974973790}
   - component: {fileID: 1974973789}
-  - component: {fileID: 1974973788}
   m_Layer: 0
   m_Name: FallingStone (15)
   m_TagString: Stone
@@ -36539,26 +36368,6 @@ Transform:
   m_Father: {fileID: 1120108069}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1974973788
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1974973786}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!114 &1974973789
 MonoBehaviour:
   m_ObjectHideFlags: 0
