@@ -60,11 +60,6 @@ public class climb_ladder3 : MonoBehaviour {
 		isGround = flag;
 	}
 
-	private void OnTriggerEnter2D(Collider2D col){
-		if (col.tag == "Player")
-			Debug.Log ("player in ladder");
-	}
-
 	private void OnTriggerStay2D(Collider2D col){
 		if (col.tag == "Player" && !climb) {
 			climb = isGround && (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.x) < 0.01f ? true : false) && (Mathf.Abs (col.GetComponent<Rigidbody2D> ().velocity.y) < 0.01f ? true : false);

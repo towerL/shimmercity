@@ -248,10 +248,12 @@ MonoBehaviour:
   vel_x_in_air: 3
   push_v: 1.2
   ladder_v: 0
-  pushmove: 40
-  jumpVelocity: 70
+  force_move: 40
+  jumpVelocity: 50
   skill_time: 0.3
   shield_functimer: 5
+  pushmove: 1000
+  projectile: 1300
 --- !u!95 &15886551
 Animator:
   serializedVersion: 3
@@ -995,7 +997,7 @@ GameObject:
   - component: {fileID: 142111377}
   m_Layer: 0
   m_Name: bossshow_03
-  m_TagString: Untagged
+  m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1089,6 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: 3
+  timer: 1
 --- !u!82 &142111377
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2231,11 +2234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c8e0a91b64a3347bf99f4a03d965d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 15886549}
-  pushmove: 1000
-  projectilemove: 1500
-  attack_range: 0
-  target_collider: {fileID: 15886547}
 --- !u!212 &397472307
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2294,14 +2292,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 100
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &417946421
 GameObject:
   m_ObjectHideFlags: 0

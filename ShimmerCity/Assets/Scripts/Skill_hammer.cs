@@ -26,46 +26,49 @@ public class Skill_hammer : MonoBehaviour {
 		angle = startangle;
 		stage1 = true;
 		stage2 = false;
-		target = GameObject.FindGameObjectWithTag("bottle").transform;
+		target = GameObject.FindGameObjectWithTag("boss").transform;
 		transform.position = target.position + new Vector3 (-2.0f,4.0f,0.0f);
 		pos=transform.position + new Vector3 (-0.93f, -2.02f, 0.0f);
 
 	}
 
 	void FixedUpdate () {	
-		if (stage1){
-			float rotangle = rot1_speed * Time.deltaTime;
-			transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, 90.0f), rotangle);
-			angle -= rotangle;
-			if (angle <= 0.0f) {
-				stage1 = false;
-				stage2 = true;
-			}	
-		}
-		if (stage2) {
-			float rotangle = rot2_speed * Time.deltaTime;
-			transform.Translate (rotangle/endangle*new Vector3(0.93f,2.02f,0.0f));
-			transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, -90.0f), rotangle);
-			angle += rotangle;
-			transform.localScale = bigger*(angle/endangle)*new Vector3(1.0f,1.0f,1.0f);
-			if (angle >= endangle) {
-				stage2 = false;
-				disappear = 0.0f;
+		if (target) {
+			if (stage1) {
+				float rotangle = rot1_speed * Time.deltaTime;
+				transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, 90.0f), rotangle);
+				angle -= rotangle;
+				if (angle <= 0.0f) {
+					stage1 = false;
+					stage2 = true;
+				}	
 			}
-		}
-		if (!stage1 && !stage2) {
-			if (disappear <= Disappear) {
-				disappear += Time.deltaTime*disappear_speed;
+			if (stage2) {
+				float rotangle = rot2_speed * Time.deltaTime;
+				transform.Translate (rotangle / endangle * new Vector3 (0.93f, 2.02f, 0.0f));
+				transform.RotateAround (pos, new Vector3 (0.0f, 0.0f, -90.0f), rotangle);
+				angle += rotangle;
+				transform.localScale = bigger * (angle / endangle) * new Vector3 (1.0f, 1.0f, 1.0f);
+				if (angle >= endangle) {
+					stage2 = false;
+					disappear = 0.0f;
+				}
 			}
-			if (GetComponent<SpriteRenderer> ().material.color.a <= 1) {
-				GetComponent<Renderer> ().material.color = new Color (GetComponent<Renderer> ().material.color.r
-					, GetComponent<Renderer> ().material.color.g
-					, GetComponent<Renderer> ().material.color.b
-					, gameObject.GetComponent<Renderer> ().material.color.a - disappear / 50);
+			if (!stage1 && !stage2) {
+				if (disappear <= Disappear) {
+					disappear += Time.deltaTime * disappear_speed;
+				}
+				if (GetComponent<SpriteRenderer> ().material.color.a <= 1) {
+					GetComponent<Renderer> ().material.color = new Color (GetComponent<Renderer> ().material.color.r
+						, GetComponent<Renderer> ().material.color.g
+						, GetComponent<Renderer> ().material.color.b
+						, gameObject.GetComponent<Renderer> ().material.color.a - disappear / 50);
+				}
+				if (GetComponent<SpriteRenderer> ().material.color.a <= 0.0f)
+					Destroy (gameObject);
 			}
-			if (GetComponent<SpriteRenderer> ().material.color.a <= 0.0f)
-				Destroy (gameObject);
-		}
+		} else
+			this.GetComponent<SpriteRenderer> ().sortingOrder = -2;
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){

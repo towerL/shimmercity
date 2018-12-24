@@ -1044,15 +1044,15 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0.2
-    functionName: HammerMessage2
+  - time: 0.3
+    functionName: Flying_hammer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.3
-    functionName: HammerMessage1
+  - time: 0.6
+    functionName: Setmove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

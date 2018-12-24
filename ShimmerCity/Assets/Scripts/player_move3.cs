@@ -10,7 +10,7 @@ public class player_move3 : MonoBehaviour {
 	public float vel_x_in_air=3.0f;
 	public float push_v = 1.2f;
 	public float ladder_v=0.2f;
-	public float pushmove=70.0f;
+	public float force_move=70.0f;
 	public float jumpVelocity=170;
 	private Rigidbody2D player_rigidbody;
 	private CapsuleCollider2D player_boxcollider;
@@ -68,6 +68,12 @@ public class player_move3 : MonoBehaviour {
 	private bool attacked;
 	private Color used_color;
 
+	public float pushmove=1000.0f;
+	public float projectile = 1500.0f;
+
+	private bool shake;
+	private float shake_timer;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -120,7 +126,7 @@ public class player_move3 : MonoBehaviour {
 					vel.x = push_v;
 					player_rigidbody.velocity = vel;
 				} else if(!isLadder){
-					player_rigidbody.AddForce (10*Vector2.right * pushmove);
+					player_rigidbody.AddForce (10*Vector2.right * force_move);
 					float vx = player_rigidbody.velocity.x;
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = (vx >= vel_x ? vel_x : vx);
@@ -152,7 +158,7 @@ public class player_move3 : MonoBehaviour {
 					vel.x = -push_v;
 					player_rigidbody.velocity = vel;
 				} else if(!isLadder){
-					player_rigidbody.AddForce (10*Vector2.left * pushmove);
+					player_rigidbody.AddForce (10*Vector2.left * force_move);
 					float vx = Mathf.Abs(player_rigidbody.velocity.x);
 					Vector2 vel = player_rigidbody.velocity;
 					vel.x = -(vx >= vel_x ? vel_x : vx);
@@ -177,7 +183,9 @@ public class player_move3 : MonoBehaviour {
 			}
 
 			if (isGround && Input.GetKeyDown (KeyCode.Space)) {
-				player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
+				velocity=player_rigidbody.velocity;
+				velocity.y = jumpVelocity;
+				player_rigidbody.velocity = velocity;
 				speed_up = true;
 				timer = false;
 			}
@@ -193,8 +201,6 @@ public class player_move3 : MonoBehaviour {
 					counter_far_distance_attack = 0;
 				}
 				timer = false;
-				BroadcastMessage ("SetCloseAttack", true);
-				BroadcastMessage ("SetFurtherAttack", false);
 			}
 			if (isGround && Input.GetKeyDown(KeyCode.K)) {
 				far_distance_attack = true;
@@ -205,12 +211,6 @@ public class player_move3 : MonoBehaviour {
 					counter_close_range_attack = 0;
 				}
 				timer = false;
-				BroadcastMessage ("SetCloseAttack", false);
-				BroadcastMessage ("SetFurtherAttack", true);
-				if(player_Scale.x>0.0f)
-					BroadcastMessage ("SetPlayerDir", true);
-				else
-					BroadcastMessage ("SetPlayerDir", false);
 			}
 			close_range_attack=(counter_close_range_attack>0.0f?true:false);
 			far_distance_attack=(counter_far_distance_attack>0.0f?true:false);
@@ -257,12 +257,7 @@ public class player_move3 : MonoBehaviour {
 				shield_timer = Time.time;
 				in_shield = true;
 			}
-
-			/*if (Input.GetKeyDown (KeyCode.I)) {
-				if (ProtectLayer)
-					Destroy (ProtectLayer);
-				BroadcastMessage ("SetProtectLayer",false);
-			}*/
+				
 			if (in_shield) {
 				shield_now_timer= Time.time;
 				if (shield_now_timer-shield_timer>=shield_functimer) {
@@ -311,11 +306,13 @@ public class player_move3 : MonoBehaviour {
 
 		if (isLadder) {
 			for (int i = 0; i <= 14; i++) {
-				Physics2D.IgnoreLayerCollision (9,i);
+				if(i!=9)
+					Physics2D.IgnoreLayerCollision (9,i);
 			}
 		} else {
-			for (int i = 0; i <= 14; i++) {
-				Physics2D.IgnoreLayerCollision (9,i,false);
+			for (int i = 0; i <= 14 ; i++) {
+				if(i!=9)
+					Physics2D.IgnoreLayerCollision (9,i,false);
 			}
 		}
 		if (attacked) {
@@ -325,7 +322,19 @@ public class player_move3 : MonoBehaviour {
 			}
 		}
 
-
+		if (shake) {
+			shake_timer = Time.time;
+			float in_attack_time = shake_timer - attacked_timer;
+			if (in_attack_time <= 2.0f) {
+				if (((int)(shake_timer * 10))%2==1)
+					GetComponent<Renderer> ().enabled = true;
+				else
+					GetComponent<Renderer> ().enabled = false;
+			} else
+				shake = false;
+		} else {
+			GetComponent<Renderer> ().enabled = true;
+		}
 	}
 
 	void Setmove(){
@@ -363,14 +372,17 @@ public class player_move3 : MonoBehaviour {
 		player_health -= harm;
 	}
 
-	public void HammerMessage1(){
-		hammer.SendMessage ("SetPos",hammer_transform.position);
-		Debug.Log (hammer_transform.position);
-		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
-	}
-	public void HammerMessage2(){
-		hammer.SendMessage ("SetSca",hammer_transform.localScale);
-		hammer.SendMessage ("SetRot",hammer_transform.rotation);
+	void Flying_hammer(){
+		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer3"), hammer_transform.position,hammer_transform.rotation) as GameObject;
+		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
+		flying_hammer_transform.localScale = new Vector3(0.3f,0.3f,0.3f);
+		Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
+		if(player_Scale.x>0.0f)
+			flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);
+		else
+			flying_hammer_rigidbody.AddForce (-Vector2.right *pushmove);
+		flying_hammer_rigidbody.AddForce (Vector2.up *projectile);
+		Debug.Log (flying_hammer_rigidbody.position);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
@@ -379,12 +391,14 @@ public class player_move3 : MonoBehaviour {
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
 			attacked = true;
 			attacked_timer = Time.time;
+			shake = true;
 			Debug.Log ("boss_hand1");
 		}else if (col.collider.tag == "boss_tentacle") {
 			player_health -= 2.0f;
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
 			attacked = true;
 			attacked_timer = Time.time;
+			shake = true;
 			Debug.Log ("boss_tentacle1");
 		}
 	}

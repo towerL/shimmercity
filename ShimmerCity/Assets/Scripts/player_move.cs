@@ -81,6 +81,13 @@ public class player_move : MonoBehaviour {
 	public float pushmove=1000.0f;
 	public float projectile = 1500.0f;
 
+	private float attacked_timer;
+	private bool attacked;
+	private Color used_color;
+
+	private bool shake;
+	private float shake_timer;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -101,6 +108,7 @@ public class player_move : MonoBehaviour {
 		skill_counter = 0;
 		player_health = 100.0f;
         aus = gameObject.GetComponent<AudioSource>();
+		used_color = GetComponent<Renderer> ().material.color;
         moveable = true;
 	}
 
@@ -197,14 +205,9 @@ public class player_move : MonoBehaviour {
 			}
 
 			if (isGround && Input.GetKey(KeyCode.Space)) {
-				//Debug.Log ("player get the KeyCode Space,you will jump.");
 				velocity=player_rigidbody.velocity;
 				velocity.y = jumpVelocity;
 				player_rigidbody.velocity = velocity;
-				//player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
-				if (isWall) {
-					player_rigidbody.gravityScale = 5;
-				}
 				speed_up = true;
 				timer = false;
 			}
@@ -391,6 +394,26 @@ public class player_move : MonoBehaviour {
 		foreach (GameObject ladder in ladders){
 			ladder.SendMessage("SetGround",isGround);
 		}
+
+		if (attacked) {
+			if (Time.time - attacked_timer >= 0.2f) {
+				GetComponent<Renderer> ().material.color = used_color;
+				attacked = false;
+			}
+		}
+		if (shake) {
+			shake_timer = Time.time;
+			float in_attack_time = shake_timer - attacked_timer;
+			if (in_attack_time <= 2.0f) {
+				if (((int)(shake_timer * 10))%2==1)
+					GetComponent<Renderer> ().enabled = true;
+				else
+					GetComponent<Renderer> ().enabled = false;
+			} else
+				shake = false;
+		} else {
+			GetComponent<Renderer> ().enabled = true;
+		}
 	}
 
 	private void doubleclick(){
@@ -446,10 +469,18 @@ public class player_move : MonoBehaviour {
 		beltdir = dir;
 	}
 
+	void PlayerDecreaseHP(float harm_blood){
+		player_health -= harm_blood;
+		GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+		attacked = true;
+		attacked_timer = Time.time;
+		shake = true;
+	}
+
 	void Flying_hammer(){
 		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer1"), hammer_transform.position,hammer_transform.rotation) as GameObject;
 		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
-		flying_hammer_transform.localScale = hammer_transform.localScale;
+		flying_hammer_transform.localScale = new Vector3(0.6f,0.6f,0.6f);
 		Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
 		if(player_Scale.x>0.0f)
 			flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);
@@ -465,7 +496,12 @@ public class player_move : MonoBehaviour {
 			transform.position = pos;
 			player_rigidbody.gravityScale = 40;
 		}
-
+		if (col.collider.tag == "deerbug") {
+			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			attacked = true;
+			attacked_timer = Time.time;
+			shake = true;
+		}
 	}
 
 	public void OnCollisionExit2D(Collision2D col){

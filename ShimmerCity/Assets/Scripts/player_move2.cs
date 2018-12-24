@@ -20,7 +20,7 @@ public class player_move2 : MonoBehaviour {
 	public float force_move=70;
 	public float jumpVelocity=170;
 
-	private bool isGround = true;
+	private bool isGround = false;
 	private bool isPipe = false;
 	private bool alive=true;
 	private bool close_range_attack=false;
@@ -60,6 +60,16 @@ public class player_move2 : MonoBehaviour {
 
 	private bool Onstone;
 
+	public float pushmove=1000.0f;
+	public float projectile = 1500.0f;
+
+	private float attacked_timer;
+	private bool attacked;
+	private Color used_color;
+
+	private bool shake;
+	private float shake_timer;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -76,6 +86,7 @@ public class player_move2 : MonoBehaviour {
 		player_health = 100.0f;
         aus = gameObject.GetComponent<AudioSource>();
 		moveable = true;
+		used_color = GetComponent<Renderer> ().material.color;
 		Onstone = false;
 	}
 
@@ -124,7 +135,9 @@ public class player_move2 : MonoBehaviour {
 			} 
 
 			if (isGround && Input.GetKeyDown(KeyCode.Space)) {
-				player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
+				velocity=player_rigidbody.velocity;
+				velocity.y = jumpVelocity;
+				player_rigidbody.velocity = velocity;
 				speed_up = true;
 				timer = false;
 			}
@@ -142,8 +155,6 @@ public class player_move2 : MonoBehaviour {
 					counter_far_distance_attack = 0;
 				}
 				timer = false;
-				BroadcastMessage ("SetCloseAttack", true);
-				BroadcastMessage ("SetFurtherAttack", false);
 			}
 			if (isGround && Input.GetKeyDown(KeyCode.K)) {
 				far_distance_attack = true;
@@ -154,12 +165,6 @@ public class player_move2 : MonoBehaviour {
 					counter_close_range_attack = 0;
 				}
 				timer = false;
-				BroadcastMessage ("SetCloseAttack", false);
-				BroadcastMessage ("SetFurtherAttack", true);
-				if(player_Scale.x>0.0f)
-					BroadcastMessage ("SetPlayerDir", true);
-				else
-					BroadcastMessage ("SetPlayerDir", false);
 			}
 			close_range_attack=(counter_close_range_attack>0.0f?true:false);
 			far_distance_attack=(counter_far_distance_attack>0.0f?true:false);
@@ -240,15 +245,32 @@ public class player_move2 : MonoBehaviour {
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetInteger("counter_close_range_attack",counter_close_range_attack);
 		player_animator.SetBool ("skill_L",skill_L);
-		if (!isGround)
-			player_rigidbody.gravityScale = 15;
-		else 
-			player_rigidbody.gravityScale = 10;
 
 		if (Onstone)
 			player_rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 		else
 			player_rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
+
+		if (attacked) {
+			if (Time.time - attacked_timer >= 0.2f) {
+				GetComponent<Renderer> ().material.color = used_color;
+				attacked = false;
+			}
+		}
+
+		if (shake) {
+			shake_timer = Time.time;
+			float in_attack_time = shake_timer - attacked_timer;
+			if (in_attack_time <= 2.0f) {
+				if (((int)(shake_timer * 10))%2==1)
+					GetComponent<Renderer> ().enabled = true;
+				else
+					GetComponent<Renderer> ().enabled = false;
+			} else
+				shake = false;
+		} else {
+			GetComponent<Renderer> ().enabled = true;
+		}
 	}
 		
 	void Setmove(){
@@ -274,25 +296,30 @@ public class player_move2 : MonoBehaviour {
 
 	void PlayerDecreaseHP(float harm_blood){
 		player_health -= harm_blood;
+		GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+		attacked = true;
+		attacked_timer = Time.time;
+		shake = true;
 	}
 
-	public void HammerMessage(){
-		hammer.SendMessage ("SetPos",hammer_transform.position);
-		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
-		hammer.SendMessage ("SetRot",hammer_transform.rotation);
-		hammer.SendMessage ("SetSca",hammer_transform.localScale);
+	void Flying_hammer(){
+		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer2"), hammer_transform.position,hammer_transform.rotation) as GameObject;
+		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
+		flying_hammer_transform.localScale = new Vector3(0.3f,0.3f,0.3f);
+		Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
+		if(player_Scale.x>0.0f)
+			flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);
+		else
+			flying_hammer_rigidbody.AddForce (-Vector2.right *pushmove);
+		flying_hammer_rigidbody.AddForce (Vector2.up *projectile);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
 		if(col.collider.tag == "Pipe" ){
 		}
-		if(col.collider.tag == "Rock" ){
-			//hp--;
-		}
 		if(col.collider.tag == "stone_stand" ){
 			Physics2D.IgnoreCollision (col.collider,GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> ());
 		}
-
 	}
 
 	public void OnCollisionStay2D(Collision2D col){

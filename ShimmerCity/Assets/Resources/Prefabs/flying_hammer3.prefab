@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212994848203947936}
   - component: {fileID: 50951595901588724}
   - component: {fileID: 60884646473069324}
-  - component: {fileID: 114126083985386084}
   - component: {fileID: 95339287701152416}
+  - component: {fileID: 114126083985386084}
   m_Layer: 9
   m_Name: flying_hammer3
   m_TagString: hammer_body
@@ -315,8 +315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca1a5e04a06fc34a8fe56ddfab478a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushmove: 1000
-  projectilemove: 1000
 --- !u!212 &212994848203947936
 SpriteRenderer:
   m_ObjectHideFlags: 1

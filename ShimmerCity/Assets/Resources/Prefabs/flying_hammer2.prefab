@@ -38,8 +38,8 @@ GameObject:
   - component: {fileID: 212800611659944598}
   - component: {fileID: 50678864398153970}
   - component: {fileID: 60171349885170264}
-  - component: {fileID: 114201177891967862}
   - component: {fileID: 95711657523277788}
+  - component: {fileID: 114087734734502742}
   m_Layer: 9
   m_Name: flying_hammer2
   m_TagString: hammer_body
@@ -304,7 +304,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &114201177891967862
+--- !u!114 &114087734734502742
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,11 +312,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1967195162415686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca1a5e04a06fc34a8fe56ddfab478a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9669909365e3804418ae828e32b52315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushmove: 1000
-  projectilemove: 1000
 --- !u!212 &212800611659944598
 SpriteRenderer:
   m_ObjectHideFlags: 1

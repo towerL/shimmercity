@@ -16,7 +16,7 @@ public class add_flying_hammer : MonoBehaviour {
 		Rotate = true;
 	}
 
-	void Update () {
+	void FixedUpdate () {
 		hammer_animator.SetBool ("Rotate",Rotate);
 	}
 
