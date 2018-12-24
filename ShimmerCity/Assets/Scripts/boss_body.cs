@@ -20,6 +20,10 @@ public class boss_body : MonoBehaviour {
     float changecolor = 0.1f;
     bool isattacked = false;
     float anispeed;
+    public bool freeze = false;
+    int count_down = 0;
+    float e_timer_5 = 5.0f;
+    GameObject ice;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -48,24 +52,46 @@ public class boss_body : MonoBehaviour {
             }
             else
             {
-                Vector3 new_position;
-                if (this.transform.localEulerAngles.y == 0)
-                    new_position = this.transform.position + new Vector3(-2, 0, 0);
-                else
-                    new_position = this.transform.position + new Vector3(2, 0, 0);
-
-                if (timer <= 0)
+                if (!freeze)
                 {
-                    setbullet();
-                    GameObject bullet;
+                    Vector3 new_position;
                     if (this.transform.localEulerAngles.y == 0)
-                        bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                        new_position = this.transform.position + new Vector3(-2, 0, 0);
                     else
-                        bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
-                    timer = 5.0f;
+                        new_position = this.transform.position + new Vector3(2, 0, 0);
+
+                    if (timer <= 0)
+                    {
+                        setbullet();
+                        GameObject bullet;
+                        if (this.transform.localEulerAngles.y == 0)
+                            bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                        else
+                            bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
+                        timer = 5.0f;
+                    }
+                    timer = timer - Time.deltaTime;
+                    move();
                 }
-                timer = timer - Time.deltaTime;
-                move();
+                else
+                {
+                    if (count_down == 0)
+                    {
+                        Vector3 new_position;
+                        new_position = this.transform.position;
+                        if (this.transform.localEulerAngles.y == 0)
+                            ice = Instantiate(Resources.Load("prefabs/iceblock_1"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                        else
+                            ice = Instantiate(Resources.Load("prefabs/iceblock_1"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
+                        count_down++;
+                    }
+                    if (e_timer_5 <= 0)
+                    {
+                        e_timer_5 = 5.0f;
+                        freeze = false;
+                    }
+                    e_timer_5 = e_timer_5 - Time.deltaTime;
+                }
             }
         }
         else
@@ -138,5 +164,13 @@ public class boss_body : MonoBehaviour {
         AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景三/boss发射导弹", typeof(AudioClip));
         aus.clip = clip;
         aus.Play();
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "icebottle")
+        {
+            freeze = true;
+        }
     }
 }

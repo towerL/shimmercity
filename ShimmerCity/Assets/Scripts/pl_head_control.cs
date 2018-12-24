@@ -29,6 +29,7 @@ public class pl_head_control : MonoBehaviour {
 	void Update () {
         if (HP > 0)
         {
+            bossbody.SendMessage("setHP", HP);
             if (isattacked)
             {
                 isattack();
