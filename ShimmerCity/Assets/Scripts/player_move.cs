@@ -101,7 +101,7 @@ public class player_move : MonoBehaviour {
 		moveable = true;
 	}
 
-	void Update () {
+	void FixedUpdate () {
 		float h=Input.GetAxis("Horizontal");
 		timer = true;
 		speed_up = (isGround == true ? false : true);
@@ -177,11 +177,7 @@ public class player_move : MonoBehaviour {
 				postrans.x += Time.deltaTime * 1.0f;
 			}else if (isBelt && beltflag && beltdir < 0.0f) {	
 				postrans.x -= Time.deltaTime * 1.0f;
-			}/*else if (isBelt && !beltflag && beltdir > 0.0f) {	
-				postrans.y += Time.deltaTime * 1.0f;
-			}else if (isBelt && !beltflag && beltdir < 0.0f) {
-				postrans.y -= Time.deltaTime * 1.0f;
-			}*/
+			}
 			transform.position = postrans;
 
 			if (isLadder && isGround) {
@@ -197,9 +193,12 @@ public class player_move : MonoBehaviour {
 				player_animator.speed = 1.0f;
 			}
 
-			if (isGround && Input.GetKeyDown (KeyCode.Space)) {
+			if (isGround && Input.GetKey(KeyCode.Space)) {
 				//Debug.Log ("player get the KeyCode Space,you will jump.");
-				player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
+				velocity=player_rigidbody.velocity;
+				velocity.y = jumpVelocity;
+				player_rigidbody.velocity = velocity;
+				//player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
 				if (isWall) {
 					player_rigidbody.gravityScale = 5;
 				}
@@ -243,6 +242,7 @@ public class player_move : MonoBehaviour {
 			}
 			/*远程攻*/
 			if (isGround && isHammer && Input.GetKeyDown(KeyCode.K)) {
+				moveable = false;
 				far_distance_attack = true;
 				close_range_attack = false;
 				//counter_far_distance_attack++;
@@ -396,6 +396,7 @@ public class player_move : MonoBehaviour {
 		player_animator.SetBool ("isPush",isPush);
 		player_animator.SetInteger("counter_close_range_attack",counter_close_range_attack);
 		player_animator.SetBool ("skill_L",skill_L);
+		player_animator.SetBool ("move",moveable);
 		ladders = GameObject.FindGameObjectsWithTag ("Ladder");
 		foreach (GameObject ladder in ladders){
 			ladder.SendMessage("SetGround",isGround);
@@ -450,12 +451,10 @@ public class player_move : MonoBehaviour {
 
 	void SetBeltFlag(bool flag){
 		beltflag = flag;
-		//Debug.Log (beltflag);
 	}
 
 	void SetBeltdir(float dir){
 		beltdir = dir;
-		//Debug.Log (beltdir);
 	}
 
 	public void HammerMessage(){
@@ -463,6 +462,7 @@ public class player_move : MonoBehaviour {
 		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
 		hammer.SendMessage ("SetRot",hammer_transform.rotation);
 		hammer.SendMessage ("SetSca",hammer_transform.localScale);
+		Debug.Log (hammer_transform.position);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
@@ -471,7 +471,6 @@ public class player_move : MonoBehaviour {
 			pos.x -= Time.deltaTime * 3.0f;
 			transform.position = pos;
 			player_rigidbody.gravityScale = 40;
-			//Physics2D.IgnoreCollision (player_boxcollider,col.collider);
 		}
 
 	}
@@ -479,7 +478,6 @@ public class player_move : MonoBehaviour {
 	public void OnCollisionExit2D(Collision2D col){
 		if(col.collider.tag == "Belt"){
 			player_rigidbody.gravityScale = 20;
-			//Physics2D.IgnoreCollision (player_boxcollider,col.collider,false);
 		}
 
 	}

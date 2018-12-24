@@ -13,7 +13,6 @@ public class add_flying_hammer2 : MonoBehaviour {
 	private SpriteRenderer spriterender;
 
 	private bool Rotate=false;
-	private bool hit_ground=false;
 	private bool exist = true;
 
 	void Start () {
@@ -22,49 +21,25 @@ public class add_flying_hammer2 : MonoBehaviour {
 		hammer_rigidbody = this.GetComponent<Rigidbody2D> ();
 		spriterender = this.gameObject.GetComponent<SpriteRenderer> ();
 		spriterender.sortingOrder = -2;
-		/*hammer_rigidbody.AddForce (-Vector2.right *pushmove);
-		hammer_rigidbody.AddForce (Vector2.up *projectilemove);
-		Debug.Log (hammer_rigidbody.velocity.x);*/
 	}
 
 	void Update () {
 		if (exist) {
 			spriterender.sortingOrder = 5;
 			Rotate = true;
-		} else if (!exist) {
-			//hammer_animator.Play ("hammer_hit");
-			Destroy (gameObject,0.2f);
 		}
 		hammer_animator.SetBool ("Rotate",Rotate);
-		hammer_animator.SetBool ("hit_ground",hit_ground);
-		hammer_animator.SetBool ("exist",exist);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
-		if(col.collider.tag == "Ground" || col.collider.tag == "Brick" ){
-			Rotate = false;
-			hit_ground = true;
-			exist = false;
-			hammer_animator.SetBool ("Rotate",Rotate);
-			hammer_animator.SetBool ("hit_ground",hit_ground);
-		}
-		if (col.collider.tag == "deerbug") {
-			col.collider.SendMessage ("decreaseHp");
-		}
+		exist = false;
 		if (col.collider.tag == "Deerbug_long") {
-			Debug.Log ("emmm");
 			col.collider.SendMessage ("decreaseHp");
 		}
 		if (col.collider.tag == "Start_mouse") {
 			col.collider.SendMessage ("decreaseHp");
 		}
+		Destroy (gameObject);
 	}
-
-	public void OnCollisionExit2D(Collision2D col){
-		if (col.collider.tag == "Ground" || col.collider.tag == "Brick") {
-			exist = false;
-		}
-	}
-
 }
 

@@ -48,7 +48,6 @@ public class climb_ladder3 : MonoBehaviour {
 		if (inladder) {
 			Physics2D.IgnoreLayerCollision (9, 10);
 			Physics2D.IgnoreLayerCollision (9, 11);
-			//target.SendMessage ("SetLayerOrder", false);
 			target.SendMessage ("SetLayerOrder", true);
 		} else {
 			Physics2D.IgnoreLayerCollision (9, 10,false);
@@ -73,9 +72,6 @@ public class climb_ladder3 : MonoBehaviour {
 		if (col.tag == "Player" && climb) {
 			if (Input.GetKey (KeyCode.W)) {
 				inladder = true;
-				Vector3 posplayer = player_boxcollider.position;
-				posplayer.x = transform.position.x;
-				player_boxcollider.position = posplayer;
 				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x;
 				velocity.y = climbspeed;
@@ -87,9 +83,6 @@ public class climb_ladder3 : MonoBehaviour {
 				col.SendMessage ("SetInLadder",true);
 			} else if (Input.GetKey (KeyCode.S)) {
 				inladder = true;
-				Vector3 posplayer = player_boxcollider.position;
-				posplayer.x = ladder_transition.position.x;
-				player_boxcollider.position = posplayer;
 				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 				velocity.x = col.GetComponent<Rigidbody2D> ().velocity.x;
 				velocity.y = -climbspeed;
@@ -101,10 +94,7 @@ public class climb_ladder3 : MonoBehaviour {
 				col.SendMessage ("SetInLadder",true);
 			} else if(Input.GetKey(KeyCode.Space)){
 				inladder = false;
-				Vector3 posplayer = player_boxcollider.position;
-				posplayer.x = transform.position.x;
-				player_boxcollider.position = posplayer;
-				col.GetComponent<Rigidbody2D> ().gravityScale = 10;
+				col.GetComponent<Rigidbody2D> ().gravityScale = 30;
 				col.SendMessage ("SetInLadder",false);
 				climb = false;
 				Physics2D.IgnoreCollision (col.GetComponent<Collider2D>(),target,false);
@@ -129,7 +119,6 @@ public class climb_ladder3 : MonoBehaviour {
 	}
 
 	void SetPushable(){
-        Debug.Log("!???????");
 		pushable = true;
 	}
 }

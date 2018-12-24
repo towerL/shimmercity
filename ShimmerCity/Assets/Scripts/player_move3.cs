@@ -294,15 +294,12 @@ public class player_move3 : MonoBehaviour {
 		} else {
 			if (Input.GetKeyDown (KeyCode.R)) {
 				gameexit = true;	
-				//Debug.Log ("game is over!");
 			}
 		}
 		player_animator.SetFloat ("velocity_x",Mathf.Abs(player_rigidbody.velocity.x));
 		player_animator.SetFloat ("velocity_y",player_rigidbody.velocity.y);
 		player_animator.SetBool ("close_attack",close_range_attack);
 		player_animator.SetBool ("far_attack",far_distance_attack);
-		//player_animator.SetBool ("alive",alive);
-		//player_animator.SetBool ("gameexit",gameexit);
 		player_animator.SetBool ("isGround",isGround);
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetBool ("isPush",isPush);
@@ -367,6 +364,7 @@ public class player_move3 : MonoBehaviour {
 
 	public void HammerMessage1(){
 		hammer.SendMessage ("SetPos",hammer_transform.position);
+		Debug.Log (hammer_transform.position);
 		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
 	}
 	public void HammerMessage2(){

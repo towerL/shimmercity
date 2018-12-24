@@ -62,40 +62,12 @@ public class align_hammer : MonoBehaviour {
 		if (infurtherattack && inhand && exist) {
 			spriterender.sprite = static_sprite;
 			spriterender.sortingOrder = 3;
-			/*this.gameObject.AddComponent<Rigidbody2D> ();
-			hammer_rigidbody = this.GetComponent<Rigidbody2D> ();
-			hammer_rigidbody.AddForce (Vector2.right * pushmove);
-			hammer_rigidbody.AddForce (Vector2.up * projectilemove);
-			Rotate = true;
-			inhand = false;
-			infurtherattack = false;
-			*/
-			/*
-			GameObject hammer_cloned = new GameObject ();
-			hammer_cloned.AddComponent<SpriteRenderer> ();
-			SpriteRenderer hammer_sprite = hammer_cloned.GetComponent<SpriteRenderer> ();
-			hammer_sprite.sprite = init_sprite;
-			hammer_sprite.sortingOrder = 4;
-			hammer_cloned.name="hammer_thrown";
-			//hammer_cloned.transform.position = transform.Find ("hammer_in_attack").position;
-			hammer_cloned.AddComponent<PolygonCollider2D> ();
-			PolygonCollider2D hammer_collider = hammer_cloned.GetComponent<PolygonCollider2D> ();
-			hammer_collider.isTrigger = false;
-			hammer_cloned.AddComponent<Rigidbody2D> ();
-			Rigidbody2D hammer_cloned_rigidbody = hammer_cloned.GetComponent<Rigidbody2D> ();
-			hammer_rigidbody.AddForce (Vector2.right * pushmove);
-			hammer_rigidbody.AddForce (Vector2.up * projectilemove);*/
-			//if (Time.time - timer_flying_hammer > 1.0f) {
-			//GameObject.Instantiate (flying_hammer, target.position+new Vector3(0.0f,5.0f,0.0f),Quaternion.identity);	
-			//	timer_flying_hammer = Time.time;
-			//}
 			if (getposvalue && getrotvalue && getscavalue && getvelvalue) {
 				GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer1"), Position,Rotation) as GameObject;
 				Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
-				flying_hammer_transform.localScale = Scale;
+				//flying_hammer_transform.localScale = Scale;
 				Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
 				Physics2D.IgnoreCollision (target_collider,flying_hammer_instance.GetComponent<Collider2D>());
-				//flying_hammer_rigidbody.velocity = Velocity;555
 				if(player_dir)
 					flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);
 				else

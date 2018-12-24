@@ -17192,7 +17192,6 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!60 &1705961551
 PolygonCollider2D:
-  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1705961546}

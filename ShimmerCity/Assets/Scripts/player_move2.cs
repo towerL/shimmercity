@@ -75,11 +75,10 @@ public class player_move2 : MonoBehaviour {
 		player_health = 100.0f;
 
 		moveable = true;
-
 		Onstone = false;
 	}
 
-	void Update () {
+	void FixedUpdate () {
 		//Debug.Log (player_health);
 		//float h=Input.GetAxis("Horizontal");
 		timer = true;
@@ -253,7 +252,6 @@ public class player_move2 : MonoBehaviour {
 		
 	void Setmove(){
 		moveable = true;
-		player_rigidbody.velocity = new Vector3 (0.0f, -1.0f, 0.0f);
 	}
 
 	void SetStone(bool flag){

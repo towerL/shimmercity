@@ -248,7 +248,7 @@ MonoBehaviour:
   push_v: 1.2
   ladder_v: 0
   pushmove: 40
-  jumpVelocity: 40
+  jumpVelocity: 70
   skill_time: 0.3
   shield_functimer: 5
 --- !u!95 &15886551
@@ -7436,7 +7436,7 @@ Prefab:
     - target: {fileID: 224261760777759710, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224036382683097160, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
@@ -7446,17 +7446,17 @@ Prefab:
     - target: {fileID: 224631555216738052, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224344952980505498, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224231509329426056, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224140541722690434, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
@@ -7466,17 +7466,17 @@ Prefab:
     - target: {fileID: 224653462502230026, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224080453057377942, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224995978307161974, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224648901965819180, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}

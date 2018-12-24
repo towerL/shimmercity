@@ -29,25 +29,16 @@ public class add_flying_hammer3 : MonoBehaviour {
 			Rotate = true;
 		} 
 		hammer_animator.SetBool ("Rotate",Rotate);
-		hammer_animator.SetBool ("exist",exist);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
-		if(col.collider.tag == "Ground" || col.collider.tag == "Brick" ){
-			Destroy (gameObject);
-		}
+		exist = false;
 		if (col.collider.tag == "deerbug") {
-			hammer_animator.Play ("lying_hammer");
-			Destroy (gameObject);
+			//hammer_animator.Play ("lying_hammer");
 			col.collider.SendMessage ("decreaseHp");
 		}
+		Destroy (gameObject);
 	}
-
-	public void OnCollisionExit2D(Collision2D col){
-		if (col.collider.tag == "Ground" || col.collider.tag == "Brick") {
-			Destroy (gameObject);
-		}
-	}
-
+		
 }
 

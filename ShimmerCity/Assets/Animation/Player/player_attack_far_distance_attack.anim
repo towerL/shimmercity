@@ -249,7 +249,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.53846157
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -962,7 +962,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.53846157
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -1013,6 +1013,13 @@ AnimationClip:
   m_Events:
   - time: 0.23076923
     functionName: HammerMessage
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.53846157
+    functionName: Setmove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
