@@ -17,6 +17,10 @@ public class Feet_handler2 : MonoBehaviour {
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> (), col.collider);
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (), col.collider);
 		}
+        if(col.collider.tag == "Scene2Edge")
+        {
+            Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
 	}
 
 	public void OnCollisionStay2D(Collision2D col){
