@@ -5,37 +5,38 @@ using UnityEngine;
 public class IsViewTest : MonoBehaviour {
     public GameObject[] SpriteArray;
     public Vector3[] PositionArray;
+    public static IsViewTest Instance;
     // Use this for initialization
     void Start () {
-        for(int i = 0;i<SpriteArray.Length;i++)
+        Instance = this;
+        for (int i = 0;i<SpriteArray.Length;i++)
         {
             PositionArray = new Vector3[SpriteArray.Length];
-            PositionArray[i] = SpriteArray[i].transform.position;
+            //PositionArray[i] = SpriteArray[i].transform.position;
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        //GameObject[] deerbugs = GameObject.FindGameObjectsWithTag("deerbug");
-        //Debug.Log(deerbugs.Length.ToString());
-        //foreach (GameObject deerbug in deerbugs)
-        //{
-        //    if(IsInView(deerbug.transform.position) == true)
-        //    {
-        //        deerbug.SetActive(true);
-        //    }
-        //}
         foreach (GameObject gameobject in SpriteArray)
         {
-            if (IsInView(gameobject.transform.position) == true)
+            try
             {
-                gameobject.SetActive(true);
+                if (IsInView(gameobject.transform.position) == true)
+                {
+                    gameobject.SetActive(true);
+                }
+                else
+                {
+                    gameobject.SetActive(false);
+                }
             }
-            else
+            catch
             {
-                gameobject.SetActive(false);
+                continue;
             }
         }
+
     }
 
     public bool IsInView(Vector3 worldPos)

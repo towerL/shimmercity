@@ -121,6 +121,10 @@ public class Deerbug_attackbox : MonoBehaviour {
            // Debug.Log("进入trigger");
             transform.Rotate(Vector3.up * 180);
         }
+        if (collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
+        {
+            Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
         //if (collision.tag == "hammer_in_attack" && bisAttackElectrictBox == true)
         //{
         //    decreaseHp();
@@ -143,23 +147,23 @@ public class Deerbug_attackbox : MonoBehaviour {
     }
     private void Destroy_monster()
     {
-        if (bisAttackElectrictBox == true)
-        {
-            GameObject.Find("Deerbug_Number").SendMessage("DecreaseNumber");
-            bisAttackElectrictBox = false;
-        }
-        Destroy(this.gameObject);
-        //Fpbar_controller.Instance.Freame_Increase();
-        GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+
         try
         {
+            if (bisAttackElectrictBox == true)
+            {
+                GameObject.Find("Deerbug_Number").SendMessage("DecreaseNumber");
+                bisAttackElectrictBox = false;
+            }
+            //Fpbar_controller.Instance.Freame_Increase();
+            GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
             GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
         }
         catch
         {
-            return;
         }
-        
+        Destroy(this.gameObject);
+
     }
     private void decreaseHp()
     {

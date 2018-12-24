@@ -90,6 +90,22 @@ public class DeerbugLong_congtroller : MonoBehaviour {
                 decreaseHp();
             }
         }
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
+        {
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
+        }
+        if(collision.collider.tag == "Pipe")
+        {
+            transform.Rotate(Vector3.up * 180);
+            if (ray_direction == Vector2.left)
+            {
+                ray_direction = Vector2.right;
+            }
+            else
+            {
+                ray_direction = Vector2.left;
+            }
+        }
     }
 
     private void SetBullet()
@@ -114,7 +130,7 @@ public class DeerbugLong_congtroller : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //transform.Rotate(Vector3.up * 180);
-        if (collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "deerbug" || collision.tag == "Pipe")
+        if (collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "deerbug" || collision.tag == "Pipe" || collision.tag == "Scene2Edge")
         {
             transform.Rotate(Vector3.up * 180);
             if (ray_direction == Vector2.left)
@@ -126,6 +142,10 @@ public class DeerbugLong_congtroller : MonoBehaviour {
                 ray_direction = Vector2.left;
             }
         }
+        //if (collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
+        //{
+        //    Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        //}
         //direction = direction * -1;
     }
     private void decreaseHp()
@@ -134,6 +154,29 @@ public class DeerbugLong_congtroller : MonoBehaviour {
     }
     private void Destroy_monster()
     {
+        if (Fpbar_controller.bisAcquire_sister != false)
+            Fpbar_controller.Instance.Freame_Increase();
+        GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+        try
+        {
+            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+        }
+        catch
+        {
+            return;
+        }
+        //if (SceneManager.GetActiveScene().name == "Part2_1")
+        //{
+        //    foreach (GameObject obj in IsViewTest.Instance.SpriteArray)
+        //    {
+        //        if (this.gameObject.GetInstanceID() == obj.GetInstanceID())
+        //        {
+        //            IsViewTest.Instance.SpriteArray = null;
+        //        }
+        //    }
+
+        //}
         Destroy(this.gameObject);
+        //this.gameObject.SetActive(false);
     }
 }

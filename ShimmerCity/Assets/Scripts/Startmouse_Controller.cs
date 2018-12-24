@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Startmouse_Controller : MonoBehaviour {
 
     public GameObject bulletPrefab;
@@ -27,7 +27,31 @@ public class Startmouse_Controller : MonoBehaviour {
     }
     private void SetDie()
     {
+
+        try
+        {
+            if (Fpbar_controller.bisAcquire_sister != false)
+                Fpbar_controller.Instance.Freame_Increase();
+            GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+        }
+        catch
+        {
+
+        }
+        //if (SceneManager.GetActiveScene().name == "Part2_1")
+        //{
+        //    foreach (GameObject obj in IsViewTest.Instance.SpriteArray)
+        //    {
+        //        if (this.gameObject.GetInstanceID() == obj.GetInstanceID())
+        //        {
+        //            IsViewTest.Instance.SpriteArray = null;
+        //        }
+        //    }
+
+        //}
         Destroy(this.gameObject);
+        //this.gameObject.SetActive(false);
     }
     void loadBullet1()
     {
@@ -55,15 +79,27 @@ public class Startmouse_Controller : MonoBehaviour {
         //    direction.x = -direction.x;
         //    transform.Rotate(new Vector3(0, 180.0f, 0));
         //}
-        
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
+        {
+            //direction.x = -direction.x;
+            //transform.Rotate(new Vector3(0, 180.0f, 0));
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Pipe" || collision.tag == "deerbug"|| collision.tag == "Start_mouse" || collision.tag == "Deerbug_long")
+        if (collision.tag == "Pipe")
         {
             direction.x = -direction.x;
             transform.Rotate(new Vector3(0, 180.0f, 0));
         }
+        //if (collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
+        //{
+        //    direction.x = -direction.x;
+        //    transform.Rotate(new Vector3(0, 180.0f, 0));
+        //    Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        //}
     }
 
     private void decreaseHp()

@@ -52,6 +52,7 @@ TagManager:
   - lightning
   - mouse
   - Spider
+  - Scene2Edge
   layers:
   - Default
   - TransparentFX

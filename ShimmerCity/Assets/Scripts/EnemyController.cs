@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour {
 
@@ -86,22 +87,36 @@ public class EnemyController : MonoBehaviour {
         //{
         //    decreaseHp();
         //}
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider" )
+        {
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
 
     private void Destroy_monster()
     {
-        Destroy(this.gameObject);
-        if(Fpbar_controller.bisAcquire_sister != false)
-            Fpbar_controller.Instance.Freame_Increase();
-        GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
         try
         {
             GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+            if (Fpbar_controller.bisAcquire_sister != false)
+                Fpbar_controller.Instance.Freame_Increase();
+            GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
         }
         catch
         {
-            return;
         }
+        //if (SceneManager.GetActiveScene().name == "Part2_1")
+        //{
+        //    foreach (GameObject obj in IsViewTest.Instance.SpriteArray)
+        //    {
+        //        if (this.gameObject.GetInstanceID() == obj.GetInstanceID())
+        //        {
+        //            IsViewTest.Instance.SpriteArray = null;
+        //        }
+        //    }
+        //}
+        Destroy(this.gameObject);
+        //this.gameObject.SetActive(false);
     }
     private void decreaseHp()
     {
@@ -111,7 +126,7 @@ public class EnemyController : MonoBehaviour {
     
     private void OnTriggerEnter2D(Collider2D collision)
     { 
-        if(collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "deerbug" || collision.tag == "Pipe")
+        if(collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "Pipe" || collision.tag == "Scene2Edge")
         {
             transform.Rotate(Vector3.up * 180);
             if (ray_direction == Vector2.left)
@@ -123,6 +138,10 @@ public class EnemyController : MonoBehaviour {
                 ray_direction = Vector2.left;
             }
         }
+        //if(collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
+        //{
+        //    Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        //}
         //direction = direction * -1;
     }
 }
