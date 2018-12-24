@@ -341,10 +341,6 @@ public class Boss_behavior : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag=="icebottle")
-        {
-            isfreeze = true;
-        }
         if(col.gameObject.tag=="hammer_body")
         {
             if(this.transform.localEulerAngles.y==-180)
@@ -369,6 +365,14 @@ public class Boss_behavior : MonoBehaviour {
         }
     }
 
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "icebottle")
+        {
+            isfreeze = true;
+        }
+    }
     void isattack()
     {
         e_animator.speed = 0f;
