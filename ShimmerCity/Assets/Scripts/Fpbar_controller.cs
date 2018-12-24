@@ -53,7 +53,7 @@ public class Fpbar_controller : MonoBehaviour {
             SisterHead_Control.Instance.Active();
             UIBGAddSister_Control.Instance.setActive();
         }
-        if (Current_frameNumber >= 8 && bisShow == false)
+        if (Current_frameNumber > 8 && bisShow == false)
         {
             this.GetComponent<SpriteRenderer>().sortingOrder = 10;
             bisFull = true;
@@ -93,7 +93,7 @@ public class Fpbar_controller : MonoBehaviour {
         }
         if (bisReleasing == true)
             return;
-        fpbarUI_Control.Instance.GetComponent<Slider>().value += 2.5f;
+        fpbarUI_Control.Instance.GetComponent<Slider>().value += 2f;
         if (bisAcquire_sister != true)
             return;
         //Pre_freamNumber = Current_frameNumber;

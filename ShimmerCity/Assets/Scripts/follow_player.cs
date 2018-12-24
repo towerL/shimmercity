@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class follow_player : MonoBehaviour {
 
 	public Transform target;
@@ -21,22 +21,35 @@ public class follow_player : MonoBehaviour {
 	private float now_timer;
 	private bool shield;
 
+
+    public static bool bisPause;
+
     private void Start()
     {
         Instance = this;
 		flag1 = false;
 		flag2 = false;
 		shield = false;
-	}
+        bisPause = false;
+
+    }
     void Update () {
- 		Vector3 pos = transform.position;
-		pos.x = target.position.x;
-		pos.y = target.position.y;
-        if (pos.x > MaxX) pos.x = MaxX;
-        else if (pos.x < MinX) pos.x = MinX;
-        if (pos.y > MaxY) pos.y = MaxY;
-        else if (pos.y < MinY) pos.y = MinY;
-		transform.position = pos;
+        if(bisPause == false)
+        {
+            Vector3 pos = transform.position;
+            pos.x = target.position.x;
+            pos.y = target.position.y;
+            if (pos.x > MaxX) pos.x = MaxX;
+            else if (pos.x < MinX) pos.x = MinX;
+            if (pos.y > MaxY) pos.y = MaxY;
+            else if (pos.y < MinY) pos.y = MinY;
+            pos.z = -10;
+            transform.position = pos;
+        }
+        else
+        {
+
+        }
 		if (flag1 && flag2) {
 			begin_timer = Time.time;
 			flag1 = false;

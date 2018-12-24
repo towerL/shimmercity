@@ -156,8 +156,11 @@ public class Deerbug_attackbox : MonoBehaviour {
                 bisAttackElectrictBox = false;
             }
             //Fpbar_controller.Instance.Freame_Increase();
-            GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
-            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+            if (Fpbar_controller.bisAcquire_sister == true)
+            {
+                GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+                GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+            }
         }
         catch
         {

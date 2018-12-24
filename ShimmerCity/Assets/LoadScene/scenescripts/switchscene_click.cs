@@ -34,6 +34,7 @@ public class switchscene_click : MonoBehaviour {
 
     public void MouseClick()
     {
+        Time.timeScale = 1;
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
         oldImage = newImage;
         SceneManager.LoadScene(nextScene);

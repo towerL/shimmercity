@@ -97,10 +97,11 @@ public class EnemyController : MonoBehaviour {
     {
         try
         {
-            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
             if (Fpbar_controller.bisAcquire_sister != false)
+            {
+                GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
                 Fpbar_controller.Instance.Freame_Increase();
-            GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+            }
         }
         catch
         {
