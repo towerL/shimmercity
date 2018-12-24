@@ -4174,7 +4174,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 200
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 10
@@ -10652,8 +10652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71cb7707593d9a4cb78554aed46931a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushmove: 100
-  projectilemove: 200
 --- !u!60 &796825935
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15896,10 +15894,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1391476212}
   - component: {fileID: 1573114361}
-  - component: {fileID: 1573114360}
-  - component: {fileID: 1573114359}
-  - component: {fileID: 1573114358}
   - component: {fileID: 1573114362}
+  - component: {fileID: 1573114358}
+  - component: {fileID: 1573114360}
   m_Layer: 9
   m_Name: Hammer_for_attack
   m_TagString: hammer_in_attack
@@ -16007,25 +16004,6 @@ PolygonCollider2D:
       - {x: -0.825, y: -2.0049999}
       - {x: -0.66499996, y: -1.8349999}
       - {x: -0.505, y: -1.685}
---- !u!95 &1573114359
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 95580285436082834, guid: e2885679c4068e24d8908ba03ba6bd73,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1573114357}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f52b733344125b644a455ae4016c1e79, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1573114360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16038,13 +16016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb6cd81a6d7285429831ceda5d988d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2073951993}
-  pushmove: 1500
-  projectilemove: 2200
-  static_sprite: {fileID: 0}
-  init_sprite: {fileID: 0}
-  attack_range: 0
-  target_collider: {fileID: 1825945727}
 --- !u!212 &1573114361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16104,7 +16075,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 100
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -18254,9 +18225,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force_move: 200
-  jumpVelocity: 115
+  jumpVelocity: 90
   vel_x_in_air: 6
   skill_time: 0.3
+  pushmove: 1500
+  projectile: 2000
 --- !u!70 &1825945727
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

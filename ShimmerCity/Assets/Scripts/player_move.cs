@@ -78,6 +78,9 @@ public class player_move : MonoBehaviour {
 
 	private GameObject[] ladders;
 
+	public float pushmove=1000.0f;
+	public float projectile = 1500.0f;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -235,10 +238,6 @@ public class player_move : MonoBehaviour {
 					counter_far_distance_attack = 0;
 				}
 				timer = false;
-				if (isHammer) {
-					BroadcastMessage ("SetCloseAttack", true);
-					BroadcastMessage ("SetFurtherAttack", false);
-				}
 			}
 			/*远程攻*/
 			if (isGround && isHammer && Input.GetKeyDown(KeyCode.K)) {
@@ -252,15 +251,6 @@ public class player_move : MonoBehaviour {
 					counter_close_range_attack = 0;
 				}
 				timer = false;
-				if (isHammer) {
-					BroadcastMessage ("SetCloseAttack", false);
-					BroadcastMessage ("SetFurtherAttack", true);
-				}
-				if(player_Scale.x>0.0f)
-					BroadcastMessage ("SetPlayerDir", true);
-				else
-					BroadcastMessage ("SetPlayerDir", false);
-				//isHammer = false;
 			}
 			close_range_attack=(counter_close_range_attack>0.0f?true:false);
 			far_distance_attack=(counter_far_distance_attack>0.0f?true:false);
@@ -419,7 +409,6 @@ public class player_move : MonoBehaviour {
 
 	void SetIsHammer(bool flag){
 		isHammer = flag;
-		BroadcastMessage ("SetHammer", true);
 		player_animator.SetBool ("isHammer",flag);
 	}
 
@@ -436,7 +425,7 @@ public class player_move : MonoBehaviour {
 	void SetPush(bool flag){
 		isPush = flag;
 		Vector2 vel = player_rigidbody.velocity;
-		vel.x = 0.0f;//???
+		vel.x = 0.0f;
 		player_rigidbody.velocity = vel;
 		player_animator.SetBool ("isPush",flag);
 	}
@@ -457,12 +446,16 @@ public class player_move : MonoBehaviour {
 		beltdir = dir;
 	}
 
-	public void HammerMessage(){
-		hammer.SendMessage ("SetPos",hammer_transform.position);
-		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
-		hammer.SendMessage ("SetRot",hammer_transform.rotation);
-		hammer.SendMessage ("SetSca",hammer_transform.localScale);
-		Debug.Log (hammer_transform.position);
+	void Flying_hammer(){
+		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer1"), hammer_transform.position,hammer_transform.rotation) as GameObject;
+		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
+		flying_hammer_transform.localScale = hammer_transform.localScale;
+		Rigidbody2D flying_hammer_rigidbody = flying_hammer_instance.GetComponent<Rigidbody2D> ();
+		if(player_Scale.x>0.0f)
+			flying_hammer_rigidbody.AddForce (Vector2.right *pushmove);
+		else
+			flying_hammer_rigidbody.AddForce (-Vector2.right *pushmove);
+		flying_hammer_rigidbody.AddForce (Vector2.up *projectile);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){

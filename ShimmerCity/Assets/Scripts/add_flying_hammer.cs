@@ -3,38 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class add_flying_hammer : MonoBehaviour {
-
-	public float pushmove=1500.0f;
-	public float projectilemove=3000.0f;
-
-	private Rigidbody2D hammer_rigidbody;
-	private PolygonCollider2D hammer_polygoncollider;
+	
 	private Animator hammer_animator;
 	private SpriteRenderer spriterender;
 
-	private bool Rotate=false;
-	private bool exist = true;
+	private bool Rotate;
 
 	void Start () {
 		hammer_animator = this.GetComponent<Animator> ();
-		hammer_polygoncollider = this.GetComponent<PolygonCollider2D> ();
-		hammer_rigidbody = this.GetComponent<Rigidbody2D> ();
 		spriterender = this.gameObject.GetComponent<SpriteRenderer> ();
-		spriterender.sortingOrder = -2;
+		spriterender.sortingOrder = 3;
+		Rotate = true;
 	}
 
 	void Update () {
-		if (exist) {
-			spriterender.sortingOrder = 3;
-			Rotate = true;
-		} 
 		hammer_animator.SetBool ("Rotate",Rotate);
 	}
 
 	private void OnCollisionEnter2D(Collision2D col){
-		exist = false;
 		if (col.collider.tag == "deerbug") {
-			//hammer_animator.Play ("lying_hammer");
 			col.collider.SendMessage ("decreaseHp");
 		}
 		Destroy (gameObject);
