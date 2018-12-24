@@ -63,8 +63,8 @@ public class player_move3 : MonoBehaviour {
 	private bool moveable;
 
 	private GameObject[] ladders;
-
-	private float attacked_timer;
+    AudioSource aus;
+    private float attacked_timer;
 	private bool attacked;
 	private Color used_color;
 
@@ -89,7 +89,8 @@ public class player_move3 : MonoBehaviour {
 		in_shield = false;
 		moveable = true;
 		used_color = GetComponent<Renderer> ().material.color;
-	}
+        aus = gameObject.GetComponent<AudioSource>();
+    }
 
 	void FixedUpdate () {
 		//float h=Input.GetAxis("Horizontal");
@@ -405,6 +406,25 @@ public class player_move3 : MonoBehaviour {
 	public void OnCollisionExit2D(Collision2D col){
 
 	}
+    void run_aus()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跑步3", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
 
+    void jump_aus()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跳跃3", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
+    void hummer_throw()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/扔出锤子", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
 
 }

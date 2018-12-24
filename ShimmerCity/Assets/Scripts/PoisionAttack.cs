@@ -7,18 +7,20 @@ public class PoisionAttack : MonoBehaviour {
     float attackTime;
     private Animator ani;
     float mytime = 1.0f;
-
+    AudioSource aus;
 	public float harm=10.0f;
 
 	void Start () {
         ani = GetComponent<Animator>();
-	}
+        aus = gameObject.GetComponent<AudioSource>();
+    }
 	
     void Update()
     {
         mytime -= Time.deltaTime;
         if (mytime < -3)
         {
+            poision();
             ani.Play("poision");
             ani.Play("poision_static");
             mytime = 1.0f;
@@ -52,4 +54,11 @@ public class PoisionAttack : MonoBehaviour {
 			col.SendMessage ("PlayerDecreaseHP",harm);
 		}
 	}
+
+    void poision()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景二/蒸汽", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
 }

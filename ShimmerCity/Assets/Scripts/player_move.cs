@@ -11,8 +11,8 @@ public class player_move : MonoBehaviour {
 	private Animator player_animator;
 	private Vector3 player_Scale;
 	private Vector2 velocity;
-
-	private float horizontal;
+    AudioSource aus;
+    private float horizontal;
 	private float vertical;
 	private float move;
 
@@ -97,8 +97,8 @@ public class player_move : MonoBehaviour {
 		timer_for_triple = false;
 		skill_counter = 0;
 		player_health = 100.0f;
-
-		moveable = true;
+        aus = gameObject.GetComponent<AudioSource>();
+        moveable = true;
 	}
 
 	void FixedUpdate () {
@@ -481,4 +481,24 @@ public class player_move : MonoBehaviour {
 		}
 
 	}
+    void run_aus()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跑步3", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
+    void jump_aus()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跳跃3", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
+    void hummer_throw()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/扔出锤子", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
 }

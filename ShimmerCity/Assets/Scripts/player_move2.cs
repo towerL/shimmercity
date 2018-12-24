@@ -45,6 +45,7 @@ public class player_move2 : MonoBehaviour {
 	GameObject hammer;
 	Transform hammer_transform;
 	Rigidbody2D hammer_rigidbody;
+    AudioSource aus;
 
 	private float player_health;
 
@@ -73,7 +74,7 @@ public class player_move2 : MonoBehaviour {
 		counter_far_distance_attack = 0;
 		start_time = Time.time;
 		player_health = 100.0f;
-
+        aus = gameObject.GetComponent<AudioSource>();
 		moveable = true;
 		Onstone = false;
 	}
@@ -308,6 +309,30 @@ public class player_move2 : MonoBehaviour {
 			Physics2D.IgnoreCollision (col.collider,GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> (),false);
 		}
 	}
+
+    void run_aus()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跑步3", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
+    void jump_aus()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跳跃3", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
+    void hummer_throw()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/扔出锤子", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
+
+
 
 
 }
