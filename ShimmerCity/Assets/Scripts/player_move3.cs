@@ -64,6 +64,10 @@ public class player_move3 : MonoBehaviour {
 
 	private GameObject[] ladders;
 
+	private float attacked_timer;
+	private bool attacked;
+	private Color used_color;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -84,6 +88,7 @@ public class player_move3 : MonoBehaviour {
 		shield = false;
 		in_shield = false;
 		moveable = true;
+		used_color = GetComponent<Renderer> ().material.color;
 	}
 
 	void FixedUpdate () {
@@ -155,7 +160,7 @@ public class player_move3 : MonoBehaviour {
 				player_Scale.x = -Mathf.Abs (player_Scale.x);
 				transform.localScale = player_Scale;
 				timer = false;
-			}
+			} 
 
 			if (isLadder && isGround) {
 				isLadder = false;
@@ -315,6 +320,14 @@ public class player_move3 : MonoBehaviour {
 				Physics2D.IgnoreLayerCollision (9,i,false);
 			}
 		}
+		if (attacked) {
+			if (Time.time - attacked_timer >= 0.2f) {
+				GetComponent<Renderer> ().material.color = used_color;
+				attacked = false;
+			}
+		}
+
+
 	}
 
 	void Setmove(){
@@ -365,25 +378,31 @@ public class player_move3 : MonoBehaviour {
 		if (col.collider.tag == "b0ss_hand") {
 			player_health -= 1.0f;
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			attacked = true;
+			attacked_timer = Time.time;
 			Debug.Log ("boss_hand1");
 		}else if (col.collider.tag == "boss_tentacle") {
 			player_health -= 2.0f;
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			attacked = true;
+			attacked_timer = Time.time;
 			Debug.Log ("boss_tentacle1");
 		}
 	}
 
-	public void OnCollisionStay2D(Collision2D col){
+	/*public void OnCollisionStay2D(Collision2D col){
 		if (col.collider.tag == "b0ss_hand") {
 			player_health -= 1.0f;
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			attacked = true;
 			Debug.Log ("boss_hand2");
 		}else if (col.collider.tag == "boss_tentacle") {
 			player_health -= 2.0f;
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			attacked = true;
 			Debug.Log ("boss_tentacle2");
 		}
-	}
+	}*/
 
 	public void OnCollisionExit2D(Collision2D col){
 

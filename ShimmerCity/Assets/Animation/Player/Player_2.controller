@@ -186,8 +186,8 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: velocity_y
-    m_EventTreshold: 0.1
-  - m_ConditionMode: 2
+    m_EventTreshold: 0.01
+  - m_ConditionMode: 1
     m_ConditionEvent: isGround
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}

@@ -286,9 +286,6 @@ public class player_move2 : MonoBehaviour {
 
 	public void OnCollisionEnter2D(Collision2D col){
 		if(col.collider.tag == "Pipe" ){
-			Vector2 vel = player_rigidbody.velocity;
-			vel.x = 0.0f;
-			player_rigidbody.velocity = vel;
 		}
 		if(col.collider.tag == "Rock" ){
 			//hp--;
@@ -301,9 +298,6 @@ public class player_move2 : MonoBehaviour {
 
 	public void OnCollisionStay2D(Collision2D col){
 		if(col.collider.tag == "Pipe" ){
-			Vector2 vel = player_rigidbody.velocity;
-			vel.x = 0.0f;
-			player_rigidbody.velocity = vel;
 		}
 		if(col.collider.tag == "stone_stand" ){
 			Physics2D.IgnoreCollision (col.collider,GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> ());
