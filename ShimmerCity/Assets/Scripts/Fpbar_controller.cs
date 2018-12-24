@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Fpbar_controller : MonoBehaviour {
 
     public Sprite[] frames;
@@ -43,7 +44,11 @@ public class Fpbar_controller : MonoBehaviour {
         //    animator.speed = 1;
         //    Pre_freamNumber = Current_frameNumber;
         //}
-        if(bisAcquire_sister == true)
+        if(SceneManager.GetActiveScene().name == "Part3" || SceneManager.GetActiveScene().name == "Part3_boss" || SceneManager.GetActiveScene().name == "Part4")
+        {
+            bisAcquire_sister = true;
+        }
+        if (bisAcquire_sister == true)
         {
             SisterHead_Control.Instance.Active();
             UIBGAddSister_Control.Instance.setActive();
