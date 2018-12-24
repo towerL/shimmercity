@@ -16,10 +16,12 @@ public class boss_control : MonoBehaviour {
     Animator ea;
     Color cl;
     Renderer rd;
+    AudioSource aus;
     // Use this for initialization
     void Start () {
         ea = gameObject.GetComponent<Animator>();
-	}
+        aus = gameObject.GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -66,6 +68,7 @@ public class boss_control : MonoBehaviour {
                 {
                     count = 1;
                     ea.SetTrigger("attack_near_1");
+                    attack_ten();
                 }
                 if (Input.GetKeyUp(KeyCode.J))
                 {
@@ -145,4 +148,12 @@ public class boss_control : MonoBehaviour {
             Boss_health -= 10;
         }
     }
+
+    void attack_ten()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景三/boss触手", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
 }

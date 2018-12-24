@@ -19,7 +19,7 @@ public class pl_body_control : MonoBehaviour {
     float changecolor = 0.1f;
     bool isattacked = false;
     float anispeed;
-
+    AudioSource aus;
     // Use this for initialization
     void Start()
     {
@@ -28,6 +28,7 @@ public class pl_body_control : MonoBehaviour {
         rd = gameObject.GetComponent<Renderer>();
         e_animator = gameObject.GetComponent<Animator>();
         cl = rd.material.color;
+        aus = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +59,7 @@ public class pl_body_control : MonoBehaviour {
 
                 if (timer <= 0)
                 {
+                    setbullet();
                     GameObject bullet;
                     if (this.transform.localEulerAngles.y == 0)
                         bullet = Instantiate(Resources.Load("prefabs/bullet_2"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
@@ -138,5 +140,11 @@ public class pl_body_control : MonoBehaviour {
     void setHP(int i)
     {
         HP = i;
+    }
+    void setbullet()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景三/boss发射导弹", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
     }
 }
