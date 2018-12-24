@@ -496,12 +496,12 @@ public class player_move : MonoBehaviour {
 			transform.position = pos;
 			player_rigidbody.gravityScale = 40;
 		}
-		if (col.collider.tag == "deerbug") {
+		/*if (col.collider.tag == "deerbug") {
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
 			attacked = true;
 			attacked_timer = Time.time;
 			shake = true;
-		}
+		}*/
 	}
 
 	public void OnCollisionExit2D(Collision2D col){
