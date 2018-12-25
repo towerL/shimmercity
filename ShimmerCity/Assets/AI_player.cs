@@ -83,6 +83,14 @@ public class AI_player : MonoBehaviour {
 
 	private bool move;
 
+	private float attacked_timer;
+	private bool attacked;
+	private Color used_color;
+
+	private bool shake;
+	private float shake_timer;
+
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
@@ -103,7 +111,7 @@ public class AI_player : MonoBehaviour {
 		shield = false;
 		in_shield = false;
 
-		target_boss = GameObject.Find ("bottle");
+		target_boss = GameObject.Find ("boss");
 		target_boss_transform = target_boss.transform;
 		stage = true;
 		AI_Location_hor = location_hor.left;
@@ -115,6 +123,9 @@ public class AI_player : MonoBehaviour {
 		AI_count = 0;
 		isAttack = false;
 		move = true;
+
+		alive = true;
+		used_color = GetComponent<Renderer> ().material.color;
 	}
 		
 	private location_hor AI_location_horcheck(){
@@ -144,332 +155,170 @@ public class AI_player : MonoBehaviour {
 	void FixedUpdate () {
 		AI_Location_hor = AI_location_horcheck ();
 		AI_Location_ver = AI_location_vercheck ();
-		if (stage) {
-			if (move &&!isAttack && AI_Location_hor == location_hor.left) {
-				if (!isPush) {
-					player_positon = transform.position;
-					player_positon.x += player_speed * Time.deltaTime;
-					transform.position = player_positon;
-					player_velocity = player_rigidbody.velocity;
-					player_velocity.x = 6.0f;
-					player_rigidbody.velocity = player_velocity;
-				} else {
-					player_positon = transform.position;
-					player_positon.x += Time.deltaTime * push_v;
-					transform.position = player_positon;
-					player_velocity = player_rigidbody.velocity;
-					player_velocity.x = push_v;
-					player_rigidbody.velocity = player_velocity;
-				}
-				player_Scale.x = Mathf.Abs (player_Scale.x);
-				transform.localScale = player_Scale;
-			} else if (move && !isAttack && AI_Location_hor == location_hor.right) {
-				if (!isPush) {
-					player_positon = transform.position;
-					player_positon.x -= player_speed * Time.deltaTime;
-					transform.position = player_positon;
-					player_velocity = player_rigidbody.velocity;
-					player_velocity.x = -6.0f;
-					player_rigidbody.velocity = player_velocity;
-				} else {
-					player_positon = transform.position;
-					player_positon.x -= Time.deltaTime * push_v;
-					transform.position = player_positon;
-					player_velocity = player_rigidbody.velocity;
-					player_velocity.x = push_v;
-					player_rigidbody.velocity = player_velocity;
-				}
-				player_Scale.x = -Mathf.Abs (player_Scale.x);
-				transform.localScale = player_Scale;
-			} else if(!isAttack && AI_Location_hor == location_hor.near ){
-				if (AI_Location_ver == location_ver.up) {
-					Debug.Log ("here attack?");
-
-				} else {
-					if (!AI_attack && !init_close_attack) {
-						close_attack_timer = Time.time;
-						init_close_attack = true;
-						player_animator.SetBool ("close_attack",AI_attack);
-					}
-					if (init_close_attack) {
-						//////////////////////////////
-						if (Time.time - close_attack_timer >= 0.2f) {
-							AI_attack = true;
-							init_close_attack = false;
-						}
-					}
-					if (AI_attack) {
-						BroadcastMessage ("SetCloseAttack", true);
+		if (alive) {
+			if (stage) {
+				if (move && !isAttack && AI_Location_hor == location_hor.left) {
+					if (!isPush) {
+						player_positon = transform.position;
+						player_positon.x += player_speed * Time.deltaTime;
+						transform.position = player_positon;
 						player_velocity = player_rigidbody.velocity;
-						player_velocity.x = 0.0f;
+						player_velocity.x = 6.0f;
 						player_rigidbody.velocity = player_velocity;
-						move = false;
-						player_animator.Play ("close_attack");
-						if (AI_count >= 1) {
-							isAttack = true;
-							AI_attack = false;
-							AI_count = 0;
-							Away_timer = Time.time;
-						}
+					} else {
+						player_positon = transform.position;
+						player_positon.x += Time.deltaTime * push_v;
+						transform.position = player_positon;
+						player_velocity = player_rigidbody.velocity;
+						player_velocity.x = push_v;
+						player_rigidbody.velocity = player_velocity;
 					}
-				}
-			}else if (isAttack && Time.time - Away_timer <= 1.5f) {
-				if (transform.position.x<target_boss_transform.position.x) {
-					player_positon = transform.position;
-					player_positon.x -= player_speed * Time.deltaTime;
-					transform.position = player_positon;
-					player_velocity = player_rigidbody.velocity;
-					player_velocity.x = -6.0f;
-					player_rigidbody.velocity = player_velocity;
-					player_Scale.x = -Mathf.Abs (player_Scale.x);
-					transform.localScale = player_Scale;
-				} else if (transform.position.x>target_boss_transform.position.x) {
-					player_positon = transform.position;
-					player_positon.x += player_speed * Time.deltaTime;
-					transform.position = player_positon;
-					player_velocity = player_rigidbody.velocity;
-					player_velocity.x = 6.0f;
-					player_rigidbody.velocity = player_velocity;
 					player_Scale.x = Mathf.Abs (player_Scale.x);
 					transform.localScale = player_Scale;
-				}
-			} 
+				} else if (move && !isAttack && AI_Location_hor == location_hor.right) {
+					if (!isPush) {
+						player_positon = transform.position;
+						player_positon.x -= player_speed * Time.deltaTime;
+						transform.position = player_positon;
+						player_velocity = player_rigidbody.velocity;
+						player_velocity.x = -6.0f;
+						player_rigidbody.velocity = player_velocity;
+					} else {
+						player_positon = transform.position;
+						player_positon.x -= Time.deltaTime * push_v;
+						transform.position = player_positon;
+						player_velocity = player_rigidbody.velocity;
+						player_velocity.x = push_v;
+						player_rigidbody.velocity = player_velocity;
+					}
+					player_Scale.x = -Mathf.Abs (player_Scale.x);
+					transform.localScale = player_Scale;
+				} else if (!isAttack && AI_Location_hor == location_hor.near) {
+					if (AI_Location_ver == location_ver.up) {
+						Debug.Log ("here attack?");
 
-			if (isAttack && (Time.time-Away_timer)*6.0f>= 7.5f && Time.time - Away_timer <= 4.0f) {
-				player_positon = transform.position;
-				player_positon.x += 0.0f;
-				transform.position = player_positon;
-				player_velocity = player_rigidbody.velocity;
-				player_velocity.x = 0.0f;
-				player_rigidbody.velocity = player_velocity;
-			}else if (isAttack && Time.time - Away_timer > 4.0f){
-				isAttack = false;
-				move = true;
+					} else {
+						if (!AI_attack && !init_close_attack) {
+							close_attack_timer = Time.time;
+							init_close_attack = true;
+							player_animator.SetBool ("close_attack", AI_attack);
+						}
+						if (init_close_attack) {
+							if (Time.time - close_attack_timer >= 0.2f) {
+								AI_attack = true;
+								init_close_attack = false;
+							}
+						}
+						if (AI_attack) {
+							player_velocity = player_rigidbody.velocity;
+							player_velocity.x = 0.0f;
+							player_rigidbody.velocity = player_velocity;
+							move = false;
+							player_animator.Play ("close_attack");
+							if (AI_count >= 1) {
+								isAttack = true;
+								AI_attack = false;
+								AI_count = 0;
+								Away_timer = Time.time;
+							}
+						}
+					}
+				} else if (isAttack && Time.time - Away_timer <= 1.5f) {
+					if (transform.position.x < target_boss_transform.position.x) {
+						player_positon = transform.position;
+						player_positon.x -= player_speed * Time.deltaTime;
+						transform.position = player_positon;
+						player_velocity = player_rigidbody.velocity;
+						player_velocity.x = -6.0f;
+						player_rigidbody.velocity = player_velocity;
+						player_Scale.x = -Mathf.Abs (player_Scale.x);
+						transform.localScale = player_Scale;
+					} else if (transform.position.x > target_boss_transform.position.x) {
+						player_positon = transform.position;
+						player_positon.x += player_speed * Time.deltaTime;
+						transform.position = player_positon;
+						player_velocity = player_rigidbody.velocity;
+						player_velocity.x = 6.0f;
+						player_rigidbody.velocity = player_velocity;
+						player_Scale.x = Mathf.Abs (player_Scale.x);
+						transform.localScale = player_Scale;
+					}
+				} 
+
+				if (isAttack && (Time.time - Away_timer) * 6.0f >= 7.5f && Time.time - Away_timer <= 4.0f) {
+					player_positon = transform.position;
+					player_positon.x += 0.0f;
+					transform.position = player_positon;
+					player_velocity = player_rigidbody.velocity;
+					player_velocity.x = 0.0f;
+					player_rigidbody.velocity = player_velocity;
+				} else if (isAttack && Time.time - Away_timer > 4.0f) {
+					isAttack = false;
+					move = true;
+				}
+
+				if (Input.GetKey (KeyCode.Q)||player_health<0.0f) {
+					alive = false;
+					timer = false;
+				}
+
+				if (attacked) {
+					if (Time.time - attacked_timer >= 0.2f) {
+						GetComponent<Renderer> ().material.color = used_color;
+						attacked = false;
+					}
+				}
+
+				if (shake) {
+					shake_timer = Time.time;
+					float in_attack_time = shake_timer - attacked_timer;
+					if (in_attack_time <= 2.0f) {
+						if (((int)(shake_timer * 10))%2==1)
+							GetComponent<Renderer> ().enabled = true;
+						else
+							GetComponent<Renderer> ().enabled = false;
+					} else
+						shake = false;
+				} else {
+					GetComponent<Renderer> ().enabled = true;
+				}
+
+
+			} else {
+
+
 			}
 
-		}
 
-		Debug.Log (isAttack);
+			if (Input.GetKey (KeyCode.Q)||player_health<0.0f) {
+				alive = false;
+				timer = false;
+			}
+		}
 
 		player_animator.SetFloat ("vel_x",Mathf.Abs(player_rigidbody.velocity.x));
 		player_animator.SetBool ("close_attack",AI_attack);
 		player_animator.SetBool ("isGround",isGround);
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetBool ("isPush",isPush);
+		player_animator.SetBool ("alive",alive);
 
-
-
-
-
-
-
-
-		/*
-		timer = true;
-		speed_up = (isGround == true ? false : true);
-		if (alive) {
-			if (Input.GetKey(KeyCode.D)) {
-				if (!isLadder && !isGround && speed_up) {
-					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * vel_x_in_air;
-					transform.position = pos;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = vel_x_in_air;
-					player_rigidbody.velocity = vel;
-				} else if ( isLadder && !isGround) {
-					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * ladder_v;
-					transform.position = pos;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = ladder_v;
-					player_rigidbody.velocity = vel;
-				} else if(isGround && isPush){
-					Vector3 pos = transform.position;
-					pos.x += Time.deltaTime * push_v;
-					transform.position = pos;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = push_v;
-					player_rigidbody.velocity = vel;
-				} else if(!isLadder){
-					player_rigidbody.AddForce (10*Vector2.right * pushmove);
-					float vx = player_rigidbody.velocity.x;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = (vx >= vel_x ? vel_x : vx);
-					player_rigidbody.velocity = vel;
-				}
-				player_Scale.x = Mathf.Abs (player_Scale.x);
-				transform.localScale = player_Scale;
-				timer = false;
-			} else if (Input.GetKey(KeyCode.A)) {
-				if (!isLadder && !isGround && speed_up) {
-					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * vel_x_in_air;
-					transform.position = pos;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -vel_x_in_air;
-					player_rigidbody.velocity = vel;
-				} else if (isLadder && !isGround) {
-					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * ladder_v;
-					transform.position = pos;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -ladder_v;
-					player_rigidbody.velocity = vel;
-				} else if(isGround && isPush){
-					Vector3 pos = transform.position;
-					pos.x -= Time.deltaTime * push_v;
-					transform.position = pos;
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -push_v;
-					player_rigidbody.velocity = vel;
-				} else if(!isLadder){
-					player_rigidbody.AddForce (10*Vector2.left * pushmove);
-					float vx = Mathf.Abs(player_rigidbody.velocity.x);
-					Vector2 vel = player_rigidbody.velocity;
-					vel.x = -(vx >= vel_x ? vel_x : vx);
-					player_rigidbody.velocity = vel;
-				}
-				player_Scale.x = -Mathf.Abs (player_Scale.x);
-				transform.localScale = player_Scale;
-				timer = false;
-			}
-
-			if (isLadder && isGround) {
-				isLadder = false;
-			}
-
-			if (isLadder) {
-				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))
-					player_animator.speed = 1.0f;
-				else
-					player_animator.speed = 0.0f;
-			} else {
-				player_animator.speed = 1.0f;
-			}
-
-			if (isGround && Input.GetKeyDown (KeyCode.Space)) {
-				player_rigidbody.AddForce (Vector2.up*100*jumpVelocity);
-				speed_up = true;
-				timer = false;
-			}
-
-			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider);
-			if (isGround && Input.GetKey(KeyCode.J)) {
-				close_range_attack = true;
-				far_distance_attack = false;
-				counter_close_range_attack=1;
-				if (counter_far_distance_attack > 0) {
-					attack_transform = true;
-					counter_far_distance_attack = 0;
-				}
-				timer = false;
-				BroadcastMessage ("SetCloseAttack", true);
-				BroadcastMessage ("SetFurtherAttack", false);
-			}
-			if (isGround && Input.GetKeyDown(KeyCode.K)) {
-				far_distance_attack = true;
-				close_range_attack = false;
-				counter_far_distance_attack=1;
-				if (counter_close_range_attack > 0) {
-					attack_transform = true;
-					counter_close_range_attack = 0;
-				}
-				timer = false;
-				BroadcastMessage ("SetCloseAttack", false);
-				BroadcastMessage ("SetFurtherAttack", true);
-				if(player_Scale.x>0.0f)
-					BroadcastMessage ("SetPlayerDir", true);
-				else
-					BroadcastMessage ("SetPlayerDir", false);
-			}
-			close_range_attack=(counter_close_range_attack>0.0f?true:false);
-			far_distance_attack=(counter_far_distance_attack>0.0f?true:false);
-			if (close_range_attack)
-				counter_close_range_attack--;
-			if (far_distance_attack)
-				counter_far_distance_attack--;
-			
-			if (Input.GetKey (KeyCode.Q)) {
-				alive = false;
-				player_boxcollider.isTrigger = true;
-				player_rigidbody.gravityScale = -10;
-				Destroy (gameObject, 2);
-				timer = false;
-			}
-
-			if (Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
-				timer_for_triple=true;
-				timer_for_skill = Time.time;
-			}
-
-			if(timer_for_triple){
-				if (skill_counter < 3) {
-					float now_timer = Time.time;
-					if (now_timer - timer_for_skill >= skill_time) {
-						GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L_3")) as GameObject;
-						Physics2D.IgnoreCollision (player_boxcollider, skill_hammer.GetComponent<Collider2D> ());
-						foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
-							Physics2D.IgnoreCollision (col, skill_hammer.GetComponent<Collider2D> ());
-						skill_counter++;
-						timer_for_skill = now_timer;
-					}
-				} else {
-					timer_for_triple = false;
-					skill_counter = 0;
-				}
-			}
-
-			if (Input.GetKeyDown (KeyCode.U)&&shield) {
-				if(!ProtectLayer)
-					ProtectLayer = Instantiate (Resources.Load ("prefabs/Protect")) as GameObject;
-				BroadcastMessage ("SetProtectLayer",true);
-				shield = false;
-				shield_timer = Time.time;
-				in_shield = true;
-			}
-				
-			if (in_shield) {
-				shield_now_timer= Time.time;
-				if (shield_now_timer-shield_timer>=shield_functimer) {
-					if (ProtectLayer)
-						Destroy (ProtectLayer);
-					BroadcastMessage ("SetProtectLayer", false);
-					in_shield = false;
-					GameObject.FindWithTag ("MainCamera").SendMessage ("SetShieldFlag2",true);
-				}
-			}
-
-			if (Input.GetKeyDown (KeyCode.C)) {
-				GameObject win_the_game = Instantiate (Resources.Load ("prefabs/Win")) as GameObject;
-			}
-
-			if (timer && isGround) {
-				float delttime = Time.time - start_time;
-				if (delttime > 5.0f) {
-					five_minutes = true;
-					player_animator.SetBool ("five_minutes", five_minutes);
-				} else {
-					five_minutes = false;
-					player_animator.SetBool ("five_minutes", five_minutes);
-				}
-			} else {
-				start_time = Time.time;
-				five_minutes = false;
-				player_animator.SetBool ("five_minutes", five_minutes);
-			}
-		} else {
-			if (Input.GetKeyDown (KeyCode.R)) {
-				gameexit = true;	
-			}
-		}
-		player_animator.SetFloat ("velocity_x",Mathf.Abs(player_rigidbody.velocity.x));
-		player_animator.SetFloat ("velocity_y",player_rigidbody.velocity.y);
-		player_animator.SetBool ("close_attack",close_range_attack);
-		player_animator.SetBool ("far_attack",far_distance_attack);
-		player_animator.SetBool ("isGround",isGround);
-		player_animator.SetBool ("five_minutes",five_minutes);
-		player_animator.SetBool ("isPush",isPush);*/
 	}
+
+	void PlayerDecreaseHP(float harm_blood){
+		player_health -= harm_blood;
+		GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+		attacked = true;
+		attacked_timer = Time.time;
+		shake = true;
+	}
+
+	void Drop_the_hammer(){
+		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer2"), hammer_transform.position,hammer_transform.rotation) as GameObject;
+		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
+		flying_hammer_transform.localScale = new Vector3(0.3f,0.3f,0.3f);
+	}
+
 
 	void SetGround(bool flag){
 		isGround = flag;
@@ -497,14 +346,23 @@ public class AI_player : MonoBehaviour {
 	void SetShield(bool flag){
 		shield = true;
 	}
-
-	public void HammerMessage1(){
-		hammer.SendMessage ("SetPos",hammer_transform.position);
-		hammer.SendMessage ("SetVel",hammer_rigidbody.velocity);
-	}
-	public void HammerMessage2(){
-		hammer.SendMessage ("SetSca",hammer_transform.localScale);
-		hammer.SendMessage ("SetRot",hammer_transform.rotation);
+		
+	public void OnCollisionEnter2D(Collision2D col){
+		if (col.collider.tag == "b0ss_hand") {
+			player_health -= 1.0f;
+			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			attacked = true;
+			attacked_timer = Time.time;
+			shake = true;
+			Debug.Log ("boss_hand1");
+		}else if (col.collider.tag == "boss_tentacle") {
+			player_health -= 2.0f;
+			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+			attacked = true;
+			attacked_timer = Time.time;
+			shake = true;
+			Debug.Log ("boss_tentacle1");
+		}
 	}
 		
 }

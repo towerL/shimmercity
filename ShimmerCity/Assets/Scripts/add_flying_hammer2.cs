@@ -21,6 +21,9 @@ public class add_flying_hammer2 : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D col){
+		if (col.collider.tag == "deerbug") {
+			col.collider.SendMessage ("decreaseHp");
+		}
 		if (col.collider.tag == "Deerbug_long") {
 			col.collider.SendMessage ("decreaseHp");
 		}

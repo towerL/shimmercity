@@ -219,11 +219,8 @@ public class player_move3 : MonoBehaviour {
 			if (far_distance_attack)
 				counter_far_distance_attack--;
 			//for test
-			if (Input.GetKey (KeyCode.Q)) {
+			if (Input.GetKey (KeyCode.Q)||player_health<0.0f) {
 				alive = false;
-				player_boxcollider.isTrigger = true;
-				player_rigidbody.gravityScale = -10;
-				Destroy (gameObject, 2);
 				timer = false;
 			}
 
@@ -299,6 +296,8 @@ public class player_move3 : MonoBehaviour {
 		player_animator.SetBool ("isGround",isGround);
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetBool ("isPush",isPush);
+		player_animator.SetBool ("alive",alive);
+		player_animator.SetBool ("move",moveable);
 		ladders = GameObject.FindGameObjectsWithTag ("Ladder");
 		foreach (GameObject ladder in ladders){
 			ladder.SendMessage("SetGround",isGround);
@@ -387,6 +386,12 @@ public class player_move3 : MonoBehaviour {
 			flying_hammer_rigidbody.AddForce (-Vector2.right *pushmove);
 		flying_hammer_rigidbody.AddForce (Vector2.up *projectile);
 		Debug.Log (flying_hammer_rigidbody.position);
+	}
+
+	void Drop_the_hammer(){
+		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer3"), hammer_transform.position,hammer_transform.rotation) as GameObject;
+		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
+		flying_hammer_transform.localScale = new Vector3(0.3f,0.3f,0.3f);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){
