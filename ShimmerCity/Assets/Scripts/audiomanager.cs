@@ -5,6 +5,7 @@ using UnityEngine;
 public class audiomanager : MonoBehaviour {
 
     static audiomanager _instance;
+    public int part = 0;
     // Use this for initialization
     void Start()
     {
@@ -25,6 +26,7 @@ public class audiomanager : MonoBehaviour {
 
     void Awake()
     {
+        /*
          var pl = GameObject.FindGameObjectWithTag("Player");
         //此脚本永不消毁，并且每次进入初始场景时进行判断，若存在重复的则销毁
         if (_instance == null)
@@ -36,13 +38,24 @@ public class audiomanager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
+        */
+        _instance = this;
+        DontDestroyOnLoad(this);
     }
     // Update is called once per frame
     void Update()
     {
-        var pl = GameObject.FindGameObjectWithTag("Player");
-        if (pl)
-            Destroy(gameObject);
+        if (part == 0)
+        {
+            var pl = GameObject.Find("stop");
+            if (pl)
+                Destroy(gameObject);
+        }
+        if(part ==1)
+        {
+            var pl = GameObject.Find("stop1");
+            if (pl)
+                Destroy(gameObject);
+        }
     }
 }
