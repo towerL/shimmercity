@@ -20,8 +20,8 @@ public class onclickpause : MonoBehaviour {
         }
         else if (SceneManager.GetActiveScene().name == "Part2_1")
         {
-            UI_Pos.x = -20.7f;
-            UI_Pos.y = -85.1f;
+            UI_Pos.x = -20.06f;
+            UI_Pos.y = -85.73f;
             UI_Pos.z = -10;
         }
         else if (SceneManager.GetActiveScene().name == "Part3")
