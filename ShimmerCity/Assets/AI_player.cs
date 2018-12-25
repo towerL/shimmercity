@@ -88,19 +88,35 @@ public class AI_player : MonoBehaviour {
 	}
 		
 	private location_hor AI_location_horcheck(){
-		if (transform.position.x < target_boss_transform.position.x - area_attack)
-			return location_hor.left;
-		else if (transform.position.x > target_boss_transform.position.x + area_attack)
-			return location_hor.right;
-		else
-			return location_hor.near;
+        try
+        {
+            if (transform.position.x < target_boss_transform.position.x - area_attack)
+                return location_hor.left;
+            else if (transform.position.x > target_boss_transform.position.x + area_attack)
+                return location_hor.right;
+            else
+                return location_hor.near;
+        }
+        catch
+        {
+            return location_hor.right;
+        }
+
 	}
 
 	private location_ver AI_location_vercheck(){
-		if (transform.position.y > target_boss_transform.position.y + area_attack) 
-			return location_ver.up;
-		else
-			return location_ver.down;
+        try
+        {
+            if (transform.position.y > target_boss_transform.position.y + area_attack)
+                return location_ver.up;
+            else
+                return location_ver.down;
+        }
+        catch
+        {
+            return location_ver.up;
+        }
+
 	}
 
 	public void SetMove(){
@@ -261,14 +277,25 @@ public class AI_player : MonoBehaviour {
 			if (Input.GetKey (KeyCode.Q) || player_health < 0.0f) {
 				alive = false;
 			}
+            try
+            {
+                if (find_boundary)
+                {
+                    Physics2D.IgnoreCollision(player_boxcollider, target_boss.GetComponent<Collider2D>());
+                }
+                else
+                {
+                    Physics2D.IgnoreCollision(player_boxcollider, target_boss.GetComponent<Collider2D>(), false);
+                }
 
-			if (find_boundary) {
-				Physics2D.IgnoreCollision (player_boxcollider, target_boss.GetComponent<Collider2D> ());
-			} else {
-				Physics2D.IgnoreCollision (player_boxcollider, target_boss.GetComponent<Collider2D> (), false);
-			}
+            }
+            catch
+            {
 
-			if (attacked) {
+            }
+
+
+            if (attacked) {
 				if (Time.time - attacked_timer >= 0.2f) {
 					GetComponent<Renderer> ().material.color = used_color;
 					attacked = false;

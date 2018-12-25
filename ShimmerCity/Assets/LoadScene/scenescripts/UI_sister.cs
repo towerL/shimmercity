@@ -146,6 +146,11 @@ public class UI_sister : MonoBehaviour {
         if (col.tag == "Player")
         {
                 if (hasHammer && hasEnter) {
+                Fpbar_controller.bisAcquire_sister = true;
+                col.SendMessage("SetSister", true);
+                UIBGAddSister_Control.Instance.setActive();
+                SisterHead_Control.Instance.Active();
+                fpbarUI_Control.Instance.setActive();
                 var bg1_4 = GameObject.Find("S1-4_1bg_box");
                 var sister_box1_4 = GameObject.Find("S1-4_2sister_box");
                 bg1_4.AddComponent<fadein_out>();
@@ -156,10 +161,10 @@ public class UI_sister : MonoBehaviour {
                 yield return StartCoroutine("WaitAndPrint");
 
                 bg1_4.AddComponent<remove>();
-                setPara2(bg1_4, 2.0f);
+                setPara2(bg1_4, 1.0f);
 
                 sister_box1_4.AddComponent<remove>();
-                setPara2(sister_box1_4, 2.3f);
+                setPara2(sister_box1_4, 1.0f);
 
                 hasEnter = false;
                 Destroy(this.gameObject);
@@ -187,7 +192,7 @@ public class UI_sister : MonoBehaviour {
                 AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun4);
                 AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun5);
                 AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun6);
-                hasEnter = false;
+                //hasEnter = false;
             }
 
         }

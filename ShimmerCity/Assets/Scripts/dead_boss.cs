@@ -33,8 +33,15 @@ public class dead_boss : MonoBehaviour {
             door_tag.SendMessage("bossdie");
 			if (!issend)
 			{
-				player.SendMessage ("SetBossDead");
-				issend = true;
+                try
+                {
+                    player.SendMessage("SetBossDead");
+                    issend = true;
+                }
+                catch
+                {
+
+                }
 			}
             if (!isshow)
             {

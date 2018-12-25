@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class player_move3 : MonoBehaviour {
 
 	enum direction {right_dir,left_dir,up_dir,down_dir};
@@ -373,6 +373,11 @@ public class player_move3 : MonoBehaviour {
 		attacked = true;
 		attacked_timer = Time.time;
 		shake = true;
+        if(SceneManager.GetActiveScene().name == "Part3")
+        {
+            GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+        }
 	}
 
 	void Flying_hammer(){

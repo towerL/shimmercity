@@ -27,6 +27,7 @@ public class HammerFloat : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             var door = GameObject.Find("door1");
             door.GetComponent<Animator>().SetBool("IsDoorOpen", true);
+
         }
     }
 

@@ -113,7 +113,13 @@ public class Deerbug_attackbox : MonoBehaviour {
     }
     private void PlayerDecreaseHP()
     {
-        GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+        float distance_Player = (transform.position - Player.position).sqrMagnitude;
+        if(distance_Player <= 10 && Ray_toPlayer())
+        {
+            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+        }
+
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -174,7 +180,6 @@ public class Deerbug_attackbox : MonoBehaviour {
     }
     private void Destroy_monster()
     {
-
         try
         {
             if (bisAttackElectrictBox == true)

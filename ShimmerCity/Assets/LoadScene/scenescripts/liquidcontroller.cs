@@ -10,7 +10,7 @@ public class liquidcontroller : MonoBehaviour {
     bool hasRead = false;
     IEnumerator WaitAndPrint()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.5f);
         //print("WaitAndPrint " + Time.time);
     }
     void Start()
@@ -69,19 +69,19 @@ public class liquidcontroller : MonoBehaviour {
             yield return StartCoroutine("WaitAndPrint");
 
             bg3_4.AddComponent<remove>();
-            setPara2(bg3_4, 2.5f);
+            setPara2(bg3_4, 0.8f);
 
             words3_4.AddComponent<remove>();
-            setPara2(words3_4, 2.5f);
+            setPara2(words3_4, 0.8f);
 
             words3_4_2.AddComponent<remove>();
-            setPara2(words3_4_2, 2.5f);
+            setPara2(words3_4_2, 0.8f);
 
             push_ani.AddComponent<remove>();
-            setPara2(push_ani, 2.5f);
+            setPara2(push_ani, 0.8f);
 
             frozen_ani.AddComponent<remove>();
-            setPara2(frozen_ani, 2.5f);
+            setPara2(frozen_ani, 0.8f);
 
             hasRead = true;
         }

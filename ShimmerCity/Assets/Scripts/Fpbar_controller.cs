@@ -71,6 +71,7 @@ public class Fpbar_controller : MonoBehaviour {
                 CancelInvoke("SisterHead_decrease");
                 bisReleasing = false;
                 bisFull = false;
+                bisShow = false;
             }
         }
         catch
@@ -87,6 +88,7 @@ public class Fpbar_controller : MonoBehaviour {
     void Hide()
     {
         render.sortingOrder = -10;
+        
         bisShow = true;
     }
     private void Animation_Event_Function()
@@ -117,7 +119,7 @@ public class Fpbar_controller : MonoBehaviour {
         Pre_freamNumber = 0;
         //fpbarUI_Control.Instance.GetComponent<Slider>().value = 0;
         //animator.SetTrigger("SetNull");
-        bisShow = false;
+        //bisShow = false;
         bisReleasing = true;
         InvokeRepeating("SisterHead_decrease", 0, 2.5f);
     }

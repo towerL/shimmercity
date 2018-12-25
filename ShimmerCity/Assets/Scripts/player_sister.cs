@@ -6,11 +6,11 @@ public class player_sister : MonoBehaviour {
 	public void OnTriggerEnter2D(Collider2D col){
 		if (col.tag == "Player" ) {
             //Debug.Log ("get the sister!");
-            Fpbar_controller.bisAcquire_sister = true;
-            col.SendMessage ("SetSister",true);
-            UIBGAddSister_Control.Instance.setActive();
-            SisterHead_Control.Instance.Active();
-            fpbarUI_Control.Instance.setActive();
+            //Fpbar_controller.bisAcquire_sister = true;
+            //col.SendMessage ("SetSister",true);
+            //UIBGAddSister_Control.Instance.setActive();
+            //SisterHead_Control.Instance.Active();
+            //fpbarUI_Control.Instance.setActive();
             //GameObject.Find("FpbarUI").SendMessage("setActive");
             //Destroy(this.gameObject);
         }

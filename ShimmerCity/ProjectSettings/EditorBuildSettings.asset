@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TriumphScene.unity
     guid: 059f77384b5b24848981b4d1516ed3b2
+  - enabled: 1
+    path: Assets/Scenes/Part3_boss.unity
+    guid: 1e8c9616a63b4eb49bd32ff88447d145
   m_configObjects: {}
