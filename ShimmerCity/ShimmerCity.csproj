@@ -368,6 +368,7 @@
     <Compile Include="Assets\Scripts\align_hammer2.cs" />
     <Compile Include="Assets\Scripts\align_hammer3.cs" />
     <Compile Include="Assets\Scripts\Animation_Event.cs" />
+    <Compile Include="Assets\Scripts\audiomanager.cs" />
     <Compile Include="Assets\Scripts\BeltMove.cs" />
     <Compile Include="Assets\Scripts\BGControl.cs" />
     <Compile Include="Assets\Scripts\bloodbug.cs" />

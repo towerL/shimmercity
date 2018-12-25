@@ -3744,7 +3744,8 @@ MonoBehaviour:
   ray_Distance: 10
   target: {fileID: 2073951993}
   _HP: 1
-  Attack_Distance: 0.8
+  Attack_Distance: 1.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &681229878
 Rigidbody2D:
   serializedVersion: 4
@@ -5837,6 +5838,7 @@ MonoBehaviour:
   target: {fileID: 2073951993}
   _HP: 1
   Attack_Distance: 0.8
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &1079231044
 Rigidbody2D:
   serializedVersion: 4
