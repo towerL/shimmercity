@@ -14,8 +14,8 @@ public class onclickpause : MonoBehaviour {
         oldImage = gameObject.GetComponent<SpriteRenderer>().sprite;
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
-            UI_Pos.x = -17.13199f;
-            UI_Pos.y = -35.34001f;
+            UI_Pos.x = -18.02f;
+            UI_Pos.y = -34.22f;
             UI_Pos.z = -10;
         }
         else if (SceneManager.GetActiveScene().name == "Part2_1")

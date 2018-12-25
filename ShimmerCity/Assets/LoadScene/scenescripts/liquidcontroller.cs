@@ -11,7 +11,7 @@ public class liquidcontroller : MonoBehaviour {
     IEnumerator WaitAndPrint()
     {
         yield return new WaitForSeconds(3.0f);
-        print("WaitAndPrint " + Time.time);
+        //print("WaitAndPrint " + Time.time);
     }
     void Start()
     {

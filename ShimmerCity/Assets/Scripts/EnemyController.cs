@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour {
 
     private bool bisAttacking;
 
-    private Vector2 ray_direction;
+    public Vector2 ray_direction;
 
     bool Ray_toPlayer()
     {
@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour {
     void Start () {
         _HP = 1;
         direction = -1;
-        ray_direction = Vector2.left;
+        //ray_direction = Vector2.left;
         animator = GetComponent<Animator>();
         if(SceneManager.GetActiveScene().name == "Part2_1")
         {
@@ -67,15 +67,31 @@ public class EnemyController : MonoBehaviour {
         {
             float distance = (transform.position - target.position).sqrMagnitude;
             //Debug.Log(distance);
-            if (distance <= Attack_Distance * 10)
+            if (SceneManager.GetActiveScene().name == "SampleScene")
             {
-                animator.SetBool("Isattack", true);
-                bisAttacking = true;
+                if (distance <= Attack_Distance * 10)
+                {
+                    animator.SetBool("Isattack", true);
+                    bisAttacking = true;
+                }
+                else
+                {
+                    animator.SetBool("Isattack", false);
+                    bisAttacking = false;
+                }
             }
-            else
+            else if (SceneManager.GetActiveScene().name == "Part2_1")
             {
-                animator.SetBool("Isattack", false);
-                bisAttacking = false;
+                if (distance <= Attack_Distance * 4)
+                {
+                    animator.SetBool("Isattack", true);
+                    bisAttacking = true;
+                }
+                else
+                {
+                    animator.SetBool("Isattack", false);
+                    bisAttacking = false;
+                }
             }
         }
         else
@@ -142,7 +158,10 @@ public class EnemyController : MonoBehaviour {
     {
         _HP--;
     }
-    
+    private void PlayerDecreaseHP()
+    {
+        GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+    }
     
     private void OnTriggerEnter2D(Collider2D collision)
     { 

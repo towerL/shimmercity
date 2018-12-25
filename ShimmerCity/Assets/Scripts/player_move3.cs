@@ -52,7 +52,7 @@ public class player_move3 : MonoBehaviour {
 	Transform hammer_transform;
 	Rigidbody2D hammer_rigidbody;
 
-	private float player_health;
+	public static float player_health;
 
 	private bool shield;
 	private bool in_shield;

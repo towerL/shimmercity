@@ -122,6 +122,20 @@ public class Deerbug_attackbox : MonoBehaviour {
             Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
         }
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "deerbug" && bisAttackElectrictBox == true)
+        {
+            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "deerbug" && bisAttackElectrictBox == true)
+        {
+            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "Box")

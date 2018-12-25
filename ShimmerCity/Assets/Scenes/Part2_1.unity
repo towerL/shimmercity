@@ -4401,6 +4401,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &196854406
 Rigidbody2D:
   serializedVersion: 4
@@ -7793,6 +7794,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &387578855
 Rigidbody2D:
   serializedVersion: 4
@@ -10881,6 +10883,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &461543374
 Rigidbody2D:
   serializedVersion: 4
@@ -11480,7 +11483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.56, y: -1.75}
+  m_AnchoredPosition: {x: 0.6, y: 0.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &472588605
@@ -11919,6 +11922,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &475292265
 Rigidbody2D:
   serializedVersion: 4
@@ -13377,6 +13381,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &514488339
 Rigidbody2D:
   serializedVersion: 4
@@ -16671,7 +16676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -20.88, y: -85.16}
+  m_AnchoredPosition: {x: -22.52, y: -84.87}
   m_SizeDelta: {x: 20, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &673562840
@@ -25030,6 +25035,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &1059767609
 Rigidbody2D:
   serializedVersion: 4
@@ -26191,6 +26197,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &1125946010
 Rigidbody2D:
   serializedVersion: 4
@@ -29278,6 +29285,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &1227752632
 Rigidbody2D:
   serializedVersion: 4
@@ -34084,7 +34092,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494193528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.83, y: -64.04, z: 0}
+  m_LocalPosition: {x: -28.2, y: -69.34, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1011748115}
@@ -35956,6 +35964,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: -1, y: 0}
 --- !u!50 &1581930734
 Rigidbody2D:
   serializedVersion: 4
@@ -38195,6 +38204,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &1630687740
 Rigidbody2D:
   serializedVersion: 4
@@ -38935,6 +38945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1671455327}
   - component: {fileID: 1671455328}
+  - component: {fileID: 1671455329}
   m_Layer: 5
   m_Name: Hp_bar
   m_TagString: Untagged
@@ -39012,6 +39023,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1671455329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671455326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5707f453384d0429c0c57daaba8967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1680147872
 GameObject:
   m_ObjectHideFlags: 0
@@ -43126,6 +43148,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &1798900589
 Rigidbody2D:
   serializedVersion: 4
@@ -44338,6 +44361,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &1853992752
 Rigidbody2D:
   serializedVersion: 4
@@ -47826,6 +47850,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &1961781229
 Rigidbody2D:
   serializedVersion: 4
@@ -51348,6 +51373,7 @@ MonoBehaviour:
   target: {fileID: 1494193530}
   _HP: 1
   Attack_Distance: 0.6
+  ray_direction: {x: 0, y: 0}
 --- !u!50 &2084298844
 Rigidbody2D:
   serializedVersion: 4

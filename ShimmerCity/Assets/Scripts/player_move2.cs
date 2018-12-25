@@ -47,7 +47,7 @@ public class player_move2 : MonoBehaviour {
 	Rigidbody2D hammer_rigidbody;
     AudioSource aus;
 
-	private float player_health;
+	public static float player_health;
 
 	public float skill_time;
 	private float timer_for_skill;

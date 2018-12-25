@@ -7,7 +7,7 @@ public class Fpbar_controller : MonoBehaviour {
 
     public Sprite[] frames;
     private int Pre_freamNumber;
-    private int Current_frameNumber;
+    public static int Current_frameNumber;
     public static bool bisAcquire_sister;
     public Transform target;
     private Animator animator;
@@ -53,7 +53,7 @@ public class Fpbar_controller : MonoBehaviour {
             SisterHead_Control.Instance.Active();
             UIBGAddSister_Control.Instance.setActive();
         }
-        if (Current_frameNumber > 8 && bisShow == false)
+        if (Current_frameNumber >= 8 && bisShow == false)
         {
             this.GetComponent<SpriteRenderer>().sortingOrder = 10;
             bisFull = true;
@@ -64,10 +64,17 @@ public class Fpbar_controller : MonoBehaviour {
         {
             fpbarUI_Control.Instance.GetComponent<Slider>().value -= Time.deltaTime * 1.0f;
         }
-        if(fpbarUI_Control.Instance.GetComponent<Slider>().value == 0)
+        try
         {
-            CancelInvoke("SisterHead_decrease");
-            bisReleasing = false;
+            if (fpbarUI_Control.Instance.GetComponent<Slider>().value == 0)
+            {
+                CancelInvoke("SisterHead_decrease");
+                bisReleasing = false;
+            }
+        }
+        catch
+        {
+
         }
         Vector3 _pos;
         _pos.x = target.transform.position.x + 3.0f;
