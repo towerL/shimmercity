@@ -6,7 +6,6 @@ public class boss_head_1 : MonoBehaviour {
     GameObject player;
     GameObject bossbody;
     GameObject dead_boss;
-    GameObject ladder;
     Animator e_animator;
     Color cl;
     Renderer rd;
@@ -30,7 +29,6 @@ public class boss_head_1 : MonoBehaviour {
     {
         player = GameObject.FindGameObjectWithTag("Player");
         bossbody = GameObject.FindGameObjectWithTag("Boss_body");
-        ladder = GameObject.FindGameObjectWithTag("Ladder");
         aus = gameObject.GetComponent<AudioSource>();
         rd = gameObject.GetComponent<Renderer>();
         e_animator = gameObject.GetComponent<Animator>();
@@ -39,6 +37,7 @@ public class boss_head_1 : MonoBehaviour {
         // Update is called once per frame
         void Update ()
     {
+
         if (HP > 0)
         {
             if (isattacked)
@@ -91,7 +90,6 @@ public class boss_head_1 : MonoBehaviour {
         }
         else
         {
-            ladder.SendMessage("SetPushable",true);
             Vector3 new_position;
             new_position = bossbody.transform.position;
             if (bossbody.transform.localEulerAngles.y == 0)
@@ -129,6 +127,7 @@ public class boss_head_1 : MonoBehaviour {
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 5;
+            bossbody.SendMessage("setHP", HP);
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
@@ -140,6 +139,7 @@ public class boss_head_1 : MonoBehaviour {
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 10;
+            bossbody.SendMessage("setHP", HP);
         }
     }
     void isattack()
@@ -151,5 +151,9 @@ public class boss_head_1 : MonoBehaviour {
         AudioClip clip = (AudioClip)Resources.Load("Audios/coe/场景三/boss头放子弹", typeof(AudioClip));
         aus.clip = clip;
         aus.Play();
+    }
+    void setHP(int i)
+    {
+        HP = i;
     }
 }

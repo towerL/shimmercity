@@ -24,6 +24,7 @@ public class boss_body : MonoBehaviour {
     int count_down = 0;
     float e_timer_5 = 5.0f;
     GameObject ice;
+    int countblood = 0;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -93,6 +94,12 @@ public class boss_body : MonoBehaviour {
                     e_timer_5 = e_timer_5 - Time.deltaTime;
                 }
             }
+            if(HP ==100f&&countblood==0)
+            {
+                Vector3 new_position = this.transform.position;
+                GameObject blood = Instantiate(Resources.Load("prefabs/bloobag"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+                countblood++;
+            }
         }
         else
         {
@@ -142,6 +149,7 @@ public class boss_body : MonoBehaviour {
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 5;
+            boss_head.SendMessage("setHP", HP);
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
@@ -153,6 +161,7 @@ public class boss_body : MonoBehaviour {
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 10;
+            boss_head.SendMessage("setHP", HP);
         }
     }
     void isattack()
@@ -172,5 +181,10 @@ public class boss_body : MonoBehaviour {
         {
             freeze = true;
         }
+    }
+
+    void setHP(int i)
+    {
+        HP = i;
     }
 }
