@@ -41,6 +41,7 @@ public class follow_player : MonoBehaviour {
                 Vector3 pos = transform.position;
                 pos.z = -10;
                 pos.x = target.position.x;
+                pos.y = -66.78f;
                 transform.position = pos;
             }
             else
