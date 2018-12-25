@@ -53,6 +53,7 @@ TagManager:
   - mouse
   - Spider
   - Scene2Edge
+  - boundary
   layers:
   - Default
   - TransparentFX
