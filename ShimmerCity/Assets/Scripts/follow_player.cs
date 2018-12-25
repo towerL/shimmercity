@@ -36,20 +36,32 @@ public class follow_player : MonoBehaviour {
     void Update () {
         if(bisPause == false)
         {
-            Vector3 pos = transform.position;
-            pos.x = target.position.x;
-            pos.y = target.position.y;
-            if (pos.x > MaxX) pos.x = MaxX;
-            else if (pos.x < MinX) pos.x = MinX;
-            if (pos.y > MaxY) pos.y = MaxY;
-            else if (pos.y < MinY) pos.y = MinY;
-            pos.z = -10;
-            transform.position = pos;
+            if (SceneManager.GetActiveScene().name == "Part2_1")
+            {
+                Vector3 pos = transform.position;
+                pos.z = -10;
+                pos.x = target.position.x;
+                transform.position = pos;
+            }
+            else
+            {
+                Vector3 pos = transform.position;
+                pos.x = target.position.x;
+                pos.y = target.position.y;
+                if (pos.x > MaxX) pos.x = MaxX;
+                else if (pos.x < MinX) pos.x = MinX;
+                if (pos.y > MaxY) pos.y = MaxY;
+                else if (pos.y < MinY) pos.y = MinY;
+                pos.z = -10;
+                transform.position = pos;
+            }
+
         }
         else
         {
 
         }
+
 		if (flag1 && flag2) {
 			begin_timer = Time.time;
 			flag1 = false;
