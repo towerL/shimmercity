@@ -135,6 +135,7 @@ public class player_move2 : MonoBehaviour {
 			} 
 
 			if (isGround && Input.GetKeyDown(KeyCode.Space)) {
+                jump_aus();
 				velocity=player_rigidbody.velocity;
 				velocity.y = jumpVelocity;
 				player_rigidbody.velocity = velocity;
@@ -144,6 +145,7 @@ public class player_move2 : MonoBehaviour {
 			 
 			Physics2D.IgnoreCollision (GameObject.FindGameObjectWithTag ("hammer_in_attack").GetComponent<Collider2D> (), player_boxcollider);
 			if (isGround && Input.GetKeyDown(KeyCode.J)) {
+                hummer_aus();
 				moveable = false;
 				close_range_attack = true;
 				far_distance_attack = false;
@@ -157,6 +159,7 @@ public class player_move2 : MonoBehaviour {
 				timer = false;
 			}
 			if (isGround && Input.GetKeyDown(KeyCode.K)) {
+                hummer_throw();
 				far_distance_attack = true;
 				close_range_attack = false;
 				counter_far_distance_attack=1;
@@ -174,6 +177,7 @@ public class player_move2 : MonoBehaviour {
 				counter_far_distance_attack--;
 
 			if (isGround && Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
+                triple_hit();
 				timer_for_triple=true;
 				timer_for_skill = Time.time;
 				timer = false;
@@ -349,7 +353,7 @@ public class player_move2 : MonoBehaviour {
 
     void jump_aus()
     {
-        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跳跃3", typeof(AudioClip));
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跳跃2", typeof(AudioClip));
         aus.clip = clip;
         aus.Play();
     }
@@ -360,6 +364,21 @@ public class player_move2 : MonoBehaviour {
         aus.clip = clip;
         aus.Play();
     }
+
+    void hummer_aus()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/锤子打鸡生", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
+        void triple_hit()
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/大招", typeof(AudioClip));
+        aus.clip = clip;
+        aus.Play();
+    }
+
 
 
 
