@@ -368,8 +368,12 @@ public class player_move3 : MonoBehaviour {
 		shield = true;
 	}
 
-	public void DecreaseHp(float harm){
-		player_health -= harm;
+	void PlayerDecreaseHP(float harm_blood){
+		player_health -= harm_blood;
+		GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
+		attacked = true;
+		attacked_timer = Time.time;
+		shake = true;
 	}
 
 	void Flying_hammer(){

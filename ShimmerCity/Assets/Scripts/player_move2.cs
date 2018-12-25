@@ -206,11 +206,8 @@ public class player_move2 : MonoBehaviour {
 			}
 				
 			//for test
-			if (Input.GetKey (KeyCode.Q)) {
+			if (Input.GetKey (KeyCode.Q)||player_health<0.0f) {
 				alive = false;
-				player_boxcollider.isTrigger = true;
-				player_rigidbody.gravityScale = -10;
-				Destroy (gameObject, 2);
 				timer = false;
 			}
 		
@@ -239,8 +236,8 @@ public class player_move2 : MonoBehaviour {
 		player_animator.SetFloat ("velocity_y",player_rigidbody.velocity.y);
 		player_animator.SetBool ("close_attack",close_range_attack);
 		player_animator.SetBool ("far_attack",far_distance_attack);
-		//player_animator.SetBool ("alive",alive);
-		//player_animator.SetBool ("gameexit",gameexit);
+		player_animator.SetBool ("alive",alive);
+		player_animator.SetBool ("gameexit",gameexit);
 		player_animator.SetBool ("isGround",isGround);
 		player_animator.SetBool ("five_minutes",five_minutes);
 		player_animator.SetInteger("counter_close_range_attack",counter_close_range_attack);
@@ -314,6 +311,12 @@ public class player_move2 : MonoBehaviour {
 		flying_hammer_rigidbody.AddForce (Vector2.up *projectile);
 	}
 
+	void Drop_the_hammer(){
+		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer2"), hammer_transform.position,hammer_transform.rotation) as GameObject;
+		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
+		flying_hammer_transform.localScale = new Vector3(0.3f,0.3f,0.3f);
+	}
+		
 	public void OnCollisionEnter2D(Collision2D col){
 		if(col.collider.tag == "Pipe" ){
 		}

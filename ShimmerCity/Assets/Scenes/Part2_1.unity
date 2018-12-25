@@ -1067,7 +1067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &42968562
 BoxCollider2D:
@@ -2381,7 +2380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &93600140
 BoxCollider2D:
@@ -12991,7 +12989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &516800035
 BoxCollider2D:
@@ -14998,7 +14995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &621714456
 BoxCollider2D:
@@ -17867,7 +17863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &774771353
 BoxCollider2D:
@@ -23042,7 +23037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: FallenStone (6)
 --- !u!61 &1009792203
 BoxCollider2D:
@@ -31216,7 +31210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &1410994329
 BoxCollider2D:
@@ -31960,7 +31953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &1447099785
 BoxCollider2D:
@@ -32993,7 +32985,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494193528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 183.49, y: -68.54, z: 0}
+  m_LocalPosition: {x: 158.98, y: -65.07, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1011748115}
@@ -33260,7 +33252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: FallenStone
 --- !u!61 &1499238244
 BoxCollider2D:
@@ -35931,7 +35922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: FallenStone (4)
 --- !u!61 &1593085390
 BoxCollider2D:
@@ -44720,7 +44710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: FallenStone (5)
 --- !u!61 &1906272906
 BoxCollider2D:
@@ -46494,7 +46483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &1948089992
 BoxCollider2D:
@@ -47277,7 +47265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   stone_name: 
 --- !u!61 &1974973790
 BoxCollider2D:

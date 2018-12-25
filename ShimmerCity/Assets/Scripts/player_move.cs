@@ -325,14 +325,8 @@ public class player_move : MonoBehaviour {
 
 
 
-
-
-			//for test
-			if (Input.GetKey (KeyCode.Q)) {
+			if (Input.GetKey (KeyCode.Q)||player_health<0.0f) {
 				alive = false;
-				player_boxcollider.isTrigger = true;
-				player_rigidbody.gravityScale = -10;
-				Destroy (gameObject, 2);
 				timer = false;
 			}
 				
@@ -360,7 +354,6 @@ public class player_move : MonoBehaviour {
 			isStand=(Mathf.Abs(player_rigidbody.velocity.x)<0.1f?true:false) && !isPush && isGround;
 			isWalk = (Mathf.Abs (player_rigidbody.velocity.x) > 0.1f && Mathf.Abs (player_rigidbody.velocity.x) < 1.3f ? true : false) && !isPush && isGround;
 			isRun=(Mathf.Abs(player_rigidbody.velocity.x)>1.3f?true:false) && !isPush && isGround;
-
 
 		} else {
 			//Debug.Log ("the player is dead!");
@@ -487,6 +480,12 @@ public class player_move : MonoBehaviour {
 		else
 			flying_hammer_rigidbody.AddForce (-Vector2.right *pushmove);
 		flying_hammer_rigidbody.AddForce (Vector2.up *projectile);
+	}
+
+	void Drop_the_hammer(){
+		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer1"), hammer_transform.position,hammer_transform.rotation) as GameObject;
+		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
+		flying_hammer_transform.localScale = new Vector3(0.6f,0.6f,0.6f);
 	}
 
 	public void OnCollisionEnter2D(Collision2D col){

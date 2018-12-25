@@ -6,9 +6,9 @@ public class StoneController : MonoBehaviour
 {
     //移动初始位置
     float h0;
-    public float speed;
+    private float speed=4.0f;
     public string stone_name;
-    float mytime = 18.0f;
+    float mytime = 9.0f;
 
     void Start()
     {
@@ -32,7 +32,7 @@ public class StoneController : MonoBehaviour
                 var fallen_stone = GameObject.Find(stone_name);
                 fallen_stone.GetComponent<SpriteRenderer>().enabled = false;
             }
-            mytime = 18.0f;
+            mytime = 9.0f;
         }
     }
 }

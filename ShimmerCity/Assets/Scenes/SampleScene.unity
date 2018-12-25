@@ -213,7 +213,7 @@ Transform:
   - {fileID: 440766553}
   - {fileID: 541046720}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &49078048
 BoxCollider2D:
@@ -699,7 +699,7 @@ Transform:
   m_LocalScale: {x: 0.21477975, y: 0.21477975, z: 0.21477975}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &275680138
 BoxCollider2D:
@@ -1716,7 +1716,7 @@ Transform:
   m_LocalScale: {x: 0.2875, y: 0.6070313, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &541046719
 GameObject:
@@ -1962,7 +1962,7 @@ Prefab:
     - target: {fileID: 224482323659193538, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224482323659193538, guid: b440bbb904cfd394396c78ed61108359,
         type: 2}
@@ -3132,7 +3132,7 @@ Transform:
   m_Children:
   - {fileID: 1492274794}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -27.295002, y: 18.863, z: -37.588}
 --- !u!1 &810269303
 GameObject:
@@ -3415,7 +3415,7 @@ Transform:
   - {fileID: 681229876}
   - {fileID: 1079231048}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &946945526
 GameObject:
@@ -5204,7 +5204,7 @@ Transform:
   - {fileID: 703016999}
   - {fileID: 1775657344}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1519369640
 GameObject:
@@ -5828,7 +5828,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1622465758
 GameObject:
@@ -7045,7 +7045,7 @@ Transform:
   - {fileID: 504662084}
   - {fileID: 1608212235}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1838079857
 Prefab:
@@ -7403,14 +7403,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825945725}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.1, y: 11.4, z: -0}
+  m_LocalPosition: {x: -24.5, y: -19, z: -0}
   m_LocalScale: {x: 0.8537625, y: 0.8279656, z: 0.9573401}
   m_Children:
   - {fileID: 1391476212}
   - {fileID: 1383291477}
   - {fileID: 1528759588}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109411988
 GameObject:
@@ -7683,6 +7683,7 @@ GameObject:
   - component: {fileID: 2114156192}
   - component: {fileID: 2114156193}
   - component: {fileID: 2114156194}
+  - component: {fileID: 2114156195}
   m_Layer: 0
   m_Name: Locker
   m_TagString: Locker_sister
@@ -7755,7 +7756,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2114156191}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -8003,6 +8004,31 @@ PolygonCollider2D:
       - {x: -5.435, y: -5.005}
       - {x: -1.0749999, y: -5.005}
       - {x: -1.0649999, y: -4.995}
+--- !u!61 &2114156195
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114156191}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.3920574, y: -0.91116905}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.95, y: 10.01}
+    newSize: {x: 10.95, y: 10.01}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.165886, y: 8.187662}
+  m_EdgeRadius: 0
 --- !u!1 &2127953316
 GameObject:
   m_ObjectHideFlags: 0
