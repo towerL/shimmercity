@@ -6,9 +6,12 @@ public class changepicture : MonoBehaviour {
     public Sprite newImage;
     Sprite oldImage;
     AudioSource aus;
+    bool flag = true;
+    Sprite tmpImage;
     // Use this for initialization
     void Start () {
         oldImage = gameObject.GetComponent<SpriteRenderer>().sprite;
+        tmpImage = gameObject.GetComponent<SpriteRenderer>().sprite;
         aus = gameObject.GetComponent<AudioSource>();
     }
 	
@@ -23,12 +26,22 @@ public class changepicture : MonoBehaviour {
     }
 
     public void MouseExit() {
-        gameObject.GetComponent<SpriteRenderer>().sprite = oldImage;
+        gameObject.GetComponent<SpriteRenderer>().sprite = tmpImage;
     }
 
     public void MouseClick() {
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
-        oldImage = newImage;
+        if (flag)
+        {
+            tmpImage = newImage;
+            flag = false;
+        }
+        else if (!flag)
+        {
+            tmpImage = oldImage;
+            flag = true;
+        }
+        
     }
     void mouse_touch()
     {

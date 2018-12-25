@@ -111,6 +111,10 @@ public class Deerbug_attackbox : MonoBehaviour {
             bisAttacking = false;
         }
     }
+    private void PlayerDecreaseHP()
+    {
+        GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //if ((collision.collider.tag == "hammer_in_attack" || collision.collider.tag == "Skill_L"))

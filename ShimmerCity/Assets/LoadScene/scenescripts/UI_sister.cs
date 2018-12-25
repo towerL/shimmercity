@@ -28,8 +28,6 @@ public class UI_sister : MonoBehaviour {
 
     void Start()
     {
-        var player = GameObject.Find("Player");
-        hasHammer = player.GetComponent<Animator>().GetBool("isHammer");
         if (!theCamera)
         {
             theCamera = Camera.main;
@@ -101,6 +99,8 @@ public class UI_sister : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        var player = GameObject.Find("Player");
+        hasHammer = player.GetComponent<Animator>().GetBool("isHammer");
         sister_postion = gameObject.transform.position;
         if (visible && sister_postion.x >= tx.position.x - 16 && sister_postion.x <= tx.position.x + 16
             && sister_postion.y >= tx.position.y - 10 && sister_postion.y >= tx.position.y - 10)
@@ -145,7 +145,7 @@ public class UI_sister : MonoBehaviour {
     {
         if (col.tag == "Player")
         {
-            if (hasHammer && hasEnter) {
+                if (hasHammer && hasEnter) {
                 var bg1_4 = GameObject.Find("S1-4_1bg_box");
                 var sister_box1_4 = GameObject.Find("S1-4_2sister_box");
                 bg1_4.AddComponent<fadein_out>();

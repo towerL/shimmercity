@@ -12,7 +12,7 @@ public class Loadprogress : MonoBehaviour {
 
 	IEnumerator WaitAndPrint()
 	{
-		yield return new WaitForSeconds(8);
+		yield return new WaitForSeconds(3);
 		print("WaitAndPrint " + Time.time);
 	}
     IEnumerator Start()

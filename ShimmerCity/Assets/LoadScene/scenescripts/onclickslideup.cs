@@ -19,6 +19,7 @@ public class onclickslideup : MonoBehaviour {
     //Vector3 target2;
     bool flag = false;
     AudioSource aus;
+    bool tmp = true;//用来判断是滑入还是滑出
     public bool hasclick;
     bool click = true;
     float start_x;
@@ -74,8 +75,17 @@ public class onclickslideup : MonoBehaviour {
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
         //oldImage = newImage;
         flag = true;
-        hasclick = false;
         click = true;
+        if (tmp)
+        {
+            hasclick = false;
+            tmp = false;
+        }
+        else if (!tmp)
+        {
+            hasclick = true;
+            tmp = true;
+        }
     }
     void mouse_touch()
     {

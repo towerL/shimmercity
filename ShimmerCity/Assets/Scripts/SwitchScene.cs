@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class SwitchScene : MonoBehaviour {
+public class SwitchScene : MonoBehaviour
+{
 
     //有无锤子
     bool hasHammer;
@@ -24,13 +25,15 @@ public class SwitchScene : MonoBehaviour {
         print("WaitAndPrint " + Time.time);
     }
 
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         var player = GameObject.Find("Player");
         hasHammer = player.GetComponent<Animator>().GetBool("isHammer");
         hasSister = player.GetComponent<Animator>().GetBool("isSister");
@@ -38,7 +41,7 @@ public class SwitchScene : MonoBehaviour {
         {
             dis_time -= 0.01f;
         }
-	}
+    }
 
     //fade脚本
     void setPara(GameObject Object, float speed, float time, bool f)
@@ -93,7 +96,7 @@ public class SwitchScene : MonoBehaviour {
         var door = GameObject.Find("door2");
         door.GetComponent<Animator>().SetBool("IsDoorOpen", true);
         SceneManager.LoadScene("ConnectScene");
-        
+
     }
 
     void myfun5(BaseEventData eventData)
@@ -110,18 +113,24 @@ public class SwitchScene : MonoBehaviour {
     {
         if (collision.collider.tag == "Player")
         {
-            if (!hasEnter)
+            //if (!hasEnter && !hasSister && !hasHammer)
+            //{
+            //    var door = GameObject.Find("door2");
+            //    door.GetComponent<Animator>().SetBool("IsDoorOpen", true);
+            //    SceneManager.LoadScene("ConnectScene");
+            //}
+
+            if (hasSister && hasHammer)
             {
-                var door = GameObject.Find("door2");
-                door.GetComponent<Animator>().SetBool("IsDoorOpen", true);
                 SceneManager.LoadScene("ConnectScene");
             }
 
-            if (!hasSister && hasHammer) {
+            if (!hasSister && hasHammer)
+            {
                 var bg1_6 = GameObject.Find("S1-6_1bg_box");
                 var purple1_6 = GameObject.Find("S1-6_2purple");
                 var words1_6 = GameObject.Find("S1-6_3words");
-               
+
                 bg1_6.AddComponent<fadein_out>();
                 setPara(bg1_6, 2.0f, 0.0f, true);
 
@@ -143,12 +152,13 @@ public class SwitchScene : MonoBehaviour {
                 setPara2(words1_6, 2.0f);
 
             }
-            if (!hasSister && !hasHammer) {
+            if (hasEnter && !hasSister && !hasHammer)
+            {
                 var bg1_7 = GameObject.Find("S1-7_1bg_box");
                 var mayor1_7 = GameObject.Find("S1-7_2mayor_box");
                 var words1_7 = GameObject.Find("S1-7_3words");
                 var thinking1_7 = GameObject.Find("S1-7_4thinking");
-                var confirm1_7 = GameObject.Find("S1-7_5confirm");
+                //var confirm1_7 = GameObject.Find("S1-7_5confirm");
 
                 bg1_7.AddComponent<fadein_out>();
                 setPara(bg1_7, 2.0f, 0.0f, true);
@@ -162,8 +172,8 @@ public class SwitchScene : MonoBehaviour {
                 thinking1_7.AddComponent<fadein_out>();
                 setPara(thinking1_7, 3.1f, 0.3f, true);
 
-                confirm1_7.AddComponent<fadein_out>();
-                setPara(confirm1_7, 3.1f, 0.3f, true);
+                //confirm1_7.AddComponent<fadein_out>();
+                //setPara(confirm1_7, 3.1f, 0.3f, true);
 
                 var btn_thinking = GameObject.Find("Button_thinking");
                 EventTrigger trigger = btn_thinking.GetComponent<EventTrigger>();
@@ -171,19 +181,21 @@ public class SwitchScene : MonoBehaviour {
                 AddEventTrigger(btn_thinking.transform, EventTriggerType.PointerEnter, myfun2);
                 AddEventTrigger(btn_thinking.transform, EventTriggerType.PointerExit, myfun3);
 
-                var btn_confirm = GameObject.Find("Button_confirm");
-                EventTrigger trigger2 = btn_thinking.GetComponent<EventTrigger>();
-                AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerClick, myfun4);
-                AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerEnter, myfun5);
-                AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerExit, myfun6);
+                //var btn_confirm = GameObject.Find("Button_confirm");
+                //EventTrigger trigger2 = btn_thinking.GetComponent<EventTrigger>();
+                //AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerClick, myfun4);
+                //AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerEnter, myfun5);
+                //AddEventTrigger(btn_confirm.transform, EventTriggerType.PointerExit, myfun6);
                 hasEnter = false;
             }
-            
+
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.collider.tag == "Player") {
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Player")
+        {
             var bg1_6 = GameObject.Find("S1-6_1bg_box");
             var purple1_6 = GameObject.Find("S1-6_2purple");
             var words1_6 = GameObject.Find("S1-6_3words");

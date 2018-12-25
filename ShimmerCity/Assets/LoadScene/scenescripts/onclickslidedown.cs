@@ -17,6 +17,7 @@ public class onclickslidedown : MonoBehaviour
     Vector3 target;
     Vector3 target2;
     //Vector3 target2;
+    bool tmp = true;//用来判断是滑入还是滑出
     bool flag = false;
     AudioSource aus;
     public bool hasclick;
@@ -76,8 +77,17 @@ public class onclickslidedown : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
         //oldImage = newImage;
         flag = true;
-        hasclick = false;
         click = true;
+        if (tmp)//第一次点击滑入
+        {
+            hasclick = false;
+            tmp = false;
+        }
+        else if (!tmp)//第二次点击滑出
+        {
+            hasclick = true;
+            tmp = true;
+        }
     }
     void mouse_touch()
     {
