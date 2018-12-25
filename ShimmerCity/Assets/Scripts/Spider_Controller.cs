@@ -5,10 +5,12 @@ using UnityEngine;
 public class Spider_Controller : MonoBehaviour {
 
     public float move_Step;
+    public float OriginY;
     // Use this for initialization
     void Start () {
-		
-	}
+        
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,6 +27,13 @@ public class Spider_Controller : MonoBehaviour {
             child.transform.position = _pos;
         }
     }
+    void Return()
+    {
+        //Vector3 OriginPos;
+        //OriginPos = transform.position;
+        //OriginPos.y = OriginY + -69.04f;
+        //transform.position = OriginPos;
+    }
     void Spider_Up()
     {
         foreach (Transform child in transform)
@@ -37,9 +46,20 @@ public class Spider_Controller : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "deerbug")
+        if(collision.collider.tag == "Player" || collision.collider.tag == "hammer_in_attack")
         {
+            Debug.Log("蜘蛛蜇人");
             //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" || collision.tag == "Hands")
+        {
+            Debug.Log("蜘蛛蜇人");
+            //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
         }
     }
 }

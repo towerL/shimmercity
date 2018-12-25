@@ -44,28 +44,28 @@ public class deerbugBullet_control : MonoBehaviour {
         Destroy(this.gameObject);
     }
     
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Pipe" || collision.tag == "Player")
-        {
-            Debug.Log("子弹进入碰撞体");
-            DestroyBullet();
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Pipe" || collision.tag == "Player")
+    //    {
+    //        Debug.Log("子弹进入碰撞体");
+    //        DestroyBullet();
+    //    }
+    //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Pipe" || collision.tag == "Player")
+        if (collision.tag == "Player")
         {
-            Debug.Log("子弹进入碰撞体");
+            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
             DestroyBullet();
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Pipe" || collision.tag == "Player")
-        {
-            Debug.Log("子弹进入碰撞体");
-            DestroyBullet();
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Pipe" || collision.tag == "Player")
+    //    {
+    //        Debug.Log("子弹进入碰撞体");
+    //        DestroyBullet();
+    //    }
+    //}
 }

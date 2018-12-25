@@ -19,7 +19,7 @@ public class Startmouse_Controller : MonoBehaviour {
 		if(_HP <= 0)
         {
             GetComponent<Animator>().SetTrigger("SetDie");
-            Invoke("SetDie", 1f);
+            Invoke("SetDie", 0.8f);
         }
         Vector3 _pos = transform.position;
         _pos.x += direction.x * V;
@@ -84,6 +84,11 @@ public class Startmouse_Controller : MonoBehaviour {
             //direction.x = -direction.x;
             //transform.Rotate(new Vector3(0, 180.0f, 0));
             Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
+        }
+        if(collision.collider.tag == "Scene2Edge")
+        {
+            direction.x = -direction.x;
+            transform.Rotate(new Vector3(0, 180.0f, 0));
         }
 
     }
