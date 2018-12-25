@@ -10,12 +10,14 @@ public class bosseyes : MonoBehaviour {
     Vector3 oldPos; // 开始时候的坐标
     GameObject door;
     GameObject door_tag;
+	GameObject player;
     // Use this for initialization
     void Start()
     {
         oldPos = transform.position; // 将最初的位置保存到oldPos
         door = GameObject.Find("door_01");
         door_tag = GameObject.Find("door_tag");
+		player = GameObject.Find ("Player");
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class bosseyes : MonoBehaviour {
         {
             door.SendMessage("getkey");
             door_tag.SendMessage("getkey");
+			player.SendMessage ("SetBossEyes");
             Destroy(gameObject);
         }
     }

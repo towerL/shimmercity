@@ -109,7 +109,7 @@ public class pl_body_control : MonoBehaviour {
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "hammer_body")
+		if (col.collider.tag == "hammer_body")
         {
             if (this.transform.localEulerAngles.y == -180)
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
@@ -120,7 +120,7 @@ public class pl_body_control : MonoBehaviour {
             isattacked = true;
             HP -= 5;
         }
-        if (col.gameObject.tag == "hammer_in_attack")
+		if (col.collider.tag == "hammer_in_attack")
         {
             if (this.transform.localEulerAngles.y == -180)
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);

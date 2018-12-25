@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class boss_control : MonoBehaviour {
     public float anispeed;
-    public int Boss_health = 200;
     public bool isattacked = false;
+	private int Boss_health = 10;
     float walk_run_dis = 0.3f;
     float speed_hang = 0.10f;
     float timer_1 = 0;
@@ -21,11 +21,14 @@ public class boss_control : MonoBehaviour {
     void Start () {
         ea = gameObject.GetComponent<Animator>();
         aus = gameObject.GetComponent<AudioSource>();
+		rd = gameObject.GetComponent<Renderer> ();
+		cl = rd.material.color;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+		Debug.Log (Boss_health);
         if (Boss_health > 0)
         {
             if (isattacked)
@@ -112,7 +115,14 @@ public class boss_control : MonoBehaviour {
         }
         else
         {
-
+			Vector3 new_position;
+			new_position = this.transform.position;
+			GameObject dead_boss;
+			if (this.transform.localEulerAngles.y == 0)
+				dead_boss = Instantiate(Resources.Load("prefabs/dead_boss_1"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
+			else
+				dead_boss = Instantiate(Resources.Load("prefabs/dead_boss_1"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
+			Destroy(gameObject);
         }
     }
     void giveHP(int i)

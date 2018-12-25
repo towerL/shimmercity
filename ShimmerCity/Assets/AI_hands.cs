@@ -15,8 +15,6 @@ public class AI_hands : MonoBehaviour {
 				pos.x -= Time.deltaTime * 1.2f;
 				col.transform.position = pos;
 				SendMessageUpwards ("SetPush", true);
-			} else {
-				SendMessageUpwards("SetPush",false);
 			}
 		}
 	}

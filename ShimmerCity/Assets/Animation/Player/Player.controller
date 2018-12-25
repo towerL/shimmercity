@@ -224,7 +224,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: velocity_y
-    m_EventTreshold: 0
+    m_EventTreshold: -5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102818948815636392}
   m_Solo: 0
@@ -351,9 +351,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isHammer
     m_EventTreshold: 0
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: velocity_y
-    m_EventTreshold: 0
+    m_EventTreshold: -5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102110430685049304}
   m_Solo: 0
@@ -2279,10 +2279,10 @@ AnimatorStateMachine:
     m_Position: {x: -192, y: 108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102110430685049304}
-    m_Position: {x: 12, y: 300, z: 0}
+    m_Position: {x: 24, y: 288, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102818948815636392}
-    m_Position: {x: 768, y: 276, z: 0}
+    m_Position: {x: 804, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102587031133116798}
     m_Position: {x: 756, y: 132, z: 0}

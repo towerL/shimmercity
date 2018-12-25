@@ -9,7 +9,9 @@ public class dead_boss : MonoBehaviour {
     GameObject door;
     GameObject door_tag;
     GameObject ladder;
+	GameObject player;
     bool isshow = false;
+	bool issend = false;
 	// Use this for initialization
 	void Start () {
         ladder = GameObject.FindGameObjectWithTag("Ladder");
@@ -17,6 +19,7 @@ public class dead_boss : MonoBehaviour {
         e_an = this.GetComponent<Animator>();
         door = GameObject.Find("door_01");
         door_tag = GameObject.Find("door_tag");
+		player = GameObject.Find ("Player");
 	}
 	
 	// Update is called once per frame
@@ -28,6 +31,11 @@ public class dead_boss : MonoBehaviour {
             e_an.speed = 0;
             door.SendMessage("bossdie");
             door_tag.SendMessage("bossdie");
+			if (!issend)
+			{
+				player.SendMessage ("SetBossDead");
+				issend = true;
+			}
             if (!isshow)
             {
                 Vector3 new_position = this.transform.position;

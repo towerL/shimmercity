@@ -10,11 +10,12 @@ public class Bossshow : MonoBehaviour {
     bool hasshown = false;
     public int part;
     public float timer = 1.0f;
+	GameObject player;
 	// Use this for initialization
 	void Start () {
         bs_an = this.GetComponent<Animator>();
         aus = gameObject.GetComponent<AudioSource>();
-        
+		player = GameObject.Find ("Player");
     }
 	
 	// Update is called once per frame
@@ -55,10 +56,12 @@ public class Bossshow : MonoBehaviour {
                         Vector3 new_position = this.transform.position + new Vector3(1, -5.5f, 0);
                         boss = Instantiate(Resources.Load("prefabs/pl_boss"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
                         hasshown = true;
+						player.SendMessage ("SetBossShow");
                 }
             }
             if (timer <= -2.0f)
             {
+				
                 bs_an.SetBool("HasShown", true);
             }
             timer -= Time.deltaTime;
