@@ -34,7 +34,7 @@ public class startmouseBullet : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 3f);
             DestroyBullet();
         }
     }

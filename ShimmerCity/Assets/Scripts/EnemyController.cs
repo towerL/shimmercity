@@ -130,6 +130,7 @@ public class EnemyController : MonoBehaviour {
     }
     private void Destroy_monster()
     {
+        Destroy(this.gameObject);
         try
         {
             if (Fpbar_controller.bisAcquire_sister != false)
@@ -151,7 +152,7 @@ public class EnemyController : MonoBehaviour {
         //        }
         //    }
         //}
-        Destroy(this.gameObject);
+
         //this.gameObject.SetActive(false);
     }
     private void decreaseHp()
@@ -160,7 +161,7 @@ public class EnemyController : MonoBehaviour {
     }
     private void PlayerDecreaseHP()
     {
-        GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+        GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 1f);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

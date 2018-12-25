@@ -10,6 +10,7 @@ public class boss_head_1 : MonoBehaviour {
     Color cl;
     Renderer rd;
     AudioSource aus;
+    GameObject bar;
     float changecolor = 0.1f;
     bool isattacked = false;
     public float HP = 120f;
@@ -33,6 +34,7 @@ public class boss_head_1 : MonoBehaviour {
         rd = gameObject.GetComponent<Renderer>();
         e_animator = gameObject.GetComponent<Animator>();
         cl = rd.material.color;
+        bar = GameObject.Find("BossHp_bar");
     }
         // Update is called once per frame
         void Update ()
@@ -128,6 +130,7 @@ public class boss_head_1 : MonoBehaviour {
             rd.material.color = Color.red;
             HP -= 5;
             bossbody.SendMessage("setHP", HP);
+            bar.SendMessage("BossDecreaseHp", 5);
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
@@ -140,6 +143,7 @@ public class boss_head_1 : MonoBehaviour {
             rd.material.color = Color.red;
             HP -= 10;
             bossbody.SendMessage("setHP", HP);
+            bar.SendMessage("BossDecreaseHp", 10);
         }
     }
     void isattack()

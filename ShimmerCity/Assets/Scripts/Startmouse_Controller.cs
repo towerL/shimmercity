@@ -27,13 +27,15 @@ public class Startmouse_Controller : MonoBehaviour {
     }
     private void SetDie()
     {
-
+        Destroy(this.gameObject);
         try
         {
             if (Fpbar_controller.bisAcquire_sister != false)
-                Fpbar_controller.Instance.Freame_Increase();
-            GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
-            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+            {
+                //Fpbar_controller.Instance.Freame_Increase();
+                GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+                GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+            }
         }
         catch
         {
@@ -50,7 +52,7 @@ public class Startmouse_Controller : MonoBehaviour {
         //    }
 
         //}
-        Destroy(this.gameObject);
+
         //this.gameObject.SetActive(false);
     }
     void loadBullet1()

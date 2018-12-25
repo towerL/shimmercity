@@ -172,29 +172,21 @@ public class DeerbugLong_congtroller : MonoBehaviour {
     }
     private void Destroy_monster()
     {
-        if (Fpbar_controller.bisAcquire_sister != false)
-            Fpbar_controller.Instance.Freame_Increase();
-        GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
-        try
-        {
-            GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
-        }
-        catch
-        {
-            return;
-        }
-        //if (SceneManager.GetActiveScene().name == "Part2_1")
-        //{
-        //    foreach (GameObject obj in IsViewTest.Instance.SpriteArray)
-        //    {
-        //        if (this.gameObject.GetInstanceID() == obj.GetInstanceID())
-        //        {
-        //            IsViewTest.Instance.SpriteArray = null;
-        //        }
-        //    }
-
-        //}
         Destroy(this.gameObject);
+        if (Fpbar_controller.bisAcquire_sister != false)
+        {
+            //Fpbar_controller.Instance.Freame_Increase();
+            GameObject.Find("Fp_bar").SendMessage("Freame_Increase");
+            try
+            {
+                GameObject.Find("Sister_Head").SendMessage("Fpbaradd");
+            }
+            catch
+            {
+                return;
+            }
+        }
+
         //this.gameObject.SetActive(false);
     }
 }

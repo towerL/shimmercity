@@ -24,6 +24,7 @@ public class boss_body : MonoBehaviour {
     int count_down = 0;
     float e_timer_5 = 5.0f;
     GameObject ice;
+    GameObject bar;
     int countblood = 0;
     // Use this for initialization
     void Start () {
@@ -32,6 +33,7 @@ public class boss_body : MonoBehaviour {
         rd = gameObject.GetComponent<Renderer>();
         e_animator = gameObject.GetComponent<Animator>();
         aus = gameObject.GetComponent<AudioSource>();
+        bar = GameObject.Find("BossHp_bar");
         cl = rd.material.color;
     }
 	
@@ -150,6 +152,7 @@ public class boss_body : MonoBehaviour {
             rd.material.color = Color.red;
             HP -= 5;
             boss_head.SendMessage("setHP", HP);
+            bar.SendMessage("BossDecreaseHp", 5);
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
@@ -162,6 +165,7 @@ public class boss_body : MonoBehaviour {
             rd.material.color = Color.red;
             HP -= 10;
             boss_head.SendMessage("setHP", HP);
+            bar.SendMessage("BossDecreaseHp", 10);
         }
     }
     void isattack()

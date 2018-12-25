@@ -273,6 +273,10 @@ public class player_move : MonoBehaviour {
                 Fpbar_controller.Instance.ReleaseSkill();
 				sister_skill = true;
             }
+            if(Fpbar_controller.Instance.bisFull == false)
+            {
+                sister_skill = false;
+            }
 			if(timer_for_triple){
 				if (skill_counter < 3) {
 					float now_timer = Time.time;

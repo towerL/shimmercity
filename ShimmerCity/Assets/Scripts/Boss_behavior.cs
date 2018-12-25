@@ -171,6 +171,8 @@ public class Boss_behavior : MonoBehaviour {
                 {
                     e_timer_5 = 5.0f;
                     isfreeze = false;
+                    Vector3 new_position = new Vector3(1.29f, 8.28f,0);
+                    GameObject bottle = Instantiate(Resources.Load("prefabs/bottle"), new_position, Quaternion.Euler(new Vector3(0, 180, 0))) as GameObject;
                 }
                 e_timer_5 = e_timer_5 - Time.deltaTime;
             }

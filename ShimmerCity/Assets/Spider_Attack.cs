@@ -19,7 +19,7 @@ public class Spider_Attack : MonoBehaviour {
         {
             Debug.Log("蜘蛛蜇人");
             //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
-            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 3f);
         }
         if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
         {

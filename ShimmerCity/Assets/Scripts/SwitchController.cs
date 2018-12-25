@@ -50,9 +50,18 @@ public class SwitchController : MonoBehaviour
             door.GetComponent<Animator>().SetBool("IsDoorOpen", false);
             
             Debug.Log("取消出现怪物");
-            cancel = true;
-
-
+            cancel = true;  
         }
     }
+    //private void OnTriggerEnter2D(Collider collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        var door = GameObject.Find("door1");
+    //        door.GetComponent<Animator>().SetBool("IsDoorOpen", false);
+
+    //        //Debug.Log("取消出现怪物");
+    //        cancel = true;
+    //    }
+    //}
 }

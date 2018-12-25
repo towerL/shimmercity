@@ -17,9 +17,9 @@ public class SisterHead_Control : MonoBehaviour {
         {
             this.gameObject.SetActive(false);
         }
-        else
+        if (Fpbar_controller.bisAcquire_sister != true)
         {
-            this.gameObject.SetActive(true);
+            this.gameObject.SetActive(false);
         }
 
     }
