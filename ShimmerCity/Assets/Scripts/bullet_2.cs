@@ -38,6 +38,7 @@ public class bullet_2 : MonoBehaviour {
     {
         if (col.tag == "Player")
         {
+            player.SendMessage("PlayerDecreaseHP", 10);
             Destroy(gameObject);
         }
         else

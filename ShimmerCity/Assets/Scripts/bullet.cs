@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour {
 
+
+    GameObject player;
 	// Use this for initialization
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
         Destroy(gameObject, 8);
 	}
 	
@@ -17,6 +20,7 @@ public class bullet : MonoBehaviour {
     {
         if (col.tag == "Player")
         {
+            player.SendMessage("PlayerDecreaseHP", 5);
             Destroy(gameObject);
         }
         else

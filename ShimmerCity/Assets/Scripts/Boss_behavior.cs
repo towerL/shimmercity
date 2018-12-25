@@ -33,8 +33,10 @@ public class Boss_behavior : MonoBehaviour {
     Color cl;
     Renderer rd;
     AudioSource aus;
+    GameObject bar;
     void Start ()
     {
+        bar = GameObject.Find("BossHp_bar");
         cur_Bosshealth = Boss_health;
         player = GameObject.FindGameObjectWithTag("Player");
         e_animator = GetComponent<Animator>();
@@ -343,6 +345,7 @@ public class Boss_behavior : MonoBehaviour {
     {
         if(col.gameObject.tag=="hammer_body")
         {
+            bar.SendMessage("BossDecreaseHp", 5);
             if(this.transform.localEulerAngles.y==-180)
             this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
@@ -351,9 +354,11 @@ public class Boss_behavior : MonoBehaviour {
             anispeed = e_animator.speed;
             isattacked = true;
             cur_Bosshealth -= 5;
+
         }
         if(col.gameObject.tag=="hammer_in_attack")
         {
+            bar.SendMessage("BossDecreaseHp", 10);
             if (this.transform.localEulerAngles.y == -180)
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
