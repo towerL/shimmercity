@@ -24,6 +24,24 @@ public class onclickpause : MonoBehaviour {
             UI_Pos.y = -85.4745f;
             UI_Pos.z = -10;
         }
+        else if (SceneManager.GetActiveScene().name == "Part3")
+        {
+            UI_Pos.x = 6.556008f;
+            UI_Pos.y = -15.85001f;
+            UI_Pos.z = -10;
+        }
+        else if (SceneManager.GetActiveScene().name == "Part3_boss")
+        {
+            UI_Pos.x = 2.996008f;
+            UI_Pos.y = -13.2850f;
+            UI_Pos.z = -10;
+        }
+        else if (SceneManager.GetActiveScene().name == "Part4")
+        {
+            UI_Pos.x = -0.9359881f;
+            UI_Pos.y = -17.56601f;
+            UI_Pos.z = -10;
+        }
 
     }
 	
