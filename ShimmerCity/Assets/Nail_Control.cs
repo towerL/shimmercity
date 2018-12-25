@@ -18,7 +18,7 @@ public class Nail_Control : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.collider.tag == "Player" || col.collider.tag == "Feet")
+        if ( col.collider.tag == "Feet")
         {
             GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 101f);
         }
