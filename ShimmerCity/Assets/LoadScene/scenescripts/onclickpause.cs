@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class onclickpause : MonoBehaviour {
     public Sprite newImage;
     public string objectName;
@@ -12,9 +12,18 @@ public class onclickpause : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         oldImage = gameObject.GetComponent<SpriteRenderer>().sprite;
-        UI_Pos.x = -20.17332f;
-        UI_Pos.y = -36.70001f;
-        UI_Pos.z = 0;
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            UI_Pos.x = -20.17332f;
+            UI_Pos.y = -36.70001f;
+            UI_Pos.z = -10;
+        }
+        else if (SceneManager.GetActiveScene().name == "Part2_1")
+        {
+            UI_Pos.x = -20.59699f;
+            UI_Pos.y = -85.4745f;
+            UI_Pos.z = -10;
+        }
 
     }
 	
