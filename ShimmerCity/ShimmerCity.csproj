@@ -432,6 +432,7 @@
     <Compile Include="Assets\SisterHead_Control.cs" />
     <Compile Include="Assets\Skill_hammer1.cs" />
     <Compile Include="Assets\Skill_hammer2.cs" />
+    <Compile Include="Assets\Spider_Attack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />

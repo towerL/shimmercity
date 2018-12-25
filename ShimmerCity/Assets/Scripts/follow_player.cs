@@ -42,6 +42,10 @@ public class follow_player : MonoBehaviour {
                 pos.z = -10;
                 pos.x = target.position.x;
                 pos.y = -66.78f;
+                if (pos.x > MaxX) pos.x = MaxX;
+                else if (pos.x < MinX) pos.x = MinX;
+                if (pos.y > MaxY) pos.y = MaxY;
+                else if (pos.y < MinY) pos.y = MinY;
                 transform.position = pos;
             }
             else

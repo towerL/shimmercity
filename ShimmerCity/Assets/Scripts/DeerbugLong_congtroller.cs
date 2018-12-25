@@ -46,6 +46,11 @@ public class DeerbugLong_congtroller : MonoBehaviour {
         ray_direction = Vector2.left;
         animator = GetComponent<Animator>();
         bisAttack_CD = false;
+        if (SceneManager.GetActiveScene().name == "Part2_1")
+        {
+            Vector3 scale = new Vector3(0.83f, 0.83f, 1);
+            transform.localScale = scale;
+        }
     }
 	
 	// Update is called once per frame
@@ -83,13 +88,13 @@ public class DeerbugLong_congtroller : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(SceneManager.GetActiveScene().name == "Part2_1")
-        {
-            if(collision.collider.tag == "hammer_in_attack")
-            {
-                decreaseHp();
-            }
-        }
+        //if(SceneManager.GetActiveScene().name == "Part2_1")
+        //{
+        //    if(collision.collider.tag == "hammer_in_attack")
+        //    {
+        //        decreaseHp();
+        //    }
+        //}
         if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
         {
             Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
@@ -107,7 +112,20 @@ public class DeerbugLong_congtroller : MonoBehaviour {
             }
         }
     }
-
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
+        {
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
+        {
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
+        }
+    }
     private void SetBullet()
     {
         bisAttacking = true;

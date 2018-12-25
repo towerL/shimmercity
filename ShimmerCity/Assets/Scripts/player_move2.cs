@@ -327,7 +327,11 @@ public class player_move2 : MonoBehaviour {
 		if(col.collider.tag == "stone_stand" ){
 			Physics2D.IgnoreCollision (col.collider,GameObject.FindGameObjectWithTag ("Feet").GetComponent<Collider2D> ());
 		}
-	}
+        if (col.collider.tag == "Scene2Edge")
+        {
+            Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+    }
 
 	public void OnCollisionStay2D(Collision2D col){
 		if(col.collider.tag == "Pipe" ){

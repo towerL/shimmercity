@@ -14,5 +14,10 @@ public class align_hammer2 : MonoBehaviour {
 		if (col.collider.tag == "Start_mouse") {
 			col.collider.SendMessage ("decreaseHp");
 		}
-	}
+
+        if (col.collider.tag == "Scene2Edge")
+        {
+            Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+    }
 }

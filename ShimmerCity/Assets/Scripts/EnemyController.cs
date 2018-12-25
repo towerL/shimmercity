@@ -39,6 +39,11 @@ public class EnemyController : MonoBehaviour {
         direction = -1;
         ray_direction = Vector2.left;
         animator = GetComponent<Animator>();
+        if(SceneManager.GetActiveScene().name == "Part2_1")
+        {
+            Vector3 scale = new Vector3(0.83f, 0.83f, 1);
+            transform.localScale = scale;
+        }
     }
 
     // Update is called once per frame
@@ -87,12 +92,26 @@ public class EnemyController : MonoBehaviour {
         //{
         //    decreaseHp();
         //}
-        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider" )
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
         {
             Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
+        {
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider" )
+        {
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
 
+    }
     private void Destroy_monster()
     {
         try
