@@ -93,7 +93,7 @@ public class Fpbar_controller : MonoBehaviour {
         }
         if (bisReleasing == true)
             return;
-        fpbarUI_Control.Instance.GetComponent<Slider>().value += 2f;
+        fpbarUI_Control.Instance.GetComponent<Slider>().value += 2.5f;
         if (bisAcquire_sister != true)
             return;
         //Pre_freamNumber = Current_frameNumber;

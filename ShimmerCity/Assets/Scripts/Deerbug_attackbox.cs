@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Deerbug_attackbox : MonoBehaviour {
 
     public LayerMask RayLayer;
@@ -58,6 +58,14 @@ public class Deerbug_attackbox : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            if(transform.position.x > 30)
+            {
+                transform.Rotate(Vector3.up * 180);
+                ray_direction = -ray_direction;
+            }
+        }
         if (_HP <= 0)
         {
             animator.SetTrigger("Isdie");
@@ -120,6 +128,7 @@ public class Deerbug_attackbox : MonoBehaviour {
         {
            // Debug.Log("进入trigger");
             transform.Rotate(Vector3.up * 180);
+            ray_direction = -ray_direction;
         }
         if (collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
         {
