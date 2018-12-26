@@ -21,9 +21,9 @@ public class add_flying_hammer3 : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D col){
-		if (col.collider.tag == "boss") {//
-			col.collider.SendMessage ("decreaseHp");
-		}
+		//if (col.collider.tag == "boss") {//
+		//	col.collider.SendMessage ("decreaseHp");
+		//}
 		Debug.Log (col.gameObject.name);
 		Debug.Log (col.gameObject.tag);
 		Destroy (gameObject);
