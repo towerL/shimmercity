@@ -19,7 +19,15 @@ public class dead_boss : MonoBehaviour {
         e_an = this.GetComponent<Animator>();
         door = GameObject.Find("door_01");
         door_tag = GameObject.Find("door_tag");
-		player = GameObject.Find ("Player");
+        //try
+        //{
+            player = GameObject.Find("player_clone(Clone)");
+        //}
+       // catch
+        //{
+        ///    player = GameObject.Find("player_clone");
+       // }
+		
 	}
 	
 	// Update is called once per frame
