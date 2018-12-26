@@ -217,8 +217,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2012445967
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: bb101311b7dc7454fa0d45043a730a60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -238,7 +238,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15886545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.42, y: 10.12, z: 0}
+  m_LocalPosition: {x: -0.7, y: 8.8, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 1845389938}
@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 142111377}
   m_Layer: 0
   m_Name: bossshow_03
-  m_TagString: boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18424,7 +18424,7 @@ Prefab:
     - target: {fileID: 212865905869727856, guid: ceeecc0691bdd8c44b4b1ef239f010b7,
         type: 2}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 68536425685125270, guid: ceeecc0691bdd8c44b4b1ef239f010b7, type: 2}

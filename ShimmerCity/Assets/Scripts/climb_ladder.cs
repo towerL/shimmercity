@@ -84,7 +84,6 @@ public class climb_ladder : MonoBehaviour {
 				climb = false;
 				col.SendMessage ("SetInLadder", false);
 			} else {
-				col.GetComponent<Rigidbody2D> ().gravityScale = 0;
 			}
 		}
 		if(col.tag == "Player")

@@ -187,9 +187,9 @@ public class player_move : MonoBehaviour {
 
 			Vector3 postrans = transform.position;
 			if (isBelt && beltflag && beltdir > 0.0f) {	
-				postrans.x += Time.deltaTime * 1.0f;
+				postrans.x += Time.deltaTime * 1.5f;
 			}else if (isBelt && beltflag && beltdir < 0.0f) {	
-				postrans.x -= Time.deltaTime * 1.0f;
+				postrans.x -= Time.deltaTime * 1.5f;
 			}
 			transform.position = postrans;
 
@@ -198,11 +198,13 @@ public class player_move : MonoBehaviour {
 			}
 				
 			if (isLadder) {
+				player_rigidbody.gravityScale = 0;
 				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))
 					player_animator.speed = 1.0f;
 				else
 					player_animator.speed = 0.0f;
 			} else {
+				player_rigidbody.gravityScale = 20;
 				player_animator.speed = 1.0f;
 			}
 
@@ -498,7 +500,7 @@ public class player_move : MonoBehaviour {
 	public void OnCollisionEnter2D(Collision2D col){
 		if(col.collider.tag == "Belt"&&!isGround){
 			Vector3 pos = transform.position;
-			pos.x -= Time.deltaTime * 3.0f;
+			pos.y -= Time.deltaTime * 3.0f;
 			transform.position = pos;
 			player_rigidbody.gravityScale = 40;
 		}
@@ -508,6 +510,15 @@ public class player_move : MonoBehaviour {
 			attacked_timer = Time.time;
 			shake = true;
 		}*/
+	}
+
+	public void OnCollisionStay2D(Collision2D col){
+		if(col.collider.tag == "Belt"&&!isGround){
+			Vector3 pos = transform.position;
+			pos.y -= Time.deltaTime * 3.0f;
+			transform.position = pos;
+			player_rigidbody.gravityScale = 40;
+		}
 	}
 
 	public void OnCollisionExit2D(Collision2D col){

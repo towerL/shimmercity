@@ -176,11 +176,21 @@ public class player_move3 : MonoBehaviour {
 			}
 
 			if (isLadder) {
+				player_rigidbody.gravityScale = 0;
+				for (int i = 0; i <= 14; i++) {
+					if(i!=9)
+						Physics2D.IgnoreLayerCollision (9,i);
+				}
 				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))
 					player_animator.speed = 1.0f;
 				else
 					player_animator.speed = 0.0f;
 			} else {
+				player_rigidbody.gravityScale = 20;
+				for (int i = 0; i <= 14 ; i++) {
+					if(i!=9)
+						Physics2D.IgnoreLayerCollision (9,i,false);
+				}
 				player_animator.speed = 1.0f;
 			}
 
@@ -306,18 +316,7 @@ public class player_move3 : MonoBehaviour {
 		foreach (GameObject ladder in ladders){
 			ladder.SendMessage("SetGround",isGround);
 		}
-
-		if (isLadder) {
-			for (int i = 0; i <= 14; i++) {
-				if(i!=9)
-					Physics2D.IgnoreLayerCollision (9,i);
-			}
-		} else {
-			for (int i = 0; i <= 14 ; i++) {
-				if(i!=9)
-					Physics2D.IgnoreLayerCollision (9,i,false);
-			}
-		}
+			
 		if (attacked) {
 			if (Time.time - attacked_timer >= 0.2f) {
 				GetComponent<Renderer> ().material.color = used_color;

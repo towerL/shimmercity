@@ -27,7 +27,7 @@ public class Skill_hammer : MonoBehaviour {
 		stage1 = true;
 		stage2 = false;
 		target = GameObject.FindGameObjectWithTag("boss").transform;
-		transform.position = target.position + new Vector3 (-2.0f,4.0f,0.0f);
+		transform.position = target.position + new Vector3 (-2.0f,2.0f,0.0f);
 		pos=transform.position + new Vector3 (-0.93f, -2.02f, 0.0f);
 
 	}
@@ -73,11 +73,7 @@ public class Skill_hammer : MonoBehaviour {
 
 	public void OnCollisionEnter2D(Collision2D col){
 		if (col.collider.tag == "Skill_L") {
-			Physics2D.IgnoreCollision (col.collider,GetComponent<Collider2D>());
-		}
-		if (col.collider.tag == "deerbug") {
-			Debug.Log ("Hit the deerbug!");
-			col.collider.SendMessage ("decreaseHp");
+			Physics2D.IgnoreCollision (col.collider, GetComponent<Collider2D> ());
 		}
 	}
 }
