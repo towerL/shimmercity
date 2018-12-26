@@ -36,7 +36,7 @@ public class q_dispear : MonoBehaviour {
     public void MouseClick()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = newImage;
-        oldImage = newImage;
+        //oldImage = newImage;
         var d_object = GameObject.Find(objectName);
         c = d_object.GetComponent<SpriteRenderer>().color;
         c.a = 0.0f;

@@ -133,9 +133,9 @@ public class UI_sister : MonoBehaviour {
 
             var btn = GameObject.Find("Button_ok");
 			EventTrigger trigger = btn.GetComponent<EventTrigger>();
-			AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun4);
-			AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun5);
-			AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun6);
+			AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun);
+			AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun2);
+			AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun3);
 
             visible = false;
         }

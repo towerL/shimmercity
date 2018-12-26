@@ -3937,6 +3937,21 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -59.8
       objectReference: {fileID: 0}
+    - target: {fileID: 223491996639895680, guid: b440bbb904cfd394396c78ed61108359,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 212997656297437150, guid: b440bbb904cfd394396c78ed61108359,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 212126767421160576, guid: b440bbb904cfd394396c78ed61108359,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b440bbb904cfd394396c78ed61108359, type: 2}
   m_IsPrefabAsset: 0

@@ -3142,7 +3142,7 @@ Transform:
   m_GameObject: {fileID: 383101793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6, y: -1, z: 0}
-  m_LocalScale: {x: 46.166664, y: 46.166664, z: 46.166664}
+  m_LocalScale: {x: 31, y: 31, z: 31}
   m_Children: []
   m_Father: {fileID: 2113024704}
   m_RootOrder: 1
@@ -10299,8 +10299,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 768892363}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: -1, z: 0}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalPosition: {x: -6, y: 1, z: 0}
+  m_LocalScale: {x: 31, y: 31, z: 31}
   m_Children: []
   m_Father: {fileID: 128112620}
   m_RootOrder: 0
@@ -16045,7 +16045,7 @@ Transform:
   m_GameObject: {fileID: 1152693076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 88, y: -97.00001, z: 0}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalScale: {x: 31, y: 31, z: 31}
   m_Children: []
   m_Father: {fileID: 128112620}
   m_RootOrder: 2
@@ -17130,7 +17130,7 @@ Transform:
   m_GameObject: {fileID: 1342506443}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6, y: -1, z: 0}
-  m_LocalScale: {x: 46.166664, y: 46.166664, z: 46.166664}
+  m_LocalScale: {x: 31, y: 31, z: 31}
   m_Children: []
   m_Father: {fileID: 2113024704}
   m_RootOrder: 0
@@ -18916,7 +18916,7 @@ Transform:
   m_GameObject: {fileID: 1604330319}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6, y: -1, z: 0}
-  m_LocalScale: {x: 46.166664, y: 46.166664, z: 46.166664}
+  m_LocalScale: {x: 31, y: 31, z: 31}
   m_Children: []
   m_Father: {fileID: 2113024704}
   m_RootOrder: 2
@@ -21055,8 +21055,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049796224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.9999986, y: -1.0000072, z: 0}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalPosition: {x: -6, y: 1, z: 0}
+  m_LocalScale: {x: 31, y: 31, z: 31}
   m_Children: []
   m_Father: {fileID: 128112620}
   m_RootOrder: 1
