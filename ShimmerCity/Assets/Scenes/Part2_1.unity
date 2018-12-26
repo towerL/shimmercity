@@ -960,7 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 3
   stone_name: 
   pause_Time: 2
 --- !u!61 &42968562
@@ -2453,7 +2453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   stone_name: 
   pause_Time: 1
 --- !u!61 &93600140
@@ -13689,7 +13689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 3
   stone_name: 
   pause_Time: 4
 --- !u!61 &516800035
@@ -15569,7 +15569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 2.5
   stone_name: 
   pause_Time: 0
 --- !u!61 &621714456
@@ -18517,7 +18517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   stone_name: 
   pause_Time: 0
 --- !u!61 &774771353
@@ -20516,7 +20516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.5
   stone_name: FallenStone (3)
   pause_Time: 0
 --- !u!61 &825328729
@@ -22439,7 +22439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.5
   stone_name: FallenStone (1)
   pause_Time: 0
 --- !u!61 &937197933
@@ -23993,7 +23993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.5
   stone_name: FallenStone (4)
   pause_Time: 0
 --- !u!61 &998622567
@@ -33862,7 +33862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 2.8
   stone_name: 
   pause_Time: 1
 --- !u!61 &1447099785
@@ -34796,7 +34796,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494193528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.6, y: -69.1, z: 0}
+  m_LocalPosition: {x: -34.4, y: -69.1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1011748115}
@@ -35063,7 +35063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   stone_name: FallenStone
   pause_Time: 0
 --- !u!61 &1499238244
@@ -47121,7 +47121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.5
   stone_name: FallenStone (2)
   pause_Time: 0
 --- !u!61 &1920127903
@@ -47921,7 +47921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 3
   stone_name: 
   pause_Time: 3
 --- !u!61 &1948089992
@@ -49191,7 +49191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe1f40df2f4634abf6c5c04851bb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   stone_name: 
   pause_Time: 0
 --- !u!61 &1974973790
