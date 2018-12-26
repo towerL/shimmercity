@@ -6,17 +6,26 @@ public class StoneController : MonoBehaviour
 {
     //移动初始位置
     float h0;
-    private float speed=4.0f;
+    public float speed;
     public string stone_name;
     float mytime = 9.0f;
-
+    public float pause_Time;
+    bool bisWake;
     void Start()
     {
         h0 = transform.position.y;
+        //GetComponent<Animator>().speed = 0;
+        bisWake = false;
+        Invoke("Wake", pause_Time);
     }
-
+    void Wake()
+    {
+        bisWake = true;
+    }
     void Update()
     {
+        if (bisWake == false)
+            return;
         mytime -= Time.deltaTime;
         if (System.Math.Abs(transform.position.y - h0) <= 15.0f)
         {

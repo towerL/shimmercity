@@ -54,6 +54,7 @@ TagManager:
   - Spider
   - Scene2Edge
   - boundary
+  - Ignore
   layers:
   - Default
   - TransparentFX

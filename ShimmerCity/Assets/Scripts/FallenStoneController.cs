@@ -33,6 +33,7 @@ public class FallenStoneController : MonoBehaviour
             falling_stone.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             falling_stone.GetComponent<SpriteRenderer>().enabled = true;
+            //collision.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

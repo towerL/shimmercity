@@ -93,6 +93,10 @@ public class player_move2 : MonoBehaviour {
 	void FixedUpdate () {
 		//Debug.Log (player_health);
 		//float h=Input.GetAxis("Horizontal");
+        if(transform.position.y < - 74)
+        {
+            player_health -= 200f;
+        }
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {

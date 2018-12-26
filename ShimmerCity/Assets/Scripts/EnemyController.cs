@@ -115,7 +115,7 @@ public class EnemyController : MonoBehaviour {
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
+        if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider" || collision.collider.tag == "Player")
         {
             Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
@@ -166,7 +166,7 @@ public class EnemyController : MonoBehaviour {
     
     private void OnTriggerEnter2D(Collider2D collision)
     { 
-        if(collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "Pipe" || collision.tag == "Scene2Edge")
+        if(collision.tag == "board_edge" || collision.tag == "SceneEdge" || collision.tag == "Pipe" || collision.tag == "Scene2Edge" || collision.tag == "Ignore")
         {
             transform.Rotate(Vector3.up * 180);
             if (ray_direction == Vector2.left)

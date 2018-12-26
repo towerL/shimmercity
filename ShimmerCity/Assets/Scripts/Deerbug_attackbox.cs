@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Deerbug_attackbox : MonoBehaviour {
 
     public LayerMask RayLayer;
+    public LayerMask RayLayer2;
     private Vector2 ray_direction;
     public float ray_Distance;
 
@@ -36,6 +37,16 @@ public class Deerbug_attackbox : MonoBehaviour {
     {
         Vector2 position = transform.position;
         RaycastHit2D hit = Physics2D.Raycast(position, ray_direction, ray_Distance, RayLayer);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        return false;
+    } 
+    bool Ray_toElectricBox()
+    {
+        Vector2 position = transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(position, ray_direction, ray_Distance, RayLayer2);
         if (hit.collider != null)
         {
             return true;
@@ -100,7 +111,7 @@ public class Deerbug_attackbox : MonoBehaviour {
         }
 
         //Debug.Log(distance);
-        if (distance <= Distance_Threshold * 10 || (distance_Player <= 10 && Ray_toPlayer()))
+        if ((distance <= Distance_Threshold * 10 && Ray_toPlayer()) || (distance_Player <= 10 && Ray_toPlayer()))
         {
             animator.SetBool("Isattack", true);
             bisAttacking = true;

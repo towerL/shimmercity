@@ -299,6 +299,9 @@ MonoBehaviour:
   RayLayer:
     serializedVersion: 2
     m_Bits: 512
+  RayLayer2:
+    serializedVersion: 2
+    m_Bits: 4096
   ray_Distance: 10
   Distance_Threshold: 1.6
   velocity: 6

@@ -10,6 +10,8 @@ public class LuckFish_Control : MonoBehaviour {
     private bool bisCd;
     private float firstY;
     SpriteRenderer render;
+    public float pauseTime;
+    bool bisAwake;
 	// Use this for initialization
 	void Start () {
         InvokeRepeating("FishUp_Down",0,cdTime);
@@ -24,6 +26,8 @@ public class LuckFish_Control : MonoBehaviour {
             Vector3 scale = new Vector3(0.95f, 0.95f, 1);
             transform.localScale = scale;
         }
+        bisAwake = false;
+        Invoke("Wake", pauseTime);
     }
 	private void FishUp_Down()
     {
@@ -34,9 +38,14 @@ public class LuckFish_Control : MonoBehaviour {
         _temp.z = transform.position.z;
         transform.position = _temp;
     }
+    void Wake()
+    {
+        bisAwake = true;
+    }
 	// Update is called once per frame
 	void Update () {
-
+        if (bisAwake == false)
+            return;
         if (transform.position.y >= firstY + 10.0f)
         {
             direction = -direction;
@@ -75,6 +84,9 @@ public class LuckFish_Control : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+        if (collision.tag == "Player")
+        {
+            GameObject.Find("Player").SendMessage("PlayerDecreaseHP", 10f);
+        }
     }
 }
