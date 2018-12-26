@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player_move : MonoBehaviour {
 
@@ -72,7 +73,7 @@ public class player_move : MonoBehaviour {
 	private bool skill_L = false;
 	private bool sister_skill = false;
 
-	public static float player_health;
+	public static float player_health=100.0f;
 
 	private bool moveable;
 
@@ -329,9 +330,10 @@ public class player_move : MonoBehaviour {
 
 
 
-			if (Input.GetKey (KeyCode.Q)||player_health<0.0f) {
+			if (player_health<0.0f) {
 				alive = false;
 				timer = false;
+				SceneManager.LoadScene("GameoverScene");
 			}
 				
 			if (isHammer) {

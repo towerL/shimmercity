@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class player_move3 : MonoBehaviour {
 
 	enum direction {right_dir,left_dir,up_dir,down_dir};
@@ -218,10 +219,12 @@ public class player_move3 : MonoBehaviour {
 				counter_close_range_attack--;
 			if (far_distance_attack)
 				counter_far_distance_attack--;
-			//for test
-			if (Input.GetKey (KeyCode.Q)||player_health<0.0f) {
+
+
+			if (player_health<0.0f) {
 				alive = false;
 				timer = false;
+				SceneManager.LoadScene("GameoverScene");
 			}
 
 			if (Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
@@ -247,8 +250,8 @@ public class player_move3 : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown (KeyCode.U)&&shield) {
-				if(!ProtectLayer)
-					ProtectLayer = Instantiate (Resources.Load ("prefabs/Protect")) as GameObject;
+				//if(!ProtectLayer)
+				//	ProtectLayer = Instantiate (Resources.Load ("prefabs/Protect")) as GameObject;
 				BroadcastMessage ("SetProtectLayer",true);
 				shield = false;
 				shield_timer = Time.time;

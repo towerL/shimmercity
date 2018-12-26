@@ -132,10 +132,10 @@ public class UI_sister : MonoBehaviour {
             //setPara3(OK, newpic, name);
 
             var btn = GameObject.Find("Button_ok");
-            EventTrigger trigger = btn.GetComponent<EventTrigger>();
-            AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun);
-            AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun2);
-            AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun3);
+			EventTrigger trigger = btn.GetComponent<EventTrigger>();
+			AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun4);
+			AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun5);
+			AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun6);
 
             visible = false;
         }
@@ -167,7 +167,8 @@ public class UI_sister : MonoBehaviour {
                 setPara2(sister_box1_4, 1.0f);
 
                 hasEnter = false;
-                Destroy(this.gameObject);
+				gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                //Destroy(this.gameObject);
             }
 
             if (!hasHammer && hasEnter) {
@@ -188,10 +189,11 @@ public class UI_sister : MonoBehaviour {
                 setPara(OK1_5, 3.1f, 0.3f, true);
 
                 var btn = GameObject.Find("Button_ok2");
-                EventTrigger trigger = btn.GetComponent<EventTrigger>();
-                AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun4);
-                AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun5);
-                AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun6);
+				EventTrigger trigger = btn.GetComponent<EventTrigger>();
+				AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun4);
+				AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun5);
+				AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun6);
+
                 //hasEnter = false;
             }
 

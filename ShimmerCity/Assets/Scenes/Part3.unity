@@ -15070,7 +15070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f73760396cce88419ef1535f501abb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: SampleScene
+  nextScene: Part3
   newImage: {fileID: 21300000, guid: a9b293b0e1dc2374989a303001e0468b, type: 3}
 --- !u!82 &1146704695
 AudioSource:
@@ -17980,27 +17980,27 @@ Prefab:
     - target: {fileID: 224408956951093534, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224408956951093534, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224274385337761218, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224050482884941822, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224050482884941822, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114295119610755156, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}

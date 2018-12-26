@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 
 public class player_move2 : MonoBehaviour {
@@ -213,10 +213,10 @@ public class player_move2 : MonoBehaviour {
 				timer = false;
 			}
 				
-			//for test
-			if (Input.GetKey (KeyCode.Q)||player_health<0.0f) {
+			if (player_health<0.0f) {
 				alive = false;
 				timer = false;
+				SceneManager.LoadScene("GameoverScene");
 			}
 		
 

@@ -1661,8 +1661,8 @@ GameObject:
   m_Component:
   - component: {fileID: 960553674}
   - component: {fileID: 960553675}
-  - component: {fileID: 960553676}
   - component: {fileID: 960553677}
+  - component: {fileID: 960553676}
   m_Layer: 5
   m_Name: archive
   m_TagString: Untagged
@@ -1742,9 +1742,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 960553673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca7e92c16a9def4fbc78603ef7cc6f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f73760396cce88419ef1535f501abb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: SampleScene
   newImage: {fileID: 21300000, guid: f98d16784f31bbb438ea40a21666c0b0, type: 3}
 --- !u!82 &960553677
 AudioSource:
