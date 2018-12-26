@@ -2233,6 +2233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 339846953}
   - component: {fileID: 339846954}
+  - component: {fileID: 339846955}
   m_Layer: 0
   m_Name: Collider_temp (7)
   m_TagString: Ignore
@@ -2270,6 +2271,17 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: -0.56274706, y: 2.952066}
+--- !u!114 &339846955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339846952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6fa4dc711ae04448ae6d388baf8263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &343427601
 GameObject:
   m_ObjectHideFlags: 0

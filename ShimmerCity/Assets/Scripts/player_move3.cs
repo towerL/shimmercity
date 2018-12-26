@@ -100,8 +100,9 @@ public class player_move3 : MonoBehaviour {
     }
 
 	void FixedUpdate () {
-		//float h=Input.GetAxis("Horizontal");
-		timer = true;
+        GameObject.Find("Hp_bar").SendMessage("setHp", player_health);
+        //float h=Input.GetAxis("Horizontal");
+        timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {
 			if (moveable&&(Input.GetKey(KeyCode.D)||(Input.GetKey(KeyCode.RightArrow))) && !close_range_attack && !far_distance_attack) {

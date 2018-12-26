@@ -114,7 +114,8 @@ public class player_move : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		float h=Input.GetAxis("Horizontal");
+        GameObject.Find("Hp_bar").SendMessage("setHp", player_health);
+        float h=Input.GetAxis("Horizontal");
 		timer = true;
 		speed_up = (isGround == true ? false : true);
 		if (alive) {

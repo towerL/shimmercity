@@ -47,7 +47,7 @@ public class player_move2 : MonoBehaviour {
 	Rigidbody2D hammer_rigidbody;
     AudioSource aus;
 
-	public static float player_health;
+	private float player_health;
 
 	public float skill_time;
 	private float timer_for_skill;
@@ -91,8 +91,9 @@ public class player_move2 : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		//Debug.Log (player_health);
-		//float h=Input.GetAxis("Horizontal");
+        //Debug.Log (player_health);
+        //float h=Input.GetAxis("Horizontal");
+        GameObject.Find("Hp_bar").SendMessage("setHp", player_health);
         if(transform.position.y < - 74)
         {
             player_health -= 200f;
