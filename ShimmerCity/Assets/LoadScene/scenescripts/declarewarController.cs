@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 public class declarewarController : MonoBehaviour {
-    bool flag = false;
+    bool flag = true;
+    bool tmp = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -44,27 +45,28 @@ public class declarewarController : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        var boss = GameObject.Find("boss");
-        flag = boss.GetComponent<Animator>().GetBool("HasShown");
-        if (flag) {
+        //var boss = GameObject.Find("boss");
+        flag = gameObject.GetComponent<Animator>().GetBool("HasShown");
+        if (!flag && tmp) {
             var bg4 = GameObject.Find("Y-3_01bg");
             var box = GameObject.Find("Y-3_02box");
             var icon = GameObject.Find("Y-3_03icon");
 
             bg4.AddComponent<fadein_out>();
-            setPara(bg4, 2.0f, 0.0f, true);
+            setPara(bg4, 3.0f, 0.0f, true);
 
             box.AddComponent<fadein_out>();
-            setPara(box, 2.0f, 0.3f, true);
+            setPara(box, 3.0f, 0.3f, true);
 
             icon.AddComponent<fadein_out>();
-            setPara(icon, 2.0f, 0.8f, true);
+            setPara(icon, 3.0f, 0.5f, true);
 
             var btn = GameObject.Find("Button_pk");
             EventTrigger trigger = btn.GetComponent<EventTrigger>();
             AddEventTrigger(btn.transform, EventTriggerType.PointerClick, myfun);
             AddEventTrigger(btn.transform, EventTriggerType.PointerEnter, myfun2);
             AddEventTrigger(btn.transform, EventTriggerType.PointerExit, myfun3);
+            tmp = false;
         }
 	}
 }
