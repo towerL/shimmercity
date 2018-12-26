@@ -5,7 +5,7 @@ using UnityEngine;
 public class mayorlaugh : MonoBehaviour {
 
     AudioSource aus;
-    float wait_time = 3.3f;
+    float wait_time = 2.65f;
     bool hasplay = false;
     // Use this for initialization
     void Start () {

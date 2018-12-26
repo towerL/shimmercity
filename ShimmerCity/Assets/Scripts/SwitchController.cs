@@ -22,7 +22,7 @@ public class SwitchController : MonoBehaviour
             //Invoke("AddDeerbugPrefab", 10.0f);
             bIsgetHammer = false;
             Deerbug_attackbox.bisGethammer = true;
-            this.InvokeRepeating("AddDeerbugPrefab",0,25f); 
+            this.InvokeRepeating("AddDeerbugPrefab",0,35f); 
         }
         if(cancel == true)
         {
