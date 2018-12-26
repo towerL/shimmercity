@@ -16,15 +16,15 @@ public class FallenStoneController : MonoBehaviour
     {
 
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Stone")
-    //    {
-    //        var falling_stone = GameObject.Find(stone_name);
-    //        falling_stone.GetComponent<SpriteRenderer>().enabled = false;
-    //        gameObject.GetComponent<SpriteRenderer>().enabled = true;
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Stone")
+        {
+            var falling_stone = GameObject.Find(stone_name);
+            falling_stone.GetComponent<SpriteRenderer>().enabled = false;
+			gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Stone")
