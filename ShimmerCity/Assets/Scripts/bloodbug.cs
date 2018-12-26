@@ -31,7 +31,7 @@ public class bloodbug : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-
+			col.gameObject.SendMessage ("PlayerIncreaseHP",10);
             Destroy(gameObject);
         }
     }

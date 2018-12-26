@@ -371,6 +371,19 @@ public class Boss_behavior : MonoBehaviour {
             isattacked = true;
             cur_Bosshealth -= 10;
         }
+		if(col.gameObject.tag=="Skill_L")
+		{
+			bar.SendMessage("BossDecreaseHp", 5);
+			if (this.transform.localEulerAngles.y == -180)
+				this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+			else
+				this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+			rd.material.color = Color.red;
+			//  anispeed = e_animator.speed;
+			///   Debug.Log(anispeed);
+			isattacked = true;
+			cur_Bosshealth -= 10;
+		}
     }
 
 

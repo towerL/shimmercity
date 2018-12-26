@@ -15,8 +15,11 @@ public class Bossshow : MonoBehaviour {
 	void Start () {
         bs_an = this.GetComponent<Animator>();
         aus = gameObject.GetComponent<AudioSource>();
-        GameObject newplayer = Instantiate(Resources.Load("Prefabs/player_clone"), new Vector3(-0.113f, 7.14f,0.0f), Quaternion.identity) as GameObject;
-        player = GameObject.Find("player_clone(Clone)");
+		if (part == 4)
+		{
+			GameObject newplayer = Instantiate (Resources.Load ("Prefabs/player_clone"), new Vector3 (-0.113f, 7.14f, 0.0f), Quaternion.identity) as GameObject;
+			player = GameObject.Find ("player_clone(Clone)");
+		}
     }
 	
 	// Update is called once per frame

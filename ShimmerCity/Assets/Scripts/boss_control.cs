@@ -5,7 +5,7 @@ using UnityEngine;
 public class boss_control : MonoBehaviour {
     float anispeed =1.0f;
     public bool isattacked = false;
-	private int Boss_health = 10;
+	private int Boss_health = 200;
     float walk_run_dis = 0.3f;
     float speed_hang = 0.10f;
     float timer_1 = 0;

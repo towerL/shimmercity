@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class dead_boss : MonoBehaviour {
     float e_timer = 1.2f;
@@ -19,15 +20,9 @@ public class dead_boss : MonoBehaviour {
         e_an = this.GetComponent<Animator>();
         door = GameObject.Find("door_01");
         door_tag = GameObject.Find("door_tag");
-        //try
-        //{
-            player = GameObject.Find("player_clone(Clone)");
-        //}
-       // catch
-        //{
-        ///    player = GameObject.Find("player_clone");
-       // }
-		
+		if (SceneManager.GetActiveScene ().name=="Part3_boss") {
+			player = GameObject.Find ("player_clone(Clone)");
+		}
 	}
 	
 	// Update is called once per frame
@@ -42,9 +37,11 @@ public class dead_boss : MonoBehaviour {
 			if (!issend)
 			{
                 try
-                {
-                    player.SendMessage("SetBossDead");
-                    issend = true;
+                {	
+					if(SceneManager.GetActiveScene ().name=="Part3_boss") {
+                    	player.SendMessage("SetBossDead");
+                    	issend = true;
+					}	
                 }
                 catch
                 {

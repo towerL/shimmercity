@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class bosseyes : MonoBehaviour {
 
+	public int part;
     float radian = 0; // 弧度
     float perRadian = 0.03f; // 每次变化的弧度
     float radius = 0.2f; // 半径
@@ -17,14 +19,8 @@ public class bosseyes : MonoBehaviour {
         oldPos = transform.position; // 将最初的位置保存到oldPos
         door = GameObject.Find("door_01");
         door_tag = GameObject.Find("door_tag");
-        //try
-        //{
-            player = GameObject.Find("player_clone(Clone)");
-       // }
-        //catch
-        ///{
-        ///    player = GameObject.Find("player_clone");
-       /// }
+		if(SceneManager.GetActiveScene ().name=="Part3_boss") 
+       	 	player = GameObject.Find("player_clone(Clone)");
     }
 
     // Update is called once per frame
@@ -41,7 +37,8 @@ public class bosseyes : MonoBehaviour {
         {
             door.SendMessage("getkey");
             door_tag.SendMessage("getkey");
-			player.SendMessage ("SetBossEyes");
+			if(SceneManager.GetActiveScene ().name=="Part3_boss") 
+				player.SendMessage ("SetBossEyes");
             Destroy(gameObject);
         }
     }

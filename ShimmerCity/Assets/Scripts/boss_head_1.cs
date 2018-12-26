@@ -145,6 +145,19 @@ public class boss_head_1 : MonoBehaviour {
             bossbody.SendMessage("setHP", HP);
             bar.SendMessage("BossDecreaseHp", 10);
         }
+		if (col.gameObject.tag == "Skill_L")
+		{
+			if (this.transform.localEulerAngles.y == -180)
+				this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+			else
+				this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+			//anispeed = e_animator.speed;
+			isattacked = true;
+			rd.material.color = Color.red;
+			HP -= 10;
+			bossbody.SendMessage("setHP", HP);
+			bar.SendMessage("BossDecreaseHp", 10);
+		}
     }
     void isattack()
     {

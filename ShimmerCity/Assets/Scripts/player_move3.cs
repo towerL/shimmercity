@@ -383,6 +383,14 @@ public class player_move3 : MonoBehaviour {
         }
 	}
 
+	void PlayerIncreaseHP(float blood_bag){
+		player_health += blood_bag;
+		GetComponent<Renderer> ().material.color = new Color(160,32,240);
+		attacked = true;
+		attacked_timer = Time.time;
+		shake = false;
+	}
+
 	void Flying_hammer(){
 		GameObject flying_hammer_instance = Instantiate (Resources.Load ("prefabs/flying_hammer3"), hammer_transform.position,hammer_transform.rotation) as GameObject;
 		Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform> ();
