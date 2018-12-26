@@ -64,7 +64,7 @@ public class onclickpause : MonoBehaviour {
 
     public void MouseClick()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         //转换相机视角到暂停界面
         follow_player.bisPause = true;
         CamerPos = GameObject.Find("Main Camera").gameObject.transform.position;

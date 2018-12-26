@@ -47,6 +47,7 @@ public class onclickslidedown : MonoBehaviour
             var item = GameObject.Find(objectName);
             if (System.Math.Abs(item.transform.position.y - start_y) >= 0.1f && hasclick)
             {
+                Debug.Log("开始移动");
                 //var item = GameObject.Find(objectName);
                 item.transform.position = Vector3.MoveTowards(item.transform.position, target2, speed * Time.deltaTime);
                 click = false;
