@@ -13,7 +13,7 @@ public class pl_head_control : MonoBehaviour {
     Animator e_animator;
     Color cl;
     Renderer rd;
-    float anispeed;
+    float anispeed =1.0f;
     float changecolor = 0.1f;
     bool isattacked = false;
     // Use this for initialization
@@ -95,7 +95,7 @@ public class pl_head_control : MonoBehaviour {
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            anispeed = e_animator.speed;
+          //  anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 5;
@@ -106,7 +106,7 @@ public class pl_head_control : MonoBehaviour {
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            anispeed = e_animator.speed;
+          //  anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 10;

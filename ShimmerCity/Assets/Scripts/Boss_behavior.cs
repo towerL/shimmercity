@@ -24,7 +24,7 @@ public class Boss_behavior : MonoBehaviour {
     bool exist_head = false;
     float bullet_speed = 2.0f;
     int count_down=0;
-    public float anispeed;
+    float anispeed = 1.0f;
     Animator e_animator;
     GameObject player;
     GameObject bosshead;
@@ -332,9 +332,9 @@ public class Boss_behavior : MonoBehaviour {
                     blink();
                     isblink = true;
                     if (player.transform.position.x <= 5.9)
-                        this.transform.position = new Vector3(13.3506f, -1.422398f, 0);        //temp
+                        this.transform.position = new Vector3(13.3506f, -1.263565f, 0);        //temp
                     else
-                        this.transform.position = new Vector3(-5.59f, -1.422398f, 0);       //temp
+                        this.transform.position = new Vector3(-5.59f, -1.263565f, 0);       //temp
                     e_timer_4 = 0.3f; 
                 }
                 else
@@ -353,7 +353,7 @@ public class Boss_behavior : MonoBehaviour {
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             rd.material.color = Color.red;
-            anispeed = e_animator.speed;
+          //  anispeed = e_animator.speed;
             isattacked = true;
             cur_Bosshealth -= 5;
 
@@ -366,7 +366,8 @@ public class Boss_behavior : MonoBehaviour {
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             rd.material.color = Color.red;
-            anispeed = e_animator.speed;
+          //  anispeed = e_animator.speed;
+         ///   Debug.Log(anispeed);
             isattacked = true;
             cur_Bosshealth -= 10;
         }

@@ -32,7 +32,7 @@ public class Bossshow : MonoBehaviour {
                     bs_an.SetBool("HasShown", false);
                     if (timer <= -0.45f)
                     {
-                            Vector3 new_position = this.transform.position + new Vector3(1, -5.5f, 0);
+                            Vector3 new_position = this.transform.position + new Vector3(1, -5f, 0);
                             boss = Instantiate(Resources.Load("prefabs/boss1_1"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
                             hasshown = true;
                     }
@@ -53,7 +53,7 @@ public class Bossshow : MonoBehaviour {
                 bs_an.SetBool("HasShown", false);
                 if (timer <= -0.45f)
                 {
-                        Vector3 new_position = this.transform.position + new Vector3(1, -5.5f, 0);
+                        Vector3 new_position = this.transform.position + new Vector3(1, -5f, 0);
                         boss = Instantiate(Resources.Load("prefabs/pl_boss"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
                         hasshown = true;
 						player.SendMessage ("SetBossShow");

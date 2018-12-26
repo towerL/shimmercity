@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class boss_control : MonoBehaviour {
-    public float anispeed;
+    float anispeed =1.0f;
     public bool isattacked = false;
 	private int Boss_health = 10;
     float walk_run_dis = 0.3f;
@@ -142,7 +142,7 @@ public class boss_control : MonoBehaviour {
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             rd.material.color = Color.red;
-            anispeed = ea.speed;
+          //  anispeed = ea.speed;
             isattacked = true;
             Boss_health -= 5;
         }
@@ -153,7 +153,7 @@ public class boss_control : MonoBehaviour {
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             rd.material.color = Color.red;
-            anispeed = ea.speed;
+          //  anispeed = ea.speed;
             isattacked = true;
             Boss_health -= 10;
         }

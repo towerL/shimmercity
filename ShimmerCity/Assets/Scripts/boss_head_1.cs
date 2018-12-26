@@ -24,7 +24,7 @@ public class boss_head_1 : MonoBehaviour {
     float stopTime;
     float moveTime;
     float vel_x=1.0f, vel_y=1.0f;
-    float anispeed;
+    float anispeed=1.0f;
     // Use this for initialization
     void Start()
     {
@@ -125,7 +125,7 @@ public class boss_head_1 : MonoBehaviour {
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            anispeed = e_animator.speed;
+           // anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 5;
@@ -138,7 +138,7 @@ public class boss_head_1 : MonoBehaviour {
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            anispeed = e_animator.speed;
+            //anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 10;

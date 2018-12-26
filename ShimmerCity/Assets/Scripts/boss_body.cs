@@ -19,7 +19,7 @@ public class boss_body : MonoBehaviour {
     float timer = 5.0f;
     float changecolor = 0.1f;
     bool isattacked = false;
-    float anispeed;
+    float anispeed =1.0f;
     public bool freeze = false;
     int count_down = 0;
     float e_timer_5 = 5.0f;
@@ -57,6 +57,12 @@ public class boss_body : MonoBehaviour {
             {
                 if (!freeze)
                 {
+                    if (count_down == 1)
+                    {
+                        Destroy(ice);
+                        count_down = 0;
+                    }
+
                     Vector3 new_position;
                     if (this.transform.localEulerAngles.y == 0)
                         new_position = this.transform.position + new Vector3(-2, 0, 0);
@@ -134,9 +140,9 @@ public class boss_body : MonoBehaviour {
         else
             newposition = this.transform.position + new Vector3(walk_run_dis, 0, 0);
         this.transform.position = Vector3.SmoothDamp(this.transform.position, newposition, ref velocity, speed_hang);
-        if (this.transform.position.x <= -6.85f)
+        if (this.transform.position.x <= -7.32f)
             change_dir = true;
-        if (this.transform.position.x >= 19.09869f)
+        if (this.transform.position.x >= 20.12f)
             change_dir = true;
     }
     void OnCollisionEnter2D(Collision2D col)
@@ -147,7 +153,7 @@ public class boss_body : MonoBehaviour {
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            anispeed = e_animator.speed;
+          //  anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 5;
@@ -160,7 +166,7 @@ public class boss_body : MonoBehaviour {
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            anispeed = e_animator.speed;
+           // anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 10;

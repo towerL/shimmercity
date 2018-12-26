@@ -104,6 +104,7 @@
      <Compile Include="Assets\Monster\IsView.cs" />
      <Compile Include="Assets\Monster\IsViewTest.cs" />
      <Compile Include="Assets\Monster\安康鱼\LuckFish_Control.cs" />
+     <Compile Include="Assets\Nail_Control.cs" />
      <Compile Include="Assets\onclickContinue.cs" />
      <Compile Include="Assets\ParseBtn_Control.cs" />
      <Compile Include="Assets\PlayerHp_Control.cs" />

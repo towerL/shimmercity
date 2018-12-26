@@ -18,7 +18,7 @@ public class pl_body_control : MonoBehaviour {
     float timer = 5.0f;
     float changecolor = 0.1f;
     bool isattacked = false;
-    float anispeed;
+    float anispeed =1.0f;
     AudioSource aus;
     // Use this for initialization
     void Start()
@@ -116,7 +116,7 @@ public class pl_body_control : MonoBehaviour {
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
             rd.material.color = Color.red;
-            anispeed = e_animator.speed;
+          //  anispeed = e_animator.speed;
             isattacked = true;
             HP -= 5;
         }
@@ -126,7 +126,7 @@ public class pl_body_control : MonoBehaviour {
                 this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
             else
                 this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
-            anispeed = e_animator.speed;
+          //  anispeed = e_animator.speed;
             isattacked = true;
             rd.material.color = Color.red;
             HP -= 10;
