@@ -110,21 +110,21 @@ public class EnemyController : MonoBehaviour {
         //}
         if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
         {
-            Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider" || collision.collider.tag == "Player")
         {
-            Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider" )
         {
-            Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
         }
 
     }
@@ -142,16 +142,6 @@ public class EnemyController : MonoBehaviour {
         catch
         {
         }
-        //if (SceneManager.GetActiveScene().name == "Part2_1")
-        //{
-        //    foreach (GameObject obj in IsViewTest.Instance.SpriteArray)
-        //    {
-        //        if (this.gameObject.GetInstanceID() == obj.GetInstanceID())
-        //        {
-        //            IsViewTest.Instance.SpriteArray = null;
-        //        }
-        //    }
-        //}
 
         //this.gameObject.SetActive(false);
     }
@@ -178,6 +168,10 @@ public class EnemyController : MonoBehaviour {
                 ray_direction = Vector2.left;
             }
         }
+        //if (collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
+        //{
+        //    Physics2D.IgnoreCollision(collision.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
+        //}
         //if(collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
         //{
         //    Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());

@@ -23,7 +23,7 @@ public class Spider_Attack : MonoBehaviour {
         }
         if (collision.collider.tag == "deerbug" || collision.collider.tag == "Deerbug_long" || collision.collider.tag == "Start_mouse" || collision.collider.tag == "Spider")
         {
-            Physics2D.IgnoreCollision(collision.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(collision.collider.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
         }
     }
 }

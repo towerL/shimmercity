@@ -140,21 +140,21 @@ public class Deerbug_attackbox : MonoBehaviour {
         //}
         if(collision.collider.tag == "deerbug" && bisAttackElectrictBox == true)
         {
-            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
+            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider.GetComponent<PolygonCollider2D>());
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.tag == "deerbug" && bisAttackElectrictBox == true)
         {
-            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
+            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider.GetComponent<PolygonCollider2D>());
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.tag == "deerbug" && bisAttackElectrictBox == true)
         {
-            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
+            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider.GetComponent<PolygonCollider2D>());
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -165,10 +165,10 @@ public class Deerbug_attackbox : MonoBehaviour {
             transform.Rotate(Vector3.up * 180);
             ray_direction = -ray_direction;
         }
-        if (collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
-        {
-            Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        }
+        //if (collision.tag == "deerbug" || collision.tag == "Deerbug_long" || collision.tag == "Start_mouse" || collision.tag == "Spider")
+        //{
+        //    Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        //}
         //if (collision.tag == "hammer_in_attack" && bisAttackElectrictBox == true)
         //{
         //    decreaseHp();
