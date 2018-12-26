@@ -209,6 +209,7 @@ public class player_move : MonoBehaviour {
 			}
 
 			if (isGround && Input.GetKey(KeyCode.Space)) {
+				jump_aus ();
 				velocity=player_rigidbody.velocity;
 				velocity.y = jumpVelocity;
 				player_rigidbody.velocity = velocity;
@@ -234,6 +235,8 @@ public class player_move : MonoBehaviour {
 
 			/*普攻J*/
 			if (isGround && isHammer && Input.GetKeyDown(KeyCode.J)) {
+				hummer_aus ();
+				
 				moveable = false;
 				close_range_attack = true;
 				far_distance_attack = false;
@@ -248,6 +251,7 @@ public class player_move : MonoBehaviour {
 			}
 			/*远程攻*/
 			if (isGround && isHammer && Input.GetKeyDown(KeyCode.K)) {
+				hummer_throw ();
 				moveable = false;
 				far_distance_attack = true;
 				close_range_attack = false;
@@ -267,6 +271,7 @@ public class player_move : MonoBehaviour {
 				counter_far_distance_attack--;
 			/*技能L键盘*/
 			if (sister_skill && isGround && isHammer && Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
+				triple_hit ();
 				timer_for_triple=true;
 				timer_for_skill = Time.time;
 				timer = false;
@@ -527,24 +532,38 @@ public class player_move : MonoBehaviour {
 		}
 
 	}
-    void run_aus()
-    {
-        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跑步3", typeof(AudioClip));
-        aus.clip = clip;
-        aus.Play();
-    }
+	void run_aus()
+	{
+		AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跑步3", typeof(AudioClip));
+		aus.clip = clip;
+		aus.Play();
+	}
 
-    void jump_aus()
-    {
-        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跳跃3", typeof(AudioClip));
-        aus.clip = clip;
-        aus.Play();
-    }
+	void jump_aus()
+	{
+		AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/人物动作发声相关/跳跃2", typeof(AudioClip));
+		aus.clip = clip;
+		aus.Play();
+	}
 
-    void hummer_throw()
-    {
-        AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/扔出锤子", typeof(AudioClip));
-        aus.clip = clip;
-        aus.Play();
-    }
+	void hummer_throw()
+	{
+		AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/扔出锤子", typeof(AudioClip));
+		aus.clip = clip;
+		aus.Play();
+	}
+
+	void hummer_aus()
+	{
+		AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/锤子打鸡生", typeof(AudioClip));
+		aus.clip = clip;
+		aus.Play();
+	}
+
+	void triple_hit()
+	{
+		AudioClip clip = (AudioClip)Resources.Load("Audios/coe/通用/锤子相关/大招", typeof(AudioClip));
+		aus.clip = clip;
+		aus.Play();
+	}
 }

@@ -9,7 +9,8 @@ public class PoisionAttack : MonoBehaviour {
     float mytime = 1.0f;
     AudioSource aus;
 	public float harm=10.0f;
-
+	bool flag = false;
+	float timer = 4.0f;
 	void Start () {
         ani = GetComponent<Animator>();
         aus = gameObject.GetComponent<AudioSource>();
@@ -24,8 +25,16 @@ public class PoisionAttack : MonoBehaviour {
             ani.Play("poision");
             ani.Play("poision_static");
             mytime = 1.0f;
+			flag = true;
         }
-
+		if (timer <= 0 && flag) 
+		{
+			aus.Stop ();
+			flag = false;
+			timer = 4.0f;
+		}
+		if (flag)
+			timer -= Time.deltaTime;
         //if (attackTimer > 0)
         //{
         //    attackTimer -= Time.deltaTime;

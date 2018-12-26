@@ -299,7 +299,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9771,7 +9771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &873781150
 ParticleSystemRenderer:
@@ -16069,7 +16069,7 @@ Transform:
   m_Children:
   - {fileID: 2095127595}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306008724
 GameObject:
@@ -17572,7 +17572,7 @@ RectTransform:
   - {fileID: 1033907212}
   - {fileID: 572128155}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17922,7 +17922,7 @@ Prefab:
     - target: {fileID: 224652841054090614, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 224652841054090614, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
@@ -20411,7 +20411,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4667402269654716, guid: f8c05e0f0a6ff9f48a592d4791f92ab9, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 114584108992417746, guid: f8c05e0f0a6ff9f48a592d4791f92ab9,
         type: 2}
@@ -20723,7 +20723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4496945112542608, guid: 6002650748a353e459ccbf4a96a4ad03, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 212302756497590876, guid: 6002650748a353e459ccbf4a96a4ad03,
         type: 2}
