@@ -17,7 +17,14 @@ public class bosseyes : MonoBehaviour {
         oldPos = transform.position; // 将最初的位置保存到oldPos
         door = GameObject.Find("door_01");
         door_tag = GameObject.Find("door_tag");
-		player = GameObject.Find ("Player");
+        //try
+        //{
+            player = GameObject.Find("player_clone(Clone)");
+       // }
+        //catch
+        ///{
+        ///    player = GameObject.Find("player_clone");
+       /// }
     }
 
     // Update is called once per frame

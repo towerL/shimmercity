@@ -23,7 +23,6 @@ public class AI_player : MonoBehaviour {
 
 	private float player_health;
 
-
 	private GameObject target_boss;
 	private Transform target_boss_transform;
 
@@ -59,19 +58,21 @@ public class AI_player : MonoBehaviour {
 	private bool inladder = false;
 	GameObject ladder;
 
+
+    private Vector3 Position;
+    private Quaternion Rotation;
+
 	void Start () {
 		player_rigidbody = this.GetComponent<Rigidbody2D> ();
 		player_animator = this.GetComponent<Animator> ();
 		player_boxcollider=this.GetComponent<CapsuleCollider2D>();
 
-		target_boss = GameObject.Find ("boss");
-		target_boss_transform = target_boss.transform;
-
 		player_Scale = transform.localScale;
 		velocity = player_rigidbody.velocity;
 		player_rigidbody.freezeRotation = true;
-
-		AI_Location_hor = location_hor.left;
+        target_boss = GameObject.Find("used_boss");
+        target_boss_transform = target_boss.transform;
+        AI_Location_hor = location_hor.left;
 		AI_Location_ver = location_ver.up;
 		area_attack = 1.8f;
 		player_speed = 2.0f;
@@ -85,6 +86,8 @@ public class AI_player : MonoBehaviour {
 		attacked = false;
 		find_boundary = false;
 		ladder=GameObject.Find("ladder");
+        Position = transform.position;
+        Rotation = transform.rotation;
 	}
 		
 	private location_hor AI_location_horcheck(){
@@ -123,13 +126,18 @@ public class AI_player : MonoBehaviour {
 		move=true;
 	}
 
-	void FixedUpdate () {
-		if (begin_start) {
-			target_boss = GameObject.Find ("pl_boss(Clone)");
-			//target_boss = GameObject.Find ("boss");
-			target_boss_transform = target_boss.transform;
-			begin_start = false;
-		}
+	void Update () {
+        if (begin_start){
+            //try{
+                target_boss = GameObject.Find("pl_boss(Clone)");
+                target_boss_transform = target_boss.transform;
+                begin_start = false;
+           // }
+           // catch{
+            //    target_boss = GameObject.Find("used_boss");
+            //    target_boss_transform = target_boss.transform;
+            // }
+        }
 		if (boss_dead) {
 			stage1 = false;
 			stage2 = true;
@@ -274,24 +282,19 @@ public class AI_player : MonoBehaviour {
 			}
 
 
-			if (Input.GetKey (KeyCode.Q) || player_health < 0.0f) {
-				alive = false;
-			}
-            try
-            {
-                if (find_boundary)
-                {
+            if (player_health <= 0.0f){
+                GameObject.Find("Y-4_01tips1").SendMessage("receiveMsg");
+                GameObject.Find("Generate").SendMessage("SetPlayer");
+                //alive = false;
+                Destroy(this.gameObject);
+            }
+            try{
+                if (find_boundary){
                     Physics2D.IgnoreCollision(player_boxcollider, target_boss.GetComponent<Collider2D>());
-                }
-                else
-                {
+                }else{
                     Physics2D.IgnoreCollision(player_boxcollider, target_boss.GetComponent<Collider2D>(), false);
                 }
-
-            }
-            catch
-            {
-
+            }catch{
             }
 
 
@@ -335,7 +338,14 @@ public class AI_player : MonoBehaviour {
 	}
 
 
-	void SetGround(bool flag){
+    void Drop_the_hammer()
+    {
+        GameObject flying_hammer_instance = Instantiate(Resources.Load("prefabs/flying_hammer3"), transform.position,transform.rotation) as GameObject;
+        Transform flying_hammer_transform = flying_hammer_instance.GetComponent<Transform>();
+        flying_hammer_transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+    }
+
+    void SetGround(bool flag){
 		isGround = flag;
 		player_animator.SetBool ("isGround",flag);
 	}
@@ -359,14 +369,14 @@ public class AI_player : MonoBehaviour {
 
 	public void OnCollisionEnter2D(Collision2D col){
 		if (col.collider.tag == "b0ss_hand") {
-			player_health -= 1.0f;
+			player_health -= 100.0f;
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
 			attacked = true;
 			attacked_timer = Time.time;
 			shake = true;
 			find_boundary = true;
 		} else if (col.collider.tag == "boss_tentacle") {
-			player_health -= 2.0f;
+			player_health -= 100.0f;
 			GetComponent<Renderer> ().material.color = new Color (0, 255, 255);
 			attacked = true;
 			attacked_timer = Time.time;

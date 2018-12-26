@@ -15,7 +15,8 @@ public class Bossshow : MonoBehaviour {
 	void Start () {
         bs_an = this.GetComponent<Animator>();
         aus = gameObject.GetComponent<AudioSource>();
-		player = GameObject.Find ("Player");
+        GameObject newplayer = Instantiate(Resources.Load("Prefabs/player_clone"), new Vector3(-0.89f,7.14f,0.0f), Quaternion.identity) as GameObject;
+        player = GameObject.Find("player_clone(Clone)");
     }
 	
 	// Update is called once per frame
@@ -28,6 +29,8 @@ public class Bossshow : MonoBehaviour {
             {
                 if (!hasshown)
                 {
+
+
                     show();
                     bs_an.SetBool("HasShown", false);
                     if (timer <= -0.45f)
@@ -56,7 +59,7 @@ public class Bossshow : MonoBehaviour {
                         Vector3 new_position = this.transform.position + new Vector3(1, -5f, 0);
                         boss = Instantiate(Resources.Load("prefabs/pl_boss"), new_position, Quaternion.Euler(new Vector3(0, 0f, 0))) as GameObject;
                         hasshown = true;
-						player.SendMessage ("SetBossShow");
+                        player.SendMessage ("SetBossShow");
                 }
             }
             if (timer <= -2.0f)
