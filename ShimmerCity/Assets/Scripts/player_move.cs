@@ -73,7 +73,7 @@ public class player_move : MonoBehaviour {
 	private bool skill_L = false;
 	private bool sister_skill = false;
 
-	public static float player_health=100.0f;
+	private float player_health;
 
 	private bool moveable;
 
