@@ -10,10 +10,11 @@ public class Liightning : MonoBehaviour {
     public float vel_x=1.0f;
     public float vel_y=1.0f;
     public float starttime;
+    GameObject player;
     // Use this for initialization
     void Start () {
-		
-	}
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,6 +40,20 @@ public class Liightning : MonoBehaviour {
         if (this.transform.position.y < minPos_y)
             vel_y = -vel_y;
     }
+
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            player.SendMessage("PlayerDecreaseHP", 10);
+            //  Destroy(gameObject);
+        }
+        else
+            return;
+    }
+
+
 
     void setspeedx(float a)
     {
