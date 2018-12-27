@@ -17982,27 +17982,27 @@ Prefab:
     - target: {fileID: 224408956951093534, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224408956951093534, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224274385337761218, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224050482884941822, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224050482884941822, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114295119610755156, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
