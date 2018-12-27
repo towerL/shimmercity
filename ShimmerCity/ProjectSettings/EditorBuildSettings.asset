@@ -5,46 +5,46 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoadingScene.unity
     guid: e87b72f127b29e04098676d9a5214f3a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartScene.unity
     guid: 4e0d4acfae97b8e4bab06f5cd19198d8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SettingScene.unity
     guid: eff37b36e0ad1554c88f5c2b44e3a1c0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/IntroScene.unity
     guid: 2dea9272f90bc9942b6b4e7876a03957
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ConflictScene.unity
     guid: 4407e64d2fbb40243bafa77f6f84ed0d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PresenScene.unity
     guid: 24a976922c8d1bd4db9f6ac6b1a91b8f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WorkAlloScene.unity
     guid: 592a278313613864091c1eba9fa5bdb6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WorkAlloScene2.unity
     guid: 1f914d6dab93d5f4f919cb1b971448fb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WorkAlloScene3.unity
     guid: 842eeee1c36f00a4093198b8eb11a1e7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OppoScene.unity
     guid: 4df3f27ea1ccd794f83f2349f8de414c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ConnectScene.unity
     guid: 44e05b71b18ae264bb5e1ff2d40d72cf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Part2_1.unity
     guid: 9f4d3a0eb3bac104cb75d686d5e8b6cd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/connectScene2.unity
     guid: 912248e6b8065cc418f972d1aee748bb
   - enabled: 1
@@ -53,16 +53,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Part4.unity
     guid: aea757e00ec8a0342b305add6c3139e6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameoverScene.unity
     guid: 62f8c6604e5d90a47a129643b5342fbd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ParaScene.unity
     guid: 7a04d756e3050bf48ad05d240f6ee910
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TriumphScene.unity
     guid: 059f77384b5b24848981b4d1516ed3b2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Part3_boss.unity
     guid: 1e8c9616a63b4eb49bd32ff88447d145
   - enabled: 1
