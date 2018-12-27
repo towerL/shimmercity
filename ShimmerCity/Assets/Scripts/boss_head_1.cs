@@ -37,9 +37,9 @@ public class boss_head_1 : MonoBehaviour {
         bar = GameObject.Find("BossHp_bar");
     }
         // Update is called once per frame
-        void Update ()
+    void Update ()
     {
-
+        //GameObject.Find("BossHp_bar").SendMessage("setHp", HP);
         if (HP > 0)
         {
             if (isattacked)

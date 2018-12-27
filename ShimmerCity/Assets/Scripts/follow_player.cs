@@ -50,6 +50,15 @@ public class follow_player : MonoBehaviour {
             }
             else if (SceneManager.GetActiveScene().name == "Part3_boss")
             {
+                try
+                {
+                    target = GameObject.Find("pl_boss(Clone)").transform;
+                }
+                catch
+                {
+                    target = GameObject.Find("pl_head(Clone)").transform;
+                    
+                }
                 Vector3 pos = transform.position;
                 pos.x = target.position.x;
                 pos.y = target.position.y - 2.5f;

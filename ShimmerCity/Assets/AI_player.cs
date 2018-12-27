@@ -127,6 +127,7 @@ public class AI_player : MonoBehaviour {
 	}
 
 	void Update () {
+        GameObject.Find("Hp_bar").SendMessage("setHp", player_health);
         if (begin_start){
             //try{
                 target_boss = GameObject.Find("pl_boss(Clone)");

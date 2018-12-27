@@ -8,9 +8,13 @@ public class BossHp_Control : MonoBehaviour {
 	void Start () {
         Hp = 200;
 	}
-	
+	//void setHp(float _hp)
+ //   {
+ //       Hp = _hp;
+ //   }
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(Hp);
         GetComponent<Slider>().value = Hp;
 	}
     void BossDecreaseHp(float blood)

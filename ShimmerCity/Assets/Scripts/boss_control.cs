@@ -28,6 +28,7 @@ public class boss_control : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        GameObject.Find("BossHp_bar").SendMessage("setHp", Boss_health);
 		Debug.Log (Boss_health);
         if (Boss_health > 0)
         {
@@ -145,6 +146,7 @@ public class boss_control : MonoBehaviour {
           //  anispeed = ea.speed;
             isattacked = true;
             Boss_health -= 5;
+            GameObject.Find("BossHp_bar").SendMessage("BossDecreaseHp", 5);
         }
         if (col.gameObject.tag == "hammer_in_attack")
         {
@@ -156,6 +158,7 @@ public class boss_control : MonoBehaviour {
           //  anispeed = ea.speed;
             isattacked = true;
             Boss_health -= 10;
+            GameObject.Find("BossHp_bar").SendMessage("BossDecreaseHp", 10);
         }
     }
 

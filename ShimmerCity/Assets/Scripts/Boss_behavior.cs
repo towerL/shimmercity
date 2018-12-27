@@ -49,6 +49,7 @@ public class Boss_behavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        //GameObject.Find("BossHp_bar").SendMessage("setHp", Boss_health);
         dis = Vector2.Distance(this.transform.position, player.transform.position);
         Activity();
 	}

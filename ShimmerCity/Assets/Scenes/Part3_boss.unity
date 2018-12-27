@@ -1353,7 +1353,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: 2649116e6ec338640b6a4428015da5d3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2605,9 +2605,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1555701903
   m_SortingLayer: 3
-  m_SortingOrder: 17
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 2027a982f572ccb449ae4e27d4926c1f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3009,6 +3009,22 @@ MonoBehaviour:
   level: 2
   index: 3
   tag_for_delta: 0
+--- !u!1 &369986201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1552018643086986, guid: e3225d9e35f747540bf20a8e97afcc40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1085626927}
+--- !u!114 &369986203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369986201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f0d84bf4c4efe4c976f74fdf96f50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &375680736
 GameObject:
   m_ObjectHideFlags: 0
@@ -9482,7 +9498,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: 88b60a3e90ae62849a4ff5f20ae47c23, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -15860,12 +15876,12 @@ Prefab:
     - target: {fileID: 224408956951093534, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224408956951093534, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224274385337761218, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
@@ -15965,12 +15981,12 @@ Prefab:
     - target: {fileID: 224050482884941822, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224050482884941822, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 223896741410957194, guid: e3225d9e35f747540bf20a8e97afcc40,
         type: 2}
@@ -16020,6 +16036,54 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917760410666730, guid: e3225d9e35f747540bf20a8e97afcc40, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060164669112876, guid: e3225d9e35f747540bf20a8e97afcc40, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330453566733682, guid: e3225d9e35f747540bf20a8e97afcc40, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502033239349016, guid: e3225d9e35f747540bf20a8e97afcc40,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2f802d8c9fe68bc47a7489ec8f3a6714,
+        type: 3}
+    - target: {fileID: 114295119610755156, guid: e3225d9e35f747540bf20a8e97afcc40,
+        type: 2}
+      propertyPath: m_MaxValue
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295119610755156, guid: e3225d9e35f747540bf20a8e97afcc40,
+        type: 2}
+      propertyPath: m_Value
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 224408956951093534, guid: e3225d9e35f747540bf20a8e97afcc40,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224408956951093534, guid: e3225d9e35f747540bf20a8e97afcc40,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224873006615920516, guid: e3225d9e35f747540bf20a8e97afcc40,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 203
+      objectReference: {fileID: 0}
+    - target: {fileID: 224873006615920516, guid: e3225d9e35f747540bf20a8e97afcc40,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3225d9e35f747540bf20a8e97afcc40, type: 2}
@@ -16255,6 +16319,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1156566674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1359378098494600, guid: e3225d9e35f747540bf20a8e97afcc40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1085626927}
+--- !u!114 &1156566676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1156566674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5707f453384d0429c0c57daaba8967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1162503033
 GameObject:
   m_ObjectHideFlags: 0
@@ -17932,7 +18012,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: 1fd0675b0faf68d479dca8f304d8efc9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -21790,7 +21870,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: 420602903394eb74c8001f2f32adcff7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
