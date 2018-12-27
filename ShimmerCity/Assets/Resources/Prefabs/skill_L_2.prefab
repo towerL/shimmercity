@@ -210,7 +210,7 @@ MonoBehaviour:
   left_align: 0.2
   up_align: 1
   startangle: 60
-  endangle: 90
+  endangle: 110
   bigger: 0.8
   rot1_speed: 200
   rot2_speed: 200

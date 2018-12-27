@@ -18,8 +18,8 @@ public class player_move3 : MonoBehaviour {
 	private Animator player_animator;
 	private Vector3 player_Scale;
 	private Vector2 velocity;
-
-	private bool isGround = true;
+    private bool sister_skill = false;
+    private bool isGround = true;
 	private bool isLadder = false;
 	private bool isPush = false;
 	private bool alive=true;
@@ -97,6 +97,7 @@ public class player_move3 : MonoBehaviour {
 		moveable = true;
 		used_color = GetComponent<Renderer> ().material.color;
         aus = gameObject.GetComponent<AudioSource>();
+        sister_skill = false;
     }
 
 	void FixedUpdate () {
@@ -241,18 +242,36 @@ public class player_move3 : MonoBehaviour {
 				SceneManager.LoadScene("GameoverScene3");
 			}
 
-			if (Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
+			if (Input.GetKeyDown (KeyCode.L)&&skill_counter==0 && sister_skill) {
 				triple_hit ();
 				timer_for_triple=true;
 				timer_for_skill = Time.time;
-			}
+                try
+                {
+                    GameObject.Find("boss1_1(Clone)").SendMessage("hitBySkill", 5f);
+                }
+                catch
+                {
 
-			if(timer_for_triple){
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.L) && Fpbar_controller.Instance.bisFull == true)
+            {
+                Fpbar_controller.Instance.ReleaseSkill();
+                sister_skill = true;
+            }
+            if (Fpbar_controller.Instance.bisFull == false)
+            {
+                sister_skill = false;
+            }
+            if (timer_for_triple){
 				if (skill_counter < 3) {
 					float now_timer = Time.time;
 					if (now_timer - timer_for_skill >= skill_time) {
 						GameObject skill_hammer = Instantiate (Resources.Load ("prefabs/skill_L_3")) as GameObject;
-						Physics2D.IgnoreCollision (player_boxcollider, skill_hammer.GetComponent<Collider2D> ());
+                        //skill_hammer.transform = GameObject.Find
+
+                        Physics2D.IgnoreCollision (player_boxcollider, skill_hammer.GetComponent<Collider2D> ());
 						foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
 							Physics2D.IgnoreCollision (col, skill_hammer.GetComponent<Collider2D> ());
 						skill_counter++;

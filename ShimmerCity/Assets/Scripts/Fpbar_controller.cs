@@ -121,7 +121,7 @@ public class Fpbar_controller : MonoBehaviour {
         //animator.SetTrigger("SetNull");
         //bisShow = false;
         bisReleasing = true;
-        InvokeRepeating("SisterHead_decrease", 0, 2.5f);
+        InvokeRepeating("SisterHead_decrease", 2.5f, 2.5f);
     }
     private void SisterHead_decrease()
     {

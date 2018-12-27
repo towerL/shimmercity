@@ -111,7 +111,8 @@ public class player_move : MonoBehaviour {
         aus = gameObject.GetComponent<AudioSource>();
 		used_color = GetComponent<Renderer> ().material.color;
         moveable = true;
-	}
+        sister_skill = false;
+    }
 
 	void FixedUpdate () {
         GameObject.Find("Hp_bar").SendMessage("setHp", player_health);
@@ -277,7 +278,7 @@ public class player_move : MonoBehaviour {
 				timer = false;
 				skill_L = true;
             }
-            if(Input.GetKeyDown(KeyCode.P) && Fpbar_controller.Instance.bisFull == true)
+            if(Input.GetKeyDown(KeyCode.L) && Fpbar_controller.Instance.bisFull == true)
             {
                 Fpbar_controller.Instance.ReleaseSkill();
 				sister_skill = true;

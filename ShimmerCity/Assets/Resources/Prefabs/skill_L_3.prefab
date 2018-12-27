@@ -207,9 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7845d69468f5d408c653a9af2cc56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  left_align: 0
+  up_align: 0
   startangle: 60
-  endangle: 80
+  endangle: 100
   bigger: 2
   rot1_speed: 200
   rot2_speed: 900

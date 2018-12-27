@@ -88,7 +88,9 @@ public class player_move2 : MonoBehaviour {
 		moveable = true;
 		used_color = GetComponent<Renderer> ().material.color;
 		Onstone = false;
-	}
+        sister_skill = false;
+
+    }
 
 	void FixedUpdate () {
         //Debug.Log (player_health);
@@ -181,7 +183,7 @@ public class player_move2 : MonoBehaviour {
 			if (far_distance_attack)
 				counter_far_distance_attack--;
 
-			if (isGround && Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
+			if (isGround && Input.GetKeyDown (KeyCode.L)&&skill_counter==0 && sister_skill) {
                 triple_hit();
 				timer_for_triple=true;
 				timer_for_skill = Time.time;
@@ -189,7 +191,7 @@ public class player_move2 : MonoBehaviour {
 				skill_L = true;
 			}
 
-			if(Input.GetKeyDown(KeyCode.P) && Fpbar_controller.Instance.bisFull == true)
+			if(Input.GetKeyDown(KeyCode.L) && Fpbar_controller.Instance.bisFull == true)
 			{
 				Fpbar_controller.Instance.ReleaseSkill();
 				sister_skill = true;

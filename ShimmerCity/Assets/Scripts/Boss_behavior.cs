@@ -343,7 +343,19 @@ public class Boss_behavior : MonoBehaviour {
             }
         }
     }
-
+    void hitBySkill()
+    {
+        bar.SendMessage("BossDecreaseHp", 5);
+        if (this.transform.localEulerAngles.y == -180)
+            this.transform.position = this.transform.position + new Vector3(0.1f, 0, 0);
+        else
+            this.transform.position = this.transform.position + new Vector3(-0.1f, 0, 0);
+        rd.material.color = Color.red;
+        //  anispeed = e_animator.speed;
+        ///   Debug.Log(anispeed);
+        isattacked = true;
+        cur_Bosshealth -= 10;
+    }
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag=="hammer_body")
