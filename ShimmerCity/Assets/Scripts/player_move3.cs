@@ -238,7 +238,7 @@ public class player_move3 : MonoBehaviour {
 			if (player_health<0.0f) {
 				alive = false;
 				timer = false;
-				SceneManager.LoadScene("GameoverScene");
+				SceneManager.LoadScene("GameoverScene3");
 			}
 
 			if (Input.GetKeyDown (KeyCode.L)&&skill_counter==0) {
